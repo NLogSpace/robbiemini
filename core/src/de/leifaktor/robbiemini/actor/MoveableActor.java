@@ -51,6 +51,25 @@ public class MoveableActor extends Actor {
 		}
 	}
 
+	@Override
+	public void update(Room room) {
+		switch (state) {
+		case REACHED_TILE:
+			room.onEnter(this, x, y, direction);
+			performAction(room);
+			break;
+		case IDLE:
+			performAction(room);
+			break;
+		case MOVING:
+			move(Math.min(remainingDistance, distanceUntilNextTile));
+			break;
+		case RESPAWNING:
+			break;
+		}
+		stateTime += Gdx.graphics.getDeltaTime();
+	}
+	
 	private void move(float distance) {
 		Vec2 vector = new Vec2(vel.x, vel.y);
 		vector.normalize();
@@ -64,33 +83,23 @@ public class MoveableActor extends Actor {
 			this.state = MoveState.REACHED_TILE;
 		}
 	}
-
-	@Override
-	public void update(Room room) {
-		if (state == MoveState.REACHED_TILE) {
-			room.onEnter(this, x, y, direction);
-		}
-		
-		if (state == MoveState.IDLE || state == MoveState.REACHED_TILE) {
-			if (movingBehaviour != null) {
-				int intendedDir = movingBehaviour.getMoveDirection(this, room);
-				if (intendedDir > -1) {
-					boolean canMove = CollisionDetector.canMoveTo(this, room, intendedDir);
-					if (canMove) {
-						room.onLeave(this, x, y, direction);
-						initMove(intendedDir);						
-						move(Math.min(remainingDistance, distanceUntilNextTile));
-					} else {
-						state = MoveState.IDLE;
-					}
+	
+	private void performAction(Room room) {
+		if (movingBehaviour != null) {
+			int intendedDir = movingBehaviour.getMoveDirection(this, room);
+			if (intendedDir > -1) {
+				boolean canMove = CollisionDetector.canMoveTo(this, room, intendedDir);
+				if (canMove) {
+					room.onLeave(this, x, y, direction);
+					initMove(intendedDir);						
+					move(Math.min(remainingDistance, distanceUntilNextTile));
 				} else {
 					state = MoveState.IDLE;
 				}
+			} else {
+				state = MoveState.IDLE;
 			}
-		} else if (state == MoveState.MOVING) {
-			move(Math.min(remainingDistance, distanceUntilNextTile));
 		}
-		stateTime += Gdx.graphics.getDeltaTime();
 	}
 
 	private void initMove(int dir) {
