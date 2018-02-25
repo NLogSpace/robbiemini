@@ -24,7 +24,7 @@ public class Key extends Actor {
 	}
 
 	@Override
-	public void hitBy(Room room, MoveableActor actor) {
+	public void hitBy(Room room, Actor actor) {
 		if (actor instanceof Player) {
 			((Player)actor).inventory.addKey(number);
 			room.commands.add(new RemoveActorCommand(this));

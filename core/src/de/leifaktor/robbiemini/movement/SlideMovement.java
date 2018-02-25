@@ -1,7 +1,7 @@
 package de.leifaktor.robbiemini.movement;
 
 import de.leifaktor.robbiemini.Room;
-import de.leifaktor.robbiemini.actor.MoveableActor;
+import de.leifaktor.robbiemini.actor.Actor;
 
 public class SlideMovement implements IMovingBehaviour {
 
@@ -14,7 +14,7 @@ public class SlideMovement implements IMovingBehaviour {
 	}
 	
 	@Override
-	public int getMoveDirection(MoveableActor actor, Room room) {
+	public int getMoveDirection(Actor actor, Room room) {
 		return dir;
 	}
 	

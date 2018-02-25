@@ -9,14 +9,15 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import de.leifaktor.robbiemini.Room;
 import de.leifaktor.robbiemini.actor.Acid;
 import de.leifaktor.robbiemini.actor.Actor;
+import de.leifaktor.robbiemini.actor.Actor.MoveState;
 import de.leifaktor.robbiemini.actor.Arrow;
 import de.leifaktor.robbiemini.actor.DissolvingWall;
 import de.leifaktor.robbiemini.actor.Explosion;
 import de.leifaktor.robbiemini.actor.Gold;
+import de.leifaktor.robbiemini.actor.Isolator;
 import de.leifaktor.robbiemini.actor.Key;
 import de.leifaktor.robbiemini.actor.Player;
 import de.leifaktor.robbiemini.actor.Robot;
-import de.leifaktor.robbiemini.actor.MoveableActor.MoveState;
 import de.leifaktor.robbiemini.tiles.Door;
 import de.leifaktor.robbiemini.tiles.EmptyTile;
 import de.leifaktor.robbiemini.tiles.Ice;
@@ -36,6 +37,7 @@ public class RoomRenderer {
 	TextureRegion[] doors;
 	TextureRegion gold;
 	TextureRegion[] arrows;
+	TextureRegion isolator;
 	Animation<TextureRegion> playerWalking;
 	Animation<TextureRegion> dissolvingWall;
 	ArrayList<Animation<TextureRegion>> robots;
@@ -53,6 +55,7 @@ public class RoomRenderer {
 		doors = tileset.getTiles(0, 2, 16);
 		gold = tileset.getTile(1, 10);
 		arrows = tileset.getTiles(6, 10, 4);
+		isolator = tileset.getTile(14, 10);
 		dissolvingWall = new Animation<TextureRegion>(0.25f,tileset.getTiles(0, 1, 16));
 		robots = new ArrayList<Animation<TextureRegion>>();
 		for (int i = 0; i < 7; i++) {
@@ -111,11 +114,12 @@ public class RoomRenderer {
 			if (a instanceof Arrow) {
 				batch.draw(arrows[((Arrow)a).getDir()],a.x*TILESIZE, a.y*TILESIZE, TILESIZE, TILESIZE);
 			}
+			if (a instanceof Isolator) {
+				batch.draw(isolator,a.getPosition().x*TILESIZE, a.getPosition().y*TILESIZE, TILESIZE, TILESIZE);
+			}
 		}
 
-
 		
-	}
-		
+	}		
 
 }

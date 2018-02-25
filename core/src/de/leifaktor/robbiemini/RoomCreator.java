@@ -8,6 +8,7 @@ import de.leifaktor.robbiemini.actor.Acid;
 import de.leifaktor.robbiemini.actor.Actor;
 import de.leifaktor.robbiemini.actor.Arrow;
 import de.leifaktor.robbiemini.actor.Gold;
+import de.leifaktor.robbiemini.actor.Isolator;
 import de.leifaktor.robbiemini.actor.Key;
 import de.leifaktor.robbiemini.actor.Player;
 import de.leifaktor.robbiemini.actor.Robot;
@@ -134,9 +135,9 @@ public class RoomCreator {
 				}
 			}
 		}
-		map[18*width+19] = new Door(0);
-		map[20*width+9] = new Door(1);
-		map[5*width+16] = new Door(2);
+		map[random.nextInt(height/2)*2*width+random.nextInt(width/2)*2+1] = new Door(0);
+		map[random.nextInt(height/2)*2*width+random.nextInt(width/2)*2+1] = new Door(1);
+		map[random.nextInt(height/2)*2*width+random.nextInt(width/2)*2+1] = new Door(2);
 		
 		for (int x = width/3; x < 2*width/3; x++) {
 			for (int y = height/3; y < 2*height/3; y++) {
@@ -147,9 +148,6 @@ public class RoomCreator {
 		Player player = new Player(3,3);
 		player.setMovingBehaviour(new KeyboardMovement());
 		ArrayList<Actor> actors = new ArrayList<Actor>();
-		actors.add(new Acid(7,9));
-		actors.add(new Acid(33,27));
-		actors.add(new Acid(1,11));
 		actors.add(new Key(11, 19, 0));
 		actors.add(new Key(17, 11, 1));
 		actors.add(new Key(31, 23, 2));
@@ -157,15 +155,30 @@ public class RoomCreator {
 		actors.add(new Gold(3, 23));
 		actors.add(new Gold(23, 5));
 		actors.add(new Arrow(17, 17, 2));
+		actors.add(new Isolator(5,5));
 		
-		for (int i = 0; i < 10; i++) {
-			Robot robot = randomRobot();
-			actors.add(robot);
-		}
+//		for (int i = 0; i < 10; i++) {
+//			Robot robot = randomRobot();
+//			actors.add(robot);
+//		}
 		
 		Room room = new Room(width, height, map, actors);
+		addRandomAcids(room,53);
 		room.putPlayer(player, 3, 3);
 		return room;		
+	}
+	
+	public static void addRandomAcids(Room room, int number) {
+		int width = room.getWidth();
+		int height = room.getHeight();
+		while (number > 0) {
+			int x = random.nextInt(width);
+			int y = random.nextInt(height);
+			if (room.getTile(x, y) instanceof EmptyTile) {
+				room.actors.add(new Acid(x,y));
+				number--;
+			}
+		}
 	}
 	
 	public static Robot randomRobot() {

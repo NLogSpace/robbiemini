@@ -3,7 +3,6 @@ package de.leifaktor.robbiemini.tiles;
 import de.leifaktor.robbiemini.Room;
 import de.leifaktor.robbiemini.SoundPlayer;
 import de.leifaktor.robbiemini.actor.Actor;
-import de.leifaktor.robbiemini.actor.MoveableActor;
 import de.leifaktor.robbiemini.actor.Player;
 import de.leifaktor.robbiemini.commands.PlaySoundCommand;
 
@@ -28,7 +27,7 @@ public class Door extends Tile {
 	}
 
 	@Override
-	public void onEnter(Room room, MoveableActor actor, int dir) {
+	public void onEnter(Room room, Actor actor, int dir) {
 		if (actor instanceof Player) room.commands.add(new PlaySoundCommand(SoundPlayer.SOUND_DOOR));
 	}
 	

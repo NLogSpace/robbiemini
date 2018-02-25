@@ -17,13 +17,21 @@ public class Acid extends Actor {
 	}
 
 	@Override
-	public void hitBy(Room room, MoveableActor actor) {
+	public void hitBy(Room room, Actor actor) {
 		if (actor instanceof Player) {
 			((Player)actor).inventory.addAcid();
 			room.commands.add(new RemoveActorCommand(this));
 			room.commands.add(new PlaySoundCommand(SoundPlayer.SOUND_COLLECT));
 		}
 	}
+
+	@Override
+	public boolean canBeEntered(Actor other) {
+		if (other instanceof Isolator) return false;
+		return true;
+	}
+	
+	
 	
 	
 

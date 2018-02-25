@@ -3,12 +3,12 @@ package de.leifaktor.robbiemini;
 import java.util.ArrayList;
 
 import de.leifaktor.robbiemini.actor.Actor;
-import de.leifaktor.robbiemini.actor.MoveableActor;
 import de.leifaktor.robbiemini.actor.Robot;
+import de.leifaktor.robbiemini.actor.Actor.MoveState;
 
 public class CollisionDetector {
 
-	public static boolean canMoveTo(MoveableActor actor, Room room, int dir) {
+	public static boolean canMoveTo(Actor actor, Room room, int dir) {
 		if (dir == -1) return true;
 		int newx = actor.x + Direction.DIR_X[dir];
 		int newy = actor.y + Direction.DIR_Y[dir];
@@ -26,11 +26,34 @@ public class CollisionDetector {
 				if (!other.canBeEntered(actor)) return false;
 			}
 		}
-
 		return true;
 	}
+	
+	public static boolean canShiftTo(Actor actor, Room room, int dir) {
+		if (dir < 0 || dir > 3) return false;
+		
+		int newx = actor.x + Direction.DIR_X[dir];
+		int newy = actor.y + Direction.DIR_Y[dir];
+		
+		if (!room.isInBounds(newx, newy)) return false;
+		
+		boolean somethingToShift = false;
+		
+		for (Actor other: room.actors) {
+			if (other.x == newx && other.y == newy) {
+				somethingToShift = true;
+				if (!other.canBeShifted(actor))	return false;
+				if (!canMoveTo(other, room, dir)) {
+					return false;
+				}
+				if (other.getMoveState() != MoveState.IDLE) return false;
+			}
+		}
+		
+		return somethingToShift;
+	}
 
-	public static int[] getPossibleDirections(MoveableActor actor, Room room) {
+	public static int[] getPossibleDirections(Actor actor, Room room) {
 		ArrayList<Integer> dirs = new ArrayList<Integer>();
 		for (int dir=0; dir < 8; dir++) {			
 			if (canMoveTo(actor, room, dir)) dirs.add(dir);

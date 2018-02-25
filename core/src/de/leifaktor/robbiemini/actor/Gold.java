@@ -17,7 +17,7 @@ public class Gold extends Actor {
 	}
 
 	@Override
-	public void hitBy(Room room, MoveableActor actor) {
+	public void hitBy(Room room, Actor actor) {
 		if (actor instanceof Player) {
 			((Player)actor).inventory.addGold();
 			room.commands.add(new RemoveActorCommand(this));

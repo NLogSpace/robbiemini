@@ -4,7 +4,7 @@ import de.leifaktor.robbiemini.Inventory;
 import de.leifaktor.robbiemini.Room;
 import de.leifaktor.robbiemini.Vec2;
 
-public class Player extends MoveableActor {
+public class Player extends Actor {
 	
 	public Inventory inventory;
 	int lives;
@@ -15,7 +15,7 @@ public class Player extends MoveableActor {
 		super(x, y);
 		respawnPosition = new Vec2(x, y);
 		inventory = new Inventory();
-		speed = 0.26f;
+		speed = 0.16f;
 		lives = 3;
 	}
 
@@ -48,7 +48,7 @@ public class Player extends MoveableActor {
 	}
 
 	@Override
-	public void hitBy(Room room, MoveableActor actor) {
+	public void hitBy(Room room, Actor actor) {
 		if (actor instanceof Robot) {
 			if (!isRespawning()) {
 				room.makeExplosion(x, y);

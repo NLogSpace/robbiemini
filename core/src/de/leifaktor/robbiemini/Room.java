@@ -7,16 +7,16 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 
 import de.leifaktor.robbiemini.actor.Actor;
+import de.leifaktor.robbiemini.actor.Actor.MoveState;
 import de.leifaktor.robbiemini.actor.DissolvingWall;
 import de.leifaktor.robbiemini.actor.Explosion;
-import de.leifaktor.robbiemini.actor.MoveableActor;
 import de.leifaktor.robbiemini.actor.Player;
-import de.leifaktor.robbiemini.actor.MoveableActor.MoveState;
 import de.leifaktor.robbiemini.commands.AddActorCommand;
 import de.leifaktor.robbiemini.commands.ChangeTileCommand;
 import de.leifaktor.robbiemini.commands.Command;
 import de.leifaktor.robbiemini.commands.PlaySoundCommand;
 import de.leifaktor.robbiemini.commands.RemoveActorCommand;
+import de.leifaktor.robbiemini.movement.FixedMovement;
 import de.leifaktor.robbiemini.tiles.EmptyTile;
 import de.leifaktor.robbiemini.tiles.Tile;
 import de.leifaktor.robbiemini.tiles.Wall;
@@ -48,9 +48,7 @@ public class Room {
 	
 	private void continueMovement() {
 		for (Actor a: actors) {
-			if (a instanceof MoveableActor) {
-				((MoveableActor)a).continueMovement();
-			}
+			a.continueMovement();
 		}
 	}	
 
@@ -131,7 +129,7 @@ public class Room {
 		return tiles[width*y + x];
 	}
 
-	public void onEnter(MoveableActor actor, int x, int y, int direction) {
+	public void onEnter(Actor actor, int x, int y, int direction) {
 		getTile(x, y).onEnter(this, actor, direction);
 		for (Actor other: actors) {
 			if (!other.equals(actor) && actor.x == other.x && actor.y == other.y) {
@@ -140,8 +138,29 @@ public class Room {
 		}
 	}
 	
-	public void onLeave(MoveableActor actor, int x, int y, int direction) {
+	public void onLeave(Actor actor, int x, int y, int direction) {
 		getTile(x, y).onLeave(this, actor, direction);
+	}
+
+	public int getWidth() {
+		return width;
+	}
+	
+	public int getHeight() {
+		return height;
+	}
+
+	public void startShift(Actor actor, int x, int y, int direction) {
+		int newx = x + Direction.DIR_X[direction];
+		int newy = y + Direction.DIR_Y[direction];
+		for (Actor a : actors) {
+			if (a.x == newx && a.y == newy) {
+				a.setSpeed(actor.getSpeed());
+				a.setRemainingDistance(actor.getRemainingDistance());
+				a.setMovingBehaviour(new FixedMovement(direction));
+				
+			}
+		}
 	}
 	
 }

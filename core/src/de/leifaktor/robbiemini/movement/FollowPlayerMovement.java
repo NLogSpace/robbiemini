@@ -5,7 +5,7 @@ import java.util.Random;
 import de.leifaktor.robbiemini.CollisionDetector;
 import de.leifaktor.robbiemini.Direction;
 import de.leifaktor.robbiemini.Room;
-import de.leifaktor.robbiemini.actor.MoveableActor;
+import de.leifaktor.robbiemini.actor.Actor;
 import de.leifaktor.robbiemini.actor.Player;
 
 public class FollowPlayerMovement implements IMovingBehaviour {
@@ -13,7 +13,7 @@ public class FollowPlayerMovement implements IMovingBehaviour {
 	int lastDir = 0;
 
 	@Override
-	public int getMoveDirection(MoveableActor actor, Room room) {	
+	public int getMoveDirection(Actor actor, Room room) {	
 		int[] possibleDirs = CollisionDetector.getPossibleDirections(actor, room);
 		if (possibleDirs.length == 0) return -1;
 		int bestDir = getDirTowardsPlayer(actor, room);
@@ -26,7 +26,7 @@ public class FollowPlayerMovement implements IMovingBehaviour {
 		return possibleDirs[random.nextInt(possibleDirs.length)];
 	}
 	
-	private int getDirTowardsPlayer(MoveableActor actor, Room room) {
+	private int getDirTowardsPlayer(Actor actor, Room room) {
 		Player player = room.getPlayer();
 		if (player == null) return -1;
 		
@@ -37,8 +37,6 @@ public class FollowPlayerMovement implements IMovingBehaviour {
 		
 		return Direction.roundAngleToDirection(angle);
 	}
-	
-
 	
 
 

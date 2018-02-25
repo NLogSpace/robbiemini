@@ -2,7 +2,7 @@ package de.leifaktor.robbiemini.actor;
 
 import de.leifaktor.robbiemini.Room;
 
-public class Robot extends MoveableActor{
+public class Robot extends Actor{
 	
 	public int graphicType;
 
@@ -13,7 +13,7 @@ public class Robot extends MoveableActor{
 	}
 
 	@Override
-	public void hitBy(Room room, MoveableActor actor) {
+	public void hitBy(Room room, Actor actor) {
 		if (actor instanceof Robot) {
 			this.remove();
 			room.makeExplosion(x, y);
