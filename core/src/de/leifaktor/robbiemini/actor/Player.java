@@ -1,0 +1,64 @@
+package de.leifaktor.robbiemini.actor;
+
+import de.leifaktor.robbiemini.Inventory;
+import de.leifaktor.robbiemini.Room;
+import de.leifaktor.robbiemini.Vec2;
+
+public class Player extends MoveableActor {
+	
+	public Inventory inventory;
+	int lives;
+	int respawnTimer;
+	Vec2 respawnPosition;
+	
+	public Player(int x, int y) {		
+		super(x, y);
+		respawnPosition = new Vec2(x, y);
+		inventory = new Inventory();
+		speed = 0.26f;
+		lives = 3;
+	}
+
+	public void die() {
+		lives--;
+		if (lives > 0) {
+			state = MoveState.RESPAWNING;
+			respawnTimer = 180;
+		}
+	}
+	
+	@Override
+	public void update(Room room) {
+		super.update(room);
+		if (state == MoveState.RESPAWNING) {
+			respawnTimer--;
+			if (respawnTimer == 0) {
+				state = MoveState.IDLE;
+				setPosition(respawnPosition);
+			}
+		}
+	}
+
+	public int getLives() {
+		return lives;
+	}
+	
+	public boolean isRespawning() {
+		return state == MoveState.RESPAWNING;
+	}
+
+	@Override
+	public void hitBy(Room room, MoveableActor actor) {
+		if (actor instanceof Robot) {
+			if (!isRespawning()) {
+				room.makeExplosion(x, y);
+				die();
+			}
+		}		
+	}
+	
+	
+	
+	
+
+}
