@@ -1,6 +1,7 @@
 package de.leifaktor.robbiemini;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import com.badlogic.gdx.Gdx;
@@ -166,6 +167,16 @@ public class Room {
 	public boolean hasAnyActorsAt(int x, int y) {
 		for (Actor a : actors) if (a.x == x && a.y == y) return true;
 		return false;
+	}
+
+	public List<Actor> getActorsAt(int x, int y) {
+		List<Actor> result = new ArrayList<Actor>();
+		for (Actor a : actors) {
+			if (a.x == x && a.y == y) {
+				result.add(a);
+			}
+		}
+		return Collections.unmodifiableList(result);
 	}
 	
 }

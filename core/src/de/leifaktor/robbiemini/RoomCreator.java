@@ -15,6 +15,7 @@ import de.leifaktor.robbiemini.actor.Player;
 import de.leifaktor.robbiemini.actor.Robot;
 import de.leifaktor.robbiemini.movement.FollowPlayerMovement;
 import de.leifaktor.robbiemini.movement.KeyboardMovement;
+import de.leifaktor.robbiemini.tiles.DarkWall;
 import de.leifaktor.robbiemini.tiles.Door;
 import de.leifaktor.robbiemini.tiles.EmptyTile;
 import de.leifaktor.robbiemini.tiles.Ice;
@@ -26,12 +27,15 @@ public class RoomCreator {
 	public static Random random = new Random();
 	
 	public static Room createEmptyRoom(int width, int height) {
+		Tile darkWall = new DarkWall();
 		Tile wall = new Wall();
 		Tile empty = new EmptyTile();
 		Tile[] map = new Tile[width*height];
 		for (int x = 0; x < width; x++) {
 			for (int y = 0; y < height; y++) {
-				if (x == 0 || x == width-1 || y == 0 || y == height-1) map[y*width+x] = wall;
+				if (x == 0 || x == width-1 || y == 0 || y == height-1) map[y*width+x] = darkWall;
+				else if (x == 1 || x == width-2 || y == 1 || y == height-2) map[y*width+x] = wall;
+				else if (x == 2 || x == width-3 || y == 2 || y == height-3) map[y*width+x] = wall;
 				else map[y*width+x] = empty;
 			}
 		}
@@ -198,10 +202,13 @@ public class RoomCreator {
 		Room room = createEmptyRoom(width, height);		
 
 		Isolator isolator = new Isolator(0,0);
-		addRandomActors(isolator, room, 200);
+		addRandomActors(isolator, room, 300);
 		
 		ElectricFence electricFence = new ElectricFence(0,0);
-		addRandomActors(electricFence, room, 200);
+		addRandomActors(electricFence, room, 10);
+		
+		Acid acid = new Acid(0,0);
+		addRandomActors(acid, room, 5);		
 		
 		for (int i = 0; i < 30; i++) {
 			Robot robot = randomRobot();

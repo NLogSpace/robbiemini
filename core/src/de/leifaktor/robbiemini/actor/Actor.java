@@ -6,7 +6,6 @@ import de.leifaktor.robbiemini.CollisionDetector;
 import de.leifaktor.robbiemini.Direction;
 import de.leifaktor.robbiemini.Room;
 import de.leifaktor.robbiemini.Vec2;
-import de.leifaktor.robbiemini.actor.Actor.MoveState;
 import de.leifaktor.robbiemini.movement.IMovingBehaviour;
 
 public abstract class Actor {
@@ -25,14 +24,14 @@ public abstract class Actor {
 	protected MoveState state;
 	protected IMovingBehaviour movingBehaviour;
 	
+	boolean shouldBeRemoved;
+	
 	public enum MoveState {
 		IDLE,
 		MOVING,
 		REACHED_TILE,
 		RESPAWNING
 	}
-	
-	boolean shouldBeRemoved;
 	
 	public Actor(int x, int y) {
 		setPosition(x, y);

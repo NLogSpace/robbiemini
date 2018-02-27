@@ -19,6 +19,7 @@ import de.leifaktor.robbiemini.actor.Isolator;
 import de.leifaktor.robbiemini.actor.Key;
 import de.leifaktor.robbiemini.actor.Player;
 import de.leifaktor.robbiemini.actor.Robot;
+import de.leifaktor.robbiemini.tiles.DarkWall;
 import de.leifaktor.robbiemini.tiles.Door;
 import de.leifaktor.robbiemini.tiles.EmptyTile;
 import de.leifaktor.robbiemini.tiles.Ice;
@@ -30,6 +31,7 @@ public class RoomRenderer {
 	Room room;
 	
 	TextureRegion wall;
+	TextureRegion darkWall;
 	TextureRegion empty;
 	TextureRegion ice;
 	TextureRegion acid;
@@ -49,6 +51,7 @@ public class RoomRenderer {
 		Tileset tileset = new Tileset("tileset16.png", 16);
 		empty = tileset.getTile(0, 0);
 		wall = tileset.getTile(1, 0);
+		darkWall = tileset.getTile(3, 0);
 		ice = tileset.getTile(8, 0);
 		acid = tileset.getTile(2, 10);
 		player = tileset.getTile(0, 7);
@@ -77,6 +80,7 @@ public class RoomRenderer {
 		for (int x = 0; x < room.width; x++) {
 			for (int y = 0; y < room.height; y++) {
 				if (room.tiles[room.width*y + x] instanceof Wall) batch.draw(wall, x*TILESIZE, y*TILESIZE, TILESIZE, TILESIZE);
+				if (room.tiles[room.width*y + x] instanceof DarkWall) batch.draw(darkWall, x*TILESIZE, y*TILESIZE, TILESIZE, TILESIZE);
 				if (room.tiles[room.width*y + x] instanceof EmptyTile) batch.draw(empty, x*TILESIZE, y*TILESIZE, TILESIZE, TILESIZE);
 				if (room.tiles[room.width*y + x] instanceof Ice) batch.draw(ice, x*TILESIZE, y*TILESIZE, TILESIZE, TILESIZE);
 				if (room.tiles[room.width*y + x] instanceof Door) {

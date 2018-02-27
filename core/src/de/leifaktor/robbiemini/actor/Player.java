@@ -56,10 +56,6 @@ public class Player extends Actor {
 	@Override
 	public Actor clone() {
 		return new Player(x,y);
-	}
-	
-	
-	
-	
+	}	
 
 }
