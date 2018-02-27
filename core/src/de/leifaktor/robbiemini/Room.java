@@ -158,9 +158,14 @@ public class Room {
 				a.setSpeed(actor.getSpeed());
 				a.setRemainingDistance(actor.getRemainingDistance());
 				a.setMovingBehaviour(new FixedMovement(direction));
-				
+				a.update(this);
 			}
 		}
+	}
+
+	public boolean hasAnyActorsAt(int x, int y) {
+		for (Actor a : actors) if (a.x == x && a.y == y) return true;
+		return false;
 	}
 	
 }

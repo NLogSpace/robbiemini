@@ -19,7 +19,8 @@ public class Player extends Actor {
 		lives = 3;
 	}
 
-	public void die() {
+	public void die(Room room) {
+		room.makeExplosion(x, y);
 		lives--;
 		if (lives > 0) {
 			state = MoveState.RESPAWNING;
@@ -43,18 +44,18 @@ public class Player extends Actor {
 		return lives;
 	}
 	
-	public boolean isRespawning() {
-		return state == MoveState.RESPAWNING;
-	}
-
 	@Override
 	public void hitBy(Room room, Actor actor) {
 		if (actor instanceof Robot) {
-			if (!isRespawning()) {
-				room.makeExplosion(x, y);
-				die();
+			if (!isRespawning()) {				
+				die(room);
 			}
 		}		
+	}
+
+	@Override
+	public Actor clone() {
+		return new Player(x,y);
 	}
 	
 	

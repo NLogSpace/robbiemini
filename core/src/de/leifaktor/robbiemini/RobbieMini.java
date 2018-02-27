@@ -20,6 +20,6 @@ public class RobbieMini extends Game {
 	@Override
 	public void render () {		
 		super.render();
-		fpsLogger.log();
+		//fpsLogger.log();
 	}
 }

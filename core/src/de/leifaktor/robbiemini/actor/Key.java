@@ -31,6 +31,11 @@ public class Key extends Actor {
 			room.commands.add(new PlaySoundCommand(SoundPlayer.SOUND_COLLECT));
 		}
 	}
+
+	@Override
+	public Actor clone() {
+		return new Key(x, y, number);
+	}
 	
 	
 

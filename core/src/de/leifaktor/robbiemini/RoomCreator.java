@@ -7,6 +7,7 @@ import java.util.Stack;
 import de.leifaktor.robbiemini.actor.Acid;
 import de.leifaktor.robbiemini.actor.Actor;
 import de.leifaktor.robbiemini.actor.Arrow;
+import de.leifaktor.robbiemini.actor.ElectricFence;
 import de.leifaktor.robbiemini.actor.Gold;
 import de.leifaktor.robbiemini.actor.Isolator;
 import de.leifaktor.robbiemini.actor.Key;
@@ -23,6 +24,25 @@ import de.leifaktor.robbiemini.tiles.Wall;
 public class RoomCreator {
 	
 	public static Random random = new Random();
+	
+	public static Room createEmptyRoom(int width, int height) {
+		Tile wall = new Wall();
+		Tile empty = new EmptyTile();
+		Tile[] map = new Tile[width*height];
+		for (int x = 0; x < width; x++) {
+			for (int y = 0; y < height; y++) {
+				if (x == 0 || x == width-1 || y == 0 || y == height-1) map[y*width+x] = wall;
+				else map[y*width+x] = empty;
+			}
+		}
+		
+		Player player = new Player(3,3);
+		player.setMovingBehaviour(new KeyboardMovement());
+		ArrayList<Actor> actors = new ArrayList<Actor>();
+		Room room = new Room(width, height, map, actors);
+		room.putPlayer(player, 3, 3);
+		return room;
+	}
 	
 	public static Room createWallRoom(int width, int height) {
 		Random rand = new Random();
@@ -80,7 +100,6 @@ public class RoomCreator {
 		while (numVisit < mazewidth * mazeheight) {
 			ArrayList<Point> unvisitedNeighbors = new ArrayList<Point>();
 			current = stack.peek();
-			System.out.println(current.x + " " + current.y);
 			int x; int y; 
 			x = current.x; y = current.y + 1;
 			if (y < mazeheight && !visited[mazewidth*y+x]) unvisitedNeighbors.add(new Point(x,y));
@@ -156,6 +175,14 @@ public class RoomCreator {
 		actors.add(new Gold(23, 5));
 		actors.add(new Arrow(17, 17, 2));
 		actors.add(new Isolator(5,5));
+		actors.add(new ElectricFence(5,6));
+		actors.add(new ElectricFence(5,7));
+		actors.add(new Isolator(7,5));
+		actors.add(new ElectricFence(7,6));
+		actors.add(new ElectricFence(7,7));
+		actors.add(new Isolator(9,5));
+		actors.add(new ElectricFence(9,6));
+		actors.add(new ElectricFence(9,7));
 		
 //		for (int i = 0; i < 10; i++) {
 //			Robot robot = randomRobot();
@@ -163,20 +190,42 @@ public class RoomCreator {
 //		}
 		
 		Room room = new Room(width, height, map, actors);
-		addRandomAcids(room,53);
 		room.putPlayer(player, 3, 3);
 		return room;		
 	}
 	
-	public static void addRandomAcids(Room room, int number) {
+	public static Room createShiftRoom(int width, int height) {
+		Room room = createEmptyRoom(width, height);		
+
+		Isolator isolator = new Isolator(0,0);
+		addRandomActors(isolator, room, 200);
+		
+		ElectricFence electricFence = new ElectricFence(0,0);
+		addRandomActors(electricFence, room, 200);
+		
+		for (int i = 0; i < 30; i++) {
+			Robot robot = randomRobot();
+			room.actors.add(robot);
+		}
+		
+		room.putPlayer(room.getPlayer(), 3, 3);
+		
+		return room;
+	}
+	
+	public static void addRandomActors(Actor prototype, Room room, int number) {
 		int width = room.getWidth();
 		int height = room.getHeight();
 		while (number > 0) {
 			int x = random.nextInt(width);
 			int y = random.nextInt(height);
 			if (room.getTile(x, y) instanceof EmptyTile) {
-				room.actors.add(new Acid(x,y));
-				number--;
+				if (!room.hasAnyActorsAt(x,y)) {
+					Actor actor = prototype.clone();
+					actor.setPosition(x, y);
+					room.actors.add(actor);
+					number--;
+				}
 			}
 		}
 	}

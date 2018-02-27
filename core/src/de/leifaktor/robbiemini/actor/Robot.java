@@ -20,6 +20,16 @@ public class Robot extends Actor{
 		}
 	}
 	
+	public void explode(Room room) {
+		this.remove();
+		room.makeExplosion(x, y);
+	}
+
+	@Override
+	public Actor clone() {
+		return new Robot(x,y,speed, graphicType);
+	}
+	
 	
 
 }

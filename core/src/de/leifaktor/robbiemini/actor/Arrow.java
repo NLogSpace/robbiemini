@@ -25,6 +25,11 @@ public class Arrow extends Actor {
 	
 	public int getDir() {
 		return dir;
+	}
+
+	@Override
+	public Actor clone() {
+		return new Arrow(x,y,dir);
 	}	
 
 }

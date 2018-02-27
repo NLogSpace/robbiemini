@@ -6,6 +6,7 @@ import de.leifaktor.robbiemini.CollisionDetector;
 import de.leifaktor.robbiemini.Direction;
 import de.leifaktor.robbiemini.Room;
 import de.leifaktor.robbiemini.Vec2;
+import de.leifaktor.robbiemini.actor.Actor.MoveState;
 import de.leifaktor.robbiemini.movement.IMovingBehaviour;
 
 public abstract class Actor {
@@ -77,9 +78,10 @@ public abstract class Actor {
 	}
 
 	public void update(Room room) {
+		if (state == MoveState.REACHED_TILE) room.onEnter(this, x, y, direction);
+		
 		switch (state) {
 		case REACHED_TILE:
-			room.onEnter(this, x, y, direction);
 			performAction(room);
 			break;
 		case IDLE:
@@ -91,6 +93,7 @@ public abstract class Actor {
 		case RESPAWNING:
 			break;
 		}
+		
 		stateTime += Gdx.graphics.getDeltaTime();
 	}
 	
@@ -183,14 +186,14 @@ public abstract class Actor {
 		return pos;
 	}
 
-	public void setMovingBehaviour(IMovingBehaviour movingBehaviour) {
-		this.movingBehaviour = movingBehaviour;
-	}
-
 	public MoveState getMoveState() {
 		return state;
 	}
 
+	public void setMovingBehaviour(IMovingBehaviour movingBehaviour) {
+		this.movingBehaviour = movingBehaviour;
+	}
+	
 	public IMovingBehaviour getMovingBehaviour() {		
 		return movingBehaviour;
 	}
@@ -210,5 +213,11 @@ public abstract class Actor {
 	public void setRemainingDistance(float remainingDistance) {
 		this.remainingDistance = remainingDistance;
 	}
+	
+	public boolean isRespawning() {
+		return state == MoveState.RESPAWNING;
+	}
+	
+	public abstract Actor clone();
 	
 }

@@ -24,6 +24,11 @@ public class Gold extends Actor {
 			room.commands.add(new PlaySoundCommand(SoundPlayer.SOUND_GOLD));
 		}
 	}
+
+	@Override
+	public Actor clone() {
+		return new Gold(x,y);
+	}
 	
 	
 

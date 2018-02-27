@@ -25,8 +25,8 @@ public class GameScreen implements Screen {
 	Room room;
 	RoomRenderer renderer;
 	
-	final int WIDTH = 29;
-	final int HEIGHT = 19;
+	final int WIDTH = 39;
+	final int HEIGHT = 29;
 	
 	public GameScreen(Game game) {
 		this.game = game;
@@ -35,7 +35,7 @@ public class GameScreen implements Screen {
 		viewport = new FitViewport(WIDTH*16, HEIGHT*16, camera);
 		
 		batch = new SpriteBatch();
-		room = RoomCreator.createMazeRoom(WIDTH, HEIGHT);
+		room = RoomCreator.createShiftRoom(WIDTH, HEIGHT);
 		renderer = new RoomRenderer();
 	}
 

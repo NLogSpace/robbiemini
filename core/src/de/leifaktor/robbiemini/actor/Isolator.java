@@ -13,7 +13,12 @@ public class Isolator extends Actor {
 
 	@Override
 	public boolean canBeShifted(Actor actor) {		
-		return actor instanceof Player;
+		return (actor instanceof Player || actor instanceof ElectricFence || actor instanceof Isolator);
+	}
+
+	@Override
+	public Actor clone() {
+		return new Isolator(x,y);
 	}	
 	
 

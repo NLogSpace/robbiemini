@@ -22,4 +22,9 @@ public class Explosion extends Actor {
 		return time;
 	}
 
+	@Override
+	public Actor clone() {
+		return new Explosion(x,y);
+	}
+
 }

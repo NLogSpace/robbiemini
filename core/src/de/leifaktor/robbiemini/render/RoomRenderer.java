@@ -12,6 +12,7 @@ import de.leifaktor.robbiemini.actor.Actor;
 import de.leifaktor.robbiemini.actor.Actor.MoveState;
 import de.leifaktor.robbiemini.actor.Arrow;
 import de.leifaktor.robbiemini.actor.DissolvingWall;
+import de.leifaktor.robbiemini.actor.ElectricFence;
 import de.leifaktor.robbiemini.actor.Explosion;
 import de.leifaktor.robbiemini.actor.Gold;
 import de.leifaktor.robbiemini.actor.Isolator;
@@ -38,6 +39,7 @@ public class RoomRenderer {
 	TextureRegion gold;
 	TextureRegion[] arrows;
 	TextureRegion isolator;
+	TextureRegion electricFence;
 	Animation<TextureRegion> playerWalking;
 	Animation<TextureRegion> dissolvingWall;
 	ArrayList<Animation<TextureRegion>> robots;
@@ -56,6 +58,7 @@ public class RoomRenderer {
 		gold = tileset.getTile(1, 10);
 		arrows = tileset.getTiles(6, 10, 4);
 		isolator = tileset.getTile(14, 10);
+		electricFence = tileset.getTile(0, 10);
 		dissolvingWall = new Animation<TextureRegion>(0.25f,tileset.getTiles(0, 1, 16));
 		robots = new ArrayList<Animation<TextureRegion>>();
 		for (int i = 0; i < 7; i++) {
@@ -116,6 +119,9 @@ public class RoomRenderer {
 			}
 			if (a instanceof Isolator) {
 				batch.draw(isolator,a.getPosition().x*TILESIZE, a.getPosition().y*TILESIZE, TILESIZE, TILESIZE);
+			}
+			if (a instanceof ElectricFence) {
+				batch.draw(electricFence,a.getPosition().x*TILESIZE, a.getPosition().y*TILESIZE, TILESIZE, TILESIZE);
 			}
 		}
 

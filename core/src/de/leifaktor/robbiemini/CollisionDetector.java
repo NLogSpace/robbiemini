@@ -43,10 +43,10 @@ public class CollisionDetector {
 			if (other.x == newx && other.y == newy) {
 				somethingToShift = true;
 				if (!other.canBeShifted(actor))	return false;
-				if (!canMoveTo(other, room, dir)) {
+				if (!(canMoveTo(other, room, dir) || canShiftTo(other, room, dir))) {
 					return false;
 				}
-				if (other.getMoveState() != MoveState.IDLE) return false;
+				if (other.getMoveState() != MoveState.IDLE && other.getMoveState() != MoveState.REACHED_TILE) return false;
 			}
 		}
 		

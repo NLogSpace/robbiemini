@@ -30,6 +30,11 @@ public class Acid extends Actor {
 		if (other instanceof Isolator) return false;
 		return true;
 	}
+
+	@Override
+	public Actor clone() {
+		return new Acid(x,y);
+	}
 	
 	
 	

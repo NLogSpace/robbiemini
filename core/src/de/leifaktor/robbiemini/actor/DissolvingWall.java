@@ -26,6 +26,11 @@ public class DissolvingWall extends Actor {
 	public boolean canBeEntered(Actor other) {
 		return false;
 	}
+
+	@Override
+	public Actor clone() {
+		return new DissolvingWall(x,y);
+	}
 	
 	
 	
