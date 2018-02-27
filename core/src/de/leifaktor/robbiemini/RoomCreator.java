@@ -80,12 +80,8 @@ public class RoomCreator {
 		ArrayList<Actor> actors = new ArrayList<Actor>();
 		actors.add(new Acid(6,9));
 		
-		for (int i = 0; i < 10; i++) {
-			Robot robot = randomRobot();
-			actors.add(robot);
-		}
-		
 		Room room = new Room(width, height, map, actors);
+		addRandomRobots(room,10);
 		room.putPlayer(player, 3, 3);
 		return room;
 	}
@@ -188,11 +184,6 @@ public class RoomCreator {
 		actors.add(new ElectricFence(9,6));
 		actors.add(new ElectricFence(9,7));
 		
-//		for (int i = 0; i < 10; i++) {
-//			Robot robot = randomRobot();
-//			actors.add(robot);
-//		}
-		
 		Room room = new Room(width, height, map, actors);
 		room.putPlayer(player, 3, 3);
 		return room;		
@@ -208,16 +199,20 @@ public class RoomCreator {
 		addRandomActors(electricFence, room, 10);
 		
 		Acid acid = new Acid(0,0);
-		addRandomActors(acid, room, 5);		
+		addRandomActors(acid, room, 5);
 		
-		for (int i = 0; i < 30; i++) {
-			Robot robot = randomRobot();
-			room.actors.add(robot);
-		}
+		addRandomRobots(room, 20);
 		
 		room.putPlayer(room.getPlayer(), 3, 3);
 		
 		return room;
+	}
+	
+	public static void addRandomRobots(Room room, int number) {
+		for (int i = 0; i < number; i++) {
+			Robot robot = randomRobot(room.width, room.height);
+			room.actors.add(robot);
+		}
 	}
 	
 	public static void addRandomActors(Actor prototype, Room room, int number) {
@@ -237,9 +232,9 @@ public class RoomCreator {
 		}
 	}
 	
-	public static Robot randomRobot() {
-		int x = random.nextInt(40);
-		int y = random.nextInt(30);
+	public static Robot randomRobot(int width, int height) {
+		int x = random.nextInt(width);
+		int y = random.nextInt(height);
 		float speed = random.nextFloat()*0.029f+0.011f;		
 		int graphicType = random.nextInt(7);
 		Robot robot = new Robot(x, y, speed, graphicType);

@@ -25,8 +25,8 @@ public class GameScreen implements Screen {
 	Room room;
 	RoomRenderer renderer;
 	
-	final int WIDTH = 39;
-	final int HEIGHT = 29;
+	final int WIDTH = 29;
+	final int HEIGHT = 23;
 	
 	public GameScreen(Game game) {
 		this.game = game;

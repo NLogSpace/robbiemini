@@ -18,6 +18,11 @@ public class Robot extends Actor{
 			this.remove();
 			room.makeExplosion(x, y);
 		}
+		if (actor instanceof Player) {
+			this.remove();
+			room.makeExplosion(x, y);
+			((Player) actor).die(room);
+		}
 	}
 	
 	public void explode(Room room) {
@@ -28,6 +33,12 @@ public class Robot extends Actor{
 	@Override
 	public Actor clone() {
 		return new Robot(x,y,speed, graphicType);
+	}
+
+	@Override
+	public boolean canBeEntered(Actor other) {
+		if (other instanceof Isolator || other instanceof ElectricFence) return false;
+		else return true;
 	}
 	
 	
