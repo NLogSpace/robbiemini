@@ -19,6 +19,7 @@ import de.leifaktor.robbiemini.actor.Isolator;
 import de.leifaktor.robbiemini.actor.Key;
 import de.leifaktor.robbiemini.actor.Player;
 import de.leifaktor.robbiemini.actor.Robot;
+import de.leifaktor.robbiemini.actor.Skull;
 import de.leifaktor.robbiemini.tiles.DarkWall;
 import de.leifaktor.robbiemini.tiles.Door;
 import de.leifaktor.robbiemini.tiles.EmptyTile;
@@ -42,6 +43,7 @@ public class RoomRenderer {
 	TextureRegion[] arrows;
 	TextureRegion isolator;
 	TextureRegion electricFence;
+	TextureRegion skull;
 	Animation<TextureRegion> playerWalking;
 	Animation<TextureRegion> dissolvingWall;
 	ArrayList<Animation<TextureRegion>> robots;
@@ -62,6 +64,7 @@ public class RoomRenderer {
 		arrows = tileset.getTiles(6, 10, 4);
 		isolator = tileset.getTile(14, 10);
 		electricFence = tileset.getTile(0, 10);
+		skull = tileset.getTile(9, 9);
 		dissolvingWall = new Animation<TextureRegion>(0.25f,tileset.getTiles(0, 1, 16));
 		robots = new ArrayList<Animation<TextureRegion>>();
 		for (int i = 0; i < 7; i++) {
@@ -103,18 +106,7 @@ public class RoomRenderer {
 				Key key = (Key) a;
 				batch.draw(keys[key.getNumber()], key.x*TILESIZE,key.y*TILESIZE,TILESIZE,TILESIZE);
 			}
-			if (a instanceof Player) {
-				Player p = (Player)a;
-				if (p.getMoveState() == MoveState.IDLE) {
-					batch.draw(player, p.getPosition().x*TILESIZE, p.getPosition().y*TILESIZE, TILESIZE, TILESIZE);
-				} else if (p.getMoveState() == MoveState.MOVING) {
-					batch.draw(playerWalking.getKeyFrame(p.getStateTime(), true),p.getPosition().x*TILESIZE, p.getPosition().y*TILESIZE, TILESIZE, TILESIZE);
-				}
-			}
-			if (a instanceof Robot) {
-				Robot r = (Robot) a;
-				batch.draw(robots.get(r.graphicType).getKeyFrame(r.getStateTime(), true),r.getPosition().x*TILESIZE, r.getPosition().y*TILESIZE, TILESIZE, TILESIZE);
-			}
+
 			if (a instanceof Gold) {
 				batch.draw(gold,a.x*TILESIZE, a.y*TILESIZE, TILESIZE, TILESIZE);
 			}
@@ -126,6 +118,21 @@ public class RoomRenderer {
 			}
 			if (a instanceof ElectricFence) {
 				batch.draw(electricFence,a.getPosition().x*TILESIZE, a.getPosition().y*TILESIZE, TILESIZE, TILESIZE);
+			}			
+			if (a instanceof Skull) {
+				batch.draw(skull,a.getPosition().x*TILESIZE, a.getPosition().y*TILESIZE, TILESIZE, TILESIZE);
+			}
+			if (a instanceof Robot) {
+				Robot r = (Robot) a;
+				batch.draw(robots.get(r.graphicType).getKeyFrame(r.getStateTime(), true),r.getPosition().x*TILESIZE, r.getPosition().y*TILESIZE, TILESIZE, TILESIZE);
+			}			
+			if (a instanceof Player) {
+				Player p = (Player)a;
+				if (p.getMoveState() == MoveState.IDLE) {
+					batch.draw(player, p.getPosition().x*TILESIZE, p.getPosition().y*TILESIZE, TILESIZE, TILESIZE);
+				} else if (p.getMoveState() == MoveState.MOVING) {
+					batch.draw(playerWalking.getKeyFrame(p.getStateTime(), true),p.getPosition().x*TILESIZE, p.getPosition().y*TILESIZE, TILESIZE, TILESIZE);
+				}
 			}
 		}
 

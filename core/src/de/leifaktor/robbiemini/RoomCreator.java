@@ -13,6 +13,7 @@ import de.leifaktor.robbiemini.actor.Isolator;
 import de.leifaktor.robbiemini.actor.Key;
 import de.leifaktor.robbiemini.actor.Player;
 import de.leifaktor.robbiemini.actor.Robot;
+import de.leifaktor.robbiemini.actor.Skull;
 import de.leifaktor.robbiemini.movement.FollowPlayerMovement;
 import de.leifaktor.robbiemini.movement.KeyboardMovement;
 import de.leifaktor.robbiemini.tiles.DarkWall;
@@ -186,6 +187,11 @@ public class RoomCreator {
 		
 		Room room = new Room(width, height, map, actors);
 		room.putPlayer(player, 3, 3);
+		
+		Acid acid = new Acid(0,0);
+		addRandomActors(acid, room, 5);		
+		addRandomRobots(room, 5);
+		
 		return room;		
 	}
 	
@@ -193,7 +199,7 @@ public class RoomCreator {
 		Room room = createEmptyRoom(width, height);		
 
 		Isolator isolator = new Isolator(0,0);
-		addRandomActors(isolator, room, 300);
+		addRandomActors(isolator, room, 100);
 		
 		ElectricFence electricFence = new ElectricFence(0,0);
 		addRandomActors(electricFence, room, 10);
@@ -201,7 +207,10 @@ public class RoomCreator {
 		Acid acid = new Acid(0,0);
 		addRandomActors(acid, room, 5);
 		
-		addRandomRobots(room, 20);
+		Skull skull = new Skull(0,0);
+		addRandomActors(skull, room, 5);
+		
+		addRandomRobots(room, 5);
 		
 		room.putPlayer(room.getPlayer(), 3, 3);
 		
