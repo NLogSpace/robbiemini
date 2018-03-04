@@ -18,6 +18,8 @@ import de.leifaktor.robbiemini.commands.Command;
 import de.leifaktor.robbiemini.commands.PlaySoundCommand;
 import de.leifaktor.robbiemini.commands.RemoveActorCommand;
 import de.leifaktor.robbiemini.movement.FixedMovement;
+import de.leifaktor.robbiemini.movement.KeyboardMovement;
+import de.leifaktor.robbiemini.screens.GameScreen;
 import de.leifaktor.robbiemini.tiles.EmptyTile;
 import de.leifaktor.robbiemini.tiles.Tile;
 import de.leifaktor.robbiemini.tiles.Wall;
@@ -32,6 +34,8 @@ public class Room {
 
 	public List<Command> commands;
 	
+	GameScreen gameScreen;
+	
 	public Room(int width, int height, Tile[] tiles, List<Actor> actors) {
 		this.width = width;
 		this.height = height;
@@ -45,6 +49,7 @@ public class Room {
 		checkAcidCommand();
 		updateActors();
 		executeCommands();
+		checkForRoomTransition();
 	}
 	
 	private void continueMovement() {
@@ -92,6 +97,20 @@ public class Room {
 		commands.clear();
 	}
 	
+	private void checkForRoomTransition() {
+		if (!isInBounds(player.x, player.y)) {
+			if (gameScreen != null) {
+				int dx = player.x < 0 ? -1 : player.x < width ? 0 : 1;
+				int dy = player.y < 0 ? -1 : player.y < height ? 0 : 1;
+				
+				XYZPos currentRoomPosition = gameScreen.getCurrentRoomPosition();
+				XYZPos newRoomPosition = new XYZPos(currentRoomPosition.x + dx, currentRoomPosition.y + dy, currentRoomPosition.z);
+				player.setPosition((player.x+width) % width, (player.y + height)%height);
+				gameScreen.setRoom(newRoomPosition, player);
+			}
+		}
+	}
+	
 	public void makeExplosion(int x, int y) {
 		Explosion explosion = new Explosion(x, y);
 		commands.add(new AddActorCommand(explosion));
@@ -115,7 +134,8 @@ public class Room {
 	}
 	
 	public void putPlayer(Player player, int x, int y) {
-		player.setPosition(x, y);
+		player.spawn(x, y);
+		player.setMovingBehaviour(new KeyboardMovement());
 		this.player = player;
 		actors.remove(player);
 		actors.add(player);
@@ -177,6 +197,27 @@ public class Room {
 			}
 		}
 		return Collections.unmodifiableList(result);
+	}
+
+	public void removePlayer() {
+		actors.remove(player);
+		player = null;
+	}
+	
+	public void setGameScreen(GameScreen gameScreen) {
+		this.gameScreen = gameScreen;
+	}
+
+	public boolean hasNeighborRoomAt(int x, int y) {
+		if (gameScreen == null) return false;
+		
+		int dx = x < 0 ? -1 : x < width ? 0 : 1;
+		int dy = y < 0 ? -1 : y < height ? 0 : 1;
+		
+		XYZPos currentRoomPosition = gameScreen.getCurrentRoomPosition();
+		XYZPos roomToCheckPosition = new XYZPos(currentRoomPosition.x + dx, currentRoomPosition.y + dy, currentRoomPosition.z);		
+
+		return gameScreen.getRoomManager().doesRoomExist(roomToCheckPosition);
 	}
 	
 }

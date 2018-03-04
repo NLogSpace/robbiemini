@@ -4,14 +4,30 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.Input.Keys;
+import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.utils.viewport.Viewport;
+
+import de.leifaktor.robbiemini.render.Tileset;
 
 public class MainMenuScreen implements Screen {
 	
 	Game game;
+	Texture title;
+	TextureRegion background;
+	
+	SpriteBatch batch;
 	
 	public MainMenuScreen(Game game) {
 		this.game = game;
+		title = new Texture(Gdx.files.internal("title.png"));
+		batch = new SpriteBatch();
+		Tileset tileset = new Tileset("tileset16.png", 16);
+		background = tileset.getTile(1, 0);
+		
 	}
 
 	@Override
@@ -22,11 +38,22 @@ public class MainMenuScreen implements Screen {
 
 	@Override
 	public void render(float delta) {
-		Gdx.gl.glClearColor(0, 0, 0, 1);
-		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		if (Gdx.input.isKeyJustPressed(Keys.ENTER)) {
 			game.setScreen(new GameScreen(game));
 		}
+		
+		Gdx.gl.glClearColor(0.8f, 0, 0, 1);
+		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+		batch.begin();
+		for (int x = 0; x < Gdx.graphics.getWidth() / 16; x++) {
+			for (int y = 0; y < Gdx.graphics.getHeight() / 16; y++) {
+				batch.draw(background, x*32, y*32, 32, 32);
+			}				
+		}		
+		batch.draw(title, (Gdx.graphics.getWidth() - title.getWidth()) / 2, (Gdx.graphics.getHeight() - title.getHeight()) / 2 + 150);
+		batch.end();
+		
+
 	}
 
 	@Override

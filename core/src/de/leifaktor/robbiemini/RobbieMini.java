@@ -5,6 +5,7 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.FPSLogger;
 
 import de.leifaktor.robbiemini.screens.GameScreen;
+import de.leifaktor.robbiemini.screens.MainMenuScreen;
 
 public class RobbieMini extends Game {
 	
@@ -14,7 +15,7 @@ public class RobbieMini extends Game {
 	@Override
 	public void create () {
 		fpsLogger = new FPSLogger();
-		this.setScreen(new GameScreen(this));
+		this.setScreen(new MainMenuScreen(this));
 	}
 
 	@Override

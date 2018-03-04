@@ -13,7 +13,7 @@ public class Player extends Actor {
 	
 	public Player(int x, int y) {		
 		super(x, y);
-		respawnPosition = new Vec2(x, y);
+		spawn(x, y);
 		inventory = new Inventory();
 		speed = 0.16f;
 		lives = 3;
@@ -56,6 +56,12 @@ public class Player extends Actor {
 	@Override
 	public Actor clone() {
 		return new Player(x,y);
-	}	
+	}
+	
+	public void spawn(int x, int y) {
+		setPosition(x, y);
+		respawnPosition = new Vec2(x, y);
+		state = MoveState.IDLE;
+	}
 
 }

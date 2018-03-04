@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import de.leifaktor.robbiemini.actor.Actor;
 import de.leifaktor.robbiemini.actor.Robot;
 import de.leifaktor.robbiemini.actor.Actor.MoveState;
+import de.leifaktor.robbiemini.actor.Player;
 
 public class CollisionDetector {
 
@@ -17,7 +18,11 @@ public class CollisionDetector {
 		// Ausnahmeregel: Roboter können IMMER das Feld mit dem Spieler betreten!
 		if (room.player != null && room.player.x == newx && room.player.y == newy && actor instanceof Robot) return true; 
 
-		if (!room.isInBounds(newx, newy)) return false;
+		// Man kann nicht out of bounds gehen. Ausnahme: Der Spieler kann, falls dort ein Raum existiert.
+		if (!room.isInBounds(newx, newy)) {
+			if (!(actor instanceof Player)) return false;
+			return room.hasNeighborRoomAt(newx, newy);
+		}
 		
 		if (!room.tiles[newy*width + newx].canBeEntered(actor)) return false;
 

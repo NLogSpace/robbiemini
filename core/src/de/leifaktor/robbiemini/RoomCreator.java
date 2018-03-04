@@ -11,11 +11,9 @@ import de.leifaktor.robbiemini.actor.ElectricFence;
 import de.leifaktor.robbiemini.actor.Gold;
 import de.leifaktor.robbiemini.actor.Isolator;
 import de.leifaktor.robbiemini.actor.Key;
-import de.leifaktor.robbiemini.actor.Player;
 import de.leifaktor.robbiemini.actor.Robot;
 import de.leifaktor.robbiemini.actor.Skull;
 import de.leifaktor.robbiemini.movement.FollowPlayerMovement;
-import de.leifaktor.robbiemini.movement.KeyboardMovement;
 import de.leifaktor.robbiemini.tiles.DarkWall;
 import de.leifaktor.robbiemini.tiles.Door;
 import de.leifaktor.robbiemini.tiles.EmptyTile;
@@ -28,24 +26,18 @@ public class RoomCreator {
 	public static Random random = new Random();
 	
 	public static Room createEmptyRoom(int width, int height) {
-		Tile darkWall = new DarkWall();
 		Tile wall = new Wall();
 		Tile empty = new EmptyTile();
 		Tile[] map = new Tile[width*height];
 		for (int x = 0; x < width; x++) {
 			for (int y = 0; y < height; y++) {
-				if (x == 0 || x == width-1 || y == 0 || y == height-1) map[y*width+x] = darkWall;
-				else if (x == 1 || x == width-2 || y == 1 || y == height-2) map[y*width+x] = wall;
-				else if (x == 2 || x == width-3 || y == 2 || y == height-3) map[y*width+x] = wall;
+				if (x == 0 || x == width-1 || y == 0 || y == height-1) map[y*width+x] = wall;
 				else map[y*width+x] = empty;
 			}
 		}
 		
-		Player player = new Player(3,3);
-		player.setMovingBehaviour(new KeyboardMovement());
 		ArrayList<Actor> actors = new ArrayList<Actor>();
 		Room room = new Room(width, height, map, actors);
-		room.putPlayer(player, 3, 3);
 		return room;
 	}
 	
@@ -76,14 +68,11 @@ public class RoomCreator {
 				map[(y+j)*width+x] = new Wall(); 
 			}
 		}
-		Player player = new Player(3,3);
-		player.setMovingBehaviour(new KeyboardMovement());
 		ArrayList<Actor> actors = new ArrayList<Actor>();
 		actors.add(new Acid(6,9));
 		
 		Room room = new Room(width, height, map, actors);
 		addRandomRobots(room,10);
-		room.putPlayer(player, 3, 3);
 		return room;
 	}
 	
@@ -165,8 +154,6 @@ public class RoomCreator {
 			}
 		}
 		
-		Player player = new Player(3,3);
-		player.setMovingBehaviour(new KeyboardMovement());
 		ArrayList<Actor> actors = new ArrayList<Actor>();
 		actors.add(new Key(11, 19, 0));
 		actors.add(new Key(17, 11, 1));
@@ -186,7 +173,6 @@ public class RoomCreator {
 		actors.add(new ElectricFence(9,7));
 		
 		Room room = new Room(width, height, map, actors);
-		room.putPlayer(player, 3, 3);
 		
 		Acid acid = new Acid(0,0);
 		addRandomActors(acid, room, 5);		
@@ -210,9 +196,13 @@ public class RoomCreator {
 		Skull skull = new Skull(0,0);
 		addRandomActors(skull, room, 5);
 		
-		addRandomRobots(room, 5);
+		for (int i = 0; i < 10; i++) {
+			Arrow arrow = new Arrow(0,0,Util.random.nextInt(4));
+			addRandomActors(arrow, room, 1);
+		}
+
 		
-		room.putPlayer(room.getPlayer(), 3, 3);
+		addRandomRobots(room, 5);
 		
 		return room;
 	}

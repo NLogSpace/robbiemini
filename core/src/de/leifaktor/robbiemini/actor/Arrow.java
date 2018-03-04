@@ -4,9 +4,9 @@ import de.leifaktor.robbiemini.Direction;
 import de.leifaktor.robbiemini.Room;
 
 public class Arrow extends Actor {
-	
+
 	int dir;
-	
+
 	public Arrow(int x, int y, int dir) {
 		super(x, y);
 		this.dir = dir;
@@ -14,15 +14,19 @@ public class Arrow extends Actor {
 
 	@Override
 	public void update(Room room) {
-		
+
 	}
 
 	@Override
 	public boolean canBeEntered(Actor other) {
-		int actorDir = Direction.coordinatesToDirection(this.x - other.x, this.y - other.y);
-		return actorDir == dir;
+		if (other instanceof Player || other instanceof Robot) {
+			int actorDir = Direction.coordinatesToDirection(this.x - other.x, this.y - other.y);
+			return actorDir == dir;
+		} else {
+			return false;
+		}
 	}
-	
+
 	public int getDir() {
 		return dir;
 	}
