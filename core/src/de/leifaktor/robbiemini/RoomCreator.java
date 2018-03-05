@@ -14,7 +14,6 @@ import de.leifaktor.robbiemini.actor.Key;
 import de.leifaktor.robbiemini.actor.Robot;
 import de.leifaktor.robbiemini.actor.Skull;
 import de.leifaktor.robbiemini.movement.FollowPlayerMovement;
-import de.leifaktor.robbiemini.tiles.DarkWall;
 import de.leifaktor.robbiemini.tiles.Door;
 import de.leifaktor.robbiemini.tiles.EmptyTile;
 import de.leifaktor.robbiemini.tiles.Ice;
@@ -57,7 +56,7 @@ public class RoomCreator {
 			int y = rand.nextInt(height);
 			int len = rand.nextInt(5)+5;
 			for (int j = 0; j < len; j++) {
-				map[y*width+x+j] = new Wall(); 
+				if (y*width+x+j < width*height) map[y*width+x+j] = wall; 
 			}
 		}
 		for (int i = 0; i < 20; i++) {
@@ -65,7 +64,7 @@ public class RoomCreator {
 			int y = rand.nextInt(height-11);
 			int len = rand.nextInt(5)+5;
 			for (int j = 0; j < len; j++) {
-				map[(y+j)*width+x] = new Wall(); 
+				if ((y+j)*width+x < width*height) map[(y+j)*width+x] = wall; 
 			}
 		}
 		ArrayList<Actor> actors = new ArrayList<Actor>();

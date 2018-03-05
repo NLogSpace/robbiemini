@@ -66,7 +66,7 @@ public class GameScreen implements Screen {
 	@Override
 	public void render(float delta) {
 		currentRoom.update();
-		if (currentRoom.getPlayer().getLives() == 0) {
+		if (player.getLives() == 0) {
 			game.setScreen(new MainMenuScreen(game));
 		}
 		
@@ -105,9 +105,8 @@ public class GameScreen implements Screen {
 		currentRoom.setGameScreen(this);
 	}
 
-	public void setRoom(XYZPos newRoomPosition, Player player) {
+	public void setRoom(XYZPos newRoomPosition) {
 		this.newRoomPosition = newRoomPosition;
-		this.player = player;
 		startRoomTransitionAfterThisFrame = true;
 	}
 	

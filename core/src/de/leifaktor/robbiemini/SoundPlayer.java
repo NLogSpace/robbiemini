@@ -17,7 +17,7 @@ public class SoundPlayer {
 	
 	public static SoundPlayer getInstance() {
 		if (instance == null) {
-			instance = new SoundPlayer();			
+			instance = new SoundPlayer();
 		}
 		return instance;
 	}

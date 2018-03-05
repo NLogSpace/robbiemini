@@ -106,7 +106,7 @@ public class Room {
 				XYZPos currentRoomPosition = gameScreen.getCurrentRoomPosition();
 				XYZPos newRoomPosition = new XYZPos(currentRoomPosition.x + dx, currentRoomPosition.y + dy, currentRoomPosition.z);
 				player.setPosition((player.x+width) % width, (player.y + height)%height);
-				gameScreen.setRoom(newRoomPosition, player);
+				gameScreen.setRoom(newRoomPosition);
 			}
 		}
 	}
