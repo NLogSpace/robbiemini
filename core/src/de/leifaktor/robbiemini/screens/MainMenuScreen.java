@@ -1,27 +1,25 @@
 package de.leifaktor.robbiemini.screens;
 
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.Input.Keys;
-import com.badlogic.gdx.graphics.Camera;
+import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.utils.viewport.Viewport;
 
+import de.leifaktor.robbiemini.RobbieMini;
 import de.leifaktor.robbiemini.render.Tileset;
 
 public class MainMenuScreen implements Screen {
 	
-	Game game;
+	RobbieMini game;
 	Texture title;
 	TextureRegion background;
 	
 	SpriteBatch batch;
 	
-	public MainMenuScreen(Game game) {
+	public MainMenuScreen(RobbieMini game) {
 		this.game = game;
 		title = new Texture(Gdx.files.internal("title.png"));
 		batch = new SpriteBatch();

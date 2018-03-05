@@ -31,6 +31,9 @@ public class RoomRenderer {
 	final int TILESIZE = 16;
 	Room room;
 	
+	float xOffset;
+	float yOffset;
+	
 	TextureRegion wall;
 	TextureRegion darkWall;
 	TextureRegion empty;
@@ -50,6 +53,9 @@ public class RoomRenderer {
 	Animation<TextureRegion> explosion;
 	
 	public RoomRenderer() {
+		xOffset = 0;
+		yOffset = 0;
+		
 		Tileset tileset = new Tileset("tileset16.png", 16);
 		empty = tileset.getTile(0, 0);
 		wall = tileset.getTile(1, 0);
@@ -69,9 +75,13 @@ public class RoomRenderer {
 		robots = new ArrayList<Animation<TextureRegion>>();
 		for (int i = 0; i < 7; i++) {
 			robots.add(new Animation<TextureRegion>(0.6f,tileset.getTiles(2*i, 8, 2)));
-		}
-		
+		}		
 		explosion = new Animation<TextureRegion>(0.3f,tileset.getTiles(6, 7, 5));
+	}
+	
+	public void setOffset(float x, float y) {
+		this.xOffset = x;
+		this.yOffset = y;
 	}
 	
 	public void setRoom(Room room) {
@@ -80,63 +90,65 @@ public class RoomRenderer {
 	
 	
 	public void render(SpriteBatch batch, Room room) {
-		for (int x = 0; x < room.width; x++) {
-			for (int y = 0; y < room.height; y++) {
-				if (room.tiles[room.width*y + x] instanceof Wall) batch.draw(wall, x*TILESIZE, y*TILESIZE, TILESIZE, TILESIZE);
-				if (room.tiles[room.width*y + x] instanceof DarkWall) batch.draw(darkWall, x*TILESIZE, y*TILESIZE, TILESIZE, TILESIZE);
-				if (room.tiles[room.width*y + x] instanceof EmptyTile) batch.draw(empty, x*TILESIZE, y*TILESIZE, TILESIZE, TILESIZE);
-				if (room.tiles[room.width*y + x] instanceof Ice) batch.draw(ice, x*TILESIZE, y*TILESIZE, TILESIZE, TILESIZE);
-				if (room.tiles[room.width*y + x] instanceof Door) {
-					Door d = (Door) room.tiles[room.width*y + x];
-					batch.draw(doors[d.getNumber()], x*TILESIZE, y*TILESIZE, TILESIZE, TILESIZE);
+		for (int i = 0; i < room.width; i++) {
+			for (int j = 0; j < room.height; j++) {
+				if (room.tiles[room.width*j + i] instanceof Wall) draw(batch, wall, i, j);
+				if (room.tiles[room.width*j + i] instanceof DarkWall) draw(batch, darkWall, i, j);
+				if (room.tiles[room.width*j + i] instanceof EmptyTile) draw(batch, empty, i, j);
+				if (room.tiles[room.width*j + i] instanceof Ice) draw(batch, ice, i, j);
+				if (room.tiles[room.width*j + i] instanceof Door) {
+					Door d = (Door) room.tiles[room.width*j + i];
+					draw(batch, doors[d.getNumber()], i, j);
 				}
 			}
 		}
 		for (Actor a : room.actors) {			
 			if (a instanceof DissolvingWall) {
 				DissolvingWall d = ((DissolvingWall)a);
-				batch.draw(dissolvingWall.getKeyFrame(d.getTime(), false),d.x*TILESIZE, d.y*TILESIZE, TILESIZE, TILESIZE);
+				draw(batch, dissolvingWall.getKeyFrame(d.getTime(), false),d.x, d.y);
 			}
-			if (a instanceof Acid) batch.draw(acid,a.x*TILESIZE,a.y*TILESIZE,TILESIZE,TILESIZE);
+			if (a instanceof Acid) draw(batch, acid, a.x, a.y);
 			if (a instanceof Explosion) {
 				Explosion e = ((Explosion)a);
-				batch.draw(explosion.getKeyFrame(e.getTime(), false),e.x*TILESIZE, e.y*TILESIZE, TILESIZE, TILESIZE);
+				draw(batch, explosion.getKeyFrame(e.getTime(), false),e.x, e.y);
 			}
 			if (a instanceof Key) {
 				Key key = (Key) a;
-				batch.draw(keys[key.getNumber()], key.x*TILESIZE,key.y*TILESIZE,TILESIZE,TILESIZE);
+				draw(batch, keys[key.getNumber()], key.x, key.y);
 			}
 
 			if (a instanceof Gold) {
-				batch.draw(gold,a.x*TILESIZE, a.y*TILESIZE, TILESIZE, TILESIZE);
+				draw(batch, gold, a.x, a.y);
 			}
 			if (a instanceof Arrow) {
-				batch.draw(arrows[((Arrow)a).getDir()],a.x*TILESIZE, a.y*TILESIZE, TILESIZE, TILESIZE);
+				draw(batch, arrows[((Arrow)a).getDir()],a.x, a.y);
 			}
 			if (a instanceof Isolator) {
-				batch.draw(isolator,a.getPosition().x*TILESIZE, a.getPosition().y*TILESIZE, TILESIZE, TILESIZE);
+				draw(batch, isolator, a.getPosition().x, a.getPosition().y);
 			}
 			if (a instanceof ElectricFence) {
-				batch.draw(electricFence,a.getPosition().x*TILESIZE, a.getPosition().y*TILESIZE, TILESIZE, TILESIZE);
+				draw(batch, electricFence,a.getPosition().x, a.getPosition().y);
 			}			
 			if (a instanceof Skull) {
-				batch.draw(skull,a.getPosition().x*TILESIZE, a.getPosition().y*TILESIZE, TILESIZE, TILESIZE);
+				draw(batch, skull, a.getPosition().x, a.getPosition().y);
 			}
 			if (a instanceof Robot) {
 				Robot r = (Robot) a;
-				batch.draw(robots.get(r.graphicType).getKeyFrame(r.getStateTime(), true),r.getPosition().x*TILESIZE, r.getPosition().y*TILESIZE, TILESIZE, TILESIZE);
+				draw(batch, robots.get(r.graphicType).getKeyFrame(r.getStateTime(), true),r.getPosition().x, r.getPosition().y);
 			}			
 			if (a instanceof Player) {
 				Player p = (Player)a;
 				if (p.getMoveState() == MoveState.IDLE) {
-					batch.draw(player, p.getPosition().x*TILESIZE, p.getPosition().y*TILESIZE, TILESIZE, TILESIZE);
+					draw(batch, player, p.getPosition().x, p.getPosition().y);
 				} else if (p.getMoveState() == MoveState.MOVING) {
-					batch.draw(playerWalking.getKeyFrame(p.getStateTime(), true),p.getPosition().x*TILESIZE, p.getPosition().y*TILESIZE, TILESIZE, TILESIZE);
+					draw(batch, playerWalking.getKeyFrame(p.getStateTime(), true),p.getPosition().x, p.getPosition().y);
 				}
 			}
-		}
-
-		
-	}		
+		}		
+	}	
+	
+	private void draw(SpriteBatch batch, TextureRegion graphic, float x, float y) {
+		batch.draw(graphic,(x+xOffset)*TILESIZE, (y+yOffset)*TILESIZE, TILESIZE, TILESIZE);
+	}
 
 }

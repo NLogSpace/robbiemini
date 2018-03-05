@@ -18,11 +18,6 @@ public class Robot extends Actor{
 			this.remove();
 			room.makeExplosion(x, y);
 		}
-		if (actor instanceof Player) {
-			this.remove();
-			room.makeExplosion(x, y);
-			((Player) actor).die(room);
-		}
 	}
 	
 	public void explode(Room room) {
