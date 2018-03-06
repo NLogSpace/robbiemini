@@ -17,7 +17,7 @@ public class RoomTransitionScreen implements Screen {
 	Room newRoom;
 	int direction;	
 	
-	float duration = 0.23f;
+	float duration = 0.34f;
 	float screenTime;
 	
 	RoomRenderer renderer;
@@ -64,14 +64,20 @@ public class RoomTransitionScreen implements Screen {
 			game.setScreen(parent);
 		}
 		screenTime += delta;
+		float screenProgress = tanhInterpolation(fraction);
+		
 		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		game.batch.begin();		
-		renderer.setOffset(-fraction*newRoomXOffset, -fraction*newRoomYOffset);
+		renderer.setOffset(-screenProgress*newRoomXOffset, -screenProgress*newRoomYOffset);
 		renderer.render(game.batch, oldRoom);
-		renderer.setOffset((1-fraction)*newRoomXOffset, (1-fraction)*newRoomYOffset);
+		renderer.setOffset((1-screenProgress)*newRoomXOffset, (1-screenProgress)*newRoomYOffset);
 		renderer.render(game.batch, newRoom);
 		game.batch.end();
+	}
+	
+	private float tanhInterpolation(float fraction) {
+		return (float) (0.5 * (Math.tanh(3*(2*fraction-1))+1));
 	}
 
 	@Override
