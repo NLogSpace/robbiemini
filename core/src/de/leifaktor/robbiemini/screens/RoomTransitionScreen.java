@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.Texture;
 import de.leifaktor.robbiemini.RobbieMini;
 import de.leifaktor.robbiemini.Room;
 import de.leifaktor.robbiemini.render.RoomRenderer;
+import de.leifaktor.robbiemini.render.StatusBarRenderer;
 
 public class RoomTransitionScreen implements Screen {
 	
@@ -17,13 +18,11 @@ public class RoomTransitionScreen implements Screen {
 	Room newRoom;
 	int direction;	
 	
-	float duration = 0.34f;
+	final float DURATION = 0.34f;
 	float screenTime;
 	
 	RoomRenderer renderer;
-	
-	public static final int WIDTH = 33;
-	public static final int HEIGHT = 23;
+	StatusBarRenderer barRenderer;
 	
 	int newRoomXOffset;
 	int newRoomYOffset;
@@ -40,11 +39,14 @@ public class RoomTransitionScreen implements Screen {
 		
 		renderer = new RoomRenderer();
 		
+		barRenderer = new StatusBarRenderer();
+		barRenderer.setOffset(0, RobbieMini.getVirtualHeight()-RobbieMini.TILESIZE);
+		
 		switch (direction) {
-		case 0: newRoomXOffset = 0; newRoomYOffset = HEIGHT; break;
-		case 1: newRoomXOffset = WIDTH; newRoomYOffset = 0; break;
-		case 2: newRoomXOffset = 0; newRoomYOffset = -HEIGHT; break;
-		case 3: newRoomXOffset = -WIDTH; newRoomYOffset = 0; break;
+		case 0: newRoomXOffset = 0; newRoomYOffset = RobbieMini.HEIGHT; break;
+		case 1: newRoomXOffset = RobbieMini.WIDTH; newRoomYOffset = 0; break;
+		case 2: newRoomXOffset = 0; newRoomYOffset = -RobbieMini.HEIGHT; break;
+		case 3: newRoomXOffset = -RobbieMini.WIDTH; newRoomYOffset = 0; break;
 		}
 		
 		title = new Texture(Gdx.files.internal("title.png"));
@@ -58,7 +60,7 @@ public class RoomTransitionScreen implements Screen {
 
 	@Override
 	public void render(float delta) {
-		float fraction = screenTime / duration;
+		float fraction = screenTime / DURATION;
 		if (fraction >= 1) {
 			fraction = 1;
 			game.setScreen(parent);
@@ -73,6 +75,7 @@ public class RoomTransitionScreen implements Screen {
 		renderer.render(game.batch, oldRoom);
 		renderer.setOffset((1-screenProgress)*newRoomXOffset, (1-screenProgress)*newRoomYOffset);
 		renderer.render(game.batch, newRoom);
+		barRenderer.render(game.batch, newRoom);
 		game.batch.end();
 	}
 	

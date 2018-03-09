@@ -15,6 +15,7 @@ import de.leifaktor.robbiemini.RoomManager;
 import de.leifaktor.robbiemini.XYZPos;
 import de.leifaktor.robbiemini.actor.Player;
 import de.leifaktor.robbiemini.render.RoomRenderer;
+import de.leifaktor.robbiemini.render.StatusBarRenderer;
 
 public class GameScreen implements Screen {
 	
@@ -26,32 +27,33 @@ public class GameScreen implements Screen {
 	RoomManager roomManager;
 	Room currentRoom;
 	XYZPos currentRoomPosition;
+	
 	RoomRenderer renderer;
+	StatusBarRenderer barRenderer;
 	
 	XYZPos newRoomPosition;
 	Player player;
 	boolean startRoomTransitionAfterThisFrame;
 	
-	public static final int WIDTH = 33;
-	public static final int HEIGHT = 23;
-	
 	public GameScreen(RobbieMini game) {
 		this.game = game;
 		camera = new OrthographicCamera();
-		camera.position.set(WIDTH*8, HEIGHT*8, 1);
-		viewport = new FitViewport(WIDTH*16, HEIGHT*16, camera);
+		camera.position.set(RobbieMini.getVirtualWidth()/2, RobbieMini.getVirtualHeight()/2, 1);
+		viewport = new FitViewport(RobbieMini.getVirtualWidth(), RobbieMini.getVirtualHeight(), camera);
 		
 		setUpSomeTestRooms();
 		
 		renderer = new RoomRenderer();
+		barRenderer = new StatusBarRenderer();
+		barRenderer.setOffset(0, RobbieMini.getVirtualHeight()-RobbieMini.TILESIZE);
 	}
 	
 	private void setUpSomeTestRooms() {
 		roomManager = new RoomManager();
-		Room room111 = RoomCreator.createShiftRoom(WIDTH, HEIGHT);
-		Room room112 = RoomCreator.createMazeRoom(WIDTH, HEIGHT);
-		Room room121 = RoomCreator.createEmptyRoom(WIDTH, HEIGHT);
-		Room room122 = RoomCreator.createWallRoom(WIDTH, HEIGHT);
+		Room room111 = RoomCreator.createShiftRoom(RobbieMini.WIDTH, RobbieMini.HEIGHT);
+		Room room112 = RoomCreator.createMazeRoom(RobbieMini.WIDTH, RobbieMini.HEIGHT);
+		Room room121 = RoomCreator.createEmptyRoom(RobbieMini.WIDTH, RobbieMini.HEIGHT);
+		Room room122 = RoomCreator.createWallRoom(RobbieMini.WIDTH, RobbieMini.HEIGHT);
 		roomManager.setRoom(1, 1, 1, room111);
 		roomManager.setRoom(1, 1, 2, room112);
 		roomManager.setRoom(1, 2, 1, room121);
@@ -77,6 +79,7 @@ public class GameScreen implements Screen {
 		game.batch.begin();
 		renderer.setOffset(0, 0);
 		renderer.render(game.batch, currentRoom);
+		barRenderer.render(game.batch, currentRoom);
 		game.batch.end();
 		
 		if (startRoomTransitionAfterThisFrame) {
