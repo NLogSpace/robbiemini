@@ -1,8 +1,6 @@
 package de.leifaktor.robbiemini.movement;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input.Keys;
-
+import de.leifaktor.robbiemini.InputManager;
 import de.leifaktor.robbiemini.Room;
 import de.leifaktor.robbiemini.actor.Actor;
 
@@ -11,14 +9,14 @@ public class KeyboardMovement implements IMovingBehaviour {
 	@Override
 	public int getMoveDirection(Actor actor, Room room) {
 		int intendedDir = -1;
-		if (Gdx.input.isKeyPressed(Keys.UP)) intendedDir = 0;
-		else if (Gdx.input.isKeyPressed(Keys.RIGHT)) intendedDir = 1;
-		else if (Gdx.input.isKeyPressed(Keys.DOWN))	intendedDir = 2;
-		else if (Gdx.input.isKeyPressed(Keys.LEFT)) intendedDir = 3;
-		else if (Gdx.input.isKeyPressed(Keys.PAGE_UP)) intendedDir = 4;
-		else if (Gdx.input.isKeyPressed(Keys.PAGE_DOWN)) intendedDir = 5;
-		else if (Gdx.input.isKeyPressed(Keys.END)) intendedDir = 6;
-		else if (Gdx.input.isKeyPressed(Keys.HOME)) intendedDir = 7;
+		if (InputManager.pressed[InputManager.NORTH]) intendedDir = 0;
+		else if (InputManager.pressed[InputManager.EAST]) intendedDir = 1;
+		else if (InputManager.pressed[InputManager.SOUTH])	intendedDir = 2;
+		else if (InputManager.pressed[InputManager.WEST]) intendedDir = 3;
+		else if (InputManager.pressed[InputManager.NORTH_EAST]) intendedDir = 4;
+		else if (InputManager.pressed[InputManager.SOUTH_EAST]) intendedDir = 5;
+		else if (InputManager.pressed[InputManager.SOUTH_WEST]) intendedDir = 6;
+		else if (InputManager.pressed[InputManager.NORTH_WEST]) intendedDir = 7;
 		return intendedDir;
 	}
 

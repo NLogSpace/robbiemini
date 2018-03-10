@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
+import de.leifaktor.robbiemini.InputManager;
 import de.leifaktor.robbiemini.RobbieMini;
 import de.leifaktor.robbiemini.Room;
 import de.leifaktor.robbiemini.RoomCreator;
@@ -27,13 +28,14 @@ public class GameScreen implements Screen {
 	RoomManager roomManager;
 	Room currentRoom;
 	XYZPos currentRoomPosition;
+	XYZPos newRoomPosition;
+	Player player;
+	boolean startRoomTransitionAfterThisFrame;
 	
 	RoomRenderer renderer;
 	StatusBarRenderer barRenderer;
 	
-	XYZPos newRoomPosition;
-	Player player;
-	boolean startRoomTransitionAfterThisFrame;
+	boolean inventoryOpened;
 	
 	public GameScreen(RobbieMini game) {
 		this.game = game;
@@ -46,6 +48,8 @@ public class GameScreen implements Screen {
 		renderer = new RoomRenderer();
 		barRenderer = new StatusBarRenderer();
 		barRenderer.setOffset(0, RobbieMini.getVirtualHeight()-RobbieMini.TILESIZE);
+		
+		InputManager.initKeyMap();
 	}
 	
 	private void setUpSomeTestRooms() {
@@ -67,6 +71,8 @@ public class GameScreen implements Screen {
 
 	@Override
 	public void render(float delta) {
+		InputManager.update();
+		
 		currentRoom.update();
 		if (player.getLives() == 0) {
 			game.setScreen(new MainMenuScreen(game));
