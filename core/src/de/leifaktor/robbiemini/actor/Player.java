@@ -68,4 +68,8 @@ public class Player extends Actor {
 		return inventory;
 	}
 
+	public void increaseLives() {
+		lives++;		
+	}
+
 }

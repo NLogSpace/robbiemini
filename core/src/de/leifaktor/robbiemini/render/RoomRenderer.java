@@ -12,6 +12,7 @@ import de.leifaktor.robbiemini.actor.Actor.MoveState;
 import de.leifaktor.robbiemini.items.Acid;
 import de.leifaktor.robbiemini.items.Item;
 import de.leifaktor.robbiemini.items.Key;
+import de.leifaktor.robbiemini.items.Life;
 import de.leifaktor.robbiemini.actor.Arrow;
 import de.leifaktor.robbiemini.actor.DissolvingWall;
 import de.leifaktor.robbiemini.actor.ElectricFence;
@@ -49,6 +50,7 @@ public class RoomRenderer {
 	TextureRegion isolator;
 	TextureRegion electricFence;
 	TextureRegion skull;
+	TextureRegion life;
 	Animation<TextureRegion> playerWalking;
 	Animation<TextureRegion> dissolvingWall;
 	ArrayList<Animation<TextureRegion>> robots;
@@ -73,6 +75,7 @@ public class RoomRenderer {
 		isolator = tileset.getTile(14, 10);
 		electricFence = tileset.getTile(0, 10);
 		skull = tileset.getTile(9, 9);
+		life = tileset.getTile(7, 11);
 		dissolvingWall = new Animation<TextureRegion>(0.25f,tileset.getTiles(0, 1, 16));
 		robots = new ArrayList<Animation<TextureRegion>>();
 		for (int i = 0; i < 7; i++) {
@@ -116,6 +119,8 @@ public class RoomRenderer {
 				} else if (item instanceof Key) {
 					Key key = (Key) item;
 					draw(batch, keys[key.getNumber()], a.x, a.y);
+				} else if (item instanceof Life) {
+					draw(batch, life, a.x, a.y);
 				}
 			}			
 			if (a instanceof Explosion) {

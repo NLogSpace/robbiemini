@@ -11,6 +11,7 @@ import de.leifaktor.robbiemini.Room;
 import de.leifaktor.robbiemini.items.Acid;
 import de.leifaktor.robbiemini.items.Item;
 import de.leifaktor.robbiemini.items.Key;
+import de.leifaktor.robbiemini.items.Life;
 
 public class InventoryRenderer {
 
@@ -24,6 +25,7 @@ public class InventoryRenderer {
 	TextureRegion blackBackground;
 	TextureRegion acid;
 	TextureRegion[] keys;
+	TextureRegion life;
 	
 	public InventoryRenderer() {
 		Tileset tileset = new Tileset("tileset16.png", 16);
@@ -32,6 +34,7 @@ public class InventoryRenderer {
 		blackBackground = tileset.getTile(4, 13);
 		acid = tileset.getTile(2, 10);
 		keys = tileset.getTiles(0, 12, 16);
+		life = tileset.getTile(7, 11);
 	}
 	
 	public void render(SpriteBatch batch, Room room, Inventory inventory) {
@@ -56,6 +59,8 @@ public class InventoryRenderer {
 			} else if (item instanceof Key) {
 				Key key = (Key) item;
 				batch.draw(keys[key.getNumber()], startX+RobbieMini.TILESIZE*i, yOffset);
+			} else if (item instanceof Life) {
+				batch.draw(life, startX+RobbieMini.TILESIZE*i, yOffset);
 			} else {
 				batch.draw(greenBackground, startX+RobbieMini.TILESIZE*i, yOffset);
 			}

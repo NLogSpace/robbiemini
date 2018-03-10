@@ -182,7 +182,7 @@ public class GameScreen implements Screen {
 		roomManager.setRoom(1, 1, 2, room112);
 		roomManager.setRoom(1, 2, 1, room121);
 		roomManager.setRoom(1, 2, 2, room122);
-		currentRoomPosition = new XYZPos(1,2,1);
+		currentRoomPosition = new XYZPos(1,1,1);
 		currentRoom = roomManager.getRoom(currentRoomPosition);
 		player = new Player(3,3);
 		currentRoom.putPlayer(player, player.x, player.y);
