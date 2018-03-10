@@ -15,6 +15,7 @@ import de.leifaktor.robbiemini.RoomCreator;
 import de.leifaktor.robbiemini.RoomManager;
 import de.leifaktor.robbiemini.XYZPos;
 import de.leifaktor.robbiemini.actor.Player;
+import de.leifaktor.robbiemini.render.InventoryRenderer;
 import de.leifaktor.robbiemini.render.RoomRenderer;
 import de.leifaktor.robbiemini.render.StatusBarRenderer;
 
@@ -34,64 +35,71 @@ public class GameScreen implements Screen {
 	
 	RoomRenderer renderer;
 	StatusBarRenderer barRenderer;
+	InventoryRenderer inventoryRenderer;
 	
-	boolean inventoryOpened;
+	boolean inventoryOpen;
 	
 	public GameScreen(RobbieMini game) {
 		this.game = game;
 		camera = new OrthographicCamera();
 		camera.position.set(RobbieMini.getVirtualWidth()/2, RobbieMini.getVirtualHeight()/2, 1);
 		viewport = new FitViewport(RobbieMini.getVirtualWidth(), RobbieMini.getVirtualHeight(), camera);
+		camera.update();
 		
 		setUpSomeTestRooms();
 		
 		renderer = new RoomRenderer();
+		renderer.setOffset(0, 0);
 		barRenderer = new StatusBarRenderer();
 		barRenderer.setOffset(0, RobbieMini.getVirtualHeight()-RobbieMini.TILESIZE);
+		inventoryRenderer = new InventoryRenderer();
+		inventoryRenderer.setOffset(0, RobbieMini.getVirtualHeight()-RobbieMini.TILESIZE);
 		
 		InputManager.initKeyMap();
 	}
 	
-	private void setUpSomeTestRooms() {
-		roomManager = new RoomManager();
-		Room room111 = RoomCreator.createShiftRoom(RobbieMini.WIDTH, RobbieMini.HEIGHT);
-		Room room112 = RoomCreator.createMazeRoom(RobbieMini.WIDTH, RobbieMini.HEIGHT);
-		Room room121 = RoomCreator.createEmptyRoom(RobbieMini.WIDTH, RobbieMini.HEIGHT);
-		Room room122 = RoomCreator.createWallRoom(RobbieMini.WIDTH, RobbieMini.HEIGHT);
-		roomManager.setRoom(1, 1, 1, room111);
-		roomManager.setRoom(1, 1, 2, room112);
-		roomManager.setRoom(1, 2, 1, room121);
-		roomManager.setRoom(1, 2, 2, room122);
-		currentRoomPosition = new XYZPos(1,1,1);
-		currentRoom = roomManager.getRoom(currentRoomPosition);
-		player = new Player(3,3);
-		currentRoom.putPlayer(player, player.x, player.y);
-		currentRoom.setGameScreen(this);
-	}
-
 	@Override
 	public void render(float delta) {
 		InputManager.update();
 		
-		currentRoom.update();
-		if (player.getLives() == 0) {
-			game.setScreen(new MainMenuScreen(game));
+		if (inventoryOpen) {
+			player.inventory.update();
+			if (InputManager.justPressed[InputManager.ENTER]) {
+				if (player.inventory.getSelectedItem() != null) {
+					currentRoom.useItem(player.inventory.getSelectedItem(), player.x, player.y);
+					player.inventory.removeSelectedItem();
+					player.inventory.decreasePointer();
+				}
+				inventoryOpen = false;
+			} else if (InputManager.justPressed[InputManager.ESCAPE]) {
+				inventoryOpen = false;
+			}
+		} else {
+			if (InputManager.justPressed[InputManager.ENTER]) inventoryOpen = true;
 		}
-		
-		camera.update();
-		game.batch.setProjectionMatrix(camera.combined);
-		Gdx.gl.glClearColor(0, 0, 0, 1);
-		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		game.batch.begin();
-		renderer.setOffset(0, 0);
-		renderer.render(game.batch, currentRoom);
-		barRenderer.render(game.batch, currentRoom);
-		game.batch.end();
+		currentRoom.update();
+
+		renderTheGame();
 		
 		if (startRoomTransitionAfterThisFrame) {
 			startRoomTransition();
 			startRoomTransitionAfterThisFrame = false;
 		}
+	}
+	
+	private void renderTheGame() {
+		game.batch.setProjectionMatrix(camera.combined);
+		Gdx.gl.glClearColor(0, 0, 0, 1);
+		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+		game.batch.begin();
+		renderer.render(game.batch, currentRoom);
+		if (inventoryOpen) {
+			inventoryRenderer.render(game.batch, currentRoom, player.inventory);
+		} else {
+			barRenderer.render(game.batch, currentRoom);
+		}
+
+		game.batch.end();
 	}
 	
 	private void startRoomTransition() {
@@ -158,6 +166,31 @@ public class GameScreen implements Screen {
 	
 	public XYZPos getCurrentRoomPosition() {
 		return currentRoomPosition;
+	}
+	
+	public void gameOver() {
+		game.setScreen(new MainMenuScreen(game));
+	}
+	
+	private void setUpSomeTestRooms() {
+		roomManager = new RoomManager();
+		Room room111 = RoomCreator.createShiftRoom(RobbieMini.WIDTH, RobbieMini.HEIGHT);
+		Room room112 = RoomCreator.createMazeRoom(RobbieMini.WIDTH, RobbieMini.HEIGHT);
+		Room room121 = RoomCreator.createEmptyRoom(RobbieMini.WIDTH, RobbieMini.HEIGHT);
+		Room room122 = RoomCreator.createWallRoom(RobbieMini.WIDTH, RobbieMini.HEIGHT);
+		roomManager.setRoom(1, 1, 1, room111);
+		roomManager.setRoom(1, 1, 2, room112);
+		roomManager.setRoom(1, 2, 1, room121);
+		roomManager.setRoom(1, 2, 2, room122);
+		currentRoomPosition = new XYZPos(1,2,1);
+		currentRoom = roomManager.getRoom(currentRoomPosition);
+		player = new Player(3,3);
+		currentRoom.putPlayer(player, player.x, player.y);
+		currentRoom.setGameScreen(this);
+	}
+	
+	public boolean isInventoryOpen() {
+		return inventoryOpen;
 	}
 
 }

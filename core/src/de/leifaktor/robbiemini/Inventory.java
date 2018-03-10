@@ -1,45 +1,61 @@
 package de.leifaktor.robbiemini;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import de.leifaktor.robbiemini.items.Item;
+
 public class Inventory {
 	
-	int acids;
-	int gold;
-	boolean[] keys;
+	List<Item> items;
 	
+	int pointer;
+		
 	public Inventory() {
-		keys = new boolean[16];
+		items = new ArrayList<Item>();
+		pointer = 0;
 	}
 	
-	public int getAcids() {
-		return acids;
-	}
-	
-	public void addAcid() {
-		acids++;
-	}
-	
-	public void removeAcid() {
-		acids--;
-	}
-	
-	public int getGold() {
-		return gold;
-	}
-	
-	public void addGold() {
-		gold++;
-	}
-	
-	public void removeGold() {
-		gold--;
-	}
-	
-	public void addKey(int number) {
-		keys[number] = true;
-	}
-	
-	public boolean hasKey(int number) {
-		return keys[number];
+	public void update() {
+		if (InputManager.justPressed[InputManager.EAST]) increasePointer();
+		if (InputManager.justPressed[InputManager.WEST]) decreasePointer();
 	}
 
+	public void add(Item item) {
+		items.add(item);		
+	}
+	
+	public boolean hasItem(Item other) {
+		return items.contains(other);
+	}
+	
+	public List<Item> getItems() {
+		return Collections.unmodifiableList(items);
+	}
+	
+	public int getPointer() {
+		return pointer;
+	}
+	
+	public void increasePointer() {
+		if (pointer < items.size() - 1) pointer++;
+	}
+	
+	public void decreasePointer() {
+		if (pointer > 0) pointer--;
+	}
+	
+	public Item getSelectedItem() {
+		if (pointer >= 0 && pointer < items.size()) return items.get(pointer);
+		else return null;
+	}
+
+	public void removeSelectedItem() {
+		items.remove(pointer);
+	}
+
+	public int getSize() {
+		return items.size();
+	}	
 }

@@ -19,7 +19,7 @@ public class Gold extends Actor {
 	@Override
 	public void hitBy(Room room, Actor actor) {
 		if (actor instanceof Player) {
-			((Player)actor).inventory.addGold();
+			//((Player)actor).inventory.addGold();
 			room.commands.add(new RemoveActorCommand(this));
 			room.commands.add(new PlaySoundCommand(SoundPlayer.SOUND_GOLD));
 		}

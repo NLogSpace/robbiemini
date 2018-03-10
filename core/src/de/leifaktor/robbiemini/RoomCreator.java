@@ -4,15 +4,16 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Stack;
 
-import de.leifaktor.robbiemini.actor.Acid;
 import de.leifaktor.robbiemini.actor.Actor;
 import de.leifaktor.robbiemini.actor.Arrow;
 import de.leifaktor.robbiemini.actor.ElectricFence;
 import de.leifaktor.robbiemini.actor.Gold;
 import de.leifaktor.robbiemini.actor.Isolator;
-import de.leifaktor.robbiemini.actor.Key;
+import de.leifaktor.robbiemini.actor.ItemActor;
 import de.leifaktor.robbiemini.actor.Robot;
 import de.leifaktor.robbiemini.actor.Skull;
+import de.leifaktor.robbiemini.items.Acid;
+import de.leifaktor.robbiemini.items.Key;
 import de.leifaktor.robbiemini.movement.FollowPlayerMovement;
 import de.leifaktor.robbiemini.tiles.Door;
 import de.leifaktor.robbiemini.tiles.EmptyTile;
@@ -68,7 +69,7 @@ public class RoomCreator {
 			}
 		}
 		ArrayList<Actor> actors = new ArrayList<Actor>();
-		actors.add(new Acid(6,9));
+		actors.add(new ItemActor(6,9,new Acid()));
 		
 		Room room = new Room(width, height, map, actors);
 		addRandomRobots(room,10);
@@ -154,9 +155,9 @@ public class RoomCreator {
 		}
 		
 		ArrayList<Actor> actors = new ArrayList<Actor>();
-		actors.add(new Key(11, 19, 0));
-		actors.add(new Key(17, 11, 1));
-		actors.add(new Key(31, 23, 2));
+		actors.add(new ItemActor(11, 19, new Key(0)));
+		actors.add(new ItemActor(17, 11, new Key(1)));
+		actors.add(new ItemActor(31, 23, new Key(2)));
 		actors.add(new Gold(21, 13));
 		actors.add(new Gold(3, 23));
 		actors.add(new Gold(23, 5));
@@ -173,8 +174,7 @@ public class RoomCreator {
 		
 		Room room = new Room(width, height, map, actors);
 		
-		Acid acid = new Acid(0,0);
-		addRandomActors(acid, room, 5);		
+		addRandomActors(new ItemActor(0,0,new Acid()), room, 5);		
 		addRandomRobots(room, 5);
 		
 		return room;		
@@ -189,8 +189,7 @@ public class RoomCreator {
 		ElectricFence electricFence = new ElectricFence(0,0);
 		addRandomActors(electricFence, room, 10);
 		
-		Acid acid = new Acid(0,0);
-		addRandomActors(acid, room, 5);
+		addRandomActors(new ItemActor(0,0,new Acid()), room, 5);
 		
 		Skull skull = new Skull(0,0);
 		addRandomActors(skull, room, 5);

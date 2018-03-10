@@ -5,6 +5,7 @@ import de.leifaktor.robbiemini.SoundPlayer;
 import de.leifaktor.robbiemini.actor.Actor;
 import de.leifaktor.robbiemini.actor.Player;
 import de.leifaktor.robbiemini.commands.PlaySoundCommand;
+import de.leifaktor.robbiemini.items.Key;
 
 public class Door extends Tile {
 
@@ -22,7 +23,7 @@ public class Door extends Tile {
 	public boolean canBeEntered(Actor actor) {
 		if (!(actor instanceof Player)) return false;
 		Player p = (Player) actor;
-		if (!p.inventory.hasKey(number)) return false;
+		if (!p.inventory.hasItem(new Key(number))) return false;
 		return true;
 	}
 

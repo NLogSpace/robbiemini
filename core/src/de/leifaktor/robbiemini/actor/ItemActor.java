@@ -4,39 +4,41 @@ import de.leifaktor.robbiemini.Room;
 import de.leifaktor.robbiemini.SoundPlayer;
 import de.leifaktor.robbiemini.commands.PlaySoundCommand;
 import de.leifaktor.robbiemini.commands.RemoveActorCommand;
+import de.leifaktor.robbiemini.items.Item;
 
-public class Key extends Actor {
+public class ItemActor extends Actor {
+
+	Item item;
 	
-	int number;	
-	
-	public Key(int x, int y, int number) {
+	public ItemActor(int x, int y, Item item) {
 		super(x, y);
-		this.number = number;
+		this.item = item;
 	}
 
-	public int getNumber() {
-		return number;
-	}
 	
-	@Override
-	public void update(Room room) {
-		
-	}
-
 	@Override
 	public void hitBy(Room room, Actor actor) {
 		if (actor instanceof Player) {
-			((Player)actor).inventory.addKey(number);
+			((Player)actor).inventory.add(item);
 			room.commands.add(new RemoveActorCommand(this));
 			room.commands.add(new PlaySoundCommand(SoundPlayer.SOUND_COLLECT));
 		}
 	}
 
 	@Override
-	public Actor clone() {
-		return new Key(x, y, number);
+	public boolean canBeEntered(Actor other) {
+		if (other instanceof Isolator) return false;
+		return true;
 	}
-	
-	
+
+	@Override
+	public Actor clone() {
+		return new ItemActor(x,y,item.clone());
+	}
+
+
+	public Item getItem() {
+		return item;
+	}
 
 }

@@ -8,6 +8,7 @@ public class KeyboardMovement implements IMovingBehaviour {
 
 	@Override
 	public int getMoveDirection(Actor actor, Room room) {
+		if (room.getGameScreen().isInventoryOpen()) return -1;
 		int intendedDir = -1;
 		if (InputManager.pressed[InputManager.NORTH]) intendedDir = 0;
 		else if (InputManager.pressed[InputManager.EAST]) intendedDir = 1;

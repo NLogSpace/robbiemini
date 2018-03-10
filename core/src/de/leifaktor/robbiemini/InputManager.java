@@ -5,7 +5,7 @@ import com.badlogic.gdx.Input.Keys;
 
 public class InputManager {
 	
-	public static final int NUMBER_OF_KEYS = 9;
+	public static final int NUMBER_OF_KEYS = 10;
 	
 	public static final int NORTH = 0;
 	public static final int EAST = 1;
@@ -16,6 +16,7 @@ public class InputManager {
 	public static final int SOUTH_WEST = 6;
 	public static final int NORTH_WEST = 7;
 	public static final int ENTER = 8;
+	public static final int ESCAPE = 9;
 
 	public static boolean[] pressed = new boolean[NUMBER_OF_KEYS];
 	public static boolean[] justPressed = new boolean[NUMBER_OF_KEYS];
@@ -32,6 +33,7 @@ public class InputManager {
 		keyMap[SOUTH_WEST] = Keys.END;
 		keyMap[NORTH_WEST] = Keys.HOME;
 		keyMap[ENTER] = Keys.ENTER;
+		keyMap[ESCAPE] = Keys.ESCAPE;
 	}
 
 	

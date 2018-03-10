@@ -4,25 +4,18 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input.Keys;
-
 import de.leifaktor.robbiemini.actor.Actor;
-import de.leifaktor.robbiemini.actor.Actor.MoveState;
-import de.leifaktor.robbiemini.actor.DissolvingWall;
 import de.leifaktor.robbiemini.actor.Explosion;
 import de.leifaktor.robbiemini.actor.Player;
 import de.leifaktor.robbiemini.commands.AddActorCommand;
-import de.leifaktor.robbiemini.commands.ChangeTileCommand;
 import de.leifaktor.robbiemini.commands.Command;
 import de.leifaktor.robbiemini.commands.PlaySoundCommand;
 import de.leifaktor.robbiemini.commands.RemoveActorCommand;
+import de.leifaktor.robbiemini.items.Item;
 import de.leifaktor.robbiemini.movement.FixedMovement;
 import de.leifaktor.robbiemini.movement.KeyboardMovement;
 import de.leifaktor.robbiemini.screens.GameScreen;
-import de.leifaktor.robbiemini.tiles.EmptyTile;
 import de.leifaktor.robbiemini.tiles.Tile;
-import de.leifaktor.robbiemini.tiles.Wall;
 
 public class Room {
 	
@@ -34,7 +27,7 @@ public class Room {
 
 	public List<Command> commands;
 	
-	GameScreen gameScreen;
+	private GameScreen gameScreen;
 	
 	public Room(int width, int height, Tile[] tiles, List<Actor> actors) {
 		this.width = width;
@@ -46,42 +39,15 @@ public class Room {
 	
 	public void update() {
 		continueMovement();
-		checkAcidCommand();
 		updateActors();
 		executeCommands();
 		checkForRoomTransition();
+		if (player.getLives() == 0) getGameScreen().gameOver();
 	}
 	
 	private void continueMovement() {
 		for (Actor a: actors) {
 			a.continueMovement();
-		}
-	}	
-
-	private void checkAcidCommand() {		
-		boolean useAcid = false;
-		if (Gdx.input.isKeyJustPressed(Keys.ENTER)) {			
-			if (player.getMoveState() == MoveState.IDLE) {
-				if (player.inventory.getAcids() > 0) {
-					int px = player.x;
-					int py = player.y;					
-					for (int i = px - 1; i <= px+1; i++) {
-						for (int j = py - 1; j <= py+1; j++) {
-							if (isInBounds(i,j)) {							
-								if (tiles[width*j+i] instanceof Wall) {
-									useAcid = true;
-									commands.add(new ChangeTileCommand(i,j,new EmptyTile()));
-									commands.add(new AddActorCommand(new DissolvingWall(i,j)));
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-		if (useAcid) {
-			player.inventory.removeAcid();
-			commands.add(new PlaySoundCommand(SoundPlayer.SOUND_ACID));
 		}
 	}
 	
@@ -99,14 +65,14 @@ public class Room {
 	
 	private void checkForRoomTransition() {
 		if (!isInBounds(player.x, player.y)) {
-			if (gameScreen != null) {
+			if (getGameScreen() != null) {
 				int dx = player.x < 0 ? -1 : player.x < width ? 0 : 1;
 				int dy = player.y < 0 ? -1 : player.y < height ? 0 : 1;
 				
-				XYZPos currentRoomPosition = gameScreen.getCurrentRoomPosition();
+				XYZPos currentRoomPosition = getGameScreen().getCurrentRoomPosition();
 				XYZPos newRoomPosition = new XYZPos(currentRoomPosition.x + dx, currentRoomPosition.y + dy, currentRoomPosition.z);
 				player.setPosition((player.x+width) % width, (player.y + height)%height);
-				gameScreen.setRoom(newRoomPosition);
+				getGameScreen().setRoom(newRoomPosition);
 			}
 		}
 	}
@@ -209,15 +175,23 @@ public class Room {
 	}
 
 	public boolean hasNeighborRoomAt(int x, int y) {
-		if (gameScreen == null) return false;
+		if (getGameScreen() == null) return false;
 		
 		int dx = x < 0 ? -1 : x < width ? 0 : 1;
 		int dy = y < 0 ? -1 : y < height ? 0 : 1;
 		
-		XYZPos currentRoomPosition = gameScreen.getCurrentRoomPosition();
+		XYZPos currentRoomPosition = getGameScreen().getCurrentRoomPosition();
 		XYZPos roomToCheckPosition = new XYZPos(currentRoomPosition.x + dx, currentRoomPosition.y + dy, currentRoomPosition.z);		
 
-		return gameScreen.getRoomManager().doesRoomExist(roomToCheckPosition);
+		return getGameScreen().getRoomManager().doesRoomExist(roomToCheckPosition);
+	}
+
+	public GameScreen getGameScreen() {
+		return gameScreen;
+	}
+
+	public void useItem(Item item, int x, int y) {
+		item.onUse(this, x, y);		
 	}
 	
 }

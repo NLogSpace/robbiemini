@@ -7,16 +7,18 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 import de.leifaktor.robbiemini.Room;
-import de.leifaktor.robbiemini.actor.Acid;
 import de.leifaktor.robbiemini.actor.Actor;
 import de.leifaktor.robbiemini.actor.Actor.MoveState;
+import de.leifaktor.robbiemini.items.Acid;
+import de.leifaktor.robbiemini.items.Item;
+import de.leifaktor.robbiemini.items.Key;
 import de.leifaktor.robbiemini.actor.Arrow;
 import de.leifaktor.robbiemini.actor.DissolvingWall;
 import de.leifaktor.robbiemini.actor.ElectricFence;
 import de.leifaktor.robbiemini.actor.Explosion;
 import de.leifaktor.robbiemini.actor.Gold;
 import de.leifaktor.robbiemini.actor.Isolator;
-import de.leifaktor.robbiemini.actor.Key;
+import de.leifaktor.robbiemini.actor.ItemActor;
 import de.leifaktor.robbiemini.actor.Player;
 import de.leifaktor.robbiemini.actor.Robot;
 import de.leifaktor.robbiemini.actor.Skull;
@@ -107,16 +109,19 @@ public class RoomRenderer {
 				DissolvingWall d = ((DissolvingWall)a);
 				draw(batch, dissolvingWall.getKeyFrame(d.getTime(), false),d.x, d.y);
 			}
-			if (a instanceof Acid) draw(batch, acid, a.x, a.y);
+			if (a instanceof ItemActor) {
+				Item item = ((ItemActor)a).getItem();
+				if (item instanceof Acid) {
+					draw(batch, acid, a.x, a.y);
+				} else if (item instanceof Key) {
+					Key key = (Key) item;
+					draw(batch, keys[key.getNumber()], a.x, a.y);
+				}
+			}			
 			if (a instanceof Explosion) {
 				Explosion e = ((Explosion)a);
 				draw(batch, explosion.getKeyFrame(e.getTime(), false),e.x, e.y);
 			}
-			if (a instanceof Key) {
-				Key key = (Key) a;
-				draw(batch, keys[key.getNumber()], key.x, key.y);
-			}
-
 			if (a instanceof Gold) {
 				draw(batch, gold, a.x, a.y);
 			}

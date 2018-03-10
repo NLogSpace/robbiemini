@@ -64,4 +64,8 @@ public class Player extends Actor {
 		state = MoveState.IDLE;
 	}
 
+	public Inventory getInventory() {
+		return inventory;
+	}
+
 }
