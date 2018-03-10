@@ -61,7 +61,16 @@ public class GameScreen implements Screen {
 	@Override
 	public void render(float delta) {
 		InputManager.update();
-		
+		processInventory();
+		currentRoom.update();
+		renderTheGame();		
+		if (startRoomTransitionAfterThisFrame) {
+			startRoomTransition();
+			startRoomTransitionAfterThisFrame = false;
+		}
+	}
+	
+	private void processInventory() {
 		if (inventoryOpen) {
 			player.inventory.update();
 			if (InputManager.justPressed[InputManager.ENTER]) {
@@ -77,14 +86,6 @@ public class GameScreen implements Screen {
 		} else {
 			if (InputManager.justPressed[InputManager.ENTER]) inventoryOpen = true;
 		}
-		currentRoom.update();
-
-		renderTheGame();
-		
-		if (startRoomTransitionAfterThisFrame) {
-			startRoomTransition();
-			startRoomTransitionAfterThisFrame = false;
-		}
 	}
 	
 	private void renderTheGame() {
@@ -98,7 +99,6 @@ public class GameScreen implements Screen {
 		} else {
 			barRenderer.render(game.batch, currentRoom);
 		}
-
 		game.batch.end();
 	}
 	

@@ -19,7 +19,7 @@ public class InventoryRenderer {
 	float xOffset;
 	float yOffset;
 	
-	TextureRegion grayBackground;
+	TextureRegion greenBackground;
 	TextureRegion whiteBackground;
 	TextureRegion blackBackground;
 	TextureRegion acid;
@@ -27,7 +27,7 @@ public class InventoryRenderer {
 	
 	public InventoryRenderer() {
 		Tileset tileset = new Tileset("tileset16.png", 16);
-		grayBackground = tileset.getTile(3, 13);
+		greenBackground = tileset.getTile(5, 13);
 		whiteBackground = tileset.getTile(2, 13);
 		blackBackground = tileset.getTile(4, 13);
 		acid = tileset.getTile(2, 10);
@@ -38,11 +38,11 @@ public class InventoryRenderer {
 		float startX = xOffset + RobbieMini.TILESIZE*room.getWidth() / 2 - inventory.getSize()*RobbieMini.TILESIZE / 2;
 		
 		for (int i = 0; i < room.getWidth(); i++) {
-			batch.draw(whiteBackground, xOffset+RobbieMini.TILESIZE*i, yOffset);
+			batch.draw(greenBackground, xOffset+RobbieMini.TILESIZE*i, yOffset);
 		}
 		
-		for (int i = 0; i < room.getWidth(); i++) {
-			if (i > inventory.getSize() || i != inventory.getPointer()) {
+		for (int i = 0; i < inventory.getSize(); i++) {
+			if (i != inventory.getPointer()) {
 				batch.draw(whiteBackground, startX+RobbieMini.TILESIZE*i, yOffset);
 			} else {
 				batch.draw(blackBackground, startX+RobbieMini.TILESIZE*i, yOffset);
@@ -57,7 +57,7 @@ public class InventoryRenderer {
 				Key key = (Key) item;
 				batch.draw(keys[key.getNumber()], startX+RobbieMini.TILESIZE*i, yOffset);
 			} else {
-				batch.draw(grayBackground, startX+RobbieMini.TILESIZE*i, yOffset);
+				batch.draw(greenBackground, startX+RobbieMini.TILESIZE*i, yOffset);
 			}
 		}
 	}
