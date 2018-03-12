@@ -6,6 +6,8 @@ public abstract class Item {
 	
 	public abstract void onUse(Room room, int x, int y);
 	
-	public abstract Item clone();	
+	public abstract void onCollect(Room room, int x, int y);
+	
+	public abstract Item clone();
 	
 }

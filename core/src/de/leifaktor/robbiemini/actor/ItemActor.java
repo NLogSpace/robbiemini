@@ -9,25 +9,26 @@ import de.leifaktor.robbiemini.items.Item;
 public class ItemActor extends Actor {
 
 	Item item;
-	
+
 	public ItemActor(int x, int y, Item item) {
 		super(x, y);
 		this.item = item;
 	}
 
-	
+
 	@Override
 	public void hitBy(Room room, Actor actor) {
 		if (actor instanceof Player) {
-			((Player)actor).inventory.add(item);
+			item.onCollect(room, x, y);
 			room.commands.add(new RemoveActorCommand(this));
+			((Player)actor).inventory.add(item);
 			room.commands.add(new PlaySoundCommand(SoundPlayer.SOUND_COLLECT));
 		}
 	}
 
 	@Override
 	public boolean canBeEntered(Actor other) {
-		if (other instanceof Isolator) return false;
+		if (other instanceof Isolator || other instanceof Robot) return false;
 		return true;
 	}
 

@@ -2,40 +2,40 @@ package de.leifaktor.robbiemini.items;
 
 import de.leifaktor.robbiemini.Room;
 import de.leifaktor.robbiemini.actor.ItemActor;
+import de.leifaktor.robbiemini.actor.Magnetic;
 import de.leifaktor.robbiemini.commands.AddActorCommand;
 
-public class Key extends Item {
+public class Magnet extends Item implements Magnetic {
 	
-	int number;
+	boolean positive;
 	
-	public Key(int number) {
-		this.number = number;
+	public Magnet(boolean positive) {
+		this.positive = positive;
 	}
 
 	@Override
 	public void onUse(Room room, int x, int y) {
 		room.commands.add(new AddActorCommand(new ItemActor(x, y, this)));
+		room.updateMagneticField();
 	}
 
 	@Override
 	public Item clone() {
-		return new Key(number);
-	}
-
-	public int getNumber() {		
-		return number;
+		return new Magnet(positive);
 	}
 
 	@Override
-	public boolean equals(Object obj) {
-		return obj instanceof Key && ((Key)obj).getNumber() == number;
+	public float getPolarization() {
+		return positive ? 1 : -1;
+	}
+
+	public boolean isPositive() {		
+		return positive;
 	}
 
 	@Override
 	public void onCollect(Room room, int x, int y) {
-		
+		room.updateMagneticField();
 	}
-	
-	
 
 }

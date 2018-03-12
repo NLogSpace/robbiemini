@@ -13,6 +13,7 @@ import de.leifaktor.robbiemini.items.Acid;
 import de.leifaktor.robbiemini.items.Item;
 import de.leifaktor.robbiemini.items.Key;
 import de.leifaktor.robbiemini.items.Life;
+import de.leifaktor.robbiemini.items.Magnet;
 import de.leifaktor.robbiemini.actor.Arrow;
 import de.leifaktor.robbiemini.actor.DissolvingWall;
 import de.leifaktor.robbiemini.actor.ElectricFence;
@@ -51,6 +52,8 @@ public class RoomRenderer {
 	TextureRegion electricFence;
 	TextureRegion skull;
 	TextureRegion life;
+	TextureRegion magnetPositive;
+	TextureRegion magnetNegative;
 	Animation<TextureRegion> playerWalking;
 	Animation<TextureRegion> dissolvingWall;
 	ArrayList<Animation<TextureRegion>> robots;
@@ -71,11 +74,13 @@ public class RoomRenderer {
 		keys = tileset.getTiles(0, 12, 16);
 		doors = tileset.getTiles(0, 2, 16);
 		gold = tileset.getTile(1, 10);
-		arrows = tileset.getTiles(6, 10, 4);
+		arrows = tileset.getTiles(6, 10, 8);
 		isolator = tileset.getTile(14, 10);
 		electricFence = tileset.getTile(0, 10);
 		skull = tileset.getTile(9, 9);
 		life = tileset.getTile(7, 11);
+		magnetPositive = tileset.getTile(10, 9);
+		magnetNegative = tileset.getTile(11, 9);
 		dissolvingWall = new Animation<TextureRegion>(0.25f,tileset.getTiles(0, 1, 16));
 		robots = new ArrayList<Animation<TextureRegion>>();
 		for (int i = 0; i < 7; i++) {
@@ -121,6 +126,12 @@ public class RoomRenderer {
 					draw(batch, keys[key.getNumber()], a.x, a.y);
 				} else if (item instanceof Life) {
 					draw(batch, life, a.x, a.y);
+				} else if (item instanceof Magnet) {
+					if (((Magnet)item).isPositive()) {
+						draw(batch, magnetPositive, a.x, a.y);
+					} else {
+						draw(batch, magnetNegative, a.x, a.y);
+					}
 				}
 			}			
 			if (a instanceof Explosion) {

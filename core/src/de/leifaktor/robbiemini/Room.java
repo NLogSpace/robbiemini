@@ -29,15 +29,19 @@ public class Room {
 	
 	private GameScreen gameScreen;
 	
+	MagneticField magneticField;
+	
 	public Room(int width, int height, Tile[] tiles, List<Actor> actors) {
 		this.width = width;
 		this.height = height;
 		this.tiles = tiles;
 		this.actors = actors;
 		commands = new ArrayList<Command>();
+		magneticField = new MagneticField(this);
 	}
 	
 	public void update() {
+		magneticField.update();
 		continueMovement();
 		updateActors();
 		executeCommands();
@@ -192,6 +196,14 @@ public class Room {
 
 	public void useItem(Item item, int x, int y) {
 		item.onUse(this, x, y);		
+	}
+
+	public void updateMagneticField() {
+		magneticField.update();		
+	}
+	
+	public Vec2 getMagneticGradientAt(int x, int y) {
+		return magneticField.getGradientAt(x, y);
 	}
 	
 }

@@ -23,4 +23,9 @@ public class Life extends Item {
 		return new Life();
 	}
 
+	@Override
+	public void onCollect(Room room, int x, int y) {
+		
+	}
+
 }

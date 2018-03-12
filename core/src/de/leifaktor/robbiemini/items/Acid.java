@@ -38,6 +38,11 @@ public class Acid extends Item {
 	@Override
 	public Item clone() {
 		return new Acid();
+	}
+
+	@Override
+	public void onCollect(Room room, int x, int y) {
+		// TODO Auto-generated method stub		
 	}	
 
 }

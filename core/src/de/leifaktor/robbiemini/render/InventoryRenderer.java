@@ -12,6 +12,7 @@ import de.leifaktor.robbiemini.items.Acid;
 import de.leifaktor.robbiemini.items.Item;
 import de.leifaktor.robbiemini.items.Key;
 import de.leifaktor.robbiemini.items.Life;
+import de.leifaktor.robbiemini.items.Magnet;
 
 public class InventoryRenderer {
 
@@ -26,6 +27,8 @@ public class InventoryRenderer {
 	TextureRegion acid;
 	TextureRegion[] keys;
 	TextureRegion life;
+	TextureRegion magnetPositive;
+	TextureRegion magnetNegative;
 	
 	public InventoryRenderer() {
 		Tileset tileset = new Tileset("tileset16.png", 16);
@@ -35,6 +38,8 @@ public class InventoryRenderer {
 		acid = tileset.getTile(2, 10);
 		keys = tileset.getTiles(0, 12, 16);
 		life = tileset.getTile(7, 11);
+		magnetPositive = tileset.getTile(10, 9);
+		magnetNegative = tileset.getTile(11, 9);
 	}
 	
 	public void render(SpriteBatch batch, Room room, Inventory inventory) {
@@ -61,6 +66,12 @@ public class InventoryRenderer {
 				batch.draw(keys[key.getNumber()], startX+RobbieMini.TILESIZE*i, yOffset);
 			} else if (item instanceof Life) {
 				batch.draw(life, startX+RobbieMini.TILESIZE*i, yOffset);
+			} else if (item instanceof Magnet) {
+				if (((Magnet)item).isPositive()) {
+					batch.draw(magnetPositive, startX+RobbieMini.TILESIZE*i, yOffset);
+				} else {
+					batch.draw(magnetNegative, startX+RobbieMini.TILESIZE*i, yOffset);
+				}
 			} else {
 				batch.draw(greenBackground, startX+RobbieMini.TILESIZE*i, yOffset);
 			}

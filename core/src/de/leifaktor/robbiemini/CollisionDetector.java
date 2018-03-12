@@ -21,6 +21,7 @@ public class CollisionDetector {
 		// Man kann nicht out of bounds gehen. Ausnahme: Der Spieler kann, falls dort ein Raum existiert.
 		if (!room.isInBounds(newx, newy)) {
 			if (!(actor instanceof Player)) return false;
+			if (dir > 3 || dir < 0) return false;
 			return room.hasNeighborRoomAt(newx, newy);
 		}
 		

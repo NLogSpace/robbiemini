@@ -15,6 +15,7 @@ import de.leifaktor.robbiemini.actor.Skull;
 import de.leifaktor.robbiemini.items.Acid;
 import de.leifaktor.robbiemini.items.Key;
 import de.leifaktor.robbiemini.items.Life;
+import de.leifaktor.robbiemini.items.Magnet;
 import de.leifaktor.robbiemini.movement.FollowPlayerMovement;
 import de.leifaktor.robbiemini.tiles.Door;
 import de.leifaktor.robbiemini.tiles.EmptyTile;
@@ -193,6 +194,9 @@ public class RoomCreator {
 		addRandomActors(new ItemActor(0,0,new Acid()), room, 5);
 		addRandomActors(new ItemActor(0,0,new Life()), room, 2);
 		
+		addRandomActors(new ItemActor(0,0,new Magnet(true)), room, 2);
+		addRandomActors(new ItemActor(0,0,new Magnet(false)), room, 2);
+		
 		Skull skull = new Skull(0,0);
 		addRandomActors(skull, room, 5);
 		
@@ -201,7 +205,20 @@ public class RoomCreator {
 			addRandomActors(arrow, room, 1);
 		}
 		
-		addRandomRobots(room, 5);
+		//addRandomRobots(room, 5);
+		
+		return room;
+	}
+	
+	public static Room createMagneticRoom(int width, int height) {
+		Room room = createEmptyRoom(width, height);		
+		addRandomActors(new ItemActor(0,0,new Magnet(true)), room, 10);
+		addRandomActors(new ItemActor(0,0,new Magnet(false)), room, 10);
+		
+		for (int i = 0; i < 300; i++) {
+			Arrow arrow = new Arrow(0,0,Util.random.nextInt(4));
+			addRandomActors(arrow, room, 1);
+		}
 		
 		return room;
 	}
