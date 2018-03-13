@@ -4,6 +4,7 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.FPSLogger;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
+import de.leifaktor.robbiemini.render.Graphics;
 import de.leifaktor.robbiemini.screens.MainMenuScreen;
 
 public class RobbieMini extends Game {
@@ -18,6 +19,7 @@ public class RobbieMini extends Game {
 	
 	@Override
 	public void create() {
+		Graphics.loadGraphics();
 		fpsLogger = new FPSLogger();
 		this.setScreen(new MainMenuScreen(this));
 		batch = new SpriteBatch();

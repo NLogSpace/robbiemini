@@ -3,7 +3,6 @@ package de.leifaktor.robbiemini.render;
 import java.util.List;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 import de.leifaktor.robbiemini.Inventory;
 import de.leifaktor.robbiemini.RobbieMini;
@@ -21,59 +20,38 @@ public class InventoryRenderer {
 	float xOffset;
 	float yOffset;
 	
-	TextureRegion greenBackground;
-	TextureRegion whiteBackground;
-	TextureRegion blackBackground;
-	TextureRegion acid;
-	TextureRegion[] keys;
-	TextureRegion life;
-	TextureRegion magnetPositive;
-	TextureRegion magnetNegative;
-	
-	public InventoryRenderer() {
-		Tileset tileset = new Tileset("tileset16.png", 16);
-		greenBackground = tileset.getTile(5, 13);
-		whiteBackground = tileset.getTile(2, 13);
-		blackBackground = tileset.getTile(4, 13);
-		acid = tileset.getTile(2, 10);
-		keys = tileset.getTiles(0, 12, 16);
-		life = tileset.getTile(7, 11);
-		magnetPositive = tileset.getTile(10, 9);
-		magnetNegative = tileset.getTile(11, 9);
-	}
-	
 	public void render(SpriteBatch batch, Room room, Inventory inventory) {
 		float startX = xOffset + RobbieMini.TILESIZE*room.getWidth() / 2 - inventory.getSize()*RobbieMini.TILESIZE / 2;
 		
 		for (int i = 0; i < room.getWidth(); i++) {
-			batch.draw(greenBackground, xOffset+RobbieMini.TILESIZE*i, yOffset);
+			batch.draw(Graphics.textures.get("inventory_outer_background"), xOffset+RobbieMini.TILESIZE*i, yOffset);
 		}
 		
 		for (int i = 0; i < inventory.getSize(); i++) {
 			if (i != inventory.getPointer()) {
-				batch.draw(whiteBackground, startX+RobbieMini.TILESIZE*i, yOffset);
+				batch.draw(Graphics.textures.get("inventory_unselected_background"), startX+RobbieMini.TILESIZE*i, yOffset);
 			} else {
-				batch.draw(blackBackground, startX+RobbieMini.TILESIZE*i, yOffset);
+				batch.draw(Graphics.textures.get("inventory_selected_background"), startX+RobbieMini.TILESIZE*i, yOffset);
 			}
 		}
 		List<Item> items = inventory.getItems();
 		for (int i = 0; i < items.size(); i++) {
 			Item item = items.get(i);
 			if (item instanceof Acid) {
-				batch.draw(acid, startX+RobbieMini.TILESIZE*i, yOffset);
+				batch.draw(Graphics.textures.get("acid"), startX+RobbieMini.TILESIZE*i, yOffset);
 			} else if (item instanceof Key) {
 				Key key = (Key) item;
-				batch.draw(keys[key.getNumber()], startX+RobbieMini.TILESIZE*i, yOffset);
+				batch.draw(Graphics.textures.get("key_" + key.getNumber()), startX+RobbieMini.TILESIZE*i, yOffset);
 			} else if (item instanceof Life) {
-				batch.draw(life, startX+RobbieMini.TILESIZE*i, yOffset);
+				batch.draw(Graphics.textures.get("life"), startX+RobbieMini.TILESIZE*i, yOffset);
 			} else if (item instanceof Magnet) {
 				if (((Magnet)item).isPositive()) {
-					batch.draw(magnetPositive, startX+RobbieMini.TILESIZE*i, yOffset);
+					batch.draw(Graphics.textures.get("magnet_positive"), startX+RobbieMini.TILESIZE*i, yOffset);
 				} else {
-					batch.draw(magnetNegative, startX+RobbieMini.TILESIZE*i, yOffset);
+					batch.draw(Graphics.textures.get("magnet_negative"), startX+RobbieMini.TILESIZE*i, yOffset);
 				}
 			} else {
-				batch.draw(greenBackground, startX+RobbieMini.TILESIZE*i, yOffset);
+				batch.draw(Graphics.textures.get("inventory_outer_background"), startX+RobbieMini.TILESIZE*i, yOffset);
 			}
 		}
 	}

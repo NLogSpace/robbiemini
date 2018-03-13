@@ -205,7 +205,7 @@ public class RoomCreator {
 			addRandomActors(arrow, room, 1);
 		}
 		
-		//addRandomRobots(room, 5);
+		addRandomRobots(room, 5);
 		
 		return room;
 	}
