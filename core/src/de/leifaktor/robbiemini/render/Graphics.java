@@ -26,6 +26,7 @@ public class Graphics {
 		textures.put("life", tileset.getTile(7, 11));
 		textures.put("magnet_positive", tileset.getTile(10, 9));
 		textures.put("magnet_negative", tileset.getTile(11, 9));
+		textures.put("blaumann", tileset.getTile(3, 10));
 
 		// Player
 		textures.put("player", tileset.getTile(0, 7));

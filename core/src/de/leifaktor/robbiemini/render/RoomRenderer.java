@@ -17,6 +17,7 @@ import de.leifaktor.robbiemini.actor.Player;
 import de.leifaktor.robbiemini.actor.Robot;
 import de.leifaktor.robbiemini.actor.Skull;
 import de.leifaktor.robbiemini.items.Acid;
+import de.leifaktor.robbiemini.items.Blaumann;
 import de.leifaktor.robbiemini.items.Item;
 import de.leifaktor.robbiemini.items.Key;
 import de.leifaktor.robbiemini.items.Life;
@@ -83,6 +84,8 @@ public class RoomRenderer {
 					} else {
 						draw(batch, Graphics.textures.get("magnet_negative"), a.x, a.y);
 					}
+				} else if (item instanceof Blaumann) {
+					draw(batch, Graphics.textures.get("blaumann"), a.x, a.y);
 				}
 			}			
 			if (a instanceof Explosion) {

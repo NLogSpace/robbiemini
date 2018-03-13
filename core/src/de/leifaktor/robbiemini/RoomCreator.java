@@ -13,6 +13,7 @@ import de.leifaktor.robbiemini.actor.ItemActor;
 import de.leifaktor.robbiemini.actor.Robot;
 import de.leifaktor.robbiemini.actor.Skull;
 import de.leifaktor.robbiemini.items.Acid;
+import de.leifaktor.robbiemini.items.Blaumann;
 import de.leifaktor.robbiemini.items.Key;
 import de.leifaktor.robbiemini.items.Life;
 import de.leifaktor.robbiemini.items.Magnet;
@@ -196,6 +197,8 @@ public class RoomCreator {
 		
 		addRandomActors(new ItemActor(0,0,new Magnet(true)), room, 2);
 		addRandomActors(new ItemActor(0,0,new Magnet(false)), room, 2);
+		
+		addRandomActors(new ItemActor(0,0,new Blaumann()), room, 7);
 		
 		Skull skull = new Skull(0,0);
 		addRandomActors(skull, room, 5);
