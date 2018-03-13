@@ -42,7 +42,7 @@ public class Acid extends Item {
 
 	@Override
 	public void onCollect(Room room, int x, int y) {
-		// TODO Auto-generated method stub		
+		room.commands.add(new PlaySoundCommand(SoundPlayer.SOUND_COLLECT));
 	}	
 
 }

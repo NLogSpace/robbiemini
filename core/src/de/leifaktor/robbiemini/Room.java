@@ -198,10 +198,6 @@ public class Room {
 		item.onUse(this, x, y);		
 	}
 
-	public void updateMagneticField() {
-		magneticField.update();		
-	}
-	
 	public Vec2 getMagneticGradientAt(int x, int y) {
 		return magneticField.getGradientAt(x, y);
 	}

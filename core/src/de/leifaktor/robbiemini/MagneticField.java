@@ -39,7 +39,6 @@ public class MagneticField {
 				}
 			}
 		}
-		//System.out.println(toString());
 	}
 	
 	private float calcPolarization(float distance) {

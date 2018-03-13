@@ -25,7 +25,7 @@ public class Life extends Item {
 
 	@Override
 	public void onCollect(Room room, int x, int y) {
-		
+		room.commands.add(new PlaySoundCommand(SoundPlayer.SOUND_COLLECT));
 	}
 
 }
