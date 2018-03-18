@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import de.leifaktor.robbiemini.items.Blaumann;
 import de.leifaktor.robbiemini.items.Item;
 
 public class Inventory {
@@ -57,5 +58,9 @@ public class Inventory {
 
 	public int getSize() {
 		return items.size();
+	}
+
+	public boolean hasBlaumann() {
+		return items.contains(new Blaumann());
 	}	
 }

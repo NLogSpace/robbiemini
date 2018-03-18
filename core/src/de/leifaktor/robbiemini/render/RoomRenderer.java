@@ -114,9 +114,19 @@ public class RoomRenderer {
 			if (a instanceof Player) {
 				Player p = (Player)a;
 				if (p.getMoveState() == MoveState.IDLE) {
-					draw(batch, Graphics.textures.get("player"), p.getPosition().x, p.getPosition().y);
+					if (p.inventory.hasBlaumann()) {
+						draw(batch, Graphics.textures.get("player_blaumann"), p.getPosition().x, p.getPosition().y);
+					} else {
+						draw(batch, Graphics.textures.get("player"), p.getPosition().x, p.getPosition().y);
+					}
+					
 				} else if (p.getMoveState() == MoveState.MOVING) {
-					draw(batch, Graphics.animations.get("player_walking").getKeyFrame(p.getStateTime(), true),p.getPosition().x, p.getPosition().y);
+					if (p.inventory.hasBlaumann()) {
+						draw(batch, Graphics.animations.get("player_walking_blaumann").getKeyFrame(p.getStateTime(), true),p.getPosition().x, p.getPosition().y);
+					} else {
+						draw(batch, Graphics.animations.get("player_walking").getKeyFrame(p.getStateTime(), true),p.getPosition().x, p.getPosition().y);
+					}
+					
 				}
 			}
 		}		

@@ -18,11 +18,11 @@ public class Graphics {
 		textures.put("wall_tile", tileset.getTile(1, 0));
 		textures.put("dark_wall_tile", tileset.getTile(3, 0));
 		textures.put("ice_tile", tileset.getTile(8, 0));
-		for (int i = 0; i < 16; i++) textures.put("door_" + i, tileset.getTile(i, 2));
+		for (int i = 0; i < 16; i++) textures.put("door_" + i, tileset.getTile(i, 3));
 
 		// Items
 		textures.put("acid", tileset.getTile(2, 10));
-		for (int i = 0; i < 16; i++) textures.put("key_" + i, tileset.getTile(i, 12));	
+		for (int i = 0; i < 16; i++) textures.put("key_" + i, tileset.getTile(i, 4));	
 		textures.put("life", tileset.getTile(7, 11));
 		textures.put("magnet_positive", tileset.getTile(10, 9));
 		textures.put("magnet_negative", tileset.getTile(11, 9));
@@ -31,6 +31,8 @@ public class Graphics {
 		// Player
 		textures.put("player", tileset.getTile(0, 7));
 		animations.put("player_walking", new Animation<TextureRegion>(0.12f,tileset.getTiles(1, 7, 2)));
+		textures.put("player_blaumann", tileset.getTile(3, 7));
+		animations.put("player_walking_blaumann", new Animation<TextureRegion>(0.12f,tileset.getTiles(4, 7, 2)));
 		
 		// Actor
 		textures.put("gold", tileset.getTile(1, 10));
