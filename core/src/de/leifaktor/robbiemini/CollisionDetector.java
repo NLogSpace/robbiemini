@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import de.leifaktor.robbiemini.actor.Actor;
 import de.leifaktor.robbiemini.actor.Robot;
-import de.leifaktor.robbiemini.actor.Actor.MoveState;
 import de.leifaktor.robbiemini.actor.Player;
 
 public class CollisionDetector {
@@ -52,7 +51,7 @@ public class CollisionDetector {
 				if (!(canMoveTo(other, room, dir) || canShiftTo(other, room, dir))) {
 					return false;
 				}
-				if (other.getMoveState() != MoveState.IDLE && other.getMoveState() != MoveState.REACHED_TILE) return false;
+				if (! other.isOnTile()) return false;
 			}
 		}
 		

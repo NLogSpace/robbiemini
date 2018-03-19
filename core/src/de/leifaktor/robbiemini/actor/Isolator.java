@@ -1,10 +1,37 @@
 package de.leifaktor.robbiemini.actor;
 
-public class Isolator extends Actor {
+import de.leifaktor.robbiemini.CollisionDetector;
+import de.leifaktor.robbiemini.Room;
+
+public class Isolator extends Actor implements IShiftable {
+	
+	boolean shouldStartShift;
 
 	public Isolator(int x, int y) {
 		super(x, y);
 	}	
+	
+	@Override
+	public void update(Room room) {
+		super.update(room);
+		if (isOnATile && shouldStartShift) {
+			shouldStartShift = false;
+			if (direction > -1) {
+				boolean canMove = CollisionDetector.canMoveTo(this, room, direction);
+				boolean canShift = CollisionDetector.canShiftTo(this, room, direction);
+				if (canMove) {
+					room.onLeave(this, x, y, direction);
+					initMove(direction);						
+					move(Math.min(remainingDistance, distanceUntilNextTile));
+				} else if (canShift) {
+					room.onLeave(this, x, y, direction);
+					room.startShift(this, x, y, direction);
+					initMove(direction);						
+					move(Math.min(remainingDistance, distanceUntilNextTile));
+				}
+			}
+		}
+	}
 
 	@Override
 	public boolean canBeEntered(Actor other) {
@@ -19,6 +46,15 @@ public class Isolator extends Actor {
 	@Override
 	public Actor clone() {
 		return new Isolator(x,y);
+	}
+
+	@Override
+	public void startShift(int direction, float speed, float remaniningDistanceInTheFirstFrame, Room room) {
+		this.direction = direction;
+		this.speed = speed;
+		this.remainingDistance = remaniningDistanceInTheFirstFrame;
+		shouldStartShift = true;
+		update(room);
 	}	
 	
 

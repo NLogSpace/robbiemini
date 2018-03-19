@@ -6,14 +6,13 @@ import java.util.List;
 
 import de.leifaktor.robbiemini.actor.Actor;
 import de.leifaktor.robbiemini.actor.Explosion;
+import de.leifaktor.robbiemini.actor.IShiftable;
 import de.leifaktor.robbiemini.actor.Player;
 import de.leifaktor.robbiemini.commands.AddActorCommand;
 import de.leifaktor.robbiemini.commands.Command;
 import de.leifaktor.robbiemini.commands.PlaySoundCommand;
 import de.leifaktor.robbiemini.commands.RemoveActorCommand;
 import de.leifaktor.robbiemini.items.Item;
-import de.leifaktor.robbiemini.movement.FixedMovement;
-import de.leifaktor.robbiemini.movement.KeyboardMovement;
 import de.leifaktor.robbiemini.screens.GameScreen;
 import de.leifaktor.robbiemini.tiles.Tile;
 
@@ -105,7 +104,6 @@ public class Room {
 	
 	public void putPlayer(Player player, int x, int y) {
 		player.spawn(x, y);
-		player.setMovingBehaviour(new KeyboardMovement());
 		this.player = player;
 		actors.remove(player);
 		actors.add(player);
@@ -145,11 +143,8 @@ public class Room {
 		int newx = x + Direction.DIR_X[direction];
 		int newy = y + Direction.DIR_Y[direction];
 		for (Actor a : actors) {
-			if (a.x == newx && a.y == newy) {
-				a.setSpeed(actor.getSpeed());
-				a.setRemainingDistance(actor.getRemainingDistance());
-				a.setMovingBehaviour(new FixedMovement(direction));
-				a.update(this);
+			if (a.x == newx && a.y == newy && a instanceof IShiftable) {
+				((IShiftable)a).startShift(direction, actor.getSpeed(), actor.getRemainingDistance(), this);
 			}
 		}
 	}

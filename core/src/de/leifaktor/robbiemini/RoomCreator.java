@@ -17,10 +17,8 @@ import de.leifaktor.robbiemini.items.Blaumann;
 import de.leifaktor.robbiemini.items.Key;
 import de.leifaktor.robbiemini.items.Life;
 import de.leifaktor.robbiemini.items.Magnet;
-import de.leifaktor.robbiemini.movement.FollowPlayerMovement;
 import de.leifaktor.robbiemini.tiles.Door;
 import de.leifaktor.robbiemini.tiles.EmptyTile;
-import de.leifaktor.robbiemini.tiles.Ice;
 import de.leifaktor.robbiemini.tiles.Tile;
 import de.leifaktor.robbiemini.tiles.Wall;
 
@@ -124,7 +122,6 @@ public class RoomCreator {
 		}
 		Tile wall = new Wall();
 		Tile empty = new EmptyTile();
-		Tile ice = new Ice();
 		Tile[] map = new Tile[width*height];
 		for (int x = 0; x < width; x++) {
 			for (int y = 0; y < height; y++) {
@@ -153,7 +150,7 @@ public class RoomCreator {
 		
 		for (int x = width/3; x < 2*width/3; x++) {
 			for (int y = height/3; y < 2*height/3; y++) {
-				map[y*width+x] = ice;
+				map[y*width+x] = empty;
 			}
 		}
 		
@@ -256,7 +253,6 @@ public class RoomCreator {
 		float speed = random.nextFloat()*0.029f+0.011f;		
 		int graphicType = random.nextInt(7);
 		Robot robot = new Robot(x, y, speed, graphicType);
-		robot.setMovingBehaviour(new FollowPlayerMovement());
 		return robot;
 	}
 

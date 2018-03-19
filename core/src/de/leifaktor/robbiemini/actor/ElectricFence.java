@@ -1,12 +1,37 @@
 package de.leifaktor.robbiemini.actor;
 
+import de.leifaktor.robbiemini.CollisionDetector;
 import de.leifaktor.robbiemini.Room;
 import de.leifaktor.robbiemini.items.Blaumann;
 
-public class ElectricFence extends Actor {
+public class ElectricFence extends Actor implements IShiftable {
+	
+	boolean shouldStartShift;
 
 	public ElectricFence(int x, int y) {
 		super(x, y);
+	}
+	
+	@Override
+	public void update(Room room) {
+		super.update(room);
+		if (isOnATile && shouldStartShift) {
+			shouldStartShift = false;
+			if (direction > -1) {
+				boolean canMove = CollisionDetector.canMoveTo(this, room, direction);
+				boolean canShift = CollisionDetector.canShiftTo(this, room, direction);
+				if (canMove) {
+					room.onLeave(this, x, y, direction);
+					initMove(direction);						
+					move(Math.min(remainingDistance, distanceUntilNextTile));
+				} else if (canShift) {
+					room.onLeave(this, x, y, direction);
+					room.startShift(this, x, y, direction);
+					initMove(direction);						
+					move(Math.min(remainingDistance, distanceUntilNextTile));
+				}
+			}
+		}
 	}
 
 	@Override
@@ -38,6 +63,15 @@ public class ElectricFence extends Actor {
 	@Override
 	public Actor clone() {
 		return new ElectricFence(x,y);
+	}
+
+	@Override
+	public void startShift(int direction, float speed, float remaniningDistanceInTheFirstFrame, Room room) {
+		this.direction = direction;
+		this.speed = speed;
+		this.remainingDistance = remaniningDistanceInTheFirstFrame;
+		shouldStartShift = true;
+		update(room);
 	}
 	
 	

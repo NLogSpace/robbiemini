@@ -5,7 +5,6 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 import de.leifaktor.robbiemini.Room;
 import de.leifaktor.robbiemini.actor.Actor;
-import de.leifaktor.robbiemini.actor.Actor.MoveState;
 import de.leifaktor.robbiemini.actor.Arrow;
 import de.leifaktor.robbiemini.actor.DissolvingWall;
 import de.leifaktor.robbiemini.actor.ElectricFence;
@@ -14,6 +13,7 @@ import de.leifaktor.robbiemini.actor.Gold;
 import de.leifaktor.robbiemini.actor.Isolator;
 import de.leifaktor.robbiemini.actor.ItemActor;
 import de.leifaktor.robbiemini.actor.Player;
+import de.leifaktor.robbiemini.actor.Player.State;
 import de.leifaktor.robbiemini.actor.Robot;
 import de.leifaktor.robbiemini.actor.Skull;
 import de.leifaktor.robbiemini.items.Acid;
@@ -25,7 +25,6 @@ import de.leifaktor.robbiemini.items.Magnet;
 import de.leifaktor.robbiemini.tiles.DarkWall;
 import de.leifaktor.robbiemini.tiles.Door;
 import de.leifaktor.robbiemini.tiles.EmptyTile;
-import de.leifaktor.robbiemini.tiles.Ice;
 import de.leifaktor.robbiemini.tiles.Wall;
 
 public class RoomRenderer {
@@ -57,7 +56,6 @@ public class RoomRenderer {
 				if (room.tiles[room.width*j + i] instanceof Wall) draw(batch, Graphics.textures.get("wall_tile"), i, j);
 				if (room.tiles[room.width*j + i] instanceof DarkWall) draw(batch, Graphics.textures.get("dark_wall_tile"), i, j);
 				if (room.tiles[room.width*j + i] instanceof EmptyTile) draw(batch, Graphics.textures.get("empty_tile"), i, j);
-				if (room.tiles[room.width*j + i] instanceof Ice) draw(batch, Graphics.textures.get("ice_tile"), i, j);
 				if (room.tiles[room.width*j + i] instanceof Door) {
 					Door d = (Door) room.tiles[room.width*j + i];
 					draw(batch, Graphics.textures.get("door_" + d.getNumber()), i, j);
@@ -113,14 +111,14 @@ public class RoomRenderer {
 			}			
 			if (a instanceof Player) {
 				Player p = (Player)a;
-				if (p.getMoveState() == MoveState.IDLE) {
+				if (p.getState() == State.IDLE) {
 					if (p.inventory.hasBlaumann()) {
 						draw(batch, Graphics.textures.get("player_blaumann"), p.getPosition().x, p.getPosition().y);
 					} else {
 						draw(batch, Graphics.textures.get("player"), p.getPosition().x, p.getPosition().y);
 					}
 					
-				} else if (p.getMoveState() == MoveState.MOVING) {
+				} else if (p.getState() == State.WALKING) {
 					if (p.inventory.hasBlaumann()) {
 						draw(batch, Graphics.animations.get("player_walking_blaumann").getKeyFrame(p.getStateTime(), true),p.getPosition().x, p.getPosition().y);
 					} else {
