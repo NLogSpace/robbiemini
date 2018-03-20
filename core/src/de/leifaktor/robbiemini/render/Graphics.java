@@ -2,7 +2,10 @@ package de.leifaktor.robbiemini.render;
 
 import java.util.HashMap;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 public class Graphics {
@@ -10,7 +13,12 @@ public class Graphics {
 	public static HashMap<String, TextureRegion> textures = new HashMap<String, TextureRegion>();
 	public static HashMap<String, Animation<TextureRegion>> animations = new HashMap<String, Animation<TextureRegion>>();
 	
+	public static BitmapFont smallFont;
+	
 	public static void loadGraphics() {
+		smallFont = new BitmapFont(Gdx.files.internal("small.fnt"));
+		smallFont.setColor(Color.BLACK);
+		
 		Tileset tileset = new Tileset("tileset16.png", 16);
 		
 		// Tiles

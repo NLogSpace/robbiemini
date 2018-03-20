@@ -1,8 +1,6 @@
 package de.leifaktor.robbiemini.render;
 
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 import de.leifaktor.robbiemini.RobbieMini;
 import de.leifaktor.robbiemini.Room;
@@ -13,8 +11,6 @@ public class StatusBarRenderer {
 	
 	float xOffset;
 	float yOffset;
-	
-	BitmapFont font = new BitmapFont();
 	
 	public void render(SpriteBatch batch, Room room) {
 		for (int i = 0; i < room.getWidth(); i++) {
@@ -33,7 +29,7 @@ public class StatusBarRenderer {
 		}
 		
 		batch.draw(Graphics.textures.get("gold"), xOffset+RobbieMini.TILESIZE*(28), yOffset);
-		font.draw(batch, "" + room.getPlayer().getGold(), xOffset+RobbieMini.TILESIZE*(29), yOffset);
+		Graphics.smallFont.draw(batch, "" + room.getPlayer().getGold(), xOffset+RobbieMini.TILESIZE*(29), yOffset+10);
 	}
 	
 	public void setOffset(float x, float y) {
