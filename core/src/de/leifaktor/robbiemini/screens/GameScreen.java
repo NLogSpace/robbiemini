@@ -119,6 +119,7 @@ public class GameScreen implements Screen {
 		currentRoomPosition = newRoomPosition;
 		currentRoom = newRoom;
 		currentRoom.putPlayer(player, player.x, player.y);
+		player.stopMoving();
 		currentRoom.setGameScreen(this);
 	}
 

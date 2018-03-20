@@ -11,12 +11,14 @@ import de.leifaktor.robbiemini.Vec2;
 public class Player extends Actor {
 
 	public Inventory inventory;
+	int gold;
 	int lives;
+	
 	int respawnTimer;
 	Vec2 respawnPosition;
 	State state;
 	float stateTime;
-
+	
 	public enum State {
 		IDLE,
 		WALKING,
@@ -46,10 +48,10 @@ public class Player extends Actor {
 			}
 			break;
 		case IDLE:
-			if (isOnATile) performAction(room);
+			if (isOnTile) performAction(room);
 			break;
 		case WALKING:
-			if (isOnATile) performAction(room);
+			if (isOnTile) performAction(room);
 			break;
 		}
 	}
@@ -100,7 +102,7 @@ public class Player extends Actor {
 	}
 	
 	public void die(Room room) {
-		room.makeExplosion(x, y);
+		room.makeExplosion(pos);
 		lives--;
 		if (lives > 0) {
 			setState(State.RESPAWNING);
@@ -150,6 +152,14 @@ public class Player extends Actor {
 	
 	public float getStateTime() {
 		return stateTime;
+	}
+
+	public void collectGold() {
+		gold++;
+	}
+	
+	public int getGold() {
+		return gold;
 	}
 
 }

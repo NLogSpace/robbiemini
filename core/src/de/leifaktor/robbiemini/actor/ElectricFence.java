@@ -15,7 +15,7 @@ public class ElectricFence extends Actor implements IShiftable {
 	@Override
 	public void update(Room room) {
 		super.update(room);
-		if (isOnATile && shouldStartShift) {
+		if (isOnTile && shouldStartShift) {
 			shouldStartShift = false;
 			if (direction > -1) {
 				boolean canMove = CollisionDetector.canMoveTo(this, room, direction);

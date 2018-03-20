@@ -9,7 +9,7 @@ public abstract class Actor {
 	public int x;
 	public int y;
 
-	private Vec2 pos;
+	protected Vec2 pos;
 	private Vec2 vel;
 
 	protected int direction;
@@ -18,7 +18,7 @@ public abstract class Actor {
 	protected float distanceUntilNextTile;
 	boolean moving;
 	boolean justReachedTile;
-	boolean isOnATile;
+	boolean isOnTile;
 
 	boolean shouldBeRemoved;
 
@@ -30,7 +30,7 @@ public abstract class Actor {
 		this.remainingDistance = 0;
 		this.moving = false;
 		this.justReachedTile = false;
-		this.isOnATile = true;
+		this.isOnTile = true;
 		shouldBeRemoved = false;
 	}
 
@@ -78,7 +78,7 @@ public abstract class Actor {
 			distanceUntilNextTile = 0;
 			setPosition(x, y);
 			justReachedTile = true;
-			isOnATile = true;
+			isOnTile = true;
 			moving = false;
 		}
 	}
@@ -89,12 +89,16 @@ public abstract class Actor {
 			vel = Direction.directionToVector(dir);
 			vel.multiply(speed);
 			moving = true;
-			isOnATile = false;
+			isOnTile = false;
 			distanceUntilNextTile = (dir < 4 ? 1 : 1.414213562f);
 			x += Direction.DIR_X[dir];
 			y += Direction.DIR_Y[dir];
 		}
-
+	}
+	
+	public void stopMoving() {
+		moving = false;
+		isOnTile = true;
 	}
 
 	public void setPosition(int x, int y) {
@@ -105,6 +109,7 @@ public abstract class Actor {
 
 	public void setPosition(Vec2 position) {
 		setPosition((int) position.x, (int) position.y);
+		this.pos = position;
 	}
 
 	public Vec2 getPosition() {
@@ -130,7 +135,7 @@ public abstract class Actor {
 	public abstract Actor clone();
 
 	public boolean isOnTile() {		
-		return isOnATile;
+		return isOnTile;
 	}
 
 }

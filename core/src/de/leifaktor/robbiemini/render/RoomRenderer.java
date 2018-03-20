@@ -88,7 +88,7 @@ public class RoomRenderer {
 			}			
 			if (a instanceof Explosion) {
 				Explosion e = ((Explosion)a);
-				draw(batch, Graphics.animations.get("explosion").getKeyFrame(e.getTime(), false),e.x, e.y);
+				draw(batch, Graphics.animations.get("explosion").getKeyFrame(e.getTime(), false),e.getPosition().x, e.getPosition().y);
 			}
 			if (a instanceof Gold) {
 				draw(batch, Graphics.textures.get("gold"), a.x, a.y);

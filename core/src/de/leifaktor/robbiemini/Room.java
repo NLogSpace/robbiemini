@@ -80,8 +80,9 @@ public class Room {
 		}
 	}
 	
-	public void makeExplosion(int x, int y) {
-		Explosion explosion = new Explosion(x, y);
+	public void makeExplosion(Vec2 position) {
+		Explosion explosion = new Explosion(0, 0);
+		explosion.setPosition(position);
 		commands.add(new AddActorCommand(explosion));
 		commands.add(new PlaySoundCommand(SoundPlayer.SOUND_EXPLOSION));
 	}

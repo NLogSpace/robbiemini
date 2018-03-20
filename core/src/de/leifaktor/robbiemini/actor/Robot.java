@@ -24,10 +24,9 @@ public class Robot extends Actor{
 	public void update(Room room) {
 		super.update(room);
 		stateTime += Gdx.graphics.getDeltaTime();		
-		if (isOnATile) {
+		if (isOnTile) {
 			decreaseStress(0.05f);
 			performAction(room);
-			System.out.println(stressLevel);
 		}
 		if (stressLevel > 0.6f) explode(room);
 	}
@@ -54,19 +53,20 @@ public class Robot extends Actor{
 		int[] possibleDirs = CollisionDetector.getPossibleDirections(this, room);
 		if (possibleDirs.length == 0) {
 			increaseStress(1);
-		}
-		if (possibleDirs.length == 1) {
-			increaseStress(0.2f);
-			return possibleDirs[0];
-		}
-		if (possibleDirs.length >= 5) decreaseStress(0.1f);
+		} else if (possibleDirs.length == 1) {
+			increaseStress(0.21f);
+		} else if (possibleDirs.length >= 5) {
+			decreaseStress(0.1f);
+		}		
+		if (possibleDirs.length == 0) return -1;
+		if (possibleDirs.length == 1) return possibleDirs[0];
 		int bestDir = getDirTowardsPlayer(room);		
 		if (bestDir >= 0) {
 			for (int i = 0; i < possibleDirs.length; i++) {
 				if (possibleDirs[i] == bestDir) return bestDir;
 			}
 		}
-		increaseStress(0.1f);
+		increaseStress(0.15f);
 		return possibleDirs[Util.random.nextInt(possibleDirs.length)];
 	}
 	
@@ -95,14 +95,13 @@ public class Robot extends Actor{
 	@Override
 	public void hitBy(Room room, Actor actor) {
 		if (actor instanceof Robot) {
-			this.remove();
-			room.makeExplosion(x, y);
+			explode(room);
 		}
 	}
 	
 	public void explode(Room room) {
 		this.remove();
-		room.makeExplosion(x, y);
+		room.makeExplosion(pos);
 	}
 
 	@Override
@@ -118,8 +117,6 @@ public class Robot extends Actor{
 	
 	public float getStateTime() {
 		return stateTime;
-	}
-	
-	
+	}	
 
 }
