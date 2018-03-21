@@ -29,7 +29,7 @@ public class StatusBarRenderer {
 		}
 		
 		batch.draw(Graphics.textures.get("gold"), xOffset+RobbieMini.TILESIZE*(28), yOffset);
-		Graphics.smallFont.draw(batch, "" + room.getPlayer().getGold(), xOffset+RobbieMini.TILESIZE*(29), yOffset+10);
+		Graphics.smallFont.draw(batch, "" + room.getPlayer().getGold(), xOffset+RobbieMini.TILESIZE*(29), yOffset+6);
 	}
 	
 	public void setOffset(float x, float y) {

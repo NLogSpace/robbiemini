@@ -12,6 +12,7 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 import de.leifaktor.robbiemini.RobbieMini;
+import de.leifaktor.robbiemini.render.Graphics;
 import de.leifaktor.robbiemini.render.Tileset;
 
 public class MainMenuScreen implements Screen {
@@ -53,7 +54,7 @@ public class MainMenuScreen implements Screen {
 				game.batch.draw(background, x*RobbieMini.TILESIZE, y*RobbieMini.TILESIZE, RobbieMini.TILESIZE, RobbieMini.TILESIZE);
 			}				
 		}		
-		game.batch.draw(title, RobbieMini.getVirtualWidth() / 4, (RobbieMini.getVirtualHeight()) / 2, RobbieMini.getVirtualWidth() / 2, 90);
+		game.batch.draw(title, RobbieMini.getVirtualWidth() / 4, (RobbieMini.getVirtualHeight()) / 2, RobbieMini.getVirtualWidth() / 2, 90);		
 		game.batch.end();
 	}
 
