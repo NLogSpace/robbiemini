@@ -35,6 +35,7 @@ public class Graphics {
 		textures.put("magnet_positive", tileset.getTile(10, 9));
 		textures.put("magnet_negative", tileset.getTile(11, 9));
 		textures.put("blaumann", tileset.getTile(3, 10));
+		textures.put("notiz", tileset.getTile(12, 9));
 
 		// Player
 		textures.put("player", tileset.getTile(0, 7));
@@ -62,6 +63,17 @@ public class Graphics {
 		textures.put("inventory_outer_background", tileset.getTile(5, 13));
 		textures.put("inventory_unselected_background", tileset.getTile(2, 13));
 		textures.put("inventory_selected_background", tileset.getTile(4, 13));
+		
+		// Textbox
+		textures.put("textbox_1", tileset.getTile(13, 13));
+		textures.put("textbox_2", tileset.getTile(14, 13));
+		textures.put("textbox_3", tileset.getTile(15, 13));
+		textures.put("textbox_4", tileset.getTile(13, 14));
+		textures.put("textbox_5", tileset.getTile(14, 14));
+		textures.put("textbox_6", tileset.getTile(15, 14));
+		textures.put("textbox_7", tileset.getTile(13, 15));
+		textures.put("textbox_8", tileset.getTile(14, 15));
+		textures.put("textbox_9", tileset.getTile(15, 15));
 	}
 
 

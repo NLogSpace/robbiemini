@@ -17,6 +17,7 @@ import de.leifaktor.robbiemini.items.Blaumann;
 import de.leifaktor.robbiemini.items.Key;
 import de.leifaktor.robbiemini.items.Life;
 import de.leifaktor.robbiemini.items.Magnet;
+import de.leifaktor.robbiemini.items.Notiz;
 import de.leifaktor.robbiemini.tiles.Door;
 import de.leifaktor.robbiemini.tiles.EmptyTile;
 import de.leifaktor.robbiemini.tiles.Tile;
@@ -36,6 +37,18 @@ public class RoomCreator {
 				else map[y*width+x] = empty;
 			}
 		}
+		map[5*width+0] = empty;
+		map[6*width+0] = empty;
+		map[7*width+0] = empty;
+		map[5*width+width-1] = empty;
+		map[6*width+width-1] = empty;
+		map[7*width+width-1] = empty;
+		map[5] = empty;
+		map[6] = empty;
+		map[7] = empty;
+		map[(height-1)*width+5] = empty;
+		map[(height-1)*width+6] = empty;
+		map[(height-1)*width+7] = empty;
 		
 		ArrayList<Actor> actors = new ArrayList<Actor>();
 		Room room = new Room(width, height, map, actors);
@@ -43,7 +56,6 @@ public class RoomCreator {
 	}
 	
 	public static Room createWallRoom(int width, int height) {
-		Random rand = new Random();
 		Tile wall = new Wall();
 		Tile empty = new EmptyTile();
 		Tile[] map = new Tile[width*height];
@@ -54,17 +66,17 @@ public class RoomCreator {
 			}
 		}
 		for (int i = 0; i < 20; i++) {
-			int x = rand.nextInt(width);
-			int y = rand.nextInt(height);
-			int len = rand.nextInt(5)+5;
+			int x = random.nextInt(width);
+			int y = random.nextInt(height);
+			int len = random.nextInt(5)+5;
 			for (int j = 0; j < len; j++) {
 				if (y*width+x+j < width*height) map[y*width+x+j] = wall; 
 			}
 		}
 		for (int i = 0; i < 20; i++) {
-			int x = rand.nextInt(width);
-			int y = rand.nextInt(height-11);
-			int len = rand.nextInt(5)+5;
+			int x = random.nextInt(width);
+			int y = random.nextInt(height-11);
+			int len = random.nextInt(5)+5;
 			for (int j = 0; j < len; j++) {
 				if ((y+j)*width+x < width*height) map[(y+j)*width+x] = wall; 
 			}
@@ -219,6 +231,9 @@ public class RoomCreator {
 			Arrow arrow = new Arrow(0,0,Util.random.nextInt(4));
 			addRandomActors(arrow, room, 1);
 		}
+		
+		Notiz notiz = new Notiz("In diesem Raum gibt es echt viele Pfeile! Da kann man vielleicht mal die Magneten ausprobieren, die sollen ja bekanntlich dabei helfen, Pfeile umzudrehen. Ich schreibe hier jetzt einfach einen extrem langen Text in diese Notiz, um zu testen, ob die Zeilenumbrüche funktionieren.");
+		room.addActor(new ItemActor(7, 7, notiz));
 		
 		return room;
 	}

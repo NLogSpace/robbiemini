@@ -18,6 +18,7 @@ import de.leifaktor.robbiemini.actor.Player;
 import de.leifaktor.robbiemini.render.InventoryRenderer;
 import de.leifaktor.robbiemini.render.RoomRenderer;
 import de.leifaktor.robbiemini.render.StatusBarRenderer;
+import de.leifaktor.robbiemini.render.TextboxRenderer;
 
 public class GameScreen implements Screen {
 	
@@ -36,8 +37,21 @@ public class GameScreen implements Screen {
 	RoomRenderer renderer;
 	StatusBarRenderer barRenderer;
 	InventoryRenderer inventoryRenderer;
+	TextboxRenderer textboxRenderer;
 	
-	boolean inventoryOpen;
+	int textboxWidth = 16;
+	int textboxHeight = 1;
+
+	String textboxText;
+	boolean showTextboxFromNextFrame;
+	
+	State state;
+	
+	enum State {
+		GAME,
+		INVENTORY,
+		TEXTBOX
+	}
 	
 	public GameScreen(RobbieMini game) {
 		this.game = game;
@@ -54,6 +68,8 @@ public class GameScreen implements Screen {
 		barRenderer.setOffset(0, RobbieMini.getVirtualHeight()-RobbieMini.TILESIZE);
 		inventoryRenderer = new InventoryRenderer();
 		inventoryRenderer.setOffset(0, RobbieMini.getVirtualHeight()-RobbieMini.TILESIZE);
+		textboxRenderer = new TextboxRenderer();
+		textboxRenderer.setSize(textboxWidth, textboxHeight);
 		
 		InputManager.initKeyMap();
 	}
@@ -61,8 +77,16 @@ public class GameScreen implements Screen {
 	@Override
 	public void render(float delta) {
 		InputManager.update();
-		processInventory();
-		currentRoom.update();
+		if (showTextboxFromNextFrame) {
+			state = State.TEXTBOX;
+			showTextboxFromNextFrame = false;
+		}
+		if (state == State.TEXTBOX) {
+			if (InputManager.justPressed[InputManager.ENTER]) state = State.GAME;
+		} else {
+			processInventory();
+			currentRoom.update();
+		}
 		renderTheGame();		
 		if (startRoomTransitionAfterThisFrame) {
 			startRoomTransition();
@@ -70,8 +94,8 @@ public class GameScreen implements Screen {
 		}
 	}
 	
-	private void processInventory() {
-		if (inventoryOpen) {
+	private void processInventory() {		
+		if (state == State.INVENTORY) {
 			player.inventory.update();
 			if (InputManager.justPressed[InputManager.ENTER]) {
 				if (player.inventory.getSelectedItem() != null) {
@@ -79,12 +103,12 @@ public class GameScreen implements Screen {
 					player.inventory.removeSelectedItem();
 					player.inventory.decreasePointer();
 				}
-				inventoryOpen = false;
+				state = State.GAME;
 			} else if (InputManager.justPressed[InputManager.ESCAPE]) {
-				inventoryOpen = false;
+				state = State.GAME;
 			}
 		} else {
-			if (InputManager.justPressed[InputManager.ENTER]) inventoryOpen = true;
+			if (InputManager.justPressed[InputManager.ENTER]) state = State.INVENTORY;
 		}
 	}
 	
@@ -94,11 +118,14 @@ public class GameScreen implements Screen {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		game.batch.begin();
 		renderer.render(game.batch, currentRoom);
-		if (inventoryOpen) {
+		if (state == State.INVENTORY) {
 			inventoryRenderer.render(game.batch, currentRoom, player.inventory);
 		} else {
 			barRenderer.render(game.batch, currentRoom);
 		}
+		if (state == State.TEXTBOX) {
+			textboxRenderer.render(game.batch, textboxText);
+		}		
 		game.batch.end();
 	}
 	
@@ -193,7 +220,15 @@ public class GameScreen implements Screen {
 	}
 	
 	public boolean isInventoryOpen() {
-		return inventoryOpen;
+		return state == State.INVENTORY;
+	}
+	
+	public void showTextbox(String text) {
+		this.textboxText = text;
+		textboxHeight = (int) textboxRenderer.getHeight(text) / RobbieMini.TILESIZE + 3;
+		textboxRenderer.setOffset((RobbieMini.getVirtualWidth()-textboxWidth*RobbieMini.TILESIZE)/2, (RobbieMini.getVirtualHeight()-textboxHeight*RobbieMini.TILESIZE)/2);
+		textboxRenderer.setSize(textboxWidth, textboxHeight);
+		showTextboxFromNextFrame = true;
 	}
 
 }

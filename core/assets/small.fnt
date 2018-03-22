@@ -80,8 +80,8 @@ char id=108     x=88  y=9    width=4    height=7   xoffset=0    yoffset=0    xad
 char id=109     x=96    y=11   width=7    height=5    xoffset=0    yoffset=2    xadvance=8    page=0    chnl=0 
 char id=110     x=104   y=11   width=6    height=5    xoffset=0    yoffset=2    xadvance=7    page=0    chnl=0 
 char id=111     x=112   y=11   width=6    height=5    xoffset=0    yoffset=2    xadvance=7    page=0    chnl=0 
-char id=112     x=120  y=11    width=7    height=6    xoffset=0    yoffset=3    xadvance=8    page=0    chnl=0 
-char id=113     x=128  y=11    width=7    height=6    xoffset=0    yoffset=3    xadvance=8    page=0    chnl=0 
+char id=112     x=120  y=11    width=7    height=6    xoffset=0    yoffset=2    xadvance=8    page=0    chnl=0 
+char id=113     x=128  y=11    width=7    height=6    xoffset=0    yoffset=2    xadvance=8    page=0    chnl=0 
 char id=114     x=136   y=11   width=7    height=5    xoffset=0    yoffset=2    xadvance=8    page=0    chnl=0 
 char id=115     x=144   y=11   width=6    height=5    xoffset=0    yoffset=2    xadvance=7    page=0    chnl=0 
 char id=116     x=152  y=9    width=5    height=7   xoffset=0    yoffset=0    xadvance=6    page=0    chnl=0 
@@ -89,7 +89,7 @@ char id=117     x=160   y=11   width=7    height=5    xoffset=0    yoffset=2    
 char id=118     x=168   y=11   width=6    height=5    xoffset=0    yoffset=2    xadvance=7    page=0    chnl=0 
 char id=119     x=176   y=11   width=7    height=5    xoffset=0    yoffset=2    xadvance=8    page=0    chnl=0 
 char id=120     x=184   y=11   width=7    height=5    xoffset=0    yoffset=2    xadvance=8    page=0    chnl=0 
-char id=121     x=192  y=11    width=6    height=6    xoffset=0    yoffset=3    xadvance=7    page=0    chnl=0 
+char id=121     x=192  y=11    width=6    height=6    xoffset=0    yoffset=2    xadvance=7    page=0    chnl=0 
 char id=122     x=200   y=11   width=6    height=5    xoffset=0    yoffset=2    xadvance=7    page=0    chnl=0 
 char id=196     x=208   y=1   width=7    height=7    xoffset=0    yoffset=0    xadvance=8    page=0    chnl=0 
 char id=214     x=216   y=1   width=8    height=7    xoffset=0    yoffset=0    xadvance=9    page=0    chnl=0 

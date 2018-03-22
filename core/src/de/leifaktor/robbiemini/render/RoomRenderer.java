@@ -22,6 +22,7 @@ import de.leifaktor.robbiemini.items.Item;
 import de.leifaktor.robbiemini.items.Key;
 import de.leifaktor.robbiemini.items.Life;
 import de.leifaktor.robbiemini.items.Magnet;
+import de.leifaktor.robbiemini.items.Notiz;
 import de.leifaktor.robbiemini.tiles.DarkWall;
 import de.leifaktor.robbiemini.tiles.Door;
 import de.leifaktor.robbiemini.tiles.EmptyTile;
@@ -84,6 +85,8 @@ public class RoomRenderer {
 					}
 				} else if (item instanceof Blaumann) {
 					draw(batch, Graphics.textures.get("blaumann"), a.x, a.y);
+				} else if (item instanceof Notiz) {
+					draw(batch, Graphics.textures.get("notiz"), a.x, a.y);
 				}
 			}			
 			if (a instanceof Explosion) {

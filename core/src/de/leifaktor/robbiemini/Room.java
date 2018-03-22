@@ -197,5 +197,9 @@ public class Room {
 	public Vec2 getMagneticGradientAt(int x, int y) {
 		return magneticField.getGradientAt(x, y);
 	}
+
+	public void showTextbox(String text) {
+		gameScreen.showTextbox(text);		
+	}
 	
 }
