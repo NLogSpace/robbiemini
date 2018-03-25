@@ -201,13 +201,18 @@ public class RoomCreator {
 		ElectricFence electricFence = new ElectricFence(0,0);
 		addRandomActors(electricFence, room, 10);
 		
-		addRandomActors(new ItemActor(0,0,new Acid()), room, 5);
+		addRandomActors(new ItemActor(0,0,new Acid()), room, 3);
 		addRandomActors(new ItemActor(0,0,new Life()), room, 2);
 		
 		addRandomActors(new ItemActor(0,0,new Magnet(true)), room, 2);
 		addRandomActors(new ItemActor(0,0,new Magnet(false)), room, 2);
 		
-		addRandomActors(new ItemActor(0,0,new Blaumann()), room, 7);
+		addRandomActors(new ItemActor(0,0,new Blaumann()), room, 2);
+		
+		addRandomActors(new Gold(0,0), room, 10);
+		
+		Notiz notiz = new Notiz("Na sieh' mal einer an. Wenn das keine Notiz ist!");
+		room.actors.add(new ItemActor(18, 20, notiz));
 		
 		Skull skull = new Skull(0,0);
 		addRandomActors(skull, room, 5);
@@ -222,6 +227,26 @@ public class RoomCreator {
 		return room;
 	}
 	
+	public static Room createTitleMenuRoom(int width, int height) {
+		Tile wall = new Wall();
+		Tile empty = new EmptyTile();
+		Tile[] map = new Tile[width*height];
+		ArrayList<Actor> actors = new ArrayList<Actor>();
+		for (int x = 0; x < width; x++) {
+			for (int y = 0; y < height; y++) {
+				if (x < 5 || x >= width-5 || y < 5 || y >= height-5) map[y*width+x] = wall;
+				else {
+					map[y*width+x] = empty;
+					if (x == 5 || x == width-6 || y == 5 || y == height-6) actors.add(new ElectricFence(x, y));
+				}				
+			}
+		}
+		
+
+		Room room = new Room(width, height, map, actors);
+		return room;
+	}
+	
 	public static Room createMagneticRoom(int width, int height) {
 		Room room = createEmptyRoom(width, height);		
 		addRandomActors(new ItemActor(0,0,new Magnet(true)), room, 10);
@@ -233,7 +258,7 @@ public class RoomCreator {
 		}
 		
 		Notiz notiz = new Notiz("In diesem Raum gibt es echt viele Pfeile! Da kann man vielleicht mal die Magneten ausprobieren, die sollen ja bekanntlich dabei helfen, Pfeile umzudrehen. Ich schreibe hier jetzt einfach einen extrem langen Text in diese Notiz, um zu testen, ob die Zeilenumbrüche funktionieren.");
-		room.addActor(new ItemActor(7, 7, notiz));
+		room.addActor(new ItemActor(27, 7, notiz));
 		
 		return room;
 	}

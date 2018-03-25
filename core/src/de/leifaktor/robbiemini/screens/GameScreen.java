@@ -39,7 +39,7 @@ public class GameScreen implements Screen {
 	InventoryRenderer inventoryRenderer;
 	TextboxRenderer textboxRenderer;
 	
-	int textboxWidth = 16;
+	int textboxWidth = 22;
 	int textboxHeight = 1;
 
 	String textboxText;

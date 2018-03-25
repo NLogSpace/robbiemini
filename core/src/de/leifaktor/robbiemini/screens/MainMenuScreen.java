@@ -7,31 +7,38 @@ import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 import de.leifaktor.robbiemini.RobbieMini;
+import de.leifaktor.robbiemini.Room;
+import de.leifaktor.robbiemini.RoomCreator;
 import de.leifaktor.robbiemini.render.Graphics;
-import de.leifaktor.robbiemini.render.Tileset;
+import de.leifaktor.robbiemini.render.RoomRenderer;
 
 public class MainMenuScreen implements Screen {
 	
 	RobbieMini game;
 	
 	Texture title;
-	TextureRegion background;
 	
 	Camera camera;
 	Viewport viewport;
 	
+	RoomRenderer roomRenderer;
+	
+	Room backgroundRoom;
+	
+	int selected = 0;
+	
 	public MainMenuScreen(RobbieMini game) {
 		this.game = game;
 		title = new Texture(Gdx.files.internal("title.png"));
-		background = new Tileset("tileset16.png", 16).getTile(1, 0);
 		camera = new OrthographicCamera(RobbieMini.getVirtualWidth(), RobbieMini.getVirtualHeight());
 		camera.position.set(RobbieMini.getVirtualWidth() / 2, RobbieMini.getVirtualHeight() / 2, 1);
 		viewport = new FitViewport(RobbieMini.getVirtualWidth(), RobbieMini.getVirtualHeight(), camera);
+		roomRenderer = new RoomRenderer();
+		backgroundRoom = RoomCreator.createTitleMenuRoom(RobbieMini.WIDTH, RobbieMini.HEIGHT+1);
 	}
 
 	@Override
@@ -41,21 +48,30 @@ public class MainMenuScreen implements Screen {
 
 	@Override
 	public void render(float delta) {
+		if (Gdx.input.isKeyJustPressed(Keys.DOWN)) {
+			if (selected < 2) selected++;
+		}
+		if (Gdx.input.isKeyJustPressed(Keys.UP)) {
+			if (selected > 0) selected--;
+		}
+		
 		if (Gdx.input.isKeyJustPressed(Keys.ENTER)) {
-			game.setScreen(new GameScreen(game));
+			if (selected == 0) game.setScreen(new GameScreen(game));
+			if (selected == 2) Gdx.app.exit();
 		}
 		
 		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		game.batch.setProjectionMatrix(camera.combined);
 		game.batch.begin();
-		for (int x = 0; x < RobbieMini.getVirtualWidth() / RobbieMini.TILESIZE; x++) {
-			for (int y = 0; y < RobbieMini.getVirtualHeight() / RobbieMini.TILESIZE; y++) {
-				game.batch.draw(background, x*RobbieMini.TILESIZE, y*RobbieMini.TILESIZE, RobbieMini.TILESIZE, RobbieMini.TILESIZE);
-			}
-		}		
-		game.batch.draw(title, RobbieMini.getVirtualWidth() / 4, (RobbieMini.getVirtualHeight()) / 2, RobbieMini.getVirtualWidth() / 2, 90);
-		Graphics.largeFont.draw(game.batch, "Hallo, Test!", 30, 30);
+		roomRenderer.render(game.batch, backgroundRoom);
+		game.batch.draw(title, (RobbieMini.getVirtualWidth() - title.getWidth()) / 2, 230);
+		Graphics.largeFont.draw(game.batch, "Das Spiel von", RobbieMini.getVirtualWidth() / 2-60, 270);
+		Graphics.largeFont.draw(game.batch, "Start", RobbieMini.getVirtualWidth() / 2-30, 170);
+		Graphics.largeFont.draw(game.batch, "Optionen", RobbieMini.getVirtualWidth() / 2-30, 150);
+		Graphics.largeFont.draw(game.batch, "Ende", RobbieMini.getVirtualWidth() / 2-30, 130);
+		game.batch.draw(Graphics.textures.get("arrow_1"), RobbieMini.getVirtualWidth() / 2-50, 160 - 20*selected);
+		game.batch.draw(Graphics.textures.get("arrow_3"), RobbieMini.getVirtualWidth() / 2+50, 160 - 20*selected);
 		game.batch.end();
 	}
 

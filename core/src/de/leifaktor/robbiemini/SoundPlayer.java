@@ -16,6 +16,8 @@ public class SoundPlayer {
 	public static final int SOUND_GOLD = 5;
 	public static final int SOUND_LIFE = 6;
 	public static final int SOUND_COLLECT_CLICK = 7;
+	public static final int SOUND_COLLECT_SONG_1 = 8;
+	public static final int SOUND_COLLECT_SONG_2 = 9;
 	
 	public static SoundPlayer getInstance() {
 		if (instance == null) {
@@ -34,6 +36,8 @@ public class SoundPlayer {
 		sounds[SOUND_GOLD] = Gdx.audio.newSound(Gdx.files.internal("gold.wav"));
 		sounds[SOUND_LIFE] = Gdx.audio.newSound(Gdx.files.internal("life.wav"));
 		sounds[SOUND_COLLECT_CLICK] = Gdx.audio.newSound(Gdx.files.internal("collect_click.wav"));
+		sounds[SOUND_COLLECT_SONG_1] = Gdx.audio.newSound(Gdx.files.internal("collect_song_1.wav"));
+		sounds[SOUND_COLLECT_SONG_2] = Gdx.audio.newSound(Gdx.files.internal("collect_song_2.wav"));
 	}
 	
 	public void play(int id) {

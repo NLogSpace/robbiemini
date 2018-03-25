@@ -29,7 +29,10 @@ public class Gold extends Actor {
 	public Actor clone() {
 		return new Gold(x,y);
 	}
-	
-	
+
+	@Override
+	public boolean canBeEntered(Actor other) {
+		return other instanceof Player;
+	}	
 
 }
