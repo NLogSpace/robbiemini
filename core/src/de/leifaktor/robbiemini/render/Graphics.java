@@ -14,10 +14,13 @@ public class Graphics {
 	public static HashMap<String, Animation<TextureRegion>> animations = new HashMap<String, Animation<TextureRegion>>();
 	
 	public static BitmapFont smallFont;
+	public static BitmapFont largeFont;
 	
 	public static void loadGraphics() {
 		smallFont = new BitmapFont(Gdx.files.internal("small.fnt"));
 		smallFont.setColor(Color.BLACK);
+		largeFont = new BitmapFont(Gdx.files.internal("large.fnt"));
+		largeFont.setColor(Color.BLACK);
 		
 		Tileset tileset = new Tileset("tileset16.png", 16);
 		
