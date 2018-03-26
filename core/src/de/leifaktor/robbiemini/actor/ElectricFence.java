@@ -58,6 +58,11 @@ public class ElectricFence extends Actor implements IShiftable {
 			((Robot)actor).explode(room);
 			this.remove();
 		}
+		if (actor instanceof FlyingBullet) {
+			room.makeExplosion(getPosition());
+			actor.remove();
+			this.remove();			
+		}
 	}
 
 	@Override

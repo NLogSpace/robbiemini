@@ -6,6 +6,7 @@ import java.util.Stack;
 
 import de.leifaktor.robbiemini.actor.Actor;
 import de.leifaktor.robbiemini.actor.Arrow;
+import de.leifaktor.robbiemini.actor.BulletStack;
 import de.leifaktor.robbiemini.actor.ElectricFence;
 import de.leifaktor.robbiemini.actor.Gold;
 import de.leifaktor.robbiemini.actor.Isolator;
@@ -18,6 +19,7 @@ import de.leifaktor.robbiemini.items.Key;
 import de.leifaktor.robbiemini.items.Life;
 import de.leifaktor.robbiemini.items.Magnet;
 import de.leifaktor.robbiemini.items.Notiz;
+import de.leifaktor.robbiemini.items.Schleuder;
 import de.leifaktor.robbiemini.tiles.Door;
 import de.leifaktor.robbiemini.tiles.EmptyTile;
 import de.leifaktor.robbiemini.tiles.Tile;
@@ -211,6 +213,9 @@ public class RoomCreator {
 		
 		addRandomActors(new Gold(0,0), room, 10);
 		
+		addRandomActors(new BulletStack(0,0, random.nextInt(6) + 1), room, 3);
+		addRandomActors(new ItemActor(0,0,new Schleuder()), room, 1);
+		
 		Notiz notiz = new Notiz("Na sieh' mal einer an. Wenn das keine Notiz ist!");
 		room.actors.add(new ItemActor(18, 20, notiz));
 		
@@ -290,7 +295,7 @@ public class RoomCreator {
 	public static Robot randomRobot(int width, int height) {
 		int x = random.nextInt(width);
 		int y = random.nextInt(height);
-		float speed = random.nextFloat()*0.029f+0.011f;		
+		float speed = random.nextFloat()*0.031f+0.007f;		
 		int graphicType = random.nextInt(7);
 		Robot robot = new Robot(x, y, speed, graphicType);
 		return robot;

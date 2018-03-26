@@ -14,6 +14,7 @@ import de.leifaktor.robbiemini.items.Key;
 import de.leifaktor.robbiemini.items.Life;
 import de.leifaktor.robbiemini.items.Magnet;
 import de.leifaktor.robbiemini.items.Notiz;
+import de.leifaktor.robbiemini.items.Schleuder;
 
 public class InventoryRenderer {
 
@@ -56,7 +57,9 @@ public class InventoryRenderer {
 				batch.draw(Graphics.textures.get("blaumann"), startX+RobbieMini.TILESIZE*i, yOffset);
 			} else if (item instanceof Notiz) {
 				batch.draw(Graphics.textures.get("notiz"), startX+RobbieMini.TILESIZE*i, yOffset);
-			}else {
+			} else if (item instanceof Schleuder) {
+				batch.draw(Graphics.textures.get("schleuder"), startX+RobbieMini.TILESIZE*i, yOffset);
+			} else {
 				batch.draw(Graphics.textures.get("inventory_outer_background"), startX+RobbieMini.TILESIZE*i, yOffset);
 			}
 		}

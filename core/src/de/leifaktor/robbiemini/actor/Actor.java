@@ -63,7 +63,7 @@ public abstract class Actor {
 		if (justReachedTile) {
 			room.onEnter(this, x, y, direction);
 			justReachedTile = false;
-		}		
+		}
 		if (moving)	move(Math.min(remainingDistance, distanceUntilNextTile));
 	}
 
@@ -136,6 +136,10 @@ public abstract class Actor {
 
 	public boolean isOnTile() {		
 		return isOnTile;
+	}
+	
+	public int getDirection() {
+		return direction;
 	}
 
 }

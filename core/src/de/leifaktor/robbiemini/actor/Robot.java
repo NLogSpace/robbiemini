@@ -49,7 +49,7 @@ public class Robot extends Actor{
 		}
 	}
 	
-	public int getMoveDirection(Room room) {	
+	public int getMoveDirection(Room room) {
 		int[] possibleDirs = CollisionDetector.getPossibleDirections(this, room);
 		if (possibleDirs.length == 0) {
 			increaseStress(1);
@@ -96,6 +96,11 @@ public class Robot extends Actor{
 	public void hitBy(Room room, Actor actor) {
 		if (actor instanceof Robot) {
 			explode(room);
+		}
+		if (actor instanceof FlyingBullet) {
+			room.makeExplosion(getPosition());
+			actor.remove();
+			this.remove();			
 		}
 	}
 	

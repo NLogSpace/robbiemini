@@ -15,17 +15,17 @@ public class ItemActor extends Actor {
 
 	@Override
 	public void hitBy(Room room, Actor actor) {
-		if (actor instanceof Player) {
-			item.onCollect(room, x, y);
-			room.commands.add(new RemoveActorCommand(this));
-			((Player)actor).inventory.add(item);
-		}
+		item.onHitBy(room, this, actor, x, y);
+	}
+	
+	public void collect(Room room, Player player) {
+		room.commands.add(new RemoveActorCommand(this));
+		player.inventory.add(item);
 	}
 
 	@Override
-	public boolean canBeEntered(Actor other) {
-		if (other instanceof Isolator || other instanceof Robot) return false;
-		return true;
+	public boolean canBeEntered(Actor other) {		
+		return other instanceof Player;
 	}
 
 	@Override

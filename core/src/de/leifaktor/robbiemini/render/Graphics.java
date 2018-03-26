@@ -39,6 +39,8 @@ public class Graphics {
 		textures.put("magnet_negative", tileset.getTile(11, 9));
 		textures.put("blaumann", tileset.getTile(3, 10));
 		textures.put("notiz", tileset.getTile(12, 9));
+		for (int i = 1; i <= 6; i++) textures.put("bullets_" + i, tileset.getTile(7+i, 11));
+		textures.put("schleuder", tileset.getTile(4, 10));
 
 		// Player
 		textures.put("player", tileset.getTile(0, 7));
@@ -55,6 +57,7 @@ public class Graphics {
 		animations.put("dissolving_wall", new Animation<TextureRegion>(0.25f,tileset.getTiles(0, 1, 16)));
 		for (int i = 0; i < 7; i++)	animations.put("robot_" + i, new Animation<TextureRegion>(0.6f,tileset.getTiles(2*i, 8, 2)));
 		animations.put("explosion", new Animation<TextureRegion>(0.3f,tileset.getTiles(6, 7, 5)));
+		textures.put("flying_bullet", tileset.getTile(8, 11));
 		
 		// Status Bar
 		textures.put("status_bar_outer_background", tileset.getTile(3, 13));

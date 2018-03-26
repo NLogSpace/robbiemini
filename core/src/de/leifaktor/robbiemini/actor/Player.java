@@ -12,6 +12,7 @@ public class Player extends Actor {
 
 	public Inventory inventory;
 	int gold;
+	int bullets;
 	int lives;
 	
 	int respawnTimer;
@@ -116,7 +117,7 @@ public class Player extends Actor {
 
 	@Override
 	public void hitBy(Room room, Actor actor) {
-		if (actor instanceof Robot) {
+		if (actor instanceof Robot || actor instanceof FlyingBullet) {
 			if (!isRespawning()) {				
 				die(room);
 			}
@@ -160,6 +161,18 @@ public class Player extends Actor {
 	
 	public int getGold() {
 		return gold;
+	}
+	
+	public void collectBullets(int number) {
+		bullets += number;
+	}
+	
+	public int getBullets() {
+		return bullets;
+	}
+
+	public void removeBullet() {
+		if (bullets > 0) bullets--;
 	}
 
 }

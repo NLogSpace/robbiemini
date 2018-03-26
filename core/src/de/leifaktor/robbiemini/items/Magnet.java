@@ -2,8 +2,10 @@ package de.leifaktor.robbiemini.items;
 
 import de.leifaktor.robbiemini.Room;
 import de.leifaktor.robbiemini.SoundPlayer;
+import de.leifaktor.robbiemini.actor.Actor;
 import de.leifaktor.robbiemini.actor.ItemActor;
 import de.leifaktor.robbiemini.actor.Magnetic;
+import de.leifaktor.robbiemini.actor.Player;
 import de.leifaktor.robbiemini.commands.AddActorCommand;
 import de.leifaktor.robbiemini.commands.PlaySoundCommand;
 
@@ -35,8 +37,11 @@ public class Magnet extends Item implements Magnetic {
 	}
 
 	@Override
-	public void onCollect(Room room, int x, int y) {
-		room.commands.add(new PlaySoundCommand(SoundPlayer.SOUND_COLLECT_CLICK));
+	public void onHitBy(Room room, ItemActor itemActor, Actor actor, int x, int y) {		
+		if (actor instanceof Player) {
+			room.commands.add(new PlaySoundCommand(SoundPlayer.SOUND_COLLECT_CLICK));
+			itemActor.collect(room, (Player) actor);
+		}
 	}
 
 }

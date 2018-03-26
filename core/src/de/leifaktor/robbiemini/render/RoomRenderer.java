@@ -6,9 +6,11 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import de.leifaktor.robbiemini.Room;
 import de.leifaktor.robbiemini.actor.Actor;
 import de.leifaktor.robbiemini.actor.Arrow;
+import de.leifaktor.robbiemini.actor.BulletStack;
 import de.leifaktor.robbiemini.actor.DissolvingWall;
 import de.leifaktor.robbiemini.actor.ElectricFence;
 import de.leifaktor.robbiemini.actor.Explosion;
+import de.leifaktor.robbiemini.actor.FlyingBullet;
 import de.leifaktor.robbiemini.actor.Gold;
 import de.leifaktor.robbiemini.actor.Isolator;
 import de.leifaktor.robbiemini.actor.ItemActor;
@@ -23,6 +25,7 @@ import de.leifaktor.robbiemini.items.Key;
 import de.leifaktor.robbiemini.items.Life;
 import de.leifaktor.robbiemini.items.Magnet;
 import de.leifaktor.robbiemini.items.Notiz;
+import de.leifaktor.robbiemini.items.Schleuder;
 import de.leifaktor.robbiemini.tiles.DarkWall;
 import de.leifaktor.robbiemini.tiles.Door;
 import de.leifaktor.robbiemini.tiles.EmptyTile;
@@ -87,6 +90,8 @@ public class RoomRenderer {
 					draw(batch, Graphics.textures.get("blaumann"), a.x, a.y);
 				} else if (item instanceof Notiz) {
 					draw(batch, Graphics.textures.get("notiz"), a.x, a.y);
+				} else if (item instanceof Schleuder) {
+					draw(batch, Graphics.textures.get("schleuder"), a.x, a.y);
 				}
 			}			
 			if (a instanceof Explosion) {
@@ -108,10 +113,16 @@ public class RoomRenderer {
 			if (a instanceof Skull) {
 				draw(batch, Graphics.textures.get("skull"), a.getPosition().x, a.getPosition().y);
 			}
+			if (a instanceof FlyingBullet) {
+				draw(batch, Graphics.textures.get("flying_bullet"), a.getPosition().x, a.getPosition().y);
+			}
+			if (a instanceof BulletStack) {
+					draw(batch, Graphics.textures.get("bullets_" + ((BulletStack)a).getNumber()), a.x, a.y);
+			}
 			if (a instanceof Robot) {
 				Robot r = (Robot) a;
 				draw(batch, Graphics.animations.get("robot_" + r.graphicType).getKeyFrame(r.getStateTime(), true),r.getPosition().x, r.getPosition().y);
-			}			
+			}
 			if (a instanceof Player) {
 				Player p = (Player)a;
 				if (p.getState() == State.IDLE) {
