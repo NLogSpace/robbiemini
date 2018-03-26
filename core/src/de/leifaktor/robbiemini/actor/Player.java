@@ -121,7 +121,7 @@ public class Player extends Actor {
 			if (!isRespawning()) {				
 				die(room);
 			}
-		}		
+		}
 	}
 
 	@Override

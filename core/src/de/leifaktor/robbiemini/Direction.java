@@ -49,5 +49,11 @@ public class Direction {
     	if (angle < 7*Math.PI/8) return 7;
     	else return 3;
     }
+
+	public static int oppositeDir(int dir) {
+		if (dir < 0) return -1;
+		if (dir < 4) return (dir+2)%4;
+		else return (dir+2)%4 + 4;
+	}
     
 }

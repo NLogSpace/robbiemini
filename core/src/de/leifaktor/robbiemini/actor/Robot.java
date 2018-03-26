@@ -57,16 +57,25 @@ public class Robot extends Actor{
 			increaseStress(0.21f);
 		} else if (possibleDirs.length >= 5) {
 			decreaseStress(0.1f);
-		}		
+		}
 		if (possibleDirs.length == 0) return -1;
 		if (possibleDirs.length == 1) return possibleDirs[0];
-		int bestDir = getDirTowardsPlayer(room);		
+		int bestDir = getDirTowardsPlayer(room);
 		if (bestDir >= 0) {
 			for (int i = 0; i < possibleDirs.length; i++) {
 				if (possibleDirs[i] == bestDir) return bestDir;
 			}
 		}
-		increaseStress(0.15f);
+		increaseStress(0.10f);
+		if (Util.random.nextFloat() < 0.6f) {
+			int oppositeDir = Direction.oppositeDir(bestDir);
+			if (oppositeDir >= 0) {
+				for (int i = 0; i < possibleDirs.length; i++) {
+					if (possibleDirs[i] == oppositeDir) return oppositeDir;
+				}
+			}
+		}
+		increaseStress(0.05f);
 		return possibleDirs[Util.random.nextInt(possibleDirs.length)];
 	}
 	
@@ -84,8 +93,8 @@ public class Robot extends Actor{
 		Player player = room.getPlayer();
 		if (player == null) return -1;
 		
-		int dx = player.x - this.x;
-		int dy = player.y - this.y;
+		int dx = player.x > this.x ? 1 : player.x < this.x ? -1 : 0;
+		int dy = player.y > this.y ? 1 : player.y < this.y ? -1 : 0;
 		
 		double angle = Math.atan2(dy, dx);
 		
