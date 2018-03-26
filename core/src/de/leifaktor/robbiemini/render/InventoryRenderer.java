@@ -7,14 +7,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import de.leifaktor.robbiemini.Inventory;
 import de.leifaktor.robbiemini.RobbieMini;
 import de.leifaktor.robbiemini.Room;
-import de.leifaktor.robbiemini.items.Acid;
-import de.leifaktor.robbiemini.items.Blaumann;
 import de.leifaktor.robbiemini.items.Item;
-import de.leifaktor.robbiemini.items.Key;
-import de.leifaktor.robbiemini.items.Life;
-import de.leifaktor.robbiemini.items.Magnet;
-import de.leifaktor.robbiemini.items.Notiz;
-import de.leifaktor.robbiemini.items.Schleuder;
 
 public class InventoryRenderer {
 
@@ -40,28 +33,7 @@ public class InventoryRenderer {
 		List<Item> items = inventory.getItems();
 		for (int i = 0; i < items.size(); i++) {
 			Item item = items.get(i);
-			if (item instanceof Acid) {
-				batch.draw(Graphics.textures.get("acid"), startX+RobbieMini.TILESIZE*i, yOffset);
-			} else if (item instanceof Key) {
-				Key key = (Key) item;
-				batch.draw(Graphics.textures.get("key_" + key.getNumber()), startX+RobbieMini.TILESIZE*i, yOffset);
-			} else if (item instanceof Life) {
-				batch.draw(Graphics.textures.get("life"), startX+RobbieMini.TILESIZE*i, yOffset);
-			} else if (item instanceof Magnet) {
-				if (((Magnet)item).isPositive()) {
-					batch.draw(Graphics.textures.get("magnet_positive"), startX+RobbieMini.TILESIZE*i, yOffset);
-				} else {
-					batch.draw(Graphics.textures.get("magnet_negative"), startX+RobbieMini.TILESIZE*i, yOffset);
-				}
-			} else if (item instanceof Blaumann) {
-				batch.draw(Graphics.textures.get("blaumann"), startX+RobbieMini.TILESIZE*i, yOffset);
-			} else if (item instanceof Notiz) {
-				batch.draw(Graphics.textures.get("notiz"), startX+RobbieMini.TILESIZE*i, yOffset);
-			} else if (item instanceof Schleuder) {
-				batch.draw(Graphics.textures.get("schleuder"), startX+RobbieMini.TILESIZE*i, yOffset);
-			} else {
-				batch.draw(Graphics.textures.get("inventory_outer_background"), startX+RobbieMini.TILESIZE*i, yOffset);
-			}
+			ItemRenderer.render(batch, item, startX+RobbieMini.TILESIZE*i, yOffset);
 		}
 	}
 	

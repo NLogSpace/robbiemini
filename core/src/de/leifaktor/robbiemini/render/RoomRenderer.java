@@ -74,26 +74,7 @@ public class RoomRenderer {
 			}
 			if (a instanceof ItemActor) {
 				Item item = ((ItemActor)a).getItem();
-				if (item instanceof Acid) {
-					draw(batch, Graphics.textures.get("acid"), a.x, a.y);
-				} else if (item instanceof Key) {
-					Key key = (Key) item;
-					draw(batch, Graphics.textures.get("key_" + key.getNumber()), a.x, a.y);
-				} else if (item instanceof Life) {
-					draw(batch, Graphics.textures.get("life"), a.x, a.y);
-				} else if (item instanceof Magnet) {
-					if (((Magnet)item).isPositive()) {
-						draw(batch, Graphics.textures.get("magnet_positive"), a.x, a.y);
-					} else {
-						draw(batch, Graphics.textures.get("magnet_negative"), a.x, a.y);
-					}
-				} else if (item instanceof Blaumann) {
-					draw(batch, Graphics.textures.get("blaumann"), a.x, a.y);
-				} else if (item instanceof Notiz) {
-					draw(batch, Graphics.textures.get("notiz"), a.x, a.y);
-				} else if (item instanceof Schleuder) {
-					draw(batch, Graphics.textures.get("schleuder"), a.x, a.y);
-				}
+				ItemRenderer.render(batch, item, (a.x+xOffset)*TILESIZE, (a.y+yOffset)*TILESIZE);				
 			}			
 			if (a instanceof Explosion) {
 				Explosion e = ((Explosion)a);
@@ -126,6 +107,8 @@ public class RoomRenderer {
 			}
 			if (a instanceof TeleportDesReichtums) {
 				draw(batch, Graphics.animations.get("teleport").getKeyFrame(((TeleportDesReichtums)a).getStateTime(), true),a.x, a.y);
+				ItemRenderer.render(batch, ((TeleportDesReichtums)a).getItem(), (a.x+xOffset)*TILESIZE, (a.y+yOffset)*TILESIZE);
+				draw(batch, Graphics.textures.get("teleport_frame"),a.x, a.y);
 			}
 			if (a instanceof Player) {
 				Player p = (Player)a;

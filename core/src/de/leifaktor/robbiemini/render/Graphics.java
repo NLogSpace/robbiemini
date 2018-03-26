@@ -59,6 +59,7 @@ public class Graphics {
 		animations.put("explosion", new Animation<TextureRegion>(0.3f,tileset.getTiles(6, 7, 5)));
 		textures.put("flying_bullet", tileset.getTile(8, 11));
 		animations.put("teleport", new Animation<TextureRegion>(0.25f, tileset.getTiles(11, 0, 4)));
+		textures.put("teleport_frame", tileset.getTile(15, 0));
 		
 		// Status Bar
 		textures.put("status_bar_outer_background", tileset.getTile(3, 13));

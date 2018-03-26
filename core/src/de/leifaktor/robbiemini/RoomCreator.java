@@ -220,7 +220,7 @@ public class RoomCreator {
 		Notiz notiz = new Notiz("Na sieh' mal einer an. Wenn das keine Notiz ist!");
 		room.actors.add(new ItemActor(18, 20, notiz));
 		
-		room.actors.add(new TeleportDesReichtums(20,10, new Acid()));
+		room.actors.add(new TeleportDesReichtums(20,10, new Blaumann()));
 		
 		Skull skull = new Skull(0,0);
 		addRandomActors(skull, room, 5);
