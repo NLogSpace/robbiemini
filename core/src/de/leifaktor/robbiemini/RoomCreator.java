@@ -13,6 +13,7 @@ import de.leifaktor.robbiemini.actor.Isolator;
 import de.leifaktor.robbiemini.actor.ItemActor;
 import de.leifaktor.robbiemini.actor.Robot;
 import de.leifaktor.robbiemini.actor.Skull;
+import de.leifaktor.robbiemini.actor.TeleportDesReichtums;
 import de.leifaktor.robbiemini.items.Acid;
 import de.leifaktor.robbiemini.items.Blaumann;
 import de.leifaktor.robbiemini.items.Key;
@@ -218,6 +219,8 @@ public class RoomCreator {
 		
 		Notiz notiz = new Notiz("Na sieh' mal einer an. Wenn das keine Notiz ist!");
 		room.actors.add(new ItemActor(18, 20, notiz));
+		
+		room.actors.add(new TeleportDesReichtums(20,10, new Acid()));
 		
 		Skull skull = new Skull(0,0);
 		addRandomActors(skull, room, 5);

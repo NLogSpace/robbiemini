@@ -18,6 +18,7 @@ import de.leifaktor.robbiemini.actor.Player;
 import de.leifaktor.robbiemini.actor.Player.State;
 import de.leifaktor.robbiemini.actor.Robot;
 import de.leifaktor.robbiemini.actor.Skull;
+import de.leifaktor.robbiemini.actor.TeleportDesReichtums;
 import de.leifaktor.robbiemini.items.Acid;
 import de.leifaktor.robbiemini.items.Blaumann;
 import de.leifaktor.robbiemini.items.Item;
@@ -117,11 +118,14 @@ public class RoomRenderer {
 				draw(batch, Graphics.textures.get("flying_bullet"), a.getPosition().x, a.getPosition().y);
 			}
 			if (a instanceof BulletStack) {
-					draw(batch, Graphics.textures.get("bullets_" + ((BulletStack)a).getNumber()), a.x, a.y);
+				draw(batch, Graphics.textures.get("bullets_" + ((BulletStack)a).getNumber()), a.x, a.y);
 			}
 			if (a instanceof Robot) {
 				Robot r = (Robot) a;
 				draw(batch, Graphics.animations.get("robot_" + r.graphicType).getKeyFrame(r.getStateTime(), true),r.getPosition().x, r.getPosition().y);
+			}
+			if (a instanceof TeleportDesReichtums) {
+				draw(batch, Graphics.animations.get("teleport").getKeyFrame(((TeleportDesReichtums)a).getStateTime(), true),a.x, a.y);
 			}
 			if (a instanceof Player) {
 				Player p = (Player)a;

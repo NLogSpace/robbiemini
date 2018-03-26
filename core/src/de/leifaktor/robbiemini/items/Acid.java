@@ -50,4 +50,11 @@ public class Acid extends Item {
 		}
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		return obj instanceof Acid;
+	}
+	
+	
+
 }
