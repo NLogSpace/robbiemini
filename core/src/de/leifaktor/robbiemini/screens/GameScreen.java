@@ -34,6 +34,9 @@ public class GameScreen implements Screen {
 	Player player;
 	boolean startRoomTransitionAfterThisFrame;
 	
+	boolean startTeleportAfterThisFrame;
+	XYZPos playerTeleportPosition;
+	
 	RoomRenderer renderer;
 	StatusBarRenderer barRenderer;
 	InventoryRenderer inventoryRenderer;
@@ -92,8 +95,22 @@ public class GameScreen implements Screen {
 			startRoomTransition();
 			startRoomTransitionAfterThisFrame = false;
 		}
+		if (startTeleportAfterThisFrame) {
+			startTeleport();
+			startTeleportAfterThisFrame = false;
+		}
 	}
 	
+	private void startTeleport() {
+		currentRoom.removePlayer();
+		currentRoomPosition = newRoomPosition;
+		currentRoom = roomManager.getRoom(newRoomPosition);
+		System.out.println("ROOM: " + currentRoom);
+		currentRoom.putPlayer(player, playerTeleportPosition.x, playerTeleportPosition.y);
+		player.stopMoving();
+		currentRoom.setGameScreen(this);		
+	}
+
 	private void processInventory() {		
 		if (state == State.INVENTORY) {
 			player.inventory.update();
@@ -229,6 +246,12 @@ public class GameScreen implements Screen {
 		textboxRenderer.setOffset((RobbieMini.getVirtualWidth()-textboxWidth*RobbieMini.TILESIZE)/2, (RobbieMini.getVirtualHeight()-textboxHeight*RobbieMini.TILESIZE)/2);
 		textboxRenderer.setSize(textboxWidth, textboxHeight);
 		showTextboxFromNextFrame = true;
+	}
+	
+	public void teleportTo(XYZPos roomPosition, XYZPos playerPosition) {
+		this.newRoomPosition = roomPosition;
+		this.playerTeleportPosition = playerPosition;
+		startTeleportAfterThisFrame = true;
 	}
 
 }

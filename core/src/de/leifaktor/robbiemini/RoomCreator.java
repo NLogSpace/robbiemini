@@ -221,7 +221,9 @@ public class RoomCreator {
 		Notiz notiz = new Notiz("Na sieh' mal einer an. Wenn das keine Notiz ist!");
 		room.actors.add(new ItemActor(18, 20, notiz));
 		
-		room.actors.add(new Teleporter(20,10));
+		Teleporter teleporter = new Teleporter(20,10);
+		teleporter.setDestination(new XYZPos(2,1,1), new XYZPos(10,10,0));
+		room.actors.add(teleporter);		
 		
 		room.actors.add(new Schalter(1, 10, true, true));
 		

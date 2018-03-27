@@ -202,4 +202,8 @@ public class Room {
 		gameScreen.showTextbox(text);		
 	}
 	
+	public void teleportTo(XYZPos roomPosition, XYZPos insideRoomPosition) {
+		gameScreen.teleportTo(roomPosition, insideRoomPosition);
+	}
+	
 }
