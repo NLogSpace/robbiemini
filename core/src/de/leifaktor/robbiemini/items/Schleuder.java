@@ -23,7 +23,7 @@ public class Schleuder extends Item {
 			Player player = (Player) actor;
 			if (InputManager.pressed[InputManager.SHIFT] || player.getBullets() == 0) {
 				itemActor.collect(room, player);
-				room.commands.add(new PlaySoundCommand(SoundPlayer.SOUND_COLLECT));
+				room.commands.add(new PlaySoundCommand(SoundPlayer.SOUND_COLLECT_CLICK));
 			} else {
 				room.commands.add(new AddActorCommand(new FlyingBullet(x,y,player.getDirection(), 0.25f)));
 				player.removeBullet();

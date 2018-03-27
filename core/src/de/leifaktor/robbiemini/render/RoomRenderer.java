@@ -18,15 +18,8 @@ import de.leifaktor.robbiemini.actor.Player;
 import de.leifaktor.robbiemini.actor.Player.State;
 import de.leifaktor.robbiemini.actor.Robot;
 import de.leifaktor.robbiemini.actor.Skull;
-import de.leifaktor.robbiemini.actor.TeleportDesReichtums;
-import de.leifaktor.robbiemini.items.Acid;
-import de.leifaktor.robbiemini.items.Blaumann;
+import de.leifaktor.robbiemini.actor.Teleporter;
 import de.leifaktor.robbiemini.items.Item;
-import de.leifaktor.robbiemini.items.Key;
-import de.leifaktor.robbiemini.items.Life;
-import de.leifaktor.robbiemini.items.Magnet;
-import de.leifaktor.robbiemini.items.Notiz;
-import de.leifaktor.robbiemini.items.Schleuder;
 import de.leifaktor.robbiemini.tiles.DarkWall;
 import de.leifaktor.robbiemini.tiles.Door;
 import de.leifaktor.robbiemini.tiles.EmptyTile;
@@ -105,10 +98,12 @@ public class RoomRenderer {
 				Robot r = (Robot) a;
 				draw(batch, Graphics.animations.get("robot_" + r.graphicType).getKeyFrame(r.getStateTime(), true),r.getPosition().x, r.getPosition().y);
 			}
-			if (a instanceof TeleportDesReichtums) {
-				draw(batch, Graphics.animations.get("teleport").getKeyFrame(((TeleportDesReichtums)a).getStateTime(), true),a.x, a.y);
-				ItemRenderer.render(batch, ((TeleportDesReichtums)a).getItem(), (a.x+xOffset)*TILESIZE, (a.y+yOffset)*TILESIZE);
-				draw(batch, Graphics.textures.get("teleport_frame"),a.x, a.y);
+			if (a instanceof Teleporter) {
+				if (((Teleporter)a).isActive()) {
+					draw(batch, Graphics.animations.get("teleport").getKeyFrame(((Teleporter)a).getStateTime(), true),a.x, a.y);
+				} else {
+					draw(batch, Graphics.textures.get("teleport_off"),a.x, a.y);
+				}				
 			}
 			if (a instanceof Player) {
 				Player p = (Player)a;
