@@ -12,6 +12,7 @@ import de.leifaktor.robbiemini.actor.Gold;
 import de.leifaktor.robbiemini.actor.Isolator;
 import de.leifaktor.robbiemini.actor.ItemActor;
 import de.leifaktor.robbiemini.actor.Robot;
+import de.leifaktor.robbiemini.actor.Schalter;
 import de.leifaktor.robbiemini.actor.Skull;
 import de.leifaktor.robbiemini.actor.Teleporter;
 import de.leifaktor.robbiemini.items.Acid;
@@ -221,6 +222,8 @@ public class RoomCreator {
 		room.actors.add(new ItemActor(18, 20, notiz));
 		
 		room.actors.add(new Teleporter(20,10));
+		
+		room.actors.add(new Schalter(1, 10, true, true));
 		
 		Skull skull = new Skull(0,0);
 		addRandomActors(skull, room, 5);

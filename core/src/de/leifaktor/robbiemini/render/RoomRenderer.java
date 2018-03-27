@@ -17,6 +17,7 @@ import de.leifaktor.robbiemini.actor.ItemActor;
 import de.leifaktor.robbiemini.actor.Player;
 import de.leifaktor.robbiemini.actor.Player.State;
 import de.leifaktor.robbiemini.actor.Robot;
+import de.leifaktor.robbiemini.actor.Schalter;
 import de.leifaktor.robbiemini.actor.Skull;
 import de.leifaktor.robbiemini.actor.Teleporter;
 import de.leifaktor.robbiemini.items.Item;
@@ -92,7 +93,9 @@ public class RoomRenderer {
 				draw(batch, Graphics.textures.get("flying_bullet"), a.getPosition().x, a.getPosition().y);
 			}
 			if (a instanceof BulletStack) {
-				draw(batch, Graphics.textures.get("bullets_" + ((BulletStack)a).getNumber()), a.x, a.y);
+				if (((BulletStack)a).getNumber() > 0) {
+					draw(batch, Graphics.textures.get("bullets_" + ((BulletStack)a).getNumber()), a.x, a.y);
+				}				
 			}
 			if (a instanceof Robot) {
 				Robot r = (Robot) a;
@@ -104,6 +107,18 @@ public class RoomRenderer {
 				} else {
 					draw(batch, Graphics.textures.get("teleport_off"),a.x, a.y);
 				}				
+			}
+			if (a instanceof Schalter) {
+				Schalter schalter = (Schalter) a;
+				if (schalter.isWallOnTheLeft() && schalter.isActive()) {
+					draw(batch, Graphics.textures.get("schalter_left_on"),a.x, a.y);
+				} else if (schalter.isWallOnTheLeft() && !schalter.isActive()) {
+					draw(batch, Graphics.textures.get("schalter_left_off"),a.x, a.y);
+				} else if (!schalter.isWallOnTheLeft() && schalter.isActive()) {
+					draw(batch, Graphics.textures.get("schalter_right_on"),a.x, a.y);
+				} else if (!schalter.isWallOnTheLeft() && !schalter.isActive()) {
+					draw(batch, Graphics.textures.get("schalter_rightoff"),a.x, a.y);
+				}
 			}
 			if (a instanceof Player) {
 				Player p = (Player)a;
