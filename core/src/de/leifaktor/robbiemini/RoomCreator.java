@@ -14,8 +14,12 @@ import de.leifaktor.robbiemini.actor.ItemActor;
 import de.leifaktor.robbiemini.actor.Robot;
 import de.leifaktor.robbiemini.actor.Schalter;
 import de.leifaktor.robbiemini.actor.Skull;
+import de.leifaktor.robbiemini.actor.Sperre;
 import de.leifaktor.robbiemini.actor.Teleporter;
+import de.leifaktor.robbiemini.condition.Condition;
 import de.leifaktor.robbiemini.condition.GlobalBooleanCondition;
+import de.leifaktor.robbiemini.condition.IsTermZeroCondition;
+import de.leifaktor.robbiemini.condition.RobotsAliveTerm;
 import de.leifaktor.robbiemini.items.Acid;
 import de.leifaktor.robbiemini.items.Blaumann;
 import de.leifaktor.robbiemini.items.Key;
@@ -53,9 +57,23 @@ public class RoomCreator {
 		map[7] = empty;
 		map[(height-1)*width+5] = empty;
 		map[(height-1)*width+6] = empty;
-		map[(height-1)*width+7] = empty;
+		map[(height-1)*width+7] = empty;		
 		
 		ArrayList<Actor> actors = new ArrayList<Actor>();
+		Condition killedAllRobots = new IsTermZeroCondition(new RobotsAliveTerm());
+		actors.add(new Sperre(5, 0, killedAllRobots, false, false));
+		actors.add(new Sperre(6, 0, killedAllRobots, false, false));
+		actors.add(new Sperre(7, 0, killedAllRobots, false, false));
+		actors.add(new Sperre(5, height-1, killedAllRobots, false, false));
+		actors.add(new Sperre(6, height-1, killedAllRobots, false, false));
+		actors.add(new Sperre(7, height-1, killedAllRobots, false, false));
+		actors.add(new Sperre(0, 5, killedAllRobots, true, false));
+		actors.add(new Sperre(0, 6, killedAllRobots, true, false));
+		actors.add(new Sperre(0, 7, killedAllRobots, true, false));
+		actors.add(new Sperre(width-1, 5, killedAllRobots, true, false));
+		actors.add(new Sperre(width-1, 6, killedAllRobots, true, false));
+		actors.add(new Sperre(width-1, 7, killedAllRobots, true, false));
+		
 		Room room = new Room(width, height, map, actors);
 		return room;
 	}

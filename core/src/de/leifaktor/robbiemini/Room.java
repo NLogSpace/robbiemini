@@ -8,6 +8,7 @@ import de.leifaktor.robbiemini.actor.Actor;
 import de.leifaktor.robbiemini.actor.Explosion;
 import de.leifaktor.robbiemini.actor.IShiftable;
 import de.leifaktor.robbiemini.actor.Player;
+import de.leifaktor.robbiemini.actor.Robot;
 import de.leifaktor.robbiemini.commands.AddActorCommand;
 import de.leifaktor.robbiemini.commands.Command;
 import de.leifaktor.robbiemini.commands.PlaySoundCommand;
@@ -212,6 +213,14 @@ public class Room {
 	
 	public boolean getGlobalBoolean(String variableName) {
 		return gameScreen.getGlobalBoolean(variableName);
+	}
+	
+	public int getNumberOfLivingRobots() {
+		int result = 0;
+		for (Actor actor : actors) {
+			if (actor instanceof Robot) result++;
+		}
+		return result;
 	}
 	
 }

@@ -64,6 +64,9 @@ public class Graphics {
 		textures.put("schalter_left_off", tileset.getTile(4, 6));
 		textures.put("schalter_right_off", tileset.getTile(5, 6));
 		textures.put("schalter_right_on", tileset.getTile(6, 6));
+		textures.put("sperre_closed", tileset.getTile(2, 11));
+		textures.put("sperre_lr", tileset.getTile(3, 11));
+		textures.put("sperre_ud", tileset.getTile(4, 11));
 		
 		// Status Bar
 		textures.put("status_bar_outer_background", tileset.getTile(3, 13));

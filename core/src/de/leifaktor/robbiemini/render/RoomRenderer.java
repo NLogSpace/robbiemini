@@ -19,6 +19,7 @@ import de.leifaktor.robbiemini.actor.Player.State;
 import de.leifaktor.robbiemini.actor.Robot;
 import de.leifaktor.robbiemini.actor.Schalter;
 import de.leifaktor.robbiemini.actor.Skull;
+import de.leifaktor.robbiemini.actor.Sperre;
 import de.leifaktor.robbiemini.actor.Teleporter;
 import de.leifaktor.robbiemini.items.Item;
 import de.leifaktor.robbiemini.tiles.DarkWall;
@@ -120,6 +121,18 @@ public class RoomRenderer {
 					draw(batch, Graphics.textures.get("schalter_rightoff"),a.x, a.y);
 				}
 			}
+			if (a instanceof Sperre) {
+				Sperre sperre = (Sperre) a;
+				if (!sperre.isOpen()) {
+					draw(batch, Graphics.textures.get("sperre_closed"),a.x, a.y);
+				} else {
+					if (sperre.isLeftRight()) {
+						draw(batch, Graphics.textures.get("sperre_lr"),a.x, a.y);
+					} else {
+						draw(batch, Graphics.textures.get("sperre_ud"),a.x, a.y);
+					}
+				}
+			} 
 			if (a instanceof Player) {
 				Player p = (Player)a;
 				if (p.getState() == State.IDLE) {

@@ -109,7 +109,6 @@ public class GameScreen implements Screen {
 		currentRoom.removePlayer();
 		currentRoomPosition = newRoomPosition;
 		currentRoom = roomManager.getRoom(newRoomPosition);
-		System.out.println("ROOM: " + currentRoom);
 		currentRoom.putPlayer(player, playerTeleportPosition.x, playerTeleportPosition.y);
 		player.stopMoving();
 		currentRoom.setGameScreen(this);		
