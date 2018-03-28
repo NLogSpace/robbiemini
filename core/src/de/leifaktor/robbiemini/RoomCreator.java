@@ -254,8 +254,20 @@ public class RoomCreator {
 				}				
 			}
 		}
+		actors.add(new Gold(7, 16));
+		actors.add(new Arrow(7, 15, 2));
+		actors.add(new ItemActor(7, 14, new Key(1)));
+		actors.add(new ItemActor(8, 16, new Blaumann()));
+		actors.add(new ItemActor(8, 15, new Magnet(true)));
+		actors.add(new ItemActor(8, 14, new Life()));
 		
-
+		actors.add(new Isolator(26, 16));
+		actors.add(new Skull(26, 15));
+		actors.add(new ItemActor(26, 14, new Schleuder()));
+		actors.add(new ItemActor(27, 16, new Notiz("Wie hast Du es denn bitte geschafft, die Notiz auf dem Titelbilschirm einzusammeln?")));
+		actors.add(new ItemActor(27, 15, new Acid()));
+		actors.add(new BulletStack(27, 14, 6));
+		
 		Room room = new Room(width, height, map, actors);
 		return room;
 	}
