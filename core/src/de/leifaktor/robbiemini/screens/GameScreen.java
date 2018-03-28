@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
+import de.leifaktor.robbiemini.GlobalVars;
 import de.leifaktor.robbiemini.InputManager;
 import de.leifaktor.robbiemini.RobbieMini;
 import de.leifaktor.robbiemini.Room;
@@ -48,6 +49,8 @@ public class GameScreen implements Screen {
 	String textboxText;
 	boolean showTextboxFromNextFrame;
 	
+	GlobalVars globalVars;
+	
 	State state;
 	
 	enum State {
@@ -64,6 +67,7 @@ public class GameScreen implements Screen {
 		camera.update();
 		
 		setUpSomeTestRooms();
+		globalVars = new GlobalVars();
 		
 		renderer = new RoomRenderer();
 		renderer.setOffset(0, 0);
@@ -252,6 +256,14 @@ public class GameScreen implements Screen {
 		this.newRoomPosition = roomPosition;
 		this.playerTeleportPosition = playerPosition;
 		startTeleportAfterThisFrame = true;
+	}
+	
+	public boolean getGlobalBoolean(String key) {
+		return globalVars.getBoolean(key);
+	}
+	
+	public void setGlobalBoolean(String key, boolean value) {
+		globalVars.setBoolean(key, value);
 	}
 
 }

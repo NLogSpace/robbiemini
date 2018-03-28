@@ -6,16 +6,18 @@ public class Schalter extends Actor {
 	
 	boolean wallOnTheLeft;
 	boolean active;
+	String variableName;
 
-	public Schalter(int x, int y, boolean wallOnTheLeft, boolean active) {
+	public Schalter(int x, int y, boolean wallOnTheLeft, boolean active, String variableName) {
 		super(x, y);
 		this.wallOnTheLeft = wallOnTheLeft;
 		this.active = active;
+		this.variableName = variableName;
 	}
 
 	@Override
 	public Actor clone() {
-		return new Schalter(x, y, wallOnTheLeft, active);
+		return new Schalter(x, y, wallOnTheLeft, active, variableName);
 	}
 
 	@Override
@@ -26,8 +28,14 @@ public class Schalter extends Actor {
 	@Override
 	public void hitBy(Room room, Actor actor) {
 		if (actor instanceof Player) {
-			if (actor.getDirection() == 0) active = true;
-			if (actor.getDirection() == 2) active = false;
+			if (actor.getDirection() == 0) {
+				active = true;
+				room.setGlobalBoolean(variableName, true);
+			}
+			if (actor.getDirection() == 2) {
+				active = false;
+				room.setGlobalBoolean(variableName, false);
+			}
 		}
 	}
 	

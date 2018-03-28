@@ -15,6 +15,7 @@ import de.leifaktor.robbiemini.actor.Robot;
 import de.leifaktor.robbiemini.actor.Schalter;
 import de.leifaktor.robbiemini.actor.Skull;
 import de.leifaktor.robbiemini.actor.Teleporter;
+import de.leifaktor.robbiemini.condition.GlobalBooleanCondition;
 import de.leifaktor.robbiemini.items.Acid;
 import de.leifaktor.robbiemini.items.Blaumann;
 import de.leifaktor.robbiemini.items.Key;
@@ -221,11 +222,11 @@ public class RoomCreator {
 		Notiz notiz = new Notiz("Na sieh' mal einer an. Wenn das keine Notiz ist!");
 		room.actors.add(new ItemActor(18, 20, notiz));
 		
-		Teleporter teleporter = new Teleporter(20,10);
+		Teleporter teleporter = new Teleporter(20,10, new GlobalBooleanCondition("schalter"));
 		teleporter.setDestination(new XYZPos(2,1,1), new XYZPos(10,10,0));
 		room.actors.add(teleporter);		
 		
-		room.actors.add(new Schalter(1, 10, true, true));
+		room.actors.add(new Schalter(1, 10, true, true, "schalter"));
 		
 		Skull skull = new Skull(0,0);
 		addRandomActors(skull, room, 5);

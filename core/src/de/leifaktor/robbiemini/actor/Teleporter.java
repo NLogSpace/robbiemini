@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 
 import de.leifaktor.robbiemini.Room;
 import de.leifaktor.robbiemini.XYZPos;
+import de.leifaktor.robbiemini.condition.Condition;
 
 public class Teleporter extends Actor {
 	
@@ -11,10 +12,12 @@ public class Teleporter extends Actor {
 	boolean active;
 	XYZPos destinationRoom;
 	XYZPos destinationInsideRoom;
+	Condition activeCondition;
 
-	public Teleporter(int x, int y) {
+	public Teleporter(int x, int y, Condition activeCondition) {
 		super(x, y);
 		active = true;
+		this.activeCondition = activeCondition;
 	}
 	
 	public void setDestination(XYZPos destinationRoom, XYZPos destinationInsideRoom) {
@@ -24,7 +27,7 @@ public class Teleporter extends Actor {
 
 	@Override
 	public void hitBy(Room room, Actor actor) {
-		if (actor instanceof Player) {
+		if (active && actor instanceof Player) {
 			if (destinationRoom != null && destinationInsideRoom != null) {
 				room.teleportTo(destinationRoom, destinationInsideRoom);
 			}
@@ -39,12 +42,13 @@ public class Teleporter extends Actor {
 	@Override
 	public void update(Room room) {
 		super.update(room);
+		active = activeCondition.evaluate(room);
 		stateTime += Gdx.graphics.getDeltaTime();
 	}
 
 	@Override
 	public Actor clone() {
-		return new Teleporter(x, y);
+		return new Teleporter(x, y, activeCondition);
 	}	
 	
 	public float getStateTime() {

@@ -205,5 +205,13 @@ public class Room {
 	public void teleportTo(XYZPos roomPosition, XYZPos insideRoomPosition) {
 		gameScreen.teleportTo(roomPosition, insideRoomPosition);
 	}
+
+	public void setGlobalBoolean(String variableName, boolean value) {
+		gameScreen.setGlobalBoolean(variableName, value);
+	}
+	
+	public boolean getGlobalBoolean(String variableName) {
+		return gameScreen.getGlobalBoolean(variableName);
+	}
 	
 }
