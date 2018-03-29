@@ -134,7 +134,6 @@ public class Room {
 	}
 	
 	public void onLeave(Actor actor, int x, int y, int z, int direction) {
-		System.out.println("" + x  +" " + y + " " + z + " " + direction + " " + actor);
 		getTile(x, y, z).onLeave(this, actor, direction);
 	}
 
