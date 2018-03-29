@@ -15,17 +15,17 @@ import de.leifaktor.robbiemini.tiles.Wall;
 public class Acid extends Item {
 	
 	@Override
-	public void onUse(Room room, int x, int y) {
+	public void onUse(Room room, int x, int y, int z) {
 		boolean useAcid = false;
 		int px = room.getPlayer().x;
 		int py = room.getPlayer().y;					
 		for (int i = px - 1; i <= px+1; i++) {
 			for (int j = py - 1; j <= py+1; j++) {
 				if (room.isInBounds(i,j)) {							
-					if (room.tiles[room.width*j+i] instanceof Wall) {
+					if (room.getTile(i, j, z) instanceof Wall) {
 						useAcid = true;
-						room.commands.add(new ChangeTileCommand(i,j,new EmptyTile()));
-						room.commands.add(new AddActorCommand(new DissolvingWall(i,j)));
+						room.commands.add(new ChangeTileCommand(i, j, z, new EmptyTile()));
+						room.commands.add(new AddActorCommand(new DissolvingWall(i, j, z)));
 					}
 				}
 			}
@@ -33,7 +33,7 @@ public class Acid extends Item {
 		if (useAcid) {
 			room.commands.add(new PlaySoundCommand(SoundPlayer.SOUND_ACID));
 		} else {
-			room.commands.add(new AddActorCommand(new ItemActor(x, y, this)));
+			room.commands.add(new AddActorCommand(new ItemActor(x, y, z, this)));
 		}
 	}
 	
@@ -43,7 +43,7 @@ public class Acid extends Item {
 	}	
 
 	@Override
-	public void onHitBy(Room room, ItemActor itemActor, Actor actor, int x, int y) {		
+	public void onHitBy(Room room, ItemActor itemActor, Actor actor, int x, int y, int z) {		
 		if (actor instanceof Player) {
 			itemActor.collect(room, (Player) actor);
 			room.commands.add(new PlaySoundCommand(SoundPlayer.SOUND_COLLECT));

@@ -13,8 +13,8 @@ public class Sperre extends Actor {
 	
 	float timeUntilOpen;
 
-	public Sperre(int x, int y, Condition openCondition, boolean leftRight, boolean isOpen) {
-		super(x, y);
+	public Sperre(int x, int y, int z, Condition openCondition, boolean leftRight, boolean isOpen) {
+		super(x, y, z);
 		this.openCondition = openCondition;
 		this.leftRight = leftRight;
 		isOpen = true;
@@ -53,7 +53,7 @@ public class Sperre extends Actor {
 
 	@Override
 	public Actor clone() {
-		return new Sperre(x, y, openCondition, leftRight, isOpen);
+		return new Sperre(x, y, z, openCondition, leftRight, isOpen);
 	}
 
 }

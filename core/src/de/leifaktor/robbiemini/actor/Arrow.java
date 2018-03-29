@@ -9,8 +9,8 @@ public class Arrow extends Actor {
 	int baseDir;
 	int dir;
 
-	public Arrow(int x, int y, int baseDir) {
-		super(x, y);
+	public Arrow(int x, int y, int z, int baseDir) {
+		super(x, y, z);
 		this.baseDir = baseDir;
 		this.dir = baseDir;
 	}
@@ -38,7 +38,7 @@ public class Arrow extends Actor {
 
 	@Override
 	public Actor clone() {
-		return new Arrow(x,y,baseDir);
+		return new Arrow(x, y, z, baseDir);
 	}	
 
 }

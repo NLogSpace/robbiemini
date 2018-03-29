@@ -17,9 +17,9 @@ public class InventoryRenderer {
 	float yOffset;
 	
 	public void render(SpriteBatch batch, Room room, Inventory inventory) {
-		float startX = xOffset + RobbieMini.TILESIZE*room.getWidth() / 2 - inventory.getSize()*RobbieMini.TILESIZE / 2;
+		float startX = xOffset + RobbieMini.TILESIZE*room.width / 2 - inventory.getSize()*RobbieMini.TILESIZE / 2;
 		
-		for (int i = 0; i < room.getWidth(); i++) {
+		for (int i = 0; i < room.width; i++) {
 			batch.draw(Graphics.textures.get("inventory_outer_background"), xOffset+RobbieMini.TILESIZE*i, yOffset);
 		}
 		

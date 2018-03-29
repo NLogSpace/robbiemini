@@ -27,6 +27,7 @@ import de.leifaktor.robbiemini.items.Life;
 import de.leifaktor.robbiemini.items.Magnet;
 import de.leifaktor.robbiemini.items.Notiz;
 import de.leifaktor.robbiemini.items.Schleuder;
+import de.leifaktor.robbiemini.tiles.Air;
 import de.leifaktor.robbiemini.tiles.Door;
 import de.leifaktor.robbiemini.tiles.EmptyTile;
 import de.leifaktor.robbiemini.tiles.Tile;
@@ -57,24 +58,29 @@ public class RoomCreator {
 		map[7] = empty;
 		map[(height-1)*width+5] = empty;
 		map[(height-1)*width+6] = empty;
-		map[(height-1)*width+7] = empty;		
+		map[(height-1)*width+7] = empty;
+		
+		RoomLayer layer = new RoomLayer(width, height, map);		
+		ArrayList<RoomLayer> layers = new ArrayList<RoomLayer>();
+		layers.add(layer);
+		layers.add(someWalls(width,height));
 		
 		ArrayList<Actor> actors = new ArrayList<Actor>();
 		Condition killedAllRobots = new IsTermZeroCondition(new RobotsAliveTerm());
-		actors.add(new Sperre(5, 0, killedAllRobots, false, false));
-		actors.add(new Sperre(6, 0, killedAllRobots, false, false));
-		actors.add(new Sperre(7, 0, killedAllRobots, false, false));
-		actors.add(new Sperre(5, height-1, killedAllRobots, false, false));
-		actors.add(new Sperre(6, height-1, killedAllRobots, false, false));
-		actors.add(new Sperre(7, height-1, killedAllRobots, false, false));
-		actors.add(new Sperre(0, 5, killedAllRobots, true, false));
-		actors.add(new Sperre(0, 6, killedAllRobots, true, false));
-		actors.add(new Sperre(0, 7, killedAllRobots, true, false));
-		actors.add(new Sperre(width-1, 5, killedAllRobots, true, false));
-		actors.add(new Sperre(width-1, 6, killedAllRobots, true, false));
-		actors.add(new Sperre(width-1, 7, killedAllRobots, true, false));
+		actors.add(new Sperre(5, 0, 0, killedAllRobots, false, false));
+		actors.add(new Sperre(6, 0, 0, killedAllRobots, false, false));
+		actors.add(new Sperre(7, 0, 0, killedAllRobots, false, false));
+		actors.add(new Sperre(5, height-1, 0, killedAllRobots, false, false));
+		actors.add(new Sperre(6, height-1, 0, killedAllRobots, false, false));
+		actors.add(new Sperre(7, height-1, 0, killedAllRobots, false, false));
+		actors.add(new Sperre(0, 5, 0, killedAllRobots, true, false));
+		actors.add(new Sperre(0, 6, 0, killedAllRobots, true, false));
+		actors.add(new Sperre(0, 7, 0, killedAllRobots, true, false));
+		actors.add(new Sperre(width-1, 5, 0, killedAllRobots, true, false));
+		actors.add(new Sperre(width-1, 6, 0, killedAllRobots, true, false));
+		actors.add(new Sperre(width-1, 7, 0, killedAllRobots, true, false));
 		
-		Room room = new Room(width, height, map, actors);
+		Room room = new Room(width, height, layers, actors);
 		return room;
 	}
 	
@@ -104,10 +110,15 @@ public class RoomCreator {
 				if ((y+j)*width+x < width*height) map[(y+j)*width+x] = wall; 
 			}
 		}
-		ArrayList<Actor> actors = new ArrayList<Actor>();
-		actors.add(new ItemActor(6,9,new Acid()));
 		
-		Room room = new Room(width, height, map, actors);
+		RoomLayer layer = new RoomLayer(width, height, map);		
+		ArrayList<RoomLayer> layers = new ArrayList<RoomLayer>();
+		layers.add(layer);
+		
+		ArrayList<Actor> actors = new ArrayList<Actor>();
+		actors.add(new ItemActor(6, 9, 0, new Acid()));
+		
+		Room room = new Room(width, height, layers, actors);
 		addRandomRobots(room,10);
 		return room;
 	}
@@ -189,27 +200,31 @@ public class RoomCreator {
 			}
 		}
 		
+		RoomLayer layer = new RoomLayer(width, height, map);		
+		ArrayList<RoomLayer> layers = new ArrayList<RoomLayer>();
+		layers.add(layer);
+		
 		ArrayList<Actor> actors = new ArrayList<Actor>();
-		actors.add(new ItemActor(11, 19, new Key(0)));
-		actors.add(new ItemActor(17, 11, new Key(1)));
-		actors.add(new ItemActor(31, 23, new Key(2)));
-		actors.add(new Gold(21, 13));
-		actors.add(new Gold(3, 23));
-		actors.add(new Gold(23, 5));
-		actors.add(new Arrow(17, 17, 2));
-		actors.add(new Isolator(5,5));
-		actors.add(new ElectricFence(5,6));
-		actors.add(new ElectricFence(5,7));
-		actors.add(new Isolator(7,5));
-		actors.add(new ElectricFence(7,6));
-		actors.add(new ElectricFence(7,7));
-		actors.add(new Isolator(9,5));
-		actors.add(new ElectricFence(9,6));
-		actors.add(new ElectricFence(9,7));
+		actors.add(new ItemActor(11, 19, 0, new Key(0)));
+		actors.add(new ItemActor(17, 11, 0, new Key(1)));
+		actors.add(new ItemActor(31, 23, 0, new Key(2)));
+		actors.add(new Gold(21, 13, 0));
+		actors.add(new Gold(3, 23, 0));
+		actors.add(new Gold(23, 5, 0));
+		actors.add(new Arrow(17, 17, 0, 2));
+		actors.add(new Isolator(5, 5, 0));
+		actors.add(new ElectricFence(5,6, 0));
+		actors.add(new ElectricFence(5,7, 0));
+		actors.add(new Isolator(7,5, 0));
+		actors.add(new ElectricFence(7,6, 0));
+		actors.add(new ElectricFence(7,7, 0));
+		actors.add(new Isolator(9,5, 0));
+		actors.add(new ElectricFence(9,6, 0));
+		actors.add(new ElectricFence(9,7, 0));
 		
-		Room room = new Room(width, height, map, actors);
+		Room room = new Room(width, height, layers, actors);
 		
-		addRandomActors(new ItemActor(0,0,new Acid()), room, 5);		
+		addRandomActors(new ItemActor(0, 0, 0, new Acid()), room, 5);		
 		addRandomRobots(room, 5);
 		
 		return room;		
@@ -218,39 +233,39 @@ public class RoomCreator {
 	public static Room createShiftRoom(int width, int height) {
 		Room room = createEmptyRoom(width, height);		
 
-		Isolator isolator = new Isolator(0,0);
+		Isolator isolator = new Isolator(0,0, 0);
 		addRandomActors(isolator, room, 100);
 		
-		ElectricFence electricFence = new ElectricFence(0,0);
+		ElectricFence electricFence = new ElectricFence(0,0, 0);
 		addRandomActors(electricFence, room, 10);
 		
-		addRandomActors(new ItemActor(0,0,new Acid()), room, 3);
-		addRandomActors(new ItemActor(0,0,new Life()), room, 2);
+		addRandomActors(new ItemActor(0,0, 0,new Acid()), room, 3);
+		addRandomActors(new ItemActor(0,0, 0,new Life()), room, 2);
 		
-		addRandomActors(new ItemActor(0,0,new Magnet(true)), room, 2);
-		addRandomActors(new ItemActor(0,0,new Magnet(false)), room, 2);
+		addRandomActors(new ItemActor(0,0, 0,new Magnet(true)), room, 2);
+		addRandomActors(new ItemActor(0,0, 0,new Magnet(false)), room, 2);
 		
-		addRandomActors(new ItemActor(0,0,new Blaumann()), room, 2);
+		addRandomActors(new ItemActor(0,0, 0,new Blaumann()), room, 2);
 		
-		addRandomActors(new Gold(0,0), room, 10);
+		addRandomActors(new Gold(0,0, 0), room, 10);
 		
-		addRandomActors(new BulletStack(0,0, random.nextInt(6) + 1), room, 3);
-		addRandomActors(new ItemActor(0,0,new Schleuder()), room, 1);
+		addRandomActors(new BulletStack(0,0, 0, random.nextInt(6) + 1), room, 3);
+		addRandomActors(new ItemActor(0,0, 0,new Schleuder()), room, 1);
 		
 		Notiz notiz = new Notiz("Na sieh' mal einer an. Wenn das keine Notiz ist!");
-		room.actors.add(new ItemActor(18, 20, notiz));
+		room.actors.add(new ItemActor(18, 20, 0, notiz));
 		
-		Teleporter teleporter = new Teleporter(20,10, new GlobalBooleanCondition("schalter"));
+		Teleporter teleporter = new Teleporter(20,10, 0, new GlobalBooleanCondition("schalter"));
 		teleporter.setDestination(new XYZPos(2,1,1), new XYZPos(10,10,0));
 		room.actors.add(teleporter);		
 		
-		room.actors.add(new Schalter(1, 10, true, false, "schalter"));
+		room.actors.add(new Schalter(1, 10, 0, true, false, "schalter"));
 		
-		Skull skull = new Skull(0,0);
+		Skull skull = new Skull(0,0, 0);
 		addRandomActors(skull, room, 5);
 		
 		for (int i = 0; i < 10; i++) {
-			Arrow arrow = new Arrow(0,0,Util.random.nextInt(4));
+			Arrow arrow = new Arrow(0,0, 0,Util.random.nextInt(4));
 			addRandomActors(arrow, room, 1);
 		}
 		
@@ -269,40 +284,45 @@ public class RoomCreator {
 				if (x < 5 || x >= width-5 || y < 5 || y >= height-5) map[y*width+x] = wall;
 				else {
 					map[y*width+x] = empty;
-					if (x == 5 || x == width-6 || y == 5 || y == height-6) actors.add(new ElectricFence(x, y));
+					if (x == 5 || x == width-6 || y == 5 || y == height-6) actors.add(new ElectricFence(x, y, 0));
 				}				
 			}
 		}
-		actors.add(new Gold(7, 16));
-		actors.add(new Arrow(7, 15, 2));
-		actors.add(new ItemActor(7, 14, new Key(1)));
-		actors.add(new ItemActor(8, 16, new Blaumann()));
-		actors.add(new ItemActor(8, 15, new Magnet(true)));
-		actors.add(new ItemActor(8, 14, new Life()));
 		
-		actors.add(new Isolator(26, 16));
-		actors.add(new Skull(26, 15));
-		actors.add(new ItemActor(26, 14, new Schleuder()));
-		actors.add(new ItemActor(27, 16, new Notiz("Wie hast Du es denn bitte geschafft, die Notiz auf dem Titelbilschirm einzusammeln?")));
-		actors.add(new ItemActor(27, 15, new Acid()));
-		actors.add(new BulletStack(27, 14, 6));
+		RoomLayer layer = new RoomLayer(width, height, map);		
+		ArrayList<RoomLayer> layers = new ArrayList<RoomLayer>();
+		layers.add(layer);
 		
-		Room room = new Room(width, height, map, actors);
+		actors.add(new Gold(7, 16, 0));
+		actors.add(new Arrow(7, 15, 0, 2));
+		actors.add(new ItemActor(7, 14, 0, new Key(1)));
+		actors.add(new ItemActor(8, 16, 0, new Blaumann()));
+		actors.add(new ItemActor(8, 15, 0, new Magnet(true)));
+		actors.add(new ItemActor(8, 14, 0, new Life()));
+		
+		actors.add(new Isolator(26, 16, 0));
+		actors.add(new Skull(26, 15, 0));
+		actors.add(new ItemActor(26, 14, 0, new Schleuder()));
+		actors.add(new ItemActor(27, 16, 0, new Notiz("Wie hast Du es denn bitte geschafft, die Notiz auf dem Titelbilschirm einzusammeln?")));
+		actors.add(new ItemActor(27, 15, 0, new Acid()));
+		actors.add(new BulletStack(27, 14, 0, 6));
+		
+		Room room = new Room(width, height, layers, actors);
 		return room;
 	}
 	
 	public static Room createMagneticRoom(int width, int height) {
-		Room room = createEmptyRoom(width, height);		
-		addRandomActors(new ItemActor(0,0,new Magnet(true)), room, 10);
-		addRandomActors(new ItemActor(0,0,new Magnet(false)), room, 10);
+		Room room = createEmptyRoom(width, height);
+		addRandomActors(new ItemActor(0,0,0,new Magnet(true)), room, 10);
+		addRandomActors(new ItemActor(0,0,0,new Magnet(false)), room, 10);
 		
 		for (int i = 0; i < 300; i++) {
-			Arrow arrow = new Arrow(0,0,Util.random.nextInt(4));
+			Arrow arrow = new Arrow(0,0,0,Util.random.nextInt(4));
 			addRandomActors(arrow, room, 1);
 		}
 		
 		Notiz notiz = new Notiz("In diesem Raum gibt es echt viele Pfeile! Da kann man vielleicht mal die Magneten ausprobieren, die sollen ja bekanntlich dabei helfen, Pfeile umzudrehen. Ich schreibe hier jetzt einfach einen extrem langen Text in diese Notiz, um zu testen, ob die Zeilenumbrüche funktionieren.");
-		room.addActor(new ItemActor(27, 7, notiz));
+		room.addActor(new ItemActor(27, 7, 0, notiz));
 		
 		return room;
 	}
@@ -315,15 +335,15 @@ public class RoomCreator {
 	}
 	
 	public static void addRandomActors(Actor prototype, Room room, int number) {
-		int width = room.getWidth();
-		int height = room.getHeight();
+		int width = room.width;
+		int height = room.height;
 		while (number > 0) {
 			int x = random.nextInt(width);
 			int y = random.nextInt(height);
-			if (room.getTile(x, y) instanceof EmptyTile) {
-				if (!room.hasAnyActorsAt(x,y)) {
+			if (room.getTile(x, y, 0) instanceof EmptyTile) {
+				if (!room.hasAnyActorsAt(x, y, 0)) {
 					Actor actor = prototype.clone();
-					actor.setPosition(x, y);
+					actor.setPosition(x, y, 0);
 					room.actors.add(actor);
 					number--;
 				}
@@ -334,10 +354,21 @@ public class RoomCreator {
 	public static Robot randomRobot(int width, int height) {
 		int x = random.nextInt(width);
 		int y = random.nextInt(height);
-		float speed = random.nextFloat()*0.031f+0.007f;		
+		float speed = random.nextFloat()*0.032f+0.006f;		
 		int graphicType = random.nextInt(7);
-		Robot robot = new Robot(x, y, speed, graphicType);
+		Robot robot = new Robot(x, y, 0, speed, graphicType);
 		return robot;
+	}
+	
+	public static RoomLayer someWalls(int width, int height) {
+		Tile[] map = new Tile[width*height];
+		Tile air = new Air();
+		Tile wall = new Wall();
+		for (int i = 0; i < map.length; i++) {
+			if (Util.random.nextFloat() < 0.1f) map[i] = wall; else map[i] = air;
+		}
+		RoomLayer layer = new RoomLayer(width, height, map);
+		return layer;
 	}
 
 }

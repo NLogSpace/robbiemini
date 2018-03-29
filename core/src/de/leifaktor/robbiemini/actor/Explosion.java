@@ -8,8 +8,8 @@ public class Explosion extends Actor {
 
 	float time;
 	
-	public Explosion(int x, int y) {
-		super(x, y);
+	public Explosion(int x, int y, int z) {
+		super(x, y, z);
 	}
 	
 	@Override
@@ -24,7 +24,7 @@ public class Explosion extends Actor {
 
 	@Override
 	public Actor clone() {
-		return new Explosion(x,y);
+		return new Explosion(x, y, z);
 	}
 
 }

@@ -13,8 +13,8 @@ public class StatusBarRenderer {
 	float yOffset;
 	
 	public void render(SpriteBatch batch, Room room) {
-		for (int i = 0; i < room.getWidth(); i++) {
-			if (i < 4 || i >= room.getWidth() - 4) {
+		for (int i = 0; i < room.width; i++) {
+			if (i < 4 || i >= room.width - 4) {
 				batch.draw(Graphics.textures.get("status_bar_outer_background"), xOffset+RobbieMini.TILESIZE*i, yOffset);
 			} else {
 				batch.draw(Graphics.textures.get("status_bar_inner_background"), xOffset+RobbieMini.TILESIZE*i, yOffset);

@@ -13,8 +13,8 @@ public class Robot extends Actor{
 	float stateTime;
 	float stressLevel;
 
-	public Robot(int x, int y, float speed, int graphicType) {
-		super(x, y);
+	public Robot(int x, int y, int z, float speed, int graphicType) {
+		super(x, y, z);
 		this.speed = speed;
 		this.graphicType = graphicType;
 		stressLevel = 0;
@@ -37,12 +37,12 @@ public class Robot extends Actor{
 			boolean canMove = CollisionDetector.canMoveTo(this, room, intendedDir);
 			boolean canShift = CollisionDetector.canShiftTo(this, room, intendedDir);
 			if (canMove) {
-				room.onLeave(this, x, y, intendedDir);
+				room.onLeave(this, x, y, z, intendedDir);
 				initMove(intendedDir);						
 				move(Math.min(remainingDistance, distanceUntilNextTile));
 			} else if (canShift) {
-				room.onLeave(this, x, y, intendedDir);
-				room.startShift(this, x, y, intendedDir);
+				room.onLeave(this, x, y, z, intendedDir);
+				room.startShift(this, x, y, z, intendedDir);
 				initMove(intendedDir);						
 				move(Math.min(remainingDistance, distanceUntilNextTile));
 			}
@@ -120,7 +120,7 @@ public class Robot extends Actor{
 
 	@Override
 	public Actor clone() {
-		return new Robot(x,y,speed, graphicType);
+		return new Robot(x, y, z, speed, graphicType);
 	}
 
 	@Override

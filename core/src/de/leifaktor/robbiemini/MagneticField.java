@@ -12,8 +12,8 @@ public class MagneticField {
 	float[] field;
 	
 	public MagneticField(Room room) {
-		this.width = room.getWidth();
-		this.height = room.getHeight();
+		this.width = room.width;
+		this.height = room.height;
 		this.room = room;
 		this.field = new float[width*height];
 	}

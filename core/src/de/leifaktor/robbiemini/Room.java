@@ -21,7 +21,8 @@ public class Room {
 	
 	public int width;
 	public int height;
-	public Tile[] tiles;
+	public List<RoomLayer> layers;
+	
 	Player player;
 	public List<Actor> actors;
 
@@ -31,11 +32,11 @@ public class Room {
 	
 	MagneticField magneticField;
 	
-	public Room(int width, int height, Tile[] tiles, List<Actor> actors) {
+	public Room(int width, int height, List<RoomLayer> layers, List<Actor> actors) {
 		this.width = width;
 		this.height = height;
-		this.tiles = tiles;
 		this.actors = actors;
+		this.layers = layers;
 		commands = new ArrayList<Command>();
 		magneticField = new MagneticField(this);
 	}
@@ -75,14 +76,14 @@ public class Room {
 				
 				XYZPos currentRoomPosition = getGameScreen().getCurrentRoomPosition();
 				XYZPos newRoomPosition = new XYZPos(currentRoomPosition.x + dx, currentRoomPosition.y + dy, currentRoomPosition.z);
-				player.setPosition((player.x+width) % width, (player.y + height)%height);
+				player.setPosition((player.x+width) % width, (player.y + height)%height, player.z);
 				getGameScreen().setRoom(newRoomPosition);
 			}
 		}
 	}
 	
 	public void makeExplosion(Vec2 position) {
-		Explosion explosion = new Explosion(0, 0);
+		Explosion explosion = new Explosion(0, 0, 0);
 		explosion.setPosition(position);
 		commands.add(new AddActorCommand(explosion));
 		commands.add(new PlaySoundCommand(SoundPlayer.SOUND_EXPLOSION));
@@ -92,10 +93,6 @@ public class Room {
 		return (x >= 0 && x < width && y >= 0 && y < height);
 	}
 	
-	public void setTile(int x, int y, Tile tile) {
-		if (isInBounds(x,y)) tiles[y*width+x] = tile;
-	}
-
 	public void removeActor(Actor a) {
 		actors.remove(a);		
 	}
@@ -104,8 +101,8 @@ public class Room {
 		actors.add(a);		
 	}
 	
-	public void putPlayer(Player player, int x, int y) {
-		player.spawn(x, y);
+	public void putPlayer(Player player, int x, int y, int z) {
+		player.spawn(x, y, z);
 		this.player = player;
 		actors.remove(player);
 		actors.add(player);
@@ -114,14 +111,20 @@ public class Room {
 	public Player getPlayer() {
 		return player;
 	}
-
-	public Tile getTile(int x, int y) {
-		if (!isInBounds(x, y)) return null;
-		return tiles[width*y + x];
+	
+	public void setTile(int x, int y, int z, Tile tile) {
+		if (layers.get(z) != null) {
+			layers.get(z).setTile(x, y, tile);
+		}		
+	}
+	
+	public Tile getTile(int x, int y, int z) {
+		if (z < 0 || z >= layers.size()) return null;	
+		return layers.get(z).getTile(x, y);
 	}
 
-	public void onEnter(Actor actor, int x, int y, int direction) {
-		getTile(x, y).onEnter(this, actor, direction);
+	public void onEnter(Actor actor, int x, int y, int z, int direction) {
+		getTile(x, y, z).onEnter(this, actor, direction);
 		for (Actor other: actors) {
 			if (!other.equals(actor) && actor.x == other.x && actor.y == other.y) {
 				other.hitBy(this, actor);
@@ -129,19 +132,11 @@ public class Room {
 		}
 	}
 	
-	public void onLeave(Actor actor, int x, int y, int direction) {
-		getTile(x, y).onLeave(this, actor, direction);
+	public void onLeave(Actor actor, int x, int y, int z, int direction) {
+		getTile(x, y, z).onLeave(this, actor, direction);
 	}
 
-	public int getWidth() {
-		return width;
-	}
-	
-	public int getHeight() {
-		return height;
-	}
-
-	public void startShift(Actor actor, int x, int y, int direction) {
+	public void startShift(Actor actor, int x, int y, int z, int direction) {
 		int newx = x + Direction.DIR_X[direction];
 		int newy = y + Direction.DIR_Y[direction];
 		for (Actor a : actors) {
@@ -151,15 +146,15 @@ public class Room {
 		}
 	}
 
-	public boolean hasAnyActorsAt(int x, int y) {
-		for (Actor a : actors) if (a.x == x && a.y == y) return true;
+	public boolean hasAnyActorsAt(int x, int y, int z) {
+		for (Actor a : actors) if (a.x == x && a.y == y && a.z == z) return true;
 		return false;
 	}
 
-	public List<Actor> getActorsAt(int x, int y) {
+	public List<Actor> getActorsAt(int x, int y, int z) {
 		List<Actor> result = new ArrayList<Actor>();
 		for (Actor a : actors) {
-			if (a.x == x && a.y == y) {
+			if (a.x == x && a.y == y && a.z == z) {
 				result.add(a);
 			}
 		}
@@ -191,8 +186,8 @@ public class Room {
 		return gameScreen;
 	}
 
-	public void useItem(Item item, int x, int y) {
-		item.onUse(this, x, y);		
+	public void useItem(Item item, int x, int y, int z) {
+		item.onUse(this, x, y, z);		
 	}
 
 	public Vec2 getMagneticGradientAt(int x, int y) {
@@ -221,6 +216,10 @@ public class Room {
 			if (actor instanceof Robot) result++;
 		}
 		return result;
+	}
+
+	public int getNumberOfLayers() {
+		return layers.size();
 	}
 	
 }

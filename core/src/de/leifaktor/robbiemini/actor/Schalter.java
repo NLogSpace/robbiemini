@@ -8,8 +8,8 @@ public class Schalter extends Actor {
 	boolean active;
 	String variableName;
 
-	public Schalter(int x, int y, boolean wallOnTheLeft, boolean active, String variableName) {
-		super(x, y);
+	public Schalter(int x, int y, int z, boolean wallOnTheLeft, boolean active, String variableName) {
+		super(x, y, z);
 		this.wallOnTheLeft = wallOnTheLeft;
 		this.active = active;
 		this.variableName = variableName;
@@ -17,7 +17,7 @@ public class Schalter extends Actor {
 
 	@Override
 	public Actor clone() {
-		return new Schalter(x, y, wallOnTheLeft, active, variableName);
+		return new Schalter(x, y, z, wallOnTheLeft, active, variableName);
 	}
 
 	@Override
@@ -45,8 +45,6 @@ public class Schalter extends Actor {
 	
 	public boolean isWallOnTheLeft() {
 		return wallOnTheLeft;
-	}
-	
-	
+	}	
 
 }

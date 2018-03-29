@@ -18,8 +18,8 @@ public class Magnet extends Item implements Magnetic {
 	}
 
 	@Override
-	public void onUse(Room room, int x, int y) {
-		room.commands.add(new AddActorCommand(new ItemActor(x, y, this)));
+	public void onUse(Room room, int x, int y, int z) {
+		room.commands.add(new AddActorCommand(new ItemActor(x, y, z, this)));
 	}
 
 	@Override
@@ -37,7 +37,7 @@ public class Magnet extends Item implements Magnetic {
 	}
 
 	@Override
-	public void onHitBy(Room room, ItemActor itemActor, Actor actor, int x, int y) {		
+	public void onHitBy(Room room, ItemActor itemActor, Actor actor, int x, int y, int z) {		
 		if (actor instanceof Player) {
 			room.commands.add(new PlaySoundCommand(SoundPlayer.SOUND_COLLECT_CLICK));
 			itemActor.collect(room, (Player) actor);

@@ -109,7 +109,7 @@ public class GameScreen implements Screen {
 		currentRoom.removePlayer();
 		currentRoomPosition = newRoomPosition;
 		currentRoom = roomManager.getRoom(newRoomPosition);
-		currentRoom.putPlayer(player, playerTeleportPosition.x, playerTeleportPosition.y);
+		currentRoom.putPlayer(player, playerTeleportPosition.x, playerTeleportPosition.y, playerTeleportPosition.z);
 		player.stopMoving();
 		currentRoom.setGameScreen(this);		
 	}
@@ -119,7 +119,7 @@ public class GameScreen implements Screen {
 			player.inventory.update();
 			if (InputManager.justPressed[InputManager.ENTER]) {
 				if (player.inventory.getSelectedItem() != null) {
-					currentRoom.useItem(player.inventory.getSelectedItem(), player.x, player.y);
+					currentRoom.useItem(player.inventory.getSelectedItem(), player.x, player.y, player.z);
 					player.inventory.removeSelectedItem();
 					player.inventory.decreasePointer();
 				}
@@ -165,7 +165,7 @@ public class GameScreen implements Screen {
 		currentRoom.removePlayer();
 		currentRoomPosition = newRoomPosition;
 		currentRoom = newRoom;
-		currentRoom.putPlayer(player, player.x, player.y);
+		currentRoom.putPlayer(player, player.x, player.y, player.z);
 		player.stopMoving();
 		currentRoom.setGameScreen(this);
 	}
@@ -234,8 +234,8 @@ public class GameScreen implements Screen {
 		roomManager.setRoom(1, 0, 1, room101);
 		currentRoomPosition = new XYZPos(1,1,1);
 		currentRoom = roomManager.getRoom(currentRoomPosition);
-		player = new Player(3,3);
-		currentRoom.putPlayer(player, player.x, player.y);
+		player = new Player(3, 3, 0);
+		currentRoom.putPlayer(player, player.x, player.y, player.z);
 		currentRoom.setGameScreen(this);
 	}
 	

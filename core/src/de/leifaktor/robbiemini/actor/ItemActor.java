@@ -8,14 +8,14 @@ public class ItemActor extends Actor {
 
 	Item item;
 
-	public ItemActor(int x, int y, Item item) {
-		super(x, y);
+	public ItemActor(int x, int y, int z, Item item) {
+		super(x, y, z);
 		this.item = item;
 	}
 
 	@Override
 	public void hitBy(Room room, Actor actor) {
-		item.onHitBy(room, this, actor, x, y);
+		item.onHitBy(room, this, actor, x, y, z);
 	}
 	
 	public void collect(Room room, Player player) {
@@ -30,7 +30,7 @@ public class ItemActor extends Actor {
 
 	@Override
 	public Actor clone() {
-		return new ItemActor(x,y,item.clone());
+		return new ItemActor(x, y, z, item.clone());
 	}
 
 

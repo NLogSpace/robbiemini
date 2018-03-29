@@ -12,6 +12,7 @@ public class CollisionDetector {
 		if (dir == -1) return true;
 		int newx = actor.x + Direction.DIR_X[dir];
 		int newy = actor.y + Direction.DIR_Y[dir];
+		int newz = actor.z;
 		int width = room.width;
 
 		// Ausnahmeregel: Roboter können IMMER das Feld mit dem Spieler betreten!
@@ -24,7 +25,7 @@ public class CollisionDetector {
 			return room.hasNeighborRoomAt(newx, newy);
 		}
 		
-		if (!room.tiles[newy*width + newx].canBeEntered(actor)) return false;
+		if (!room.getTile(newx, newy, newz).canBeEntered(actor)) return false;
 
 		for (Actor other: room.actors) {
 			if (other.x == newx && other.y == newy) {

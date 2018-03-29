@@ -7,6 +7,7 @@ import de.leifaktor.robbiemini.InputManager;
 import de.leifaktor.robbiemini.Inventory;
 import de.leifaktor.robbiemini.Room;
 import de.leifaktor.robbiemini.Vec2;
+import de.leifaktor.robbiemini.XYZPos;
 
 public class Player extends Actor {
 
@@ -16,7 +17,7 @@ public class Player extends Actor {
 	int lives;
 	
 	int respawnTimer;
-	Vec2 respawnPosition;
+	XYZPos respawnPosition;
 	State state;
 	float stateTime;
 	
@@ -26,9 +27,9 @@ public class Player extends Actor {
 		RESPAWNING
 	}
 
-	public Player(int x, int y) {		
-		super(x, y);
-		spawn(x, y);
+	public Player(int x, int y, int z) {		
+		super(x, y, z);
+		spawn(x, y, z);
 		inventory = new Inventory();
 		speed = 0.16f;
 		lives = 3;
@@ -63,13 +64,13 @@ public class Player extends Actor {
 			boolean canMove = CollisionDetector.canMoveTo(this, room, intendedDir);
 			boolean canShift = CollisionDetector.canShiftTo(this, room, intendedDir);
 			if (canMove) {
-				room.onLeave(this, x, y, intendedDir);
+				room.onLeave(this, x, y, z, intendedDir);
 				initMove(intendedDir);						
 				move(Math.min(remainingDistance, distanceUntilNextTile));
 				setState(State.WALKING);
 			} else if (canShift) {
-				room.onLeave(this, x, y, intendedDir);
-				room.startShift(this, x, y, intendedDir);
+				room.onLeave(this, x, y, z, intendedDir);
+				room.startShift(this, x, y, z, intendedDir);
 				initMove(intendedDir);						
 				move(Math.min(remainingDistance, distanceUntilNextTile));
 				setState(State.WALKING);
@@ -126,12 +127,12 @@ public class Player extends Actor {
 
 	@Override
 	public Actor clone() {
-		return new Player(x,y);
+		return new Player(x, y, z);
 	}
 
-	public void spawn(int x, int y) {
-		setPosition(x, y);
-		respawnPosition = new Vec2(x, y);
+	public void spawn(int x, int y, int z) {
+		setPosition(x, y, z);
+		respawnPosition = new XYZPos(x, y, z);
 		setState(State.IDLE);
 	}
 

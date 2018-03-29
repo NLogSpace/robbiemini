@@ -6,9 +6,9 @@ import de.leifaktor.robbiemini.actor.ItemActor;
 
 public abstract class Item {
 	
-	public abstract void onUse(Room room, int x, int y);
+	public abstract void onUse(Room room, int x, int y, int z);
 	
-	public void onHitBy(Room room, ItemActor itemActor, Actor actor, int x, int y) {};
+	public void onHitBy(Room room, ItemActor itemActor, Actor actor, int x, int y, int z) {};
 	
 	public abstract Item clone();
 	

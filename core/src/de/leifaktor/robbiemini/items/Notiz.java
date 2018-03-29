@@ -16,7 +16,7 @@ public class Notiz extends Item {
 	}
 
 	@Override
-	public void onUse(Room room, int x, int y) {
+	public void onUse(Room room, int x, int y, int z) {
 		room.showTextbox(text);
 	}
 
@@ -26,7 +26,7 @@ public class Notiz extends Item {
 	}
 	
 	@Override
-	public void onHitBy(Room room, ItemActor itemActor, Actor actor, int x, int y) {		
+	public void onHitBy(Room room, ItemActor itemActor, Actor actor, int x, int y, int z) {		
 		if (actor instanceof Player) {
 			room.commands.add(new PlaySoundCommand(SoundPlayer.SOUND_COLLECT_SONG_1));
 			itemActor.collect(room, (Player) actor);

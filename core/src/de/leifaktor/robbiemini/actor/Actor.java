@@ -3,11 +3,13 @@ package de.leifaktor.robbiemini.actor;
 import de.leifaktor.robbiemini.Direction;
 import de.leifaktor.robbiemini.Room;
 import de.leifaktor.robbiemini.Vec2;
+import de.leifaktor.robbiemini.XYZPos;
 
 public abstract class Actor {
 
 	public int x;
 	public int y;
+	public int z;
 
 	protected Vec2 pos;
 	private Vec2 vel;
@@ -22,8 +24,8 @@ public abstract class Actor {
 
 	boolean shouldBeRemoved;
 
-	public Actor(int x, int y) {
-		setPosition(x, y);
+	public Actor(int x, int y, int z) {
+		setPosition(x, y, z);
 		vel = new Vec2(0,0);
 		this.direction = -1;
 		this.speed = 0f;
@@ -61,7 +63,7 @@ public abstract class Actor {
 
 	public void update(Room room) {
 		if (justReachedTile) {
-			room.onEnter(this, x, y, direction);
+			room.onEnter(this, x, y, z, direction);
 			justReachedTile = false;
 		}
 		if (moving)	move(Math.min(remainingDistance, distanceUntilNextTile));
@@ -76,7 +78,7 @@ public abstract class Actor {
 		remainingDistance -= distance;
 		if (distanceUntilNextTile < 0.000000001) {
 			distanceUntilNextTile = 0;
-			setPosition(x, y);
+			setPosition(x, y, z);
 			justReachedTile = true;
 			isOnTile = true;
 			moving = false;
@@ -101,15 +103,20 @@ public abstract class Actor {
 		isOnTile = true;
 	}
 
-	public void setPosition(int x, int y) {
+	public void setPosition(int x, int y, int z) {
 		this.x = x;
 		this.y = y;
+		this.z = z;
 		this.pos = new Vec2(x,y);
 	}
 
 	public void setPosition(Vec2 position) {
-		setPosition((int) position.x, (int) position.y);
+		setPosition((int) position.x, (int) position.y, z);
 		this.pos = position;
+	}
+	
+	public void setPosition(XYZPos position) {
+		setPosition(position.x, position.y, position.z);
 	}
 
 	public Vec2 getPosition() {

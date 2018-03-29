@@ -14,8 +14,8 @@ public class Teleporter extends Actor {
 	XYZPos destinationInsideRoom;
 	Condition activeCondition;
 
-	public Teleporter(int x, int y, Condition activeCondition) {
-		super(x, y);
+	public Teleporter(int x, int y, int z, Condition activeCondition) {
+		super(x, y, z);
 		active = true;
 		this.activeCondition = activeCondition;
 	}
@@ -48,7 +48,7 @@ public class Teleporter extends Actor {
 
 	@Override
 	public Actor clone() {
-		return new Teleporter(x, y, activeCondition);
+		return new Teleporter(x, y, z, activeCondition);
 	}	
 	
 	public float getStateTime() {

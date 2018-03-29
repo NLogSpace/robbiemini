@@ -7,15 +7,16 @@ public class ChangeTileCommand extends Command {
 
 	int x;
 	int y;
+	int z;
 	Tile tile;
 	
-	public ChangeTileCommand(int x, int y, Tile tile) {
+	public ChangeTileCommand(int x, int y, int z, Tile tile) {
 		this.x = x;
 		this.y = y;
 		this.tile = tile;
 	}
 	
 	public void execute(Room room) {
-		room.setTile(x, y, tile);
+		room.setTile(x, y, z, tile);
 	}
 }

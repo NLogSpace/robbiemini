@@ -7,8 +7,8 @@ public class BulletStack extends Actor {
 	
 	int number;
 
-	public BulletStack(int x, int y, int number) {
-		super(x, y);
+	public BulletStack(int x, int y, int z, int number) {
+		super(x, y, z);
 		this.number = number;
 	}	
 
@@ -21,7 +21,7 @@ public class BulletStack extends Actor {
 		if (actor instanceof Robot) {			
 			number--;
 			if (number == 0) remove();
-			room.commands.add(new AddActorCommand(new FlyingBullet(x, y, actor.direction, 0.25f)));
+			room.commands.add(new AddActorCommand(new FlyingBullet(x, y, z, actor.direction, 0.25f)));
 		}
 	}	
 
@@ -37,7 +37,7 @@ public class BulletStack extends Actor {
 
 	@Override
 	public Actor clone() {
-		return new BulletStack(x, y, number);
+		return new BulletStack(x, y, z, number);
 	}
 	
 	public int getNumber() {

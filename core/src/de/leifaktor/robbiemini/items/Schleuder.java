@@ -13,19 +13,19 @@ import de.leifaktor.robbiemini.commands.PlaySoundCommand;
 public class Schleuder extends Item {	
 
 	@Override
-	public void onUse(Room room, int x, int y) {
-		room.commands.add(new AddActorCommand(new ItemActor(x, y, this)));
+	public void onUse(Room room, int x, int y, int z) {
+		room.commands.add(new AddActorCommand(new ItemActor(x, y, z, this)));
 	}	
 
 	@Override
-	public void onHitBy(Room room, ItemActor itemActor, Actor actor, int x, int y) {
+	public void onHitBy(Room room, ItemActor itemActor, Actor actor, int x, int y, int z) {
 		if (actor instanceof Player) {
 			Player player = (Player) actor;
 			if (InputManager.pressed[InputManager.SHIFT] || player.getBullets() == 0) {
 				itemActor.collect(room, player);
 				room.commands.add(new PlaySoundCommand(SoundPlayer.SOUND_COLLECT_CLICK));
 			} else {
-				room.commands.add(new AddActorCommand(new FlyingBullet(x,y,player.getDirection(), 0.25f)));
+				room.commands.add(new AddActorCommand(new FlyingBullet(x, y, z, player.getDirection(), 0.25f)));
 				player.removeBullet();
 			}
 		}

@@ -5,8 +5,8 @@ import de.leifaktor.robbiemini.Room;
 
 public class FlyingBullet extends Actor {
 
-	public FlyingBullet(int x, int y, int direction, float speed) {
-		super(x, y);
+	public FlyingBullet(int x, int y, int z, int direction, float speed) {
+		super(x, y, z);
 		this.direction = direction;
 		this.speed = speed;
 	}
@@ -17,7 +17,7 @@ public class FlyingBullet extends Actor {
 		if (isOnTile) {
 			boolean canMove = CollisionDetector.canMoveTo(this, room, direction);
 			if (canMove) {
-				room.onLeave(this, x, y, direction);
+				room.onLeave(this, x, y, z, direction);
 				initMove(direction);
 				move(Math.min(remainingDistance, distanceUntilNextTile));
 			} else {
@@ -28,7 +28,7 @@ public class FlyingBullet extends Actor {
 	
 	@Override
 	public Actor clone() {
-		return new FlyingBullet(x, y, direction, speed);
+		return new FlyingBullet(x, y, z, direction, speed);
 	}
 
 }

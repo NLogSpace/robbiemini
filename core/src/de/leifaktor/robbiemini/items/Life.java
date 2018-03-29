@@ -11,12 +11,12 @@ import de.leifaktor.robbiemini.commands.PlaySoundCommand;
 public class Life extends Item {
 
 	@Override
-	public void onUse(Room room, int x, int y) {
+	public void onUse(Room room, int x, int y, int z) {
 		if (room.getPlayer().getLives() < 3) {
 			room.getPlayer().increaseLives();
 			room.commands.add(new PlaySoundCommand(SoundPlayer.SOUND_LIFE));
 		} else {
-			room.commands.add(new AddActorCommand(new ItemActor(x, y, this)));
+			room.commands.add(new AddActorCommand(new ItemActor(x, y, z, this)));
 		}
 	}
 
@@ -26,7 +26,7 @@ public class Life extends Item {
 	}
 
 	@Override
-	public void onHitBy(Room room, ItemActor itemActor, Actor actor, int x, int y) {		
+	public void onHitBy(Room room, ItemActor itemActor, Actor actor, int x, int y, int z) {		
 		if (actor instanceof Player) {
 			room.commands.add(new PlaySoundCommand(SoundPlayer.SOUND_COLLECT));
 			itemActor.collect(room, (Player) actor);

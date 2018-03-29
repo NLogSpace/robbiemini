@@ -7,8 +7,8 @@ import de.leifaktor.robbiemini.commands.RemoveActorCommand;
 
 public class Gold extends Actor {
 
-	public Gold(int x, int y) {
-		super(x, y);
+	public Gold(int x, int y, int z) {
+		super(x, y , z);
 	}
 	
 	@Override
@@ -27,7 +27,7 @@ public class Gold extends Actor {
 
 	@Override
 	public Actor clone() {
-		return new Gold(x,y);
+		return new Gold(x, y, z);
 	}
 
 	@Override

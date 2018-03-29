@@ -8,8 +8,8 @@ public class ElectricFence extends Actor implements IShiftable {
 	
 	boolean shouldStartShift;
 
-	public ElectricFence(int x, int y) {
-		super(x, y);
+	public ElectricFence(int x, int y, int z) {
+		super(x, y, z);
 	}
 	
 	@Override
@@ -21,12 +21,12 @@ public class ElectricFence extends Actor implements IShiftable {
 				boolean canMove = CollisionDetector.canMoveTo(this, room, direction);
 				boolean canShift = CollisionDetector.canShiftTo(this, room, direction);
 				if (canMove) {
-					room.onLeave(this, x, y, direction);
+					room.onLeave(this, x, y, z, direction);
 					initMove(direction);						
 					move(Math.min(remainingDistance, distanceUntilNextTile));
 				} else if (canShift) {
-					room.onLeave(this, x, y, direction);
-					room.startShift(this, x, y, direction);
+					room.onLeave(this, x, y, z, direction);
+					room.startShift(this, x, y, z, direction);
 					initMove(direction);						
 					move(Math.min(remainingDistance, distanceUntilNextTile));
 				}
@@ -67,7 +67,7 @@ public class ElectricFence extends Actor implements IShiftable {
 
 	@Override
 	public Actor clone() {
-		return new ElectricFence(x,y);
+		return new ElectricFence(x, y, z);
 	}
 
 	@Override

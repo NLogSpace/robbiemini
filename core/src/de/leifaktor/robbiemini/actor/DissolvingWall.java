@@ -8,8 +8,8 @@ public class DissolvingWall extends Actor {
 
 	private float time;
 	
-	public DissolvingWall(int x, int y) {
-		super(x, y);
+	public DissolvingWall(int x, int y, int z) {
+		super(x, y, z);
 		time = 0;
 	}
 	
@@ -29,7 +29,7 @@ public class DissolvingWall extends Actor {
 
 	@Override
 	public Actor clone() {
-		return new DissolvingWall(x,y);
+		return new DissolvingWall(x, y, z);
 	}
 	
 	
