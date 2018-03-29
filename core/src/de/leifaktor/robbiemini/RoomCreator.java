@@ -28,6 +28,12 @@ import de.leifaktor.robbiemini.items.Magnet;
 import de.leifaktor.robbiemini.items.Notiz;
 import de.leifaktor.robbiemini.items.Schleuder;
 import de.leifaktor.robbiemini.tiles.Air;
+import de.leifaktor.robbiemini.tiles.BridgeDown;
+import de.leifaktor.robbiemini.tiles.BridgeLR;
+import de.leifaktor.robbiemini.tiles.BridgeLeft;
+import de.leifaktor.robbiemini.tiles.BridgeRight;
+import de.leifaktor.robbiemini.tiles.BridgeUD;
+import de.leifaktor.robbiemini.tiles.BridgeUp;
 import de.leifaktor.robbiemini.tiles.Door;
 import de.leifaktor.robbiemini.tiles.EmptyTile;
 import de.leifaktor.robbiemini.tiles.Tile;
@@ -63,7 +69,22 @@ public class RoomCreator {
 		RoomLayer layer = new RoomLayer(width, height, map);		
 		ArrayList<RoomLayer> layers = new ArrayList<RoomLayer>();
 		layers.add(layer);
-		layers.add(someWalls(width,height));
+		layers.add(airLayer(width,height));
+		layers.get(0).tiles[78] = new BridgeLeft();
+		layers.get(1).tiles[79] = new BridgeLR();
+		layers.get(1).tiles[80] = new BridgeLR();
+		layers.get(1).tiles[81] = new BridgeLR();
+		layers.get(0).tiles[82] = new BridgeRight();
+		
+		layers.get(0).tiles[10*width+22] = new BridgeDown();
+		layers.get(1).tiles[11*width+22] = new BridgeUD();
+		layers.get(1).tiles[12*width+22] = new BridgeUD();
+		layers.get(1).tiles[13*width+22] = new BridgeUD();
+		layers.get(1).tiles[14*width+22] = new BridgeUD();
+		layers.get(1).tiles[15*width+22] = new BridgeUD();
+		layers.get(1).tiles[16*width+22] = new BridgeUD();
+		layers.get(1).tiles[17*width+22] = new BridgeUD();
+		layers.get(0).tiles[18*width+22] = new BridgeUp();
 		
 		ArrayList<Actor> actors = new ArrayList<Actor>();
 		Condition killedAllRobots = new IsTermZeroCondition(new RobotsAliveTerm());
@@ -269,7 +290,7 @@ public class RoomCreator {
 			addRandomActors(arrow, room, 1);
 		}
 		
-		addRandomRobots(room, 5);
+		//addRandomRobots(room, 5);
 		
 		return room;
 	}
@@ -327,6 +348,72 @@ public class RoomCreator {
 		return room;
 	}
 	
+	public static Room createBridgeRoom(int width, int height) {
+		Tile wall = new Wall();
+		Tile empty = new EmptyTile();
+		Tile[] map = new Tile[width*height];
+		for (int x = 0; x < width; x++) {
+			for (int y = 0; y < height; y++) {
+				if (x == 0 || x == width-1 || y == 0 || y == height-1) map[y*width+x] = wall;
+				else map[y*width+x] = empty;
+			}
+		}
+		map[5*width+0] = empty;
+		map[6*width+0] = empty;
+		map[7*width+0] = empty;
+		map[5*width+width-1] = empty;
+		map[6*width+width-1] = empty;
+		map[7*width+width-1] = empty;
+		map[5] = empty;
+		map[6] = empty;
+		map[7] = empty;
+		map[(height-1)*width+5] = empty;
+		map[(height-1)*width+6] = empty;
+		map[(height-1)*width+7] = empty;
+		
+		RoomLayer layer = new RoomLayer(width, height, map);		
+		ArrayList<RoomLayer> layers = new ArrayList<RoomLayer>();
+		layers.add(layer);
+		layers.add(airLayer(width,height));
+		layers.get(0).tiles[12*width+12] = new BridgeLeft();
+		layers.get(1).tiles[12*width+13] = new BridgeLR();
+		layers.get(1).tiles[12*width+14] = new BridgeLR();
+		layers.get(1).tiles[12*width+15] = new BridgeLR();
+		layers.get(0).tiles[12*width+16] = new BridgeRight();
+		
+		layers.get(0).tiles[10*width+22] = new BridgeDown();
+		layers.get(1).tiles[11*width+22] = new BridgeUD();
+		layers.get(1).tiles[12*width+22] = new BridgeUD();
+		layers.get(1).tiles[13*width+22] = new BridgeUD();
+		layers.get(1).tiles[14*width+22] = new BridgeUD();
+		layers.get(1).tiles[15*width+22] = new BridgeUD();
+		layers.get(1).tiles[16*width+22] = new BridgeUD();
+		layers.get(1).tiles[17*width+22] = new BridgeUD();
+		layers.get(0).tiles[18*width+22] = new BridgeUp();
+		
+		ArrayList<Actor> actors = new ArrayList<Actor>();
+		Condition killedAllRobots = new IsTermZeroCondition(new RobotsAliveTerm());
+		actors.add(new Sperre(5, 0, 0, killedAllRobots, false, false));
+		actors.add(new Sperre(6, 0, 0, killedAllRobots, false, false));
+		actors.add(new Sperre(7, 0, 0, killedAllRobots, false, false));
+		actors.add(new Sperre(5, height-1, 0, killedAllRobots, false, false));
+		actors.add(new Sperre(6, height-1, 0, killedAllRobots, false, false));
+		actors.add(new Sperre(7, height-1, 0, killedAllRobots, false, false));
+		actors.add(new Sperre(0, 5, 0, killedAllRobots, true, false));
+		actors.add(new Sperre(0, 6, 0, killedAllRobots, true, false));
+		actors.add(new Sperre(0, 7, 0, killedAllRobots, true, false));
+		actors.add(new Sperre(width-1, 5, 0, killedAllRobots, true, false));
+		actors.add(new Sperre(width-1, 6, 0, killedAllRobots, true, false));
+		actors.add(new Sperre(width-1, 7, 0, killedAllRobots, true, false));
+		
+		Room room = new Room(width, height, layers, actors);
+
+		Isolator isolator = new Isolator(0,0, 0);
+		addRandomActors(isolator, room, 100);
+		
+		return room;
+	}
+	
 	public static void addRandomRobots(Room room, int number) {
 		for (int i = 0; i < number; i++) {
 			Robot robot = randomRobot(room.width, room.height);
@@ -360,12 +447,11 @@ public class RoomCreator {
 		return robot;
 	}
 	
-	public static RoomLayer someWalls(int width, int height) {
+	public static RoomLayer airLayer(int width, int height) {
 		Tile[] map = new Tile[width*height];
 		Tile air = new Air();
-		Tile wall = new Wall();
 		for (int i = 0; i < map.length; i++) {
-			if (Util.random.nextFloat() < 0.1f) map[i] = wall; else map[i] = air;
+			map[i] = air;
 		}
 		RoomLayer layer = new RoomLayer(width, height, map);
 		return layer;

@@ -5,7 +5,7 @@ import de.leifaktor.robbiemini.actor.Actor;
 public class Wall extends Tile {
 
 	@Override
-	public boolean canBeEntered(Actor actor) {
+	public boolean canBeEntered(Actor actor, int dir) {
 		return false;
 	}
 

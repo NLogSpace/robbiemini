@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import de.leifaktor.robbiemini.actor.Actor;
 import de.leifaktor.robbiemini.actor.Robot;
+import de.leifaktor.robbiemini.tiles.BridgeLeft;
+import de.leifaktor.robbiemini.tiles.BridgeRight;
 import de.leifaktor.robbiemini.actor.Player;
 
 public class CollisionDetector {
@@ -13,7 +15,9 @@ public class CollisionDetector {
 		int newx = actor.x + Direction.DIR_X[dir];
 		int newy = actor.y + Direction.DIR_Y[dir];
 		int newz = actor.z;
-
+		if (room.getTile(actor.x, actor.y, actor.z) instanceof BridgeLeft && dir == 1) newz++;
+		if (room.getTile(actor.x, actor.y, actor.z) instanceof BridgeRight && dir == 3) newz++;
+		
 		// Ausnahmeregel: Roboter können IMMER das Feld mit dem Spieler betreten!
 		if (room.player != null && room.player.x == newx && room.player.y == newy && actor instanceof Robot) return true; 
 
@@ -24,7 +28,7 @@ public class CollisionDetector {
 			return room.hasNeighborRoomAt(newx, newy);
 		}
 		
-		if (!room.getTile(newx, newy, newz).canBeEntered(actor)) return false;
+		if (!room.getTile(newx, newy, newz).canBeEntered(actor, dir)) return false;
 
 		for (Actor other: room.actors) {
 			if (other.x == newx && other.y == newy && other.z == newz) {

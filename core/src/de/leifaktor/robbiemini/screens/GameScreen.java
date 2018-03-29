@@ -227,14 +227,16 @@ public class GameScreen implements Screen {
 		Room room121 = RoomCreator.createEmptyRoom(RobbieMini.WIDTH, RobbieMini.HEIGHT);
 		Room room122 = RoomCreator.createWallRoom(RobbieMini.WIDTH, RobbieMini.HEIGHT);
 		Room room101 = RoomCreator.createMagneticRoom(RobbieMini.WIDTH, RobbieMini.HEIGHT);
+		Room room102 = RoomCreator.createBridgeRoom(RobbieMini.WIDTH, RobbieMini.HEIGHT);
 		roomManager.setRoom(1, 1, 1, room111);
 		roomManager.setRoom(1, 1, 2, room112);
 		roomManager.setRoom(1, 2, 1, room121);
 		roomManager.setRoom(1, 2, 2, room122);
 		roomManager.setRoom(1, 0, 1, room101);
-		currentRoomPosition = new XYZPos(1,1,1);
+		roomManager.setRoom(1, 0, 2, room102);
+		currentRoomPosition = new XYZPos(0,2,1);
 		currentRoom = roomManager.getRoom(currentRoomPosition);
-		player = new Player(3, 3, 1);
+		player = new Player(3, 3, 0);
 		currentRoom.putPlayer(player, player.x, player.y, player.z);
 		currentRoom.setGameScreen(this);
 	}

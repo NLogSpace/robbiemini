@@ -22,6 +22,12 @@ import de.leifaktor.robbiemini.actor.Skull;
 import de.leifaktor.robbiemini.actor.Sperre;
 import de.leifaktor.robbiemini.actor.Teleporter;
 import de.leifaktor.robbiemini.items.Item;
+import de.leifaktor.robbiemini.tiles.BridgeDown;
+import de.leifaktor.robbiemini.tiles.BridgeLR;
+import de.leifaktor.robbiemini.tiles.BridgeLeft;
+import de.leifaktor.robbiemini.tiles.BridgeRight;
+import de.leifaktor.robbiemini.tiles.BridgeUD;
+import de.leifaktor.robbiemini.tiles.BridgeUp;
 import de.leifaktor.robbiemini.tiles.DarkWall;
 import de.leifaktor.robbiemini.tiles.Door;
 import de.leifaktor.robbiemini.tiles.EmptyTile;
@@ -61,6 +67,12 @@ public class RoomRenderer {
 						Door d = (Door) room.getTile(i, j, z);
 						draw(batch, Graphics.textures.get("door_" + d.getNumber()), i, j);
 					}
+					if (room.getTile(i, j, z) instanceof BridgeLeft) draw(batch, Graphics.textures.get("bridge_left"), i, j);
+					if (room.getTile(i, j, z) instanceof BridgeLR) draw(batch, Graphics.textures.get("bridge_lr"), i, j);
+					if (room.getTile(i, j, z) instanceof BridgeRight) draw(batch, Graphics.textures.get("bridge_right"), i, j);
+					if (room.getTile(i, j, z) instanceof BridgeUp) draw(batch, Graphics.textures.get("bridge_up"), i, j);
+					if (room.getTile(i, j, z) instanceof BridgeUD) draw(batch, Graphics.textures.get("bridge_ud"), i, j);
+					if (room.getTile(i, j, z) instanceof BridgeDown) draw(batch, Graphics.textures.get("bridge_down"), i, j);
 				}
 			}
 			for (Actor a : room.actors) {

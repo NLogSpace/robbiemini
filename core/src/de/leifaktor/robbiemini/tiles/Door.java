@@ -20,7 +20,7 @@ public class Door extends Tile {
 	}
 
 	@Override
-	public boolean canBeEntered(Actor actor) {
+	public boolean canBeEntered(Actor actor, int dir) {
 		if (!(actor instanceof Player)) return false;
 		Player p = (Player) actor;
 		if (!p.inventory.hasItem(new Key(number))) return false;

@@ -94,7 +94,7 @@ public abstract class Actor {
 			isOnTile = false;
 			distanceUntilNextTile = (dir < 4 ? 1 : 1.414213562f);
 			x += Direction.DIR_X[dir];
-			y += Direction.DIR_Y[dir];
+			y += Direction.DIR_Y[dir];			
 		}
 	}
 	

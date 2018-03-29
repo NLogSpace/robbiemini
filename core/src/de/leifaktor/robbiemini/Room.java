@@ -7,6 +7,7 @@ import java.util.List;
 import de.leifaktor.robbiemini.actor.Actor;
 import de.leifaktor.robbiemini.actor.Explosion;
 import de.leifaktor.robbiemini.actor.IShiftable;
+import de.leifaktor.robbiemini.actor.Isolator;
 import de.leifaktor.robbiemini.actor.Player;
 import de.leifaktor.robbiemini.actor.Robot;
 import de.leifaktor.robbiemini.commands.AddActorCommand;
@@ -133,6 +134,7 @@ public class Room {
 	}
 	
 	public void onLeave(Actor actor, int x, int y, int z, int direction) {
+		System.out.println("" + x  +" " + y + " " + z + " " + direction + " " + actor);
 		getTile(x, y, z).onLeave(this, actor, direction);
 	}
 
@@ -220,6 +222,22 @@ public class Room {
 
 	public int getNumberOfLayers() {
 		return layers.size();
+	}
+
+	public void liftActorOneLayer(Actor actor) {
+		actor.z++;
+	}
+
+	public void fallDown(Actor actor) {
+		int x = actor.x;
+		int y = actor.y;
+		int z = actor.z-1;
+		for (Actor a: getActorsAt(x,y,z)) {
+			if (a instanceof Isolator) {
+				return;
+			}
+		};		
+		actor.z--;
 	}
 	
 }
