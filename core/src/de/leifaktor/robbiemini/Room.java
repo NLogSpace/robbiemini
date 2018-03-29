@@ -126,7 +126,7 @@ public class Room {
 	public void onEnter(Actor actor, int x, int y, int z, int direction) {
 		getTile(x, y, z).onEnter(this, actor, direction);
 		for (Actor other: actors) {
-			if (!other.equals(actor) && actor.x == other.x && actor.y == other.y) {
+			if (!other.equals(actor) && actor.x == other.x && actor.y == other.y && actor.z == other.z) {
 				other.hitBy(this, actor);
 			}
 		}

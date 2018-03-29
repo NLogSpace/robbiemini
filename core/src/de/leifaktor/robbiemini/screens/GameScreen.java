@@ -234,7 +234,7 @@ public class GameScreen implements Screen {
 		roomManager.setRoom(1, 0, 1, room101);
 		currentRoomPosition = new XYZPos(1,1,1);
 		currentRoom = roomManager.getRoom(currentRoomPosition);
-		player = new Player(3, 3, 0);
+		player = new Player(3, 3, 1);
 		currentRoom.putPlayer(player, player.x, player.y, player.z);
 		currentRoom.setGameScreen(this);
 	}
