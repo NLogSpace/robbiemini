@@ -17,7 +17,7 @@ public class Skull extends Actor {
 
 	@Override
 	public boolean canBeEntered(Actor other) {
-		return other instanceof Player;
+		return other instanceof Player || other instanceof FlyingBullet;
 	}
 
 	@Override
@@ -35,6 +35,10 @@ public class Skull extends Actor {
 				}
 			}
 			this.remove();
+		} else if (actor instanceof FlyingBullet) {
+			room.makeExplosion(getPosition());
+			actor.remove();
+			this.remove();			
 		}
 	}
 	

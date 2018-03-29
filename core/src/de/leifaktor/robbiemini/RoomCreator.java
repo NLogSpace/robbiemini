@@ -244,7 +244,7 @@ public class RoomCreator {
 		teleporter.setDestination(new XYZPos(2,1,1), new XYZPos(10,10,0));
 		room.actors.add(teleporter);		
 		
-		room.actors.add(new Schalter(1, 10, true, true, "schalter"));
+		room.actors.add(new Schalter(1, 10, true, false, "schalter"));
 		
 		Skull skull = new Skull(0,0);
 		addRandomActors(skull, room, 5);
