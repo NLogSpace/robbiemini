@@ -8,17 +8,17 @@ public class MagneticField {
 
 	int width;
 	int height;
-	Room room;
 	float[] field;
+	
+	public MagneticField() {} // no-arg constructor for JSON
 	
 	public MagneticField(Room room) {
 		this.width = room.width;
 		this.height = room.height;
-		this.room = room;
 		this.field = new float[width*height];
 	}
 	
-	public void update() {
+	public void update(Room room) {
 		for (int i = 0; i < field.length; i++) field[i] = 0;
 		for (Actor actor: room.actors) {
 			float polarizationOfThisActor = 0;
@@ -45,7 +45,7 @@ public class MagneticField {
 		return 50/(distance+1)/(distance+1);
 	}
 	
-	public Vec2 getGradientAt(int x, int y) {
+	public Vec2 getGradientAt(int x, int y, Room room) {
 		Vec2 result = new Vec2(0,0);
 		int numberOfVectors = 0;
 		for (int i = -1; i <= 1; i++) {

@@ -23,6 +23,8 @@ public abstract class Actor {
 	boolean isOnTile;
 
 	boolean shouldBeRemoved;
+	
+	public Actor() {} // no-arg constructor for JSON
 
 	public Actor(int x, int y, int z) {
 		setPosition(x, y, z);

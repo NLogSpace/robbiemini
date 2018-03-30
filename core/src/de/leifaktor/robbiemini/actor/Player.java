@@ -6,7 +6,6 @@ import de.leifaktor.robbiemini.CollisionDetector;
 import de.leifaktor.robbiemini.InputManager;
 import de.leifaktor.robbiemini.Inventory;
 import de.leifaktor.robbiemini.Room;
-import de.leifaktor.robbiemini.Vec2;
 import de.leifaktor.robbiemini.XYZPos;
 
 public class Player extends Actor {
@@ -26,6 +25,8 @@ public class Player extends Actor {
 		WALKING,
 		RESPAWNING
 	}
+	
+	public Player() {} // no-arg constructor for JSON
 
 	public Player(int x, int y, int z) {		
 		super(x, y, z);

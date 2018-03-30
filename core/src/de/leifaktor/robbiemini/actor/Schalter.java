@@ -7,6 +7,8 @@ public class Schalter extends Actor {
 	boolean wallOnTheLeft;
 	boolean active;
 	String variableName;
+	
+	public Schalter() {} // no-arg constructor for JSON
 
 	public Schalter(int x, int y, int z, boolean wallOnTheLeft, boolean active, String variableName) {
 		super(x, y, z);

@@ -12,6 +12,8 @@ public class Robot extends Actor{
 	public int graphicType;
 	float stateTime;
 	float stressLevel;
+	
+	public Robot() {} // no-arg constructor for JSON
 
 	public Robot(int x, int y, int z, float speed, int graphicType) {
 		super(x, y, z);

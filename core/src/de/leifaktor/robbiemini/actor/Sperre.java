@@ -13,6 +13,8 @@ public class Sperre extends Actor {
 	
 	float timeUntilOpen;
 
+	public Sperre() {} // no-arg constructor for JSON
+	
 	public Sperre(int x, int y, int z, Condition openCondition, boolean leftRight, boolean isOpen) {
 		super(x, y, z);
 		this.openCondition = openCondition;

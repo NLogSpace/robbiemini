@@ -7,6 +7,8 @@ import de.leifaktor.robbiemini.items.Item;
 public class ItemActor extends Actor {
 
 	Item item;
+	
+	public ItemActor() {} // no-arg constructor for JSON
 
 	public ItemActor(int x, int y, int z, Item item) {
 		super(x, y, z);

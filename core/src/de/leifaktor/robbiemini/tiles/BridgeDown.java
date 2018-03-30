@@ -6,7 +6,7 @@ import de.leifaktor.robbiemini.actor.Player;
 import de.leifaktor.robbiemini.actor.Robot;
 
 public class BridgeDown extends Tile {
-
+	
 	@Override
 	public boolean canBeEntered(Actor actor, int dir) {
 		if (actor instanceof Player || actor instanceof Robot) {

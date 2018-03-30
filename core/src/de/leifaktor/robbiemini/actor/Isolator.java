@@ -6,6 +6,8 @@ import de.leifaktor.robbiemini.Room;
 public class Isolator extends Actor implements IShiftable {
 	
 	boolean shouldStartShift;
+	
+	public Isolator() {} // no-arg constructor for JSON
 
 	public Isolator(int x, int y, int z) {
 		super(x, y, z);

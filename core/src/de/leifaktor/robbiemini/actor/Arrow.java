@@ -8,6 +8,8 @@ public class Arrow extends Actor {
 
 	int baseDir;
 	int dir;
+	
+	public Arrow() {} // no-arg constructor for JSON
 
 	public Arrow(int x, int y, int z, int baseDir) {
 		super(x, y, z);

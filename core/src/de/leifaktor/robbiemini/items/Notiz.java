@@ -11,6 +11,8 @@ public class Notiz extends Item {
 	
 	String text;
 	
+	public Notiz() {} // no-arg constructor for JSON
+	
 	public Notiz(String text) {
 		this.text = text;
 	}

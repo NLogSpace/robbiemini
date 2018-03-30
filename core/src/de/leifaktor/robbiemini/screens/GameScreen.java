@@ -1,6 +1,7 @@
 package de.leifaktor.robbiemini.screens;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.GL20;
@@ -8,12 +9,14 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
+import de.leifaktor.robbiemini.Episode;
 import de.leifaktor.robbiemini.GlobalVars;
+import de.leifaktor.robbiemini.IO;
 import de.leifaktor.robbiemini.InputManager;
 import de.leifaktor.robbiemini.RobbieMini;
 import de.leifaktor.robbiemini.Room;
-import de.leifaktor.robbiemini.RoomCreator;
 import de.leifaktor.robbiemini.RoomManager;
+import de.leifaktor.robbiemini.TestEpisode;
 import de.leifaktor.robbiemini.XYZPos;
 import de.leifaktor.robbiemini.actor.Player;
 import de.leifaktor.robbiemini.render.InventoryRenderer;
@@ -27,6 +30,8 @@ public class GameScreen implements Screen {
 	
 	Viewport viewport;
 	Camera camera;
+	
+	Episode episode;
 	
 	RoomManager roomManager;
 	Room currentRoom;
@@ -66,8 +71,7 @@ public class GameScreen implements Screen {
 		viewport = new FitViewport(RobbieMini.getVirtualWidth(), RobbieMini.getVirtualHeight(), camera);
 		camera.update();
 		
-		setUpSomeTestRooms();
-		globalVars = new GlobalVars();
+		loadEpisode(TestEpisode.createTestEpisode());
 		
 		renderer = new RoomRenderer();
 		renderer.setOffset(0, 0);
@@ -81,9 +85,35 @@ public class GameScreen implements Screen {
 		InputManager.initKeyMap();
 	}
 	
+	private void save() {
+		episode.startingPosition = new XYZPos(player.x, player.y, player.z);
+		episode.startingRoom = currentRoomPosition;
+		currentRoom.removePlayer();
+		IO.save(episode, "episode.rob");
+		currentRoom.putPlayer(player, player.x, player.y, player.z);
+	}
+	
+	private void load() {
+		loadEpisode(IO.load("episode.rob"));
+	}
+	
+	public void loadEpisode(Episode epi) {
+		episode = epi;
+		roomManager = epi.roomManager;
+		globalVars = epi.globalVars;
+		currentRoomPosition = epi.startingRoom;
+		player = epi.player;
+		currentRoom = roomManager.getRoom(currentRoomPosition);
+		player.setPosition(epi.startingPosition);
+		currentRoom.putPlayer(player, player.x, player.y, player.z);
+		currentRoom.setGameScreen(this);
+	}
+	
 	@Override
 	public void render(float delta) {
 		InputManager.update();
+		if (Gdx.input.isKeyJustPressed(Keys.S)) save();
+		if (Gdx.input.isKeyJustPressed(Keys.L)) load();
 		if (showTextboxFromNextFrame) {
 			state = State.TEXTBOX;
 			showTextboxFromNextFrame = false;
@@ -218,27 +248,6 @@ public class GameScreen implements Screen {
 	
 	public void gameOver() {
 		game.setScreen(new MainMenuScreen(game));
-	}
-	
-	private void setUpSomeTestRooms() {
-		roomManager = new RoomManager();
-		Room room111 = RoomCreator.createShiftRoom(RobbieMini.WIDTH, RobbieMini.HEIGHT);
-		Room room112 = RoomCreator.createMazeRoom(RobbieMini.WIDTH, RobbieMini.HEIGHT);
-		Room room121 = RoomCreator.createEmptyRoom(RobbieMini.WIDTH, RobbieMini.HEIGHT);
-		Room room122 = RoomCreator.createWallRoom(RobbieMini.WIDTH, RobbieMini.HEIGHT);
-		Room room101 = RoomCreator.createMagneticRoom(RobbieMini.WIDTH, RobbieMini.HEIGHT);
-		Room room102 = RoomCreator.createBridgeRoom(RobbieMini.WIDTH, RobbieMini.HEIGHT);
-		roomManager.setRoom(1, 1, 1, room111);
-		roomManager.setRoom(1, 1, 2, room112);
-		roomManager.setRoom(1, 2, 1, room121);
-		roomManager.setRoom(1, 2, 2, room122);
-		roomManager.setRoom(1, 0, 1, room101);
-		roomManager.setRoom(1, 0, 2, room102);
-		currentRoomPosition = new XYZPos(0,2,1);
-		currentRoom = roomManager.getRoom(currentRoomPosition);
-		player = new Player(3, 3, 0);
-		currentRoom.putPlayer(player, player.x, player.y, player.z);
-		currentRoom.setGameScreen(this);
 	}
 	
 	public boolean isInventoryOpen() {

@@ -8,6 +8,8 @@ public class DissolvingWall extends Actor {
 
 	private float time;
 	
+	public DissolvingWall() {} // no-arg constructor for JSON
+	
 	public DissolvingWall(int x, int y, int z) {
 		super(x, y, z);
 		time = 0;

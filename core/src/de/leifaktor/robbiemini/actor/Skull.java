@@ -6,6 +6,8 @@ import de.leifaktor.robbiemini.tiles.EmptyTile;
 
 public class Skull extends Actor {
 
+	public Skull() {} // no-arg constructor for JSON
+	
 	public Skull(int x, int y, int z) {
 		super(x, y, z);
 	}

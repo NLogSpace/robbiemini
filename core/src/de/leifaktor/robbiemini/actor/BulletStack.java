@@ -8,6 +8,8 @@ import de.leifaktor.robbiemini.commands.PlaySoundCommand;
 public class BulletStack extends Actor {
 	
 	int number;
+	
+	public BulletStack() {} // no-arg constructor for JSON
 
 	public BulletStack(int x, int y, int z, int number) {
 		super(x, y, z);

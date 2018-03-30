@@ -6,6 +6,8 @@ public class IsTermZeroCondition extends Condition {
 	
 	Term term;
 	
+	public IsTermZeroCondition() {} // no-arg constructor for JSON
+	
 	public IsTermZeroCondition(Term term) {
 		this.term = term;
 	}

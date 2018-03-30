@@ -6,6 +6,8 @@ public class GlobalBooleanCondition extends Condition {
 	
 	String variableName;
 	
+	public GlobalBooleanCondition() {} // no-arg constructor for JSON
+	
 	public GlobalBooleanCondition(String variableName) {
 		this.variableName = variableName;
 	}

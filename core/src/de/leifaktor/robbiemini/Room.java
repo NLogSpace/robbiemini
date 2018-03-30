@@ -30,9 +30,11 @@ public class Room {
 
 	public List<Command> commands;
 	
-	private GameScreen gameScreen;
+	private transient GameScreen gameScreen;
 	
 	MagneticField magneticField;
+	
+	public Room() {} // no-arg constructor for JSON
 	
 	public Room(int width, int height, List<RoomLayer> layers, List<Actor> actors) {
 		this.width = width;
@@ -44,7 +46,7 @@ public class Room {
 	}
 	
 	public void update() {
-		magneticField.update();
+		magneticField.update(this);
 		continueMovement();
 		updateActors();
 		executeCommands();
@@ -126,6 +128,7 @@ public class Room {
 	}
 
 	public void onEnter(Actor actor, int x, int y, int z, int direction) {
+		if (!isInBounds(x,y)) return;
 		getTile(x, y, z).onEnter(this, actor, direction);
 		for (Actor other: actors) {
 			if (!other.equals(actor) && actor.x == other.x && actor.y == other.y && actor.z == other.z) {
@@ -135,6 +138,7 @@ public class Room {
 	}
 	
 	public void onLeave(Actor actor, int x, int y, int z, int direction) {
+		if (!isInBounds(x,y)) return;
 		getTile(x, y, z).onLeave(this, actor, direction);
 	}
 
@@ -193,7 +197,7 @@ public class Room {
 	}
 
 	public Vec2 getMagneticGradientAt(int x, int y) {
-		return magneticField.getGradientAt(x, y);
+		return magneticField.getGradientAt(x, y, this);
 	}
 
 	public void showTextbox(String text) {

@@ -13,6 +13,8 @@ public class Teleporter extends Actor {
 	XYZPos destinationRoom;
 	XYZPos destinationInsideRoom;
 	Condition activeCondition;
+	
+	public Teleporter() {} // no-arg constructor for JSON
 
 	public Teleporter(int x, int y, int z, Condition activeCondition) {
 		super(x, y, z);

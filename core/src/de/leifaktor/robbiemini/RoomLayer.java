@@ -8,7 +8,7 @@ public class RoomLayer {
 	int height;
 	Tile[] tiles;
 	
-	Room room;
+	public RoomLayer() {} // no-arg constructor for JSON
 	
 	public RoomLayer(int width, int height, Tile[] tiles) {
 		this.width = width;

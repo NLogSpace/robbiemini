@@ -234,15 +234,6 @@ public class RoomCreator {
 		actors.add(new Gold(3, 23, 0));
 		actors.add(new Gold(23, 5, 0));
 		actors.add(new Arrow(17, 17, 0, 2));
-		actors.add(new Isolator(5, 5, 0));
-		actors.add(new ElectricFence(5,6, 0));
-		actors.add(new ElectricFence(5,7, 0));
-		actors.add(new Isolator(7,5, 0));
-		actors.add(new ElectricFence(7,6, 0));
-		actors.add(new ElectricFence(7,7, 0));
-		actors.add(new Isolator(9,5, 0));
-		actors.add(new ElectricFence(9,6, 0));
-		actors.add(new ElectricFence(9,7, 0));
 		
 		Room room = new Room(width, height, layers, actors);
 		

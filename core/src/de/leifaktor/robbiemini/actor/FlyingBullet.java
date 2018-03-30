@@ -4,6 +4,8 @@ import de.leifaktor.robbiemini.CollisionDetector;
 import de.leifaktor.robbiemini.Room;
 
 public class FlyingBullet extends Actor {
+	
+	public FlyingBullet() {} // no-arg constructor for JSON
 
 	public FlyingBullet(int x, int y, int z, int direction, float speed) {
 		super(x, y, z);

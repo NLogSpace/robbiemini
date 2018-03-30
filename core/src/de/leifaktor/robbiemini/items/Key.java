@@ -12,6 +12,8 @@ public class Key extends Item {
 	
 	int number;
 	
+	public Key() {} // no-arg constructor for JSON
+	
 	public Key(int number) {
 		this.number = number;
 	}

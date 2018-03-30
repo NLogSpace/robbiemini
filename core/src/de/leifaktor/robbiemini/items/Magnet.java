@@ -13,6 +13,8 @@ public class Magnet extends Item implements Magnetic {
 	
 	boolean positive;
 	
+	public Magnet() {} // no-arg constructor for JSON
+	
 	public Magnet(boolean positive) {
 		this.positive = positive;
 	}

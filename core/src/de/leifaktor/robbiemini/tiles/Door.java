@@ -10,6 +10,8 @@ import de.leifaktor.robbiemini.items.Key;
 public class Door extends Tile {
 
 	int number;
+	
+	public Door() {} // no-arg constructor for JSON
 
 	public Door(int number) {
 		this.number = number;

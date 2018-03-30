@@ -1,6 +1,8 @@
 package de.leifaktor.robbiemini;
 
+import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.FPSLogger;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
@@ -19,6 +21,7 @@ public class RobbieMini extends Game {
 	
 	@Override
 	public void create() {
+		Gdx.app.setLogLevel(Application.LOG_DEBUG);
 		Graphics.loadGraphics();
 		fpsLogger = new FPSLogger();
 		this.setScreen(new MainMenuScreen(this));

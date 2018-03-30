@@ -7,6 +7,8 @@ import de.leifaktor.robbiemini.items.Blaumann;
 public class ElectricFence extends Actor implements IShiftable {
 	
 	boolean shouldStartShift;
+	
+	public ElectricFence() {} // no-arg constructor for JSON
 
 	public ElectricFence(int x, int y, int z) {
 		super(x, y, z);

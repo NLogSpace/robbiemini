@@ -8,6 +8,8 @@ public class Explosion extends Actor {
 
 	float time;
 	
+	public Explosion() {} // no-arg constructor for JSON
+	
 	public Explosion(int x, int y, int z) {
 		super(x, y, z);
 	}

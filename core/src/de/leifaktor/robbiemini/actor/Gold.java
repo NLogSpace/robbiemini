@@ -6,6 +6,8 @@ import de.leifaktor.robbiemini.commands.PlaySoundCommand;
 import de.leifaktor.robbiemini.commands.RemoveActorCommand;
 
 public class Gold extends Actor {
+	
+	public Gold() {} // no-arg constructor for JSON
 
 	public Gold(int x, int y, int z) {
 		super(x, y , z);
