@@ -376,6 +376,7 @@ public class RoomCreator {
 		ArrayList<RoomLayer> layers = new ArrayList<RoomLayer>();
 		layers.add(layer);
 		layers.add(airLayer(width,height));
+		layers.add(airLayer(width,height));
 		layers.get(0).tiles[12*width+12] = new BridgeLeft();
 		layers.get(1).tiles[12*width+13] = new BridgeLR();
 		layers.get(1).tiles[12*width+14] = new BridgeLR();
@@ -391,6 +392,17 @@ public class RoomCreator {
 		layers.get(1).tiles[16*width+22] = new BridgeUD();
 		layers.get(1).tiles[17*width+22] = new BridgeUD();
 		layers.get(0).tiles[18*width+22] = new BridgeUp();
+		
+		layers.get(0).tiles[14*width+18] = new BridgeLeft();
+		layers.get(1).tiles[14*width+19] = new BridgeLeft();
+		layers.get(2).tiles[14*width+20] = new BridgeLR();
+		layers.get(2).tiles[14*width+21] = new BridgeLR();
+		layers.get(2).tiles[14*width+22] = new BridgeLR();
+		layers.get(2).tiles[14*width+23] = new BridgeLR();
+		layers.get(2).tiles[14*width+24] = new BridgeLR();
+		layers.get(1).tiles[14*width+25] = new BridgeRight();
+		layers.get(0).tiles[14*width+26] = new BridgeRight();
+		
 		
 		for (int i = 4; i <= 9; i++) for (int j = 6; j <= 11; j++) layers.get(1).tiles[j*width+i] = new Glass();
 		layers.get(0).tiles[6*width+4] = new Wall();

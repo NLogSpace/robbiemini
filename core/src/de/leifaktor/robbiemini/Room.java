@@ -16,6 +16,7 @@ import de.leifaktor.robbiemini.commands.PlaySoundCommand;
 import de.leifaktor.robbiemini.commands.RemoveActorCommand;
 import de.leifaktor.robbiemini.items.Item;
 import de.leifaktor.robbiemini.screens.GameScreen;
+import de.leifaktor.robbiemini.tiles.Air;
 import de.leifaktor.robbiemini.tiles.Tile;
 
 public class Room {
@@ -230,13 +231,21 @@ public class Room {
 	public void fallDown(Actor actor) {
 		int x = actor.x;
 		int y = actor.y;
-		int z = actor.z-1;
-		for (Actor a: getActorsAt(x,y,z)) {
-			if (a instanceof Isolator) {
-				return;
+		int z = actor.z;
+		boolean keepFalling = true;
+		while (keepFalling) {
+			if (z-1 < 0) {
+				keepFalling = false;
 			}
-		};		
-		actor.z--;
+			if (! (getTile(x,y,z) instanceof Air)) keepFalling = false;
+			for (Actor a: getActorsAt(x,y,z-1)) {
+				if (a instanceof Isolator) {
+					keepFalling = false;
+				}
+			};
+			if (keepFalling) z--;
+		}
+		actor.z = z;
 	}
 	
 }
