@@ -36,6 +36,7 @@ import de.leifaktor.robbiemini.tiles.BridgeUD;
 import de.leifaktor.robbiemini.tiles.BridgeUp;
 import de.leifaktor.robbiemini.tiles.Door;
 import de.leifaktor.robbiemini.tiles.EmptyTile;
+import de.leifaktor.robbiemini.tiles.Glass;
 import de.leifaktor.robbiemini.tiles.Tile;
 import de.leifaktor.robbiemini.tiles.Wall;
 
@@ -390,6 +391,12 @@ public class RoomCreator {
 		layers.get(1).tiles[16*width+22] = new BridgeUD();
 		layers.get(1).tiles[17*width+22] = new BridgeUD();
 		layers.get(0).tiles[18*width+22] = new BridgeUp();
+		
+		for (int i = 4; i <= 9; i++) for (int j = 6; j <= 11; j++) layers.get(1).tiles[j*width+i] = new Glass();
+		layers.get(0).tiles[6*width+4] = new Wall();
+		layers.get(0).tiles[6*width+9] = new Wall();
+		layers.get(0).tiles[11*width+4] = new Wall();
+		layers.get(0).tiles[11*width+9] = new Wall();
 		
 		ArrayList<Actor> actors = new ArrayList<Actor>();
 		Condition killedAllRobots = new IsTermZeroCondition(new RobotsAliveTerm());

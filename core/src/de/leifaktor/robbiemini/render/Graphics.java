@@ -28,7 +28,8 @@ public class Graphics {
 		textures.put("empty_tile", tileset.getTile(0, 0));
 		textures.put("wall_tile", tileset.getTile(1, 0));
 		textures.put("dark_wall_tile", tileset.getTile(3, 0));
-		textures.put("ice_tile", tileset.getTile(8, 0));
+		textures.put("glass_tile", tileset.getTile(4, 0));
+		textures.put("ice_tile", tileset.getTile(5, 0));
 		for (int i = 0; i < 16; i++) textures.put("door_" + i, tileset.getTile(i, 3));
 		textures.put("bridge_left", tileset.getTile(2, 12));
 		textures.put("bridge_lr", tileset.getTile(3, 12));

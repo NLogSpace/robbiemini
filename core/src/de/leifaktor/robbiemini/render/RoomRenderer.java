@@ -31,6 +31,7 @@ import de.leifaktor.robbiemini.tiles.BridgeUp;
 import de.leifaktor.robbiemini.tiles.DarkWall;
 import de.leifaktor.robbiemini.tiles.Door;
 import de.leifaktor.robbiemini.tiles.EmptyTile;
+import de.leifaktor.robbiemini.tiles.Glass;
 import de.leifaktor.robbiemini.tiles.Wall;
 
 public class RoomRenderer {
@@ -73,6 +74,7 @@ public class RoomRenderer {
 					if (room.getTile(i, j, z) instanceof BridgeUp) draw(batch, Graphics.textures.get("bridge_up"), i, j);
 					if (room.getTile(i, j, z) instanceof BridgeUD) draw(batch, Graphics.textures.get("bridge_ud"), i, j);
 					if (room.getTile(i, j, z) instanceof BridgeDown) draw(batch, Graphics.textures.get("bridge_down"), i, j);
+					if (room.getTile(i, j, z) instanceof Glass) draw(batch, Graphics.textures.get("glass_tile"), i, j);
 				}
 			}
 			for (Actor a : room.actors) {
