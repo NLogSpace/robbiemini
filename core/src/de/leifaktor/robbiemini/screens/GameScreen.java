@@ -43,7 +43,7 @@ public class GameScreen implements Screen {
 	boolean startTeleportAfterThisFrame;
 	XYZPos playerTeleportPosition;
 	
-	RoomRenderer renderer;
+	RoomRenderer roomRenderer;
 	StatusBarRenderer barRenderer;
 	InventoryRenderer inventoryRenderer;
 	TextboxRenderer textboxRenderer;
@@ -53,6 +53,8 @@ public class GameScreen implements Screen {
 
 	String textboxText;
 	boolean showTextboxFromNextFrame;
+	boolean textboxCentered;
+	boolean textboxLargeFont;
 	
 	GlobalVars globalVars;
 	
@@ -73,8 +75,8 @@ public class GameScreen implements Screen {
 		
 		loadEpisode(TestEpisode.createTestEpisode());
 		
-		renderer = new RoomRenderer();
-		renderer.setOffset(0, 0);
+		roomRenderer = new RoomRenderer();
+		roomRenderer.setOffset(0, 0);
 		barRenderer = new StatusBarRenderer();
 		barRenderer.setOffset(0, RobbieMini.getVirtualHeight()-RobbieMini.TILESIZE);
 		inventoryRenderer = new InventoryRenderer();
@@ -167,14 +169,14 @@ public class GameScreen implements Screen {
 		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		game.batch.begin();
-		renderer.render(game.batch, currentRoom);
+		roomRenderer.render(game.batch, currentRoom);
 		if (state == State.INVENTORY) {
 			inventoryRenderer.render(game.batch, currentRoom, player.inventory);
 		} else {
 			barRenderer.render(game.batch, currentRoom);
 		}
 		if (state == State.TEXTBOX) {
-			textboxRenderer.render(game.batch, textboxText);
+			textboxRenderer.render(game.batch, textboxText, textboxLargeFont, textboxCentered);
 		}		
 		game.batch.end();
 	}
@@ -198,6 +200,10 @@ public class GameScreen implements Screen {
 		currentRoom.putPlayer(player, player.x, player.y, player.z);
 		player.stopMoving();
 		currentRoom.setGameScreen(this);
+		if (!getGlobalBoolean(""+currentRoomPosition)) {
+			setGlobalBoolean(""+currentRoomPosition, true);
+			if (currentRoom.name != null) showTextbox(currentRoom.name, true, true);
+		}
 	}
 
 	public void setRoom(XYZPos newRoomPosition) {
@@ -254,8 +260,10 @@ public class GameScreen implements Screen {
 		return state == State.INVENTORY;
 	}
 	
-	public void showTextbox(String text) {
+	public void showTextbox(String text, boolean largeFont, boolean centered) {
 		this.textboxText = text;
+		this.textboxLargeFont = largeFont;
+		this.textboxCentered = centered;
 		textboxHeight = (int) textboxRenderer.getHeight(text) / RobbieMini.TILESIZE + 3;
 		textboxRenderer.setOffset((RobbieMini.getVirtualWidth()-textboxWidth*RobbieMini.TILESIZE)/2, (RobbieMini.getVirtualHeight()-textboxHeight*RobbieMini.TILESIZE)/2);
 		textboxRenderer.setSize(textboxWidth, textboxHeight);

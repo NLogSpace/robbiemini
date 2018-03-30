@@ -1,6 +1,7 @@
 package de.leifaktor.robbiemini.render;
 
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -22,7 +23,7 @@ public class TextboxRenderer {
 		glyphLayout = new GlyphLayout();
 	}
 	
-	public void render(SpriteBatch batch, String text) {
+	public void render(SpriteBatch batch, String text, boolean largeFont, boolean centered) {
 		TextureRegion graphic;
 		for (int i = 0; i < width; i++) {
 			for (int j = 0; j < height; j++) {
@@ -54,7 +55,10 @@ public class TextboxRenderer {
 				batch.draw(graphic, xOffset+i*RobbieMini.TILESIZE, yOffset+j*RobbieMini.TILESIZE);				
 			}
 		}
-		Graphics.smallFont.draw(batch, text, xOffset + RobbieMini.TILESIZE, yOffset+RobbieMini.TILESIZE*(height-1)-3, (width-2)*RobbieMini.TILESIZE, Align.left, true);
+		int align = centered ? Align.center : Align.left;
+		BitmapFont font;
+		if (largeFont) font = Graphics.largeFont; else font = Graphics.smallFont;
+		font.draw(batch, text, xOffset + RobbieMini.TILESIZE, yOffset+RobbieMini.TILESIZE*(height-1)-3, (width-2)*RobbieMini.TILESIZE, align, true);
 	}
 
 	public void setOffset(float x, float y) {

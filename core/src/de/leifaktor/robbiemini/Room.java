@@ -34,6 +34,8 @@ public class Room {
 	
 	MagneticField magneticField;
 	
+	public String name;
+	
 	public Room() {} // no-arg constructor for JSON
 	
 	public Room(int width, int height, List<RoomLayer> layers, List<Actor> actors) {
@@ -201,7 +203,7 @@ public class Room {
 	}
 
 	public void showTextbox(String text) {
-		gameScreen.showTextbox(text);		
+		gameScreen.showTextbox(text, false, false);		
 	}
 	
 	public void teleportTo(XYZPos roomPosition, XYZPos insideRoomPosition) {

@@ -237,6 +237,8 @@ public class RoomCreator {
 		
 		Room room = new Room(width, height, layers, actors);
 		
+		room.name = "Das Labyrinth";
+		
 		addRandomActors(new ItemActor(0, 0, 0, new Acid()), room, 5);		
 		addRandomRobots(room, 5);
 		
