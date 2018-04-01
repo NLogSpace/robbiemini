@@ -26,7 +26,7 @@ import de.leifaktor.robbiemini.render.TextboxRenderer;
 
 public class GameScreen implements Screen {
 	
-	RobbieMini game;
+	ScreenManager sm;
 	
 	Viewport viewport;
 	Camera camera;
@@ -66,8 +66,10 @@ public class GameScreen implements Screen {
 		TEXTBOX
 	}
 	
-	public GameScreen(RobbieMini game) {
-		this.game = game;
+	public GameScreen(ScreenManager sm, Viewport viewport, Camera camera) {
+		this.sm = sm;
+		this.viewport = viewport;
+		this.camera = camera;
 		camera = new OrthographicCamera();
 		camera.position.set(RobbieMini.getVirtualWidth()/2, RobbieMini.getVirtualHeight()/2, 1);
 		viewport = new FitViewport(RobbieMini.getVirtualWidth(), RobbieMini.getVirtualHeight(), camera);
@@ -116,6 +118,9 @@ public class GameScreen implements Screen {
 		InputManager.update();
 		if (Gdx.input.isKeyJustPressed(Keys.S)) save();
 		if (Gdx.input.isKeyJustPressed(Keys.L)) load();
+		if (Gdx.input.isKeyJustPressed(Keys.E)) {
+			sm.setEditor(episode, currentRoomPosition);			
+		}
 		if (showTextboxFromNextFrame) {
 			state = State.TEXTBOX;
 			showTextboxFromNextFrame = false;
@@ -165,20 +170,20 @@ public class GameScreen implements Screen {
 	}
 	
 	private void renderTheGame() {
-		game.batch.setProjectionMatrix(camera.combined);
+		sm.batch.setProjectionMatrix(camera.combined);
 		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		game.batch.begin();
-		roomRenderer.render(game.batch, currentRoom);
+		sm.batch.begin();
+		roomRenderer.render(sm.batch, currentRoom);
 		if (state == State.INVENTORY) {
-			inventoryRenderer.render(game.batch, currentRoom, player.inventory);
+			inventoryRenderer.render(sm.batch, currentRoom, player.inventory);
 		} else {
-			barRenderer.render(game.batch, currentRoom);
+			barRenderer.render(sm.batch, currentRoom);
 		}
 		if (state == State.TEXTBOX) {
-			textboxRenderer.render(game.batch, textboxText, textboxLargeFont, textboxCentered);
+			textboxRenderer.render(sm.batch, textboxText, textboxLargeFont, textboxCentered);
 		}		
-		game.batch.end();
+		sm.batch.end();
 	}
 	
 	private void startRoomTransition() {
@@ -192,7 +197,8 @@ public class GameScreen implements Screen {
 		else if (dx == -1 && dy == 0) direction = 3;
 		
 		Room newRoom = roomManager.getRoom(newRoomPosition);
-		game.setScreen(new RoomTransitionScreen(game, this, currentRoom, newRoom, direction));
+		sm.setRoomTransition(currentRoom, newRoom, direction);
+
 		
 		currentRoom.removePlayer();
 		currentRoomPosition = newRoomPosition;
@@ -253,7 +259,7 @@ public class GameScreen implements Screen {
 	}
 	
 	public void gameOver() {
-		game.setScreen(new MainMenuScreen(game));
+		sm.setMainMenu();
 	}
 	
 	public boolean isInventoryOpen() {

@@ -284,7 +284,7 @@ public class RoomCreator {
 			addRandomActors(arrow, room, 1);
 		}
 		
-		//addRandomRobots(room, 5);
+		addRandomRobots(room, 5);
 		
 		return room;
 	}
@@ -417,6 +417,7 @@ public class RoomCreator {
 		actors.add(new Sperre(width-1, 5, 0, killedAllRobots, true, false));
 		actors.add(new Sperre(width-1, 6, 0, killedAllRobots, true, false));
 		actors.add(new Sperre(width-1, 7, 0, killedAllRobots, true, false));
+		actors.add(new Gold(6,8,1));
 		
 		Room room = new Room(width, height, layers, actors);
 

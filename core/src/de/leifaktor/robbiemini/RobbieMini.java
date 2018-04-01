@@ -4,15 +4,14 @@ import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.FPSLogger;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 import de.leifaktor.robbiemini.render.Graphics;
-import de.leifaktor.robbiemini.screens.MainMenuScreen;
+import de.leifaktor.robbiemini.screens.ScreenManager;
 
 public class RobbieMini extends Game {
 	
-	FPSLogger fpsLogger;	
-	public SpriteBatch batch;
+	FPSLogger fpsLogger;
+	ScreenManager sm;
 	
 	public static final int WIDTH = 35;
 	public static final int HEIGHT = 23;
@@ -24,8 +23,8 @@ public class RobbieMini extends Game {
 		Gdx.app.setLogLevel(Application.LOG_DEBUG);
 		Graphics.loadGraphics();
 		fpsLogger = new FPSLogger();
-		this.setScreen(new MainMenuScreen(this));
-		batch = new SpriteBatch();
+		sm = new ScreenManager(this);
+		sm.setMainMenu();
 	}
 
 	@Override

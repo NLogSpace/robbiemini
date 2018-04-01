@@ -5,9 +5,7 @@ import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 import de.leifaktor.robbiemini.RobbieMini;
@@ -18,7 +16,7 @@ import de.leifaktor.robbiemini.render.RoomRenderer;
 
 public class MainMenuScreen implements Screen {
 	
-	RobbieMini game;
+	ScreenManager sm;
 	
 	Texture title;
 	
@@ -31,12 +29,12 @@ public class MainMenuScreen implements Screen {
 	
 	int selected = 0;
 	
-	public MainMenuScreen(RobbieMini game) {
-		this.game = game;
-		title = new Texture(Gdx.files.internal("title.png"));
-		camera = new OrthographicCamera(RobbieMini.getVirtualWidth(), RobbieMini.getVirtualHeight());
-		camera.position.set(RobbieMini.getVirtualWidth() / 2, RobbieMini.getVirtualHeight() / 2, 1);
-		viewport = new FitViewport(RobbieMini.getVirtualWidth(), RobbieMini.getVirtualHeight(), camera);
+	public MainMenuScreen(ScreenManager sm, Viewport viewport, Camera camera) {
+		this.sm = sm;
+		this.viewport = viewport;
+		this.camera = camera;
+
+		title = new Texture(Gdx.files.internal("title.png"));		
 		roomRenderer = new RoomRenderer();
 		backgroundRoom = RoomCreator.createTitleMenuRoom(RobbieMini.WIDTH, RobbieMini.HEIGHT+1);
 	}
@@ -56,23 +54,23 @@ public class MainMenuScreen implements Screen {
 		}
 		
 		if (Gdx.input.isKeyJustPressed(Keys.ENTER)) {
-			if (selected == 0) game.setScreen(new GameScreen(game));
+			if (selected == 0) sm.setGame();
 			if (selected == 2) Gdx.app.exit();
 		}
 		
 		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		game.batch.setProjectionMatrix(camera.combined);
-		game.batch.begin();
-		roomRenderer.render(game.batch, backgroundRoom);
-		game.batch.draw(title, (RobbieMini.getVirtualWidth() - title.getWidth()) / 2, 230);
-		Graphics.largeFont.draw(game.batch, "Das Spiel von", RobbieMini.getVirtualWidth() / 2-60, 270);
-		Graphics.largeFont.draw(game.batch, "Start", RobbieMini.getVirtualWidth() / 2-30, 170);
-		Graphics.largeFont.draw(game.batch, "Optionen", RobbieMini.getVirtualWidth() / 2-30, 150);
-		Graphics.largeFont.draw(game.batch, "Ende", RobbieMini.getVirtualWidth() / 2-30, 130);
-		game.batch.draw(Graphics.textures.get("arrow_1"), RobbieMini.getVirtualWidth() / 2-50, 160 - 20*selected);
-		game.batch.draw(Graphics.textures.get("arrow_3"), RobbieMini.getVirtualWidth() / 2+50, 160 - 20*selected);
-		game.batch.end();
+		sm.batch.setProjectionMatrix(camera.combined);
+		sm.batch.begin();
+		roomRenderer.render(sm.batch, backgroundRoom);
+		sm.batch.draw(title, (RobbieMini.getVirtualWidth() - title.getWidth()) / 2, 230);
+		Graphics.largeFont.draw(sm.batch, "Das Spiel von", RobbieMini.getVirtualWidth() / 2-60, 270);
+		Graphics.largeFont.draw(sm.batch, "Start", RobbieMini.getVirtualWidth() / 2-30, 170);
+		Graphics.largeFont.draw(sm.batch, "Optionen", RobbieMini.getVirtualWidth() / 2-30, 150);
+		Graphics.largeFont.draw(sm.batch, "Ende", RobbieMini.getVirtualWidth() / 2-30, 130);
+		sm.batch.draw(Graphics.textures.get("arrow_1"), RobbieMini.getVirtualWidth() / 2-50, 160 - 20*selected);
+		sm.batch.draw(Graphics.textures.get("arrow_3"), RobbieMini.getVirtualWidth() / 2+50, 160 - 20*selected);
+		sm.batch.end();
 	}
 
 	@Override

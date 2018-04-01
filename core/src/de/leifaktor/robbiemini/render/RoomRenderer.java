@@ -172,6 +172,7 @@ public class RoomRenderer {
 
 	private void draw(SpriteBatch batch, TextureRegion graphic, float x, float y) {
 		batch.draw(graphic,(x+xOffset)*TILESIZE, (y+yOffset)*TILESIZE, TILESIZE, TILESIZE);
+		System.out.println("" + (x+xOffset)*TILESIZE + " " + (y+yOffset)*TILESIZE);
 	}
 
 }

@@ -3,7 +3,6 @@ package de.leifaktor.robbiemini.screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.Texture;
 
 import de.leifaktor.robbiemini.RobbieMini;
 import de.leifaktor.robbiemini.Room;
@@ -12,7 +11,7 @@ import de.leifaktor.robbiemini.render.StatusBarRenderer;
 
 public class RoomTransitionScreen implements Screen {
 	
-	RobbieMini game;
+	ScreenManager sm;
 	GameScreen parent;
 	Room oldRoom;
 	Room newRoom;
@@ -27,29 +26,26 @@ public class RoomTransitionScreen implements Screen {
 	int newRoomXOffset;
 	int newRoomYOffset;
 	
-	Texture title;
-	
-	public RoomTransitionScreen(RobbieMini game, GameScreen parent, Room oldRoom, Room newRoom, int direction) {
-		this.game = game;
-		this.parent = parent;
-		this.oldRoom = oldRoom;
-		this.newRoom = newRoom;
-		this.direction = direction;
-		screenTime = 0;
+	public RoomTransitionScreen(ScreenManager sm) {
+		this.sm = sm;
 		
 		renderer = new RoomRenderer();
 		
 		barRenderer = new StatusBarRenderer();
 		barRenderer.setOffset(0, RobbieMini.getVirtualHeight()-RobbieMini.TILESIZE);
-		
+	}
+	
+	public void set(Room oldRoom, Room newRoom, int direction) {
+		this.oldRoom = oldRoom;
+		this.newRoom = newRoom;
+		this.direction = direction;
+		screenTime = 0;
 		switch (direction) {
 		case 0: newRoomXOffset = 0; newRoomYOffset = RobbieMini.HEIGHT; break;
 		case 1: newRoomXOffset = RobbieMini.WIDTH; newRoomYOffset = 0; break;
 		case 2: newRoomXOffset = 0; newRoomYOffset = -RobbieMini.HEIGHT; break;
 		case 3: newRoomXOffset = -RobbieMini.WIDTH; newRoomYOffset = 0; break;
 		}
-		
-		title = new Texture(Gdx.files.internal("title.png"));
 	}
 
 	@Override
@@ -63,20 +59,20 @@ public class RoomTransitionScreen implements Screen {
 		float fraction = screenTime / DURATION;
 		if (fraction >= 1) {
 			fraction = 1;
-			game.setScreen(parent);
+			sm.setGame();
 		}
 		screenTime += delta;
 		float screenProgress = tanhInterpolation(fraction);
 		
 		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		game.batch.begin();		
+		sm.batch.begin();		
 		renderer.setOffset(-screenProgress*newRoomXOffset, -screenProgress*newRoomYOffset);
-		renderer.render(game.batch, oldRoom);
+		renderer.render(sm.batch, oldRoom);
 		renderer.setOffset((1-screenProgress)*newRoomXOffset, (1-screenProgress)*newRoomYOffset);
-		renderer.render(game.batch, newRoom);
-		barRenderer.render(game.batch, newRoom);
-		game.batch.end();
+		renderer.render(sm.batch, newRoom);
+		barRenderer.render(sm.batch, newRoom);
+		sm.batch.end();
 	}
 	
 	private float tanhInterpolation(float fraction) {

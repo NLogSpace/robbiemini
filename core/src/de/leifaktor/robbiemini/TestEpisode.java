@@ -8,7 +8,7 @@ public class TestEpisode {
 		Episode epi = new Episode();
 		epi.roomManager = new RoomManager();
 		epi.globalVars = new GlobalVars();
-		epi.startingRoom = new XYZPos(0,2,1);
+		epi.startingRoom = new XYZPos(1,1,1);
 		epi.startingPosition = new XYZPos(3, 3, 0);
 		epi.player = new Player(epi.startingPosition.x, epi.startingPosition.y, epi.startingPosition.z);
 		
