@@ -3,7 +3,9 @@ package de.leifaktor.robbiemini.render;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
+import de.leifaktor.robbiemini.RobbieMini;
 import de.leifaktor.robbiemini.Room;
+import de.leifaktor.robbiemini.XYPos;
 import de.leifaktor.robbiemini.actor.Actor;
 import de.leifaktor.robbiemini.actor.Arrow;
 import de.leifaktor.robbiemini.actor.BulletStack;
@@ -22,6 +24,7 @@ import de.leifaktor.robbiemini.actor.Skull;
 import de.leifaktor.robbiemini.actor.Sperre;
 import de.leifaktor.robbiemini.actor.Teleporter;
 import de.leifaktor.robbiemini.items.Item;
+import de.leifaktor.robbiemini.screens.editor.Tiles;
 import de.leifaktor.robbiemini.tiles.BridgeDown;
 import de.leifaktor.robbiemini.tiles.BridgeLR;
 import de.leifaktor.robbiemini.tiles.BridgeLeft;
@@ -171,8 +174,17 @@ public class RoomRenderer {
 	}
 
 	private void draw(SpriteBatch batch, TextureRegion graphic, float x, float y) {
-		batch.draw(graphic,(x+xOffset)*TILESIZE, (y+yOffset)*TILESIZE, TILESIZE, TILESIZE);
-		System.out.println("" + (x+xOffset)*TILESIZE + " " + (y+yOffset)*TILESIZE);
+		batch.draw(graphic,(x+xOffset)*TILESIZE, (y+yOffset)*TILESIZE, TILESIZE, TILESIZE);		
+	}
+
+	public XYPos getPositionInRoom(int x, int y, Room room) {
+		x -= xOffset;
+		y -= yOffset;
+		int tileX = x / (RobbieMini.TILESIZE);
+		int tileY = y / (RobbieMini.TILESIZE);
+		if (tileX < 0 || tileX >= room.width) return null;
+		if (tileY < 0 || tileY >= room.height) return null;
+		return new XYPos(tileX, tileY);
 	}
 
 }

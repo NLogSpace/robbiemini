@@ -96,6 +96,9 @@ public class Graphics {
 		textures.put("textbox_7", tileset.getTile(13, 15));
 		textures.put("textbox_8", tileset.getTile(14, 15));
 		textures.put("textbox_9", tileset.getTile(15, 15));
+		
+		// Editor
+		textures.put("palette_background", tileset.getTile(6,13));
 	}
 
 
