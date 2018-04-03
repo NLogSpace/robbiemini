@@ -83,7 +83,7 @@ public class Room {
 				XYZPos currentRoomPosition = getGameScreen().getCurrentRoomPosition();
 				XYZPos newRoomPosition = new XYZPos(currentRoomPosition.x + dx, currentRoomPosition.y + dy, currentRoomPosition.z);
 				player.setPosition((player.x+width) % width, (player.y + height)%height, player.z);
-				getGameScreen().setRoom(newRoomPosition);
+				getGameScreen().transitionToRoom(newRoomPosition);
 			}
 		}
 	}

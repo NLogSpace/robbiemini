@@ -24,7 +24,6 @@ import de.leifaktor.robbiemini.actor.Skull;
 import de.leifaktor.robbiemini.actor.Sperre;
 import de.leifaktor.robbiemini.actor.Teleporter;
 import de.leifaktor.robbiemini.items.Item;
-import de.leifaktor.robbiemini.screens.editor.Tiles;
 import de.leifaktor.robbiemini.tiles.BridgeDown;
 import de.leifaktor.robbiemini.tiles.BridgeLR;
 import de.leifaktor.robbiemini.tiles.BridgeLeft;
@@ -44,6 +43,9 @@ public class RoomRenderer {
 
 	float xOffset;
 	float yOffset;
+	
+	int minRenderLayer;
+	int maxRenderLayer;
 
 	public RoomRenderer() {
 		xOffset = 0;
@@ -59,7 +61,8 @@ public class RoomRenderer {
 		this.room = room;
 	}	
 
-	public void render(SpriteBatch batch, Room room) {
+	public void render(SpriteBatch batch) {
+		if (room == null) return;
 		int numberOfLayers = room.getNumberOfLayers();
 		for (int z = 0; z < numberOfLayers; z++) {
 			for (int i = 0; i < room.width; i++) {

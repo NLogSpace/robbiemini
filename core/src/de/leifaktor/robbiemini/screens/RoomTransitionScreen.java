@@ -68,9 +68,11 @@ public class RoomTransitionScreen implements Screen {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		sm.batch.begin();		
 		renderer.setOffset(-screenProgress*newRoomXOffset, -screenProgress*newRoomYOffset);
-		renderer.render(sm.batch, oldRoom);
+		renderer.setRoom(oldRoom);
+		renderer.render(sm.batch);
 		renderer.setOffset((1-screenProgress)*newRoomXOffset, (1-screenProgress)*newRoomYOffset);
-		renderer.render(sm.batch, newRoom);
+		renderer.setRoom(newRoom);
+		renderer.render(sm.batch);
 		barRenderer.render(sm.batch, newRoom);
 		sm.batch.end();
 	}

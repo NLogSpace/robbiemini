@@ -37,6 +37,7 @@ public class MainMenuScreen implements Screen {
 		title = new Texture(Gdx.files.internal("title.png"));		
 		roomRenderer = new RoomRenderer();
 		backgroundRoom = RoomCreator.createTitleMenuRoom(RobbieMini.WIDTH, RobbieMini.HEIGHT+1);
+		roomRenderer.setRoom(backgroundRoom);
 	}
 
 	@Override
@@ -62,7 +63,7 @@ public class MainMenuScreen implements Screen {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		sm.batch.setProjectionMatrix(camera.combined);
 		sm.batch.begin();
-		roomRenderer.render(sm.batch, backgroundRoom);
+		roomRenderer.render(sm.batch);
 		sm.batch.draw(title, (RobbieMini.getVirtualWidth() - title.getWidth()) / 2, 230);
 		Graphics.largeFont.draw(sm.batch, "Das Spiel von", RobbieMini.getVirtualWidth() / 2-60, 270);
 		Graphics.largeFont.draw(sm.batch, "Start", RobbieMini.getVirtualWidth() / 2-30, 170);

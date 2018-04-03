@@ -2,7 +2,7 @@ package de.leifaktor.robbiemini.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
-import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -24,7 +24,7 @@ import de.leifaktor.robbiemini.render.RoomRenderer;
 import de.leifaktor.robbiemini.render.StatusBarRenderer;
 import de.leifaktor.robbiemini.render.TextboxRenderer;
 
-public class GameScreen implements Screen {
+public class GameScreen extends ScreenAdapter {
 	
 	ScreenManager sm;
 	
@@ -75,8 +75,6 @@ public class GameScreen implements Screen {
 		viewport = new FitViewport(RobbieMini.getVirtualWidth(), RobbieMini.getVirtualHeight(), camera);
 		camera.update();
 		
-		loadEpisode(TestEpisode.createTestEpisode());
-		
 		roomRenderer = new RoomRenderer();
 		roomRenderer.setOffset(0, 0);
 		barRenderer = new StatusBarRenderer();
@@ -85,32 +83,10 @@ public class GameScreen implements Screen {
 		inventoryRenderer.setOffset(0, RobbieMini.getVirtualHeight()-RobbieMini.TILESIZE);
 		textboxRenderer = new TextboxRenderer();
 		textboxRenderer.setSize(textboxWidth, textboxHeight);
+
+		loadEpisode(TestEpisode.createTestEpisode());
 		
 		InputManager.initKeyMap();
-	}
-	
-	private void save() {
-		episode.startingPosition = new XYZPos(player.x, player.y, player.z);
-		episode.startingRoom = currentRoomPosition;
-		currentRoom.removePlayer();
-		IO.save(episode, "episode.rob");
-		currentRoom.putPlayer(player, player.x, player.y, player.z);
-	}
-	
-	private void load() {
-		loadEpisode(IO.load("episode.rob"));
-	}
-	
-	public void loadEpisode(Episode epi) {
-		episode = epi;
-		roomManager = epi.roomManager;
-		globalVars = epi.globalVars;
-		currentRoomPosition = epi.startingRoom;
-		player = epi.player;
-		currentRoom = roomManager.getRoom(currentRoomPosition);
-		player.setPosition(epi.startingPosition);
-		currentRoom.putPlayer(player, player.x, player.y, player.z);
-		currentRoom.setGameScreen(this);
 	}
 	
 	@Override
@@ -142,15 +118,100 @@ public class GameScreen implements Screen {
 		}
 	}
 	
-	private void startTeleport() {
-		currentRoom.removePlayer();
-		currentRoomPosition = newRoomPosition;
-		currentRoom = roomManager.getRoom(newRoomPosition);
-		currentRoom.putPlayer(player, playerTeleportPosition.x, playerTeleportPosition.y, playerTeleportPosition.z);
-		player.stopMoving();
-		currentRoom.setGameScreen(this);		
+	public void loadEpisode(Episode epi) {
+		episode = epi;
+		roomManager = epi.roomManager;
+		globalVars = epi.globalVars;
+		currentRoomPosition = epi.startingRoom;
+		player = epi.player;
+		setRoom(currentRoomPosition, new XYZPos(player.x, player.y, player.z));
 	}
 
+	public void gameOver() {
+		sm.setMainMenu();
+	}
+	
+	public void showTextbox(String text, boolean largeFont, boolean centered) {
+		this.textboxText = text;
+		this.textboxLargeFont = largeFont;
+		this.textboxCentered = centered;
+		textboxHeight = (int) textboxRenderer.getHeight(text) / RobbieMini.TILESIZE + 3;
+		textboxRenderer.setOffset((RobbieMini.getVirtualWidth()-textboxWidth*RobbieMini.TILESIZE)/2, (RobbieMini.getVirtualHeight()-textboxHeight*RobbieMini.TILESIZE)/2);
+		textboxRenderer.setSize(textboxWidth, textboxHeight);
+		showTextboxFromNextFrame = true;
+	}
+	
+	public void transitionToRoom(XYZPos newRoomPosition) {
+		this.newRoomPosition = newRoomPosition;
+		startRoomTransitionAfterThisFrame = true;
+	}
+	
+	public void teleportTo(XYZPos roomPosition, XYZPos playerPosition) {
+		this.newRoomPosition = roomPosition;
+		this.playerTeleportPosition = playerPosition;
+		startTeleportAfterThisFrame = true;
+	}
+	
+	public boolean getGlobalBoolean(String key) {
+		return globalVars.getBoolean(key);
+	}
+	
+	public void setGlobalBoolean(String key, boolean value) {
+		globalVars.setBoolean(key, value);
+	}
+	
+	public RoomManager getRoomManager() {
+		return roomManager;		
+	}
+	
+	public XYZPos getCurrentRoomPosition() {
+		return currentRoomPosition;
+	}
+	
+	public boolean isInventoryOpen() {
+		return state == State.INVENTORY;
+	}
+	
+	@Override
+	public void show() {
+				
+	}
+	
+	@Override
+	public void resize(int width, int height) {
+		viewport.update(width,  height);
+	}
+	
+	private void save() {
+		episode.startingPosition = new XYZPos(player.x, player.y, player.z);
+		episode.startingRoom = currentRoomPosition;
+		currentRoom.removePlayer();
+		IO.save(episode, "episode.rob");
+		currentRoom.putPlayer(player, player.x, player.y, player.z);
+	}
+	
+	private void load() {
+		loadEpisode(IO.load("episode.rob"));
+	}
+	
+	private void startTeleport() {
+		setRoom(newRoomPosition, playerTeleportPosition);
+	}
+	
+	private void setRoom(XYZPos roomPos, XYZPos playerPos) {
+		if (currentRoom != null) currentRoom.removePlayer();
+		currentRoomPosition = roomPos;
+		currentRoom = roomManager.getRoom(roomPos);
+		currentRoom.putPlayer(player, playerPos.x, playerPos.y, playerPos.z);
+		player.stopMoving();
+		currentRoom.setGameScreen(this);
+		if (!getGlobalBoolean(""+currentRoomPosition)) {
+			setGlobalBoolean(""+currentRoomPosition, true);
+			if (currentRoom.name != null) showTextbox(currentRoom.name, true, true);
+		}
+		roomRenderer.setRoom(currentRoom);
+	}
+	
 	private void processInventory() {		
 		if (state == State.INVENTORY) {
 			player.inventory.update();
@@ -174,7 +235,7 @@ public class GameScreen implements Screen {
 		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		sm.batch.begin();
-		roomRenderer.render(sm.batch, currentRoom);
+		roomRenderer.render(sm.batch);
 		if (state == State.INVENTORY) {
 			inventoryRenderer.render(sm.batch, currentRoom, player.inventory);
 		} else {
@@ -198,96 +259,8 @@ public class GameScreen implements Screen {
 		
 		Room newRoom = roomManager.getRoom(newRoomPosition);
 		sm.setRoomTransition(currentRoom, newRoom, direction);
-
 		
-		currentRoom.removePlayer();
-		currentRoomPosition = newRoomPosition;
-		currentRoom = newRoom;
-		currentRoom.putPlayer(player, player.x, player.y, player.z);
-		player.stopMoving();
-		currentRoom.setGameScreen(this);
-		if (!getGlobalBoolean(""+currentRoomPosition)) {
-			setGlobalBoolean(""+currentRoomPosition, true);
-			if (currentRoom.name != null) showTextbox(currentRoom.name, true, true);
-		}
-	}
-
-	public void setRoom(XYZPos newRoomPosition) {
-		this.newRoomPosition = newRoomPosition;
-		startRoomTransitionAfterThisFrame = true;
-	}
-	
-	@Override
-	public void show() {
-				
-	}
-	
-	@Override
-	public void resize(int width, int height) {
-		viewport.update(width,  height);
-	}
-
-	@Override
-	public void pause() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void resume() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void hide() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void dispose() {
-
-	}
-
-	public RoomManager getRoomManager() {
-		return roomManager;		
-	}
-	
-	public XYZPos getCurrentRoomPosition() {
-		return currentRoomPosition;
-	}
-	
-	public void gameOver() {
-		sm.setMainMenu();
-	}
-	
-	public boolean isInventoryOpen() {
-		return state == State.INVENTORY;
-	}
-	
-	public void showTextbox(String text, boolean largeFont, boolean centered) {
-		this.textboxText = text;
-		this.textboxLargeFont = largeFont;
-		this.textboxCentered = centered;
-		textboxHeight = (int) textboxRenderer.getHeight(text) / RobbieMini.TILESIZE + 3;
-		textboxRenderer.setOffset((RobbieMini.getVirtualWidth()-textboxWidth*RobbieMini.TILESIZE)/2, (RobbieMini.getVirtualHeight()-textboxHeight*RobbieMini.TILESIZE)/2);
-		textboxRenderer.setSize(textboxWidth, textboxHeight);
-		showTextboxFromNextFrame = true;
-	}
-	
-	public void teleportTo(XYZPos roomPosition, XYZPos playerPosition) {
-		this.newRoomPosition = roomPosition;
-		this.playerTeleportPosition = playerPosition;
-		startTeleportAfterThisFrame = true;
-	}
-	
-	public boolean getGlobalBoolean(String key) {
-		return globalVars.getBoolean(key);
-	}
-	
-	public void setGlobalBoolean(String key, boolean value) {
-		globalVars.setBoolean(key, value);
+		setRoom(newRoomPosition, new XYZPos(player.x, player.y, player.z));
 	}
 
 }

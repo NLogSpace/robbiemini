@@ -67,7 +67,8 @@ public class EditorScreen implements Screen {
 		this.episode = episode;
 		this.roomManager = episode.roomManager;
 		this.currentRoomPosition = roomPosition;
-		this.currentRoom = roomManager.getRoom(currentRoomPosition);		
+		this.currentRoom = roomManager.getRoom(currentRoomPosition);
+		this.roomRenderer.setRoom(currentRoom);
 	}
 
 	@Override
@@ -81,7 +82,7 @@ public class EditorScreen implements Screen {
 		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		sm.batch.begin();
-		roomRenderer.render(sm.batch, currentRoom);
+		roomRenderer.render(sm.batch);
 		if (state == State.TILE_PALETTE) {
 			tilePaletteRenderer.render(sm.batch);
 		}
@@ -122,7 +123,6 @@ public class EditorScreen implements Screen {
 		
 		@Override
 	    public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-			System.out.println(screenY);
 			switch (state) {
 			case DRAW:
 				if (selectedTile != null) {
@@ -139,7 +139,6 @@ public class EditorScreen implements Screen {
 	    
 	    @Override
 		public boolean keyDown(int keycode) {
-			System.out.println("keyDown");
 	    	switch (state) {
 			case DRAW:
 				if (keycode == Keys.SPACE) state = State.TILE_PALETTE;
