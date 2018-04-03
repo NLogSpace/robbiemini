@@ -24,17 +24,6 @@ import de.leifaktor.robbiemini.actor.Skull;
 import de.leifaktor.robbiemini.actor.Sperre;
 import de.leifaktor.robbiemini.actor.Teleporter;
 import de.leifaktor.robbiemini.items.Item;
-import de.leifaktor.robbiemini.tiles.BridgeDown;
-import de.leifaktor.robbiemini.tiles.BridgeLR;
-import de.leifaktor.robbiemini.tiles.BridgeLeft;
-import de.leifaktor.robbiemini.tiles.BridgeRight;
-import de.leifaktor.robbiemini.tiles.BridgeUD;
-import de.leifaktor.robbiemini.tiles.BridgeUp;
-import de.leifaktor.robbiemini.tiles.DarkWall;
-import de.leifaktor.robbiemini.tiles.Door;
-import de.leifaktor.robbiemini.tiles.EmptyTile;
-import de.leifaktor.robbiemini.tiles.Glass;
-import de.leifaktor.robbiemini.tiles.Wall;
 
 public class RoomRenderer {
 
@@ -67,20 +56,7 @@ public class RoomRenderer {
 		for (int z = 0; z < numberOfLayers; z++) {
 			for (int i = 0; i < room.width; i++) {
 				for (int j = 0; j < room.height; j++) {
-					if (room.getTile(i, j, z) instanceof Wall) draw(batch, Graphics.textures.get("wall_tile"), i, j);
-					if (room.getTile(i, j, z) instanceof DarkWall) draw(batch, Graphics.textures.get("dark_wall_tile"), i, j);
-					if (room.getTile(i, j, z) instanceof EmptyTile) draw(batch, Graphics.textures.get("empty_tile"), i, j);
-					if (room.getTile(i, j, z) instanceof Door) {
-						Door d = (Door) room.getTile(i, j, z);
-						draw(batch, Graphics.textures.get("door_" + d.getNumber()), i, j);
-					}
-					if (room.getTile(i, j, z) instanceof BridgeLeft) draw(batch, Graphics.textures.get("bridge_left"), i, j);
-					if (room.getTile(i, j, z) instanceof BridgeLR) draw(batch, Graphics.textures.get("bridge_lr"), i, j);
-					if (room.getTile(i, j, z) instanceof BridgeRight) draw(batch, Graphics.textures.get("bridge_right"), i, j);
-					if (room.getTile(i, j, z) instanceof BridgeUp) draw(batch, Graphics.textures.get("bridge_up"), i, j);
-					if (room.getTile(i, j, z) instanceof BridgeUD) draw(batch, Graphics.textures.get("bridge_ud"), i, j);
-					if (room.getTile(i, j, z) instanceof BridgeDown) draw(batch, Graphics.textures.get("bridge_down"), i, j);
-					if (room.getTile(i, j, z) instanceof Glass) draw(batch, Graphics.textures.get("glass_tile"), i, j);
+					TileRenderer.render(batch, room.getTile(i, j, z), (i+xOffset)*TILESIZE, (j+yOffset)*TILESIZE);
 				}
 			}
 			for (Actor a : room.actors) {
@@ -154,7 +130,7 @@ public class RoomRenderer {
 							draw(batch, Graphics.textures.get("sperre_ud"),a.x, a.y);
 						}
 					}
-				} 
+				}
 				if (a instanceof Player) {
 					Player p = (Player)a;
 					if (p.getState() == State.IDLE) {
