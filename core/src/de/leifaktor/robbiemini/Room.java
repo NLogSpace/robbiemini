@@ -253,5 +253,15 @@ public class Room {
 		}
 		actor.z = z;
 	}
+
+	public void removeActorsAt(int x, int y, int z) {
+		ArrayList<Actor> actorsToRemove = new ArrayList<Actor>();
+		for (Actor a: actors) {
+			if (a.x == x && a.y == y && a.z == z) {
+				actorsToRemove.add(a);
+			}
+		}
+		actors.removeAll(actorsToRemove);
+	}
 	
 }

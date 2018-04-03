@@ -33,7 +33,6 @@ public class RoomRenderer {
 	float xOffset;
 	float yOffset;
 	
-	int minRenderLayer;
 	int maxRenderLayer;
 
 	public RoomRenderer() {
@@ -45,15 +44,20 @@ public class RoomRenderer {
 		this.xOffset = x;
 		this.yOffset = y;
 	}
+	
+	public void setRenderLayer(int max) {
+		this.maxRenderLayer = max;
+	}
 
 	public void setRoom(Room room) {
 		this.room = room;
-	}	
+	}
 
 	public void render(SpriteBatch batch) {
 		if (room == null) return;
 		int numberOfLayers = room.getNumberOfLayers();
 		for (int z = 0; z < numberOfLayers; z++) {
+			if (z > maxRenderLayer) batch.setColor(1, 1, 1, 0.5f); else batch.setColor(1, 1, 1, 1);
 			for (int i = 0; i < room.width; i++) {
 				for (int j = 0; j < room.height; j++) {
 					TileRenderer.render(batch, room.getTile(i, j, z), (i+xOffset)*TILESIZE, (j+yOffset)*TILESIZE);
@@ -145,11 +149,12 @@ public class RoomRenderer {
 							draw(batch, Graphics.animations.get("player_walking_blaumann").getKeyFrame(p.getStateTime(), true),p.getPosition().x, p.getPosition().y);
 						} else {
 							draw(batch, Graphics.animations.get("player_walking").getKeyFrame(p.getStateTime(), true),p.getPosition().x, p.getPosition().y);
-						}					
+						}
 					}
 				}
 			}
 		}
+		batch.setColor(1, 1, 1, 1);
 	}
 
 	private void draw(SpriteBatch batch, TextureRegion graphic, float x, float y) {

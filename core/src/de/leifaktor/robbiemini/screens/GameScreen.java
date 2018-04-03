@@ -210,6 +210,7 @@ public class GameScreen extends ScreenAdapter {
 			if (currentRoom.name != null) showTextbox(currentRoom.name, true, true);
 		}
 		roomRenderer.setRoom(currentRoom);
+		roomRenderer.setRenderLayer(currentRoom.getNumberOfLayers());
 	}
 	
 	private void processInventory() {		

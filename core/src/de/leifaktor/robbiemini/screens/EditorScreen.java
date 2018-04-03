@@ -1,7 +1,8 @@
 package de.leifaktor.robbiemini.screens;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.ScreenAdapter;
+import com.badlogic.gdx.Input.Buttons;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.graphics.Camera;
@@ -14,54 +15,67 @@ import de.leifaktor.robbiemini.Room;
 import de.leifaktor.robbiemini.RoomManager;
 import de.leifaktor.robbiemini.XYPos;
 import de.leifaktor.robbiemini.XYZPos;
+import de.leifaktor.robbiemini.actor.Actor;
+import de.leifaktor.robbiemini.render.ActorPaletteRenderer;
 import de.leifaktor.robbiemini.render.RoomRenderer;
 import de.leifaktor.robbiemini.render.TilePaletteRenderer;
+import de.leifaktor.robbiemini.screens.editor.Actors;
 import de.leifaktor.robbiemini.screens.editor.Tiles;
 import de.leifaktor.robbiemini.tiles.Tile;
 
-public class EditorScreen implements Screen {
-	
+public class EditorScreen extends ScreenAdapter {
+
 	ScreenManager sm;
-	
+
 	Viewport viewport;
 	Camera camera;
-	
+
 	Episode episode;
-	
+
 	RoomManager roomManager;
 	Room currentRoom;
 	XYZPos currentRoomPosition;
 	int currentLayer = 0;
-	
+
 	RoomRenderer roomRenderer;
 	TilePaletteRenderer tilePaletteRenderer;
-	
+	ActorPaletteRenderer actorPaletteRenderer;
+
 	State state;
-	
+
 	Tile selectedTile;
-	
+	Actor selectedActor;
+
+	boolean drawTile;
+
 	enum State {
 		DRAW,
-		TILE_PALETTE
+		TILE_PALETTE,
+		ACTOR_PALETTE
 	}
-	
+
 	public EditorScreen(ScreenManager sm, Viewport viewport, Camera camera) {
 		this.sm = sm;
 		this.viewport = viewport;
 		this.camera = camera;
-		
+
 		roomRenderer = new RoomRenderer();
 		roomRenderer.setOffset(0, 0);
-		
+
 		Tiles.init();
-		
+		Actors.init();
+
 		tilePaletteRenderer = new TilePaletteRenderer();
 		tilePaletteRenderer.setOffset(0, 0);
 		tilePaletteRenderer.setTilesPerRow(15);
-		
+
+		actorPaletteRenderer = new ActorPaletteRenderer();
+		actorPaletteRenderer.setOffset(0, 0);
+		actorPaletteRenderer.setTilesPerRow(15);		
+
 		state = State.DRAW;
 	}
-	
+
 	public void set(Episode episode, XYZPos roomPosition) {
 		this.episode = episode;
 		this.roomManager = episode.roomManager;
@@ -72,7 +86,7 @@ public class EditorScreen implements Screen {
 
 	@Override
 	public void show() {
-		Gdx.input.setInputProcessor(new InputListener());		
+		Gdx.input.setInputProcessor(new InputListener());
 	}
 
 	@Override
@@ -84,68 +98,86 @@ public class EditorScreen implements Screen {
 		roomRenderer.render(sm.batch);
 		if (state == State.TILE_PALETTE) {
 			tilePaletteRenderer.render(sm.batch);
+		} else if (state == State.ACTOR_PALETTE) {
+			actorPaletteRenderer.render(sm.batch);
 		}
 		sm.batch.end();
 	}
 
 	@Override
 	public void resize(int width, int height) {
-		viewport.update(width, height);
-		
+		viewport.update(width, height);		
 	}
 
-	@Override
-	public void pause() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void resume() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void hide() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void dispose() {
-		// TODO Auto-generated method stub
-		
-	}
-	
 	class InputListener extends InputAdapter {
-		
+
 		@Override
-	    public boolean touchDown(int screenX, int screenY, int pointer, int button) {
+		public boolean touchDown(int screenX, int screenY, int pointer, int button) {
 			switch (state) {
 			case DRAW:
-				if (selectedTile != null) {
-					XYPos clickedTilePosition = roomRenderer.getPositionInRoom(screenX / RobbieMini.SCALE, (Gdx.graphics.getHeight() - screenY) / RobbieMini.SCALE, currentRoom);
-					currentRoom.setTile(clickedTilePosition.x, clickedTilePosition.y, currentLayer, selectedTile);
+				XYPos clickedTilePosition = roomRenderer.getPositionInRoom(screenX / RobbieMini.SCALE, (Gdx.graphics.getHeight() - screenY) / RobbieMini.SCALE, currentRoom);
+				if (button == Buttons.LEFT) {
+					if (drawTile && selectedTile != null) {					
+						currentRoom.setTile(clickedTilePosition.x, clickedTilePosition.y, currentLayer, selectedTile);
+					}
+					if (!drawTile && selectedActor != null) {
+						Actor a = selectedActor.clone();
+						a.setPosition(clickedTilePosition.x, clickedTilePosition.y, currentLayer);
+						currentRoom.addActor(a);
+					}
+				} else {
+					currentRoom.removeActorsAt(clickedTilePosition.x, clickedTilePosition.y, currentLayer);
 				}
 				break;
 			case TILE_PALETTE:
 				selectedTile = tilePaletteRenderer.getTileAt(screenX / RobbieMini.SCALE, (Gdx.graphics.getHeight() - screenY) / RobbieMini.SCALE);
-				if (selectedTile != null) state = State.DRAW;
+				if (selectedTile != null) {
+					state = State.DRAW;
+					drawTile = true;
+				}
+				break;
+			case ACTOR_PALETTE:
+				selectedActor = actorPaletteRenderer.getActorAt(screenX / RobbieMini.SCALE, (Gdx.graphics.getHeight() - screenY) / RobbieMini.SCALE);
+				if (selectedActor != null) {
+					state = State.DRAW;
+					drawTile = false;
+				}
+				break;
 			}
-	        return true;
-	    }		
-	    
-	    @Override
+
+			return true;
+		}		
+
+		@Override
 		public boolean keyDown(int keycode) {
-	    	switch (state) {
+			switch (state) {
 			case DRAW:
-				if (keycode == Keys.SPACE) state = State.TILE_PALETTE;
+				switch (keycode) {
+				case Keys.Y:
+					state = State.TILE_PALETTE;
+					break;
+				case Keys.X:
+					state = State.ACTOR_PALETTE;
+					break;
+				case Keys.P:
+					sm.setGame();
+					break;
+				case Keys.Q:
+					if (currentLayer < currentRoom.getNumberOfLayers() - 1) currentLayer++;
+					roomRenderer.setRenderLayer(currentLayer);
+					break;
+				case Keys.A:
+					if (currentLayer > 0) currentLayer--;
+					roomRenderer.setRenderLayer(currentLayer);
+					break;
+				}				
 				break;
 			case TILE_PALETTE:
-
+				break;
+			case ACTOR_PALETTE:
+				break;
 			}
-			return super.keyDown(keycode);
+			return true;
 		}
 	}
 
