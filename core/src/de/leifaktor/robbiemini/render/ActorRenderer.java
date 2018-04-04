@@ -114,4 +114,8 @@ public class ActorRenderer {
 		}		
 	}
 
+	public static void render(SpriteBatch batch, Actor a, float x, float y) {
+		render(batch, a, x, y, 1);		
+	}
+
 }

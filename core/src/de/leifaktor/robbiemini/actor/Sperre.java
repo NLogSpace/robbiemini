@@ -12,6 +12,7 @@ public class Sperre extends Actor {
 	boolean leftRight;
 	
 	float timeUntilOpen;
+	float timeUntilClose;
 
 	public Sperre() {} // no-arg constructor for JSON
 	
@@ -19,7 +20,7 @@ public class Sperre extends Actor {
 		super(x, y, z);
 		this.openCondition = openCondition;
 		this.leftRight = leftRight;
-		isOpen = true;
+		this.isOpen = isOpen;
 	}	
 
 	@Override
@@ -30,19 +31,28 @@ public class Sperre extends Actor {
 	@Override
 	public void update(Room room) {
 		super.update(room);
-		if (timeUntilOpen > 0) {
-			timeUntilOpen -= Gdx.graphics.getDeltaTime(); 
-			if (timeUntilOpen < 0) {
-				timeUntilOpen = 0;
-				isOpen = true;
+		boolean shouldOpen = openCondition.evaluate(room);
+		if (shouldOpen) {
+			if (timeUntilOpen > 0) {
+				timeUntilOpen -= Gdx.graphics.getDeltaTime(); 
+				if (timeUntilOpen < 0) {
+					timeUntilOpen = 0;
+					isOpen = true;
+				}
+			} else {
+				timeUntilOpen = (x+y)*0.1f;
 			}
 		} else {
-			boolean shouldOpen = openCondition.evaluate(room);
-			if (shouldOpen) {
-				timeUntilOpen = (x+y)*0.05f;
+			if (timeUntilClose > 0) {
+				timeUntilClose -= Gdx.graphics.getDeltaTime(); 
+				if (timeUntilClose < 0) {
+					timeUntilClose = 0;
+					isOpen = false;
+				}
+			} else {
+				timeUntilClose = (x+y)*0.1f;
 			}
-		}
-		
+		}		
 	}
 	
 	public boolean isOpen() {
