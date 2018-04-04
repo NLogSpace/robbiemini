@@ -1,10 +1,10 @@
 package de.leifaktor.robbiemini.screens;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.Input.Buttons;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.InputAdapter;
+import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.utils.viewport.Viewport;
@@ -12,11 +12,13 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import de.leifaktor.robbiemini.Episode;
 import de.leifaktor.robbiemini.RobbieMini;
 import de.leifaktor.robbiemini.Room;
+import de.leifaktor.robbiemini.RoomCreator;
 import de.leifaktor.robbiemini.RoomManager;
 import de.leifaktor.robbiemini.XYPos;
 import de.leifaktor.robbiemini.XYZPos;
 import de.leifaktor.robbiemini.actor.Actor;
 import de.leifaktor.robbiemini.render.ActorPaletteRenderer;
+import de.leifaktor.robbiemini.render.EditorStatusBarRenderer;
 import de.leifaktor.robbiemini.render.RoomRenderer;
 import de.leifaktor.robbiemini.render.TilePaletteRenderer;
 import de.leifaktor.robbiemini.screens.editor.Actors;
@@ -33,25 +35,29 @@ public class EditorScreen extends ScreenAdapter {
 	Episode episode;
 
 	RoomManager roomManager;
-	Room currentRoom;
-	XYZPos currentRoomPosition;
+	public Room currentRoom;
+	public XYZPos currentRoomPosition;
 	int currentLayer = 0;
 
 	RoomRenderer roomRenderer;
 	TilePaletteRenderer tilePaletteRenderer;
 	ActorPaletteRenderer actorPaletteRenderer;
+	EditorStatusBarRenderer statusBarRenderer;
 
-	State state;
+	public State state;
 
 	Tile selectedTile;
 	Actor selectedActor;
 
 	boolean drawTile;
+	
+	public String roomNameTyping;
 
-	enum State {
+	public enum State {
 		DRAW,
 		TILE_PALETTE,
-		ACTOR_PALETTE
+		ACTOR_PALETTE,
+		ENTER_ROOM_NAME
 	}
 
 	public EditorScreen(ScreenManager sm, Viewport viewport, Camera camera) {
@@ -71,7 +77,10 @@ public class EditorScreen extends ScreenAdapter {
 
 		actorPaletteRenderer = new ActorPaletteRenderer();
 		actorPaletteRenderer.setOffset(0, 0);
-		actorPaletteRenderer.setTilesPerRow(15);		
+		actorPaletteRenderer.setTilesPerRow(15);
+		
+		statusBarRenderer = new EditorStatusBarRenderer();
+		statusBarRenderer.setOffset(0, RobbieMini.getVirtualHeight()-RobbieMini.TILESIZE);
 
 		state = State.DRAW;
 	}
@@ -79,6 +88,12 @@ public class EditorScreen extends ScreenAdapter {
 	public void set(Episode episode, XYZPos roomPosition) {
 		this.episode = episode;
 		this.roomManager = episode.roomManager;
+		this.currentRoomPosition = roomPosition;
+		this.currentRoom = roomManager.getRoom(currentRoomPosition);
+		this.roomRenderer.setRoom(currentRoom);
+	}
+	
+	public void setRoom(XYZPos roomPosition) {
 		this.currentRoomPosition = roomPosition;
 		this.currentRoom = roomManager.getRoom(currentRoomPosition);
 		this.roomRenderer.setRoom(currentRoom);
@@ -96,6 +111,7 @@ public class EditorScreen extends ScreenAdapter {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		sm.batch.begin();
 		roomRenderer.render(sm.batch);
+		statusBarRenderer.render(sm.batch, this);
 		if (state == State.TILE_PALETTE) {
 			tilePaletteRenderer.render(sm.batch);
 		} else if (state == State.ACTOR_PALETTE) {
@@ -143,6 +159,10 @@ public class EditorScreen extends ScreenAdapter {
 					drawTile = false;
 				}
 				break;
+			case ENTER_ROOM_NAME:
+				break;
+			default:
+				break;
 			}
 
 			return true;
@@ -170,12 +190,60 @@ public class EditorScreen extends ScreenAdapter {
 					if (currentLayer > 0) currentLayer--;
 					roomRenderer.setRenderLayer(currentLayer);
 					break;
-				}				
+				case Keys.F1:
+					state = State.ENTER_ROOM_NAME;
+					roomNameTyping = "";
+					break;
+				case Keys.UP:
+					setRoom(new XYZPos(currentRoomPosition.x, currentRoomPosition.y + 1, currentRoomPosition.z));
+					break;
+				case Keys.DOWN:
+					setRoom(new XYZPos(currentRoomPosition.x, currentRoomPosition.y - 1, currentRoomPosition.z));
+					break;
+				case Keys.LEFT:
+					setRoom(new XYZPos(currentRoomPosition.x - 1, currentRoomPosition.y, currentRoomPosition.z));
+					break;
+				case Keys.RIGHT:
+					setRoom(new XYZPos(currentRoomPosition.x + 1, currentRoomPosition.y, currentRoomPosition.z));
+					break;
+				case Keys.PAGE_UP:
+					setRoom(new XYZPos(currentRoomPosition.x, currentRoomPosition.y, currentRoomPosition.z + 1));
+					break;
+				case Keys.PAGE_DOWN:
+					setRoom(new XYZPos(currentRoomPosition.x, currentRoomPosition.y, currentRoomPosition.z - 1));
+					break;
+				case Keys.ENTER:
+					if (currentRoom == null) {
+						Room room = RoomCreator.createEmptyRoom(RobbieMini.WIDTH, RobbieMini.HEIGHT);
+						roomManager.setRoom(currentRoomPosition.z, currentRoomPosition.x, currentRoomPosition.y, room);
+						setRoom(currentRoomPosition);
+						break;
+					}
+				}
 				break;
 			case TILE_PALETTE:
 				break;
 			case ACTOR_PALETTE:
 				break;
+			case ENTER_ROOM_NAME:
+				if (keycode == Keys.ENTER) {
+					currentRoom.name = roomNameTyping;
+					state = State.DRAW;
+				}
+				if (keycode == Keys.ESCAPE) {
+					state = State.DRAW;
+				}
+				break;
+			default:
+				break;
+			}
+			return true;
+		}
+		
+		@Override
+		public boolean keyTyped(char character) {
+			if (state == State.ENTER_ROOM_NAME) {
+				roomNameTyping += character;
 			}
 			return true;
 		}

@@ -17,11 +17,6 @@ public class RoomRenderer {
 	
 	int maxRenderLayer;
 
-	public RoomRenderer() {
-		xOffset = 0;
-		yOffset = 0;
-	}
-
 	public void setOffset(float x, float y) {
 		this.xOffset = x;
 		this.yOffset = y;
@@ -36,7 +31,11 @@ public class RoomRenderer {
 	}
 
 	public void render(SpriteBatch batch) {
-		if (room == null) return;
+		if (room == null) {
+			Graphics.largeFont.setColor(1, 1, 1, 1);
+			Graphics.largeFont.draw(batch, "Dieser Raum existiert nicht. Drücke ENTER zum Erstellen!", 30,230);
+			return;
+		}
 		int numberOfLayers = room.getNumberOfLayers();
 		for (int z = 0; z < numberOfLayers; z++) {
 			if (z > maxRenderLayer) batch.setColor(1, 1, 1, 0.5f); else batch.setColor(1, 1, 1, 1);

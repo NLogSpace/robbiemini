@@ -58,6 +58,7 @@ public class TextboxRenderer {
 		int align = centered ? Align.center : Align.left;
 		BitmapFont font;
 		if (largeFont) font = Graphics.largeFont; else font = Graphics.smallFont;
+		font.setColor(0,0,0,1);
 		font.draw(batch, text, xOffset + RobbieMini.TILESIZE, yOffset+RobbieMini.TILESIZE*(height-1)-3, (width-2)*RobbieMini.TILESIZE, align, true);
 	}
 
