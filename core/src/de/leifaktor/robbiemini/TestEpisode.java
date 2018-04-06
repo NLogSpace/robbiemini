@@ -9,8 +9,7 @@ public class TestEpisode {
 		epi.roomManager = new RoomManager();
 		epi.globalVars = new GlobalVars();
 		epi.startingRoom = new XYZPos(1,1,1);
-		epi.startingPosition = new XYZPos(3, 3, 0);
-		epi.player = new Player(epi.startingPosition.x, epi.startingPosition.y, epi.startingPosition.z);
+		epi.player = new Player(3, 3, 0);
 		
 		Room room111 = RoomCreator.createShiftRoom(RobbieMini.WIDTH, RobbieMini.HEIGHT);
 		Room room112 = RoomCreator.createMazeRoom(RobbieMini.WIDTH, RobbieMini.HEIGHT);

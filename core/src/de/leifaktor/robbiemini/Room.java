@@ -75,6 +75,7 @@ public class Room {
 	}
 	
 	private void checkForRoomTransition() {
+		if (player == null) return;
 		if (!isInBounds(player.x, player.y)) {
 			if (getGameScreen() != null) {
 				int dx = player.x < 0 ? -1 : player.x < width ? 0 : 1;

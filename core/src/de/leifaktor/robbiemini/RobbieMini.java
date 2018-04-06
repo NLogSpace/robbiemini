@@ -7,6 +7,8 @@ import com.badlogic.gdx.graphics.FPSLogger;
 
 import de.leifaktor.robbiemini.render.Graphics;
 import de.leifaktor.robbiemini.screens.ScreenManager;
+import de.leifaktor.robbiemini.screens.editor.Actors;
+import de.leifaktor.robbiemini.screens.editor.Tiles;
 
 public class RobbieMini extends Game {
 	
@@ -22,6 +24,8 @@ public class RobbieMini extends Game {
 	public void create() {
 		Gdx.app.setLogLevel(Application.LOG_DEBUG);
 		Graphics.loadGraphics();
+		Tiles.init();
+		Actors.init();
 		fpsLogger = new FPSLogger();
 		sm = new ScreenManager(this);
 		sm.setMainMenu();

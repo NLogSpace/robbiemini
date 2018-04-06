@@ -183,11 +183,8 @@ public class GameScreen extends ScreenAdapter {
 	}
 	
 	private void save() {
-		episode.startingPosition = new XYZPos(player.x, player.y, player.z);
 		episode.startingRoom = currentRoomPosition;
-		currentRoom.removePlayer();
 		IO.save(episode, "episode.rob");
-		currentRoom.putPlayer(player, player.x, player.y, player.z);
 	}
 	
 	private void load() {
@@ -213,7 +210,7 @@ public class GameScreen extends ScreenAdapter {
 		roomRenderer.setRenderLayer(currentRoom.getNumberOfLayers());
 	}
 	
-	private void processInventory() {		
+	private void processInventory() {
 		if (state == State.INVENTORY) {
 			player.inventory.update();
 			if (InputManager.justPressed[InputManager.ENTER]) {

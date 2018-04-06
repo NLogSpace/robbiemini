@@ -10,6 +10,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 import de.leifaktor.robbiemini.Episode;
+import de.leifaktor.robbiemini.IO;
 import de.leifaktor.robbiemini.RobbieMini;
 import de.leifaktor.robbiemini.Room;
 import de.leifaktor.robbiemini.RoomCreator;
@@ -57,7 +58,8 @@ public class EditorScreen extends ScreenAdapter {
 		DRAW,
 		TILE_PALETTE,
 		ACTOR_PALETTE,
-		ENTER_ROOM_NAME
+		ENTER_ROOM_NAME,
+		SET_START
 	}
 
 	public EditorScreen(ScreenManager sm, Viewport viewport, Camera camera) {
@@ -67,9 +69,6 @@ public class EditorScreen extends ScreenAdapter {
 
 		roomRenderer = new RoomRenderer();
 		roomRenderer.setOffset(0, 0);
-
-		Tiles.init();
-		Actors.init();
 
 		tilePaletteRenderer = new TilePaletteRenderer();
 		tilePaletteRenderer.setOffset(0, 0);
@@ -129,9 +128,9 @@ public class EditorScreen extends ScreenAdapter {
 
 		@Override
 		public boolean touchDown(int screenX, int screenY, int pointer, int button) {
+			XYPos clickedTilePosition = roomRenderer.getPositionInRoom(screenX / RobbieMini.SCALE, (Gdx.graphics.getHeight() - screenY) / RobbieMini.SCALE, currentRoom);
 			switch (state) {
-			case DRAW:
-				XYPos clickedTilePosition = roomRenderer.getPositionInRoom(screenX / RobbieMini.SCALE, (Gdx.graphics.getHeight() - screenY) / RobbieMini.SCALE, currentRoom);
+			case DRAW:				
 				if (button == Buttons.LEFT) {
 					if (drawTile && selectedTile != null) {					
 						currentRoom.setTile(clickedTilePosition.x, clickedTilePosition.y, currentLayer, selectedTile);
@@ -160,6 +159,13 @@ public class EditorScreen extends ScreenAdapter {
 				}
 				break;
 			case ENTER_ROOM_NAME:
+				break;
+			case SET_START:
+				episode.roomManager.getRoom(episode.startingRoom).removePlayer();
+				episode.player.setPosition(new XYZPos(clickedTilePosition.x, clickedTilePosition.y, currentLayer));
+				episode.startingRoom = currentRoomPosition;
+				currentRoom.putPlayer(episode.player, episode.player.x, episode.player.y, episode.player.z);
+				state = State.DRAW;
 				break;
 			default:
 				break;
@@ -190,9 +196,15 @@ public class EditorScreen extends ScreenAdapter {
 					if (currentLayer > 0) currentLayer--;
 					roomRenderer.setRenderLayer(currentLayer);
 					break;
+				case Keys.S:
+					IO.save(episode, "episode.rob");
+					break;
 				case Keys.F1:
 					state = State.ENTER_ROOM_NAME;
 					roomNameTyping = "";
+					break;
+				case Keys.F5:
+					state = State.SET_START;
 					break;
 				case Keys.UP:
 					setRoom(new XYZPos(currentRoomPosition.x, currentRoomPosition.y + 1, currentRoomPosition.z));

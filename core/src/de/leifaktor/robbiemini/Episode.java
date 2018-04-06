@@ -7,7 +7,6 @@ public class Episode {
 	public RoomManager roomManager;
 	public GlobalVars globalVars;
 	public XYZPos startingRoom;
-	public XYZPos startingPosition;
 	public Player player;
 
 }
