@@ -18,6 +18,8 @@ import de.leifaktor.robbiemini.actor.Robot;
 import de.leifaktor.robbiemini.actor.Schalter;
 import de.leifaktor.robbiemini.actor.Skull;
 import de.leifaktor.robbiemini.actor.Sperre;
+import de.leifaktor.robbiemini.actor.StairsDown;
+import de.leifaktor.robbiemini.actor.StairsUp;
 import de.leifaktor.robbiemini.actor.Teleporter;
 import de.leifaktor.robbiemini.actor.Player.State;
 import de.leifaktor.robbiemini.items.Item;
@@ -71,6 +73,12 @@ public class ActorRenderer {
 				batch.draw(Graphics.textures.get("teleport_off"), x, y);
 			}				
 		}
+		if (a instanceof StairsUp) {
+			batch.draw(Graphics.textures.get("stairs_up"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale);
+		}
+		if (a instanceof StairsDown) {
+			batch.draw(Graphics.textures.get("stairs_down"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale);
+		} 
 		if (a instanceof Schalter) {
 			Schalter schalter = (Schalter) a;
 			if (schalter.isWallOnTheLeft() && schalter.isActive()) {

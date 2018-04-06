@@ -264,5 +264,17 @@ public class Room {
 		}
 		actors.removeAll(actorsToRemove);
 	}
+
+	public void walkDownstairs() {
+		XYZPos currentRoomPosition = getGameScreen().getCurrentRoomPosition();
+		XYZPos newRoomPosition = new XYZPos(currentRoomPosition.x, currentRoomPosition.y, currentRoomPosition.z - 1);
+		getGameScreen().transitionToRoom(newRoomPosition);		
+	}
+	
+	public void walkUpstairs() {
+		XYZPos currentRoomPosition = getGameScreen().getCurrentRoomPosition();
+		XYZPos newRoomPosition = new XYZPos(currentRoomPosition.x, currentRoomPosition.y, currentRoomPosition.z + 1);
+		getGameScreen().transitionToRoom(newRoomPosition);		
+	}
 	
 }

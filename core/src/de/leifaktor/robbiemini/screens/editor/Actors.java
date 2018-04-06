@@ -13,6 +13,8 @@ import de.leifaktor.robbiemini.actor.ItemActor;
 import de.leifaktor.robbiemini.actor.Schalter;
 import de.leifaktor.robbiemini.actor.Skull;
 import de.leifaktor.robbiemini.actor.Sperre;
+import de.leifaktor.robbiemini.actor.StairsDown;
+import de.leifaktor.robbiemini.actor.StairsUp;
 import de.leifaktor.robbiemini.actor.Teleporter;
 import de.leifaktor.robbiemini.condition.IsTermZeroCondition;
 import de.leifaktor.robbiemini.condition.RobotsAliveTerm;
@@ -51,6 +53,8 @@ public class Actors {
 		actors.add(new ItemActor(0,0,0,new Notiz("")));
 		actors.add(new ItemActor(0,0,0,new Schleuder()));
 		for (int i = 0; i < 16; i++) actors.add(new ItemActor(0,0,0,new Key(i)));
+		actors.add(new StairsUp(0,0,0));
+		actors.add(new StairsDown(0,0,0));
 	}
 
 }

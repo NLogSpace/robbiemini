@@ -74,6 +74,8 @@ public class Graphics {
 		textures.put("sperre_closed", tileset.getTile(2, 11));
 		textures.put("sperre_lr", tileset.getTile(3, 11));
 		textures.put("sperre_ud", tileset.getTile(4, 11));
+		textures.put("stairs_up", tileset.getTile(6, 0));
+		textures.put("stairs_down", tileset.getTile(7, 0));
 		
 		// Status Bar
 		textures.put("status_bar_outer_background", tileset.getTile(3, 13));
