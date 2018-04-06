@@ -30,6 +30,7 @@ public class EditorStatusBarRenderer {
 		}		
 		if (screen.state == State.ENTER_ROOM_NAME) roomNameToDraw = screen.roomNameTyping;
 		Graphics.smallFont.draw(batch, "[" + pos.x + "/" + pos.y + "/" + pos.z + "] " + roomNameToDraw, xOffset+2, yOffset+5);
+		if (screen.state == State.CONFIRM_CREATE_LAYER) Graphics.smallFont.draw(batch, "Create new Layer?", xOffset+180, yOffset+5);
 	}
 	
 }

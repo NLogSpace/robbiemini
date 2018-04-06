@@ -16,6 +16,7 @@ public class RoomRenderer {
 	float yOffset;
 	
 	int maxRenderLayer;
+	int highlightLayer;
 
 	public void setOffset(float x, float y) {
 		this.xOffset = x;
@@ -29,6 +30,10 @@ public class RoomRenderer {
 	public void setRoom(Room room) {
 		this.room = room;
 	}
+	
+	public void highlightLayer(int layer) {
+		highlightLayer = layer;
+	}
 
 	public void render(SpriteBatch batch) {
 		if (room == null) {
@@ -38,7 +43,11 @@ public class RoomRenderer {
 		}
 		int numberOfLayers = room.getNumberOfLayers();
 		for (int z = 0; z < numberOfLayers; z++) {
-			if (z > maxRenderLayer) batch.setColor(1, 1, 1, 0.5f); else batch.setColor(1, 1, 1, 1);
+			if (highlightLayer == -1) {
+				if (z > maxRenderLayer) batch.setColor(1, 1, 1, 0.5f); else batch.setColor(1, 1, 1, 1);
+			} else {
+				if (z == highlightLayer) batch.setColor(1,1,1,1); else batch.setColor(0.5f, 0.5f, 0.5f, 0.5f);
+			}			
 			for (int i = 0; i < room.width; i++) {
 				for (int j = 0; j < room.height; j++) {
 					TileRenderer.render(batch, room.getTile(i, j, z), (i+xOffset)*TILESIZE, (j+yOffset)*TILESIZE);

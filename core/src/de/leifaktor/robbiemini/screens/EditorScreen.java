@@ -14,6 +14,7 @@ import de.leifaktor.robbiemini.IO;
 import de.leifaktor.robbiemini.RobbieMini;
 import de.leifaktor.robbiemini.Room;
 import de.leifaktor.robbiemini.RoomCreator;
+import de.leifaktor.robbiemini.RoomLayer;
 import de.leifaktor.robbiemini.RoomManager;
 import de.leifaktor.robbiemini.XYPos;
 import de.leifaktor.robbiemini.XYZPos;
@@ -49,7 +50,7 @@ public class EditorScreen extends ScreenAdapter {
 	Actor selectedActor;
 
 	boolean drawTile;
-	
+
 	public String roomNameTyping;
 
 	public enum State {
@@ -57,7 +58,8 @@ public class EditorScreen extends ScreenAdapter {
 		TILE_PALETTE,
 		ACTOR_PALETTE,
 		ENTER_ROOM_NAME,
-		SET_START
+		SET_START,
+		CONFIRM_CREATE_LAYER;
 	}
 
 	public EditorScreen(ScreenManager sm, Viewport viewport, Camera camera) {
@@ -75,7 +77,7 @@ public class EditorScreen extends ScreenAdapter {
 		actorPaletteRenderer = new ActorPaletteRenderer();
 		actorPaletteRenderer.setOffset(0, 0);
 		actorPaletteRenderer.setTilesPerRow(15);
-		
+
 		statusBarRenderer = new EditorStatusBarRenderer();
 		statusBarRenderer.setOffset(0, RobbieMini.getVirtualHeight()-RobbieMini.TILESIZE);
 
@@ -89,7 +91,7 @@ public class EditorScreen extends ScreenAdapter {
 		this.currentRoom = roomManager.getRoom(currentRoomPosition);
 		this.roomRenderer.setRoom(currentRoom);
 	}
-	
+
 	public void setRoom(XYZPos roomPosition) {
 		this.currentRoomPosition = roomPosition;
 		this.currentRoom = roomManager.getRoom(currentRoomPosition);
@@ -168,14 +170,13 @@ public class EditorScreen extends ScreenAdapter {
 			default:
 				break;
 			}
-
 			return true;
-		}		
+		}
 
 		@Override
 		public boolean touchDragged(int screenX, int screenY, int pointer) {
 			XYPos clickedTilePosition = roomRenderer.getPositionInRoom(screenX / RobbieMini.SCALE, (Gdx.graphics.getHeight() - screenY) / RobbieMini.SCALE, currentRoom);
-			if (state == State.DRAW && drawTile && selectedTile != null) {					
+			if (clickedTilePosition != null && state == State.DRAW && drawTile && selectedTile != null) {					
 				currentRoom.setTile(clickedTilePosition.x, clickedTilePosition.y, currentLayer, selectedTile);
 			}
 			return true;
@@ -197,11 +198,16 @@ public class EditorScreen extends ScreenAdapter {
 					break;
 				case Keys.Q:
 					if (currentLayer < currentRoom.getNumberOfLayers() - 1) currentLayer++;
+					else {
+						state = State.CONFIRM_CREATE_LAYER;
+					}
 					roomRenderer.setRenderLayer(currentLayer);
+					roomRenderer.highlightLayer(currentLayer);
 					break;
 				case Keys.A:
 					if (currentLayer > 0) currentLayer--;
 					roomRenderer.setRenderLayer(currentLayer);
+					roomRenderer.highlightLayer(currentLayer);
 					break;
 				case Keys.S:
 					IO.save(episode, "episode.rob");
@@ -236,8 +242,8 @@ public class EditorScreen extends ScreenAdapter {
 						Room room = RoomCreator.createEmptyRoom(RobbieMini.WIDTH, RobbieMini.HEIGHT);
 						roomManager.setRoom(currentRoomPosition.z, currentRoomPosition.x, currentRoomPosition.y, room);
 						setRoom(currentRoomPosition);
-						break;
 					}
+					break;
 				}
 				break;
 			case TILE_PALETTE:
@@ -253,12 +259,25 @@ public class EditorScreen extends ScreenAdapter {
 					state = State.DRAW;
 				}
 				break;
+			case CONFIRM_CREATE_LAYER:
+				switch (keycode) {
+				case Keys.ENTER:
+					RoomLayer layer = RoomCreator.airLayer(RobbieMini.WIDTH, RobbieMini.HEIGHT);
+					currentRoom.layers.add(layer);
+					currentLayer++;
+					state = State.DRAW;
+					break;
+				case Keys.ESCAPE:
+					state = State.DRAW;
+					break;
+				}
+				break;
 			default:
 				break;
 			}
 			return true;
 		}
-		
+
 		@Override
 		public boolean keyTyped(char character) {
 			if (state == State.ENTER_ROOM_NAME) {

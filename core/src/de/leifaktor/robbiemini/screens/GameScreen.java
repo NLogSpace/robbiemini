@@ -77,6 +77,7 @@ public class GameScreen extends ScreenAdapter {
 		
 		roomRenderer = new RoomRenderer();
 		roomRenderer.setOffset(0, 0);
+		roomRenderer.highlightLayer(-1);
 		barRenderer = new StatusBarRenderer();
 		barRenderer.setOffset(0, RobbieMini.getVirtualHeight()-RobbieMini.TILESIZE);
 		inventoryRenderer = new InventoryRenderer();
