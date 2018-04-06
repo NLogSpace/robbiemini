@@ -13,6 +13,7 @@ import de.leifaktor.robbiemini.tiles.DarkWall;
 import de.leifaktor.robbiemini.tiles.Door;
 import de.leifaktor.robbiemini.tiles.EmptyTile;
 import de.leifaktor.robbiemini.tiles.Glass;
+import de.leifaktor.robbiemini.tiles.Ice;
 import de.leifaktor.robbiemini.tiles.Tile;
 import de.leifaktor.robbiemini.tiles.Wall;
 
@@ -37,6 +38,7 @@ public class TileRenderer {
 		if (tile instanceof BridgeUD) batch.draw(Graphics.textures.get("bridge_ud"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale);
 		if (tile instanceof BridgeDown) batch.draw(Graphics.textures.get("bridge_down"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale);
 		if (tile instanceof Glass) batch.draw(Graphics.textures.get("glass_tile"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale);
+		if (tile instanceof Ice) batch.draw(Graphics.textures.get("ice_tile"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale);
 	}
 
 }

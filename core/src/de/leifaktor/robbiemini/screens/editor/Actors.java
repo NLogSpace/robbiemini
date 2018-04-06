@@ -20,6 +20,7 @@ import de.leifaktor.robbiemini.condition.IsTermZeroCondition;
 import de.leifaktor.robbiemini.condition.RobotsAliveTerm;
 import de.leifaktor.robbiemini.items.Acid;
 import de.leifaktor.robbiemini.items.Blaumann;
+import de.leifaktor.robbiemini.items.IceSkates;
 import de.leifaktor.robbiemini.items.Key;
 import de.leifaktor.robbiemini.items.Life;
 import de.leifaktor.robbiemini.items.Magnet;
@@ -52,6 +53,7 @@ public class Actors {
 		actors.add(new ItemActor(0,0,0,new Magnet(false)));
 		actors.add(new ItemActor(0,0,0,new Notiz("")));
 		actors.add(new ItemActor(0,0,0,new Schleuder()));
+		actors.add(new ItemActor(0,0,0,new IceSkates()));
 		for (int i = 0; i < 16; i++) actors.add(new ItemActor(0,0,0,new Key(i)));
 		actors.add(new StairsUp(0,0,0));
 		actors.add(new StairsDown(0,0,0));

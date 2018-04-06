@@ -7,6 +7,7 @@ import de.leifaktor.robbiemini.InputManager;
 import de.leifaktor.robbiemini.Inventory;
 import de.leifaktor.robbiemini.Room;
 import de.leifaktor.robbiemini.XYZPos;
+import de.leifaktor.robbiemini.tiles.Ice;
 
 public class Player extends Actor {
 
@@ -61,6 +62,13 @@ public class Player extends Actor {
 
 	private void performAction(Room room) {
 		int intendedDir = getKeyboardDirection(room);
+		if (room.getTile(x, y, z) instanceof Ice) {
+			if (!inventory.hasIceSkates()) {
+				intendedDir = direction;
+			} else {
+				if (intendedDir == -1) intendedDir = direction;
+			}
+		}
 		if (intendedDir > -1) {
 			boolean canMove = CollisionDetector.canMoveTo(this, room, intendedDir);
 			boolean canShift = CollisionDetector.canShiftTo(this, room, intendedDir);

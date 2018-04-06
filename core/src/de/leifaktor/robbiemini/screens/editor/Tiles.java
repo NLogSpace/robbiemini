@@ -14,6 +14,7 @@ import de.leifaktor.robbiemini.tiles.DarkWall;
 import de.leifaktor.robbiemini.tiles.Door;
 import de.leifaktor.robbiemini.tiles.EmptyTile;
 import de.leifaktor.robbiemini.tiles.Glass;
+import de.leifaktor.robbiemini.tiles.Ice;
 import de.leifaktor.robbiemini.tiles.Tile;
 import de.leifaktor.robbiemini.tiles.Wall;
 
@@ -35,6 +36,7 @@ public class Tiles {
 		tiles.add(new BridgeLeft());
 		tiles.add(new BridgeLR());
 		tiles.add(new BridgeRight());
+		tiles.add(new Ice());
 	}
 
 }
