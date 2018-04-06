@@ -22,8 +22,6 @@ import de.leifaktor.robbiemini.render.ActorPaletteRenderer;
 import de.leifaktor.robbiemini.render.EditorStatusBarRenderer;
 import de.leifaktor.robbiemini.render.RoomRenderer;
 import de.leifaktor.robbiemini.render.TilePaletteRenderer;
-import de.leifaktor.robbiemini.screens.editor.Actors;
-import de.leifaktor.robbiemini.screens.editor.Tiles;
 import de.leifaktor.robbiemini.tiles.Tile;
 
 public class EditorScreen extends ScreenAdapter {

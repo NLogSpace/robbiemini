@@ -13,7 +13,7 @@ public class TestEpisode {
 		
 		Room room111 = RoomCreator.createShiftRoom(RobbieMini.WIDTH, RobbieMini.HEIGHT);
 		Room room112 = RoomCreator.createMazeRoom(RobbieMini.WIDTH, RobbieMini.HEIGHT);
-		Room room121 = RoomCreator.createEmptyRoom(RobbieMini.WIDTH, RobbieMini.HEIGHT);
+		Room room121 = RoomCreator.createEmptyTestRoom(RobbieMini.WIDTH, RobbieMini.HEIGHT);
 		Room room122 = RoomCreator.createWallRoom(RobbieMini.WIDTH, RobbieMini.HEIGHT);
 		Room room101 = RoomCreator.createMagneticRoom(RobbieMini.WIDTH, RobbieMini.HEIGHT);
 		Room room102 = RoomCreator.createBridgeRoom(RobbieMini.WIDTH, RobbieMini.HEIGHT);

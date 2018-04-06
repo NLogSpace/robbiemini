@@ -45,6 +45,17 @@ public class RoomCreator {
 	public static Random random = new Random();
 	
 	public static Room createEmptyRoom(int width, int height) {
+		Tile empty = new EmptyTile();
+		Tile[] map = new Tile[width*height];
+		for (int i = 0; i < map.length; i++) map[i] = empty;
+		ArrayList<RoomLayer> layers = new ArrayList<RoomLayer>();
+		layers.add(new RoomLayer(width, height, map));
+		ArrayList<Actor> actors = new ArrayList<Actor>();
+		Room room = new Room(width, height, layers, actors);
+		return room;		
+	}
+	
+	public static Room createEmptyTestRoom(int width, int height) {
 		Tile wall = new Wall();
 		Tile empty = new EmptyTile();
 		Tile[] map = new Tile[width*height];
@@ -246,7 +257,7 @@ public class RoomCreator {
 	}
 	
 	public static Room createShiftRoom(int width, int height) {
-		Room room = createEmptyRoom(width, height);		
+		Room room = createEmptyTestRoom(width, height);		
 
 		Isolator isolator = new Isolator(0,0, 0);
 		addRandomActors(isolator, room, 100);
@@ -327,7 +338,7 @@ public class RoomCreator {
 	}
 	
 	public static Room createMagneticRoom(int width, int height) {
-		Room room = createEmptyRoom(width, height);
+		Room room = createEmptyTestRoom(width, height);
 		addRandomActors(new ItemActor(0,0,0,new Magnet(true)), room, 10);
 		addRandomActors(new ItemActor(0,0,0,new Magnet(false)), room, 10);
 		
