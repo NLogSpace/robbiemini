@@ -173,6 +173,15 @@ public class EditorScreen extends ScreenAdapter {
 		}		
 
 		@Override
+		public boolean touchDragged(int screenX, int screenY, int pointer) {
+			XYPos clickedTilePosition = roomRenderer.getPositionInRoom(screenX / RobbieMini.SCALE, (Gdx.graphics.getHeight() - screenY) / RobbieMini.SCALE, currentRoom);
+			if (state == State.DRAW && drawTile && selectedTile != null) {					
+				currentRoom.setTile(clickedTilePosition.x, clickedTilePosition.y, currentLayer, selectedTile);
+			}
+			return true;
+		}
+
+		@Override
 		public boolean keyDown(int keycode) {
 			switch (state) {
 			case DRAW:
