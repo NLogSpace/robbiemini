@@ -64,7 +64,7 @@ public class Graphics {
 		textures.put("skull", tileset.getTile(9, 9));
 		animations.put("dissolving_wall", new Animation<TextureRegion>(0.25f,tileset.getTiles(0, 1, 16)));
 		for (int i = 0; i < 7; i++)	animations.put("robot_" + i, new Animation<TextureRegion>(0.6f,tileset.getTiles(2*i, 8, 2)));
-		animations.put("explosion", new Animation<TextureRegion>(0.3f,tileset.getTiles(6, 7, 5)));
+		animations.put("explosion", new Animation<TextureRegion>(0.3f,tileset.getTiles(6, 7, 6)));
 		textures.put("flying_bullet", tileset.getTile(8, 11));
 		animations.put("teleport", new Animation<TextureRegion>(0.25f, tileset.getTiles(11, 0, 4)));
 		textures.put("teleport_off", tileset.getTile(15, 0));

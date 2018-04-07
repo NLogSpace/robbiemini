@@ -17,7 +17,7 @@ public class Explosion extends Actor {
 	@Override
 	public void update(Room room) {
 		time += Gdx.graphics.getDeltaTime();
-		if (time > 1.5f) remove();
+		if (time > 1.8f) remove();
 	}
 	
 	public float getTime() {
