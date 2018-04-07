@@ -56,7 +56,8 @@ public class MainMenuScreen implements Screen {
 		
 		if (Gdx.input.isKeyJustPressed(Keys.ENTER)) {
 			if (selected == 0) sm.setGame();
-			if (selected == 2) Gdx.app.exit();
+			else if (selected == 1) sm.setEditor();
+			else if (selected == 2) Gdx.app.exit();
 		}
 		
 		Gdx.gl.glClearColor(0, 0, 0, 1);
@@ -67,7 +68,7 @@ public class MainMenuScreen implements Screen {
 		sm.batch.draw(title, (RobbieMini.getVirtualWidth() - title.getWidth()) / 2, 230);
 		Graphics.largeFont.draw(sm.batch, "Das Spiel von", RobbieMini.getVirtualWidth() / 2-60, 270);
 		Graphics.largeFont.draw(sm.batch, "Start", RobbieMini.getVirtualWidth() / 2-30, 170);
-		Graphics.largeFont.draw(sm.batch, "Optionen", RobbieMini.getVirtualWidth() / 2-30, 150);
+		Graphics.largeFont.draw(sm.batch, "Editor", RobbieMini.getVirtualWidth() / 2-30, 150);
 		Graphics.largeFont.draw(sm.batch, "Ende", RobbieMini.getVirtualWidth() / 2-30, 130);
 		sm.batch.draw(Graphics.textures.get("arrow_1"), RobbieMini.getVirtualWidth() / 2-50, 160 - 20*selected);
 		sm.batch.draw(Graphics.textures.get("arrow_3"), RobbieMini.getVirtualWidth() / 2+50, 160 - 20*selected);

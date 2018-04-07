@@ -37,7 +37,6 @@ public class RoomRenderer {
 
 	public void render(SpriteBatch batch) {
 		if (room == null) {
-			Graphics.largeFont.setColor(1, 1, 1, 1);
 			Graphics.largeFont.draw(batch, "Dieser Raum existiert nicht. Drücke ENTER zum Erstellen!", 30,230);
 			return;
 		}

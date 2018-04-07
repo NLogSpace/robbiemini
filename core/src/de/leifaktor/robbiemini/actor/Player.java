@@ -27,7 +27,9 @@ public class Player extends Actor {
 		RESPAWNING
 	}
 	
-	public Player() {} // no-arg constructor for JSON
+	public Player() {
+		this(0,0,0);
+	} // no-arg constructor for JSON
 
 	public Player(int x, int y, int z) {		
 		super(x, y, z);

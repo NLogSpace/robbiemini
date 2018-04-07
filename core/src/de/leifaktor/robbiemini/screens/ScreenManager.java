@@ -63,5 +63,14 @@ public class ScreenManager {
 		editorScreen.set(episode, roomPosition);
 		game.setScreen(editorScreen);
 	}
+	
+	public void setEditor(Episode episode) {
+		editorScreen.set(episode, episode.startingRoom);
+		game.setScreen(editorScreen);
+	}
+
+	public void setEditor() {
+		setEditor(new Episode());
+	}
 
 }
