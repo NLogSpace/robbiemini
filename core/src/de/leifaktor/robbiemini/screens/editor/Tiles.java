@@ -26,7 +26,7 @@ public class Tiles {
 		tiles = new ArrayList<Tile>();
 		tiles.add(new EmptyTile());
 		tiles.add(new Wall());
-		tiles.add(new DarkWall());
+		for (int i = 0; i < 5; i++) tiles.add(new DarkWall(i));
 		tiles.add(new Glass());
 		for (int i = 0; i < 16; i++) tiles.add(new Door(i));
 		tiles.add(new Air());

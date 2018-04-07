@@ -25,7 +25,15 @@ public class TileRenderer {
 
 	public static void render(SpriteBatch batch, Tile tile, float x, float y, int scale) {
 		if (tile instanceof Wall) batch.draw(Graphics.textures.get("wall_tile"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale);
-		if (tile instanceof DarkWall) batch.draw(Graphics.textures.get("dark_wall_tile"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale);
+		if (tile instanceof DarkWall) {
+			batch.draw(Graphics.textures.get("empty_tile"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale);
+			int type = ((DarkWall) tile).type;
+			if (type == DarkWall.FULL) batch.draw(Graphics.textures.get("dark_wall_tile"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale);
+			if (type == DarkWall.NW) batch.draw(Graphics.textures.get("dark_wall_tile_nw"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale);
+			if (type == DarkWall.NE) batch.draw(Graphics.textures.get("dark_wall_tile_ne"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale);
+			if (type == DarkWall.SW) batch.draw(Graphics.textures.get("dark_wall_tile_sw"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale);
+			if (type == DarkWall.SE) batch.draw(Graphics.textures.get("dark_wall_tile_se"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale);
+		}
 		if (tile instanceof EmptyTile) batch.draw(Graphics.textures.get("empty_tile"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale);
 		if (tile instanceof Door) {
 			Door d = (Door) tile;
