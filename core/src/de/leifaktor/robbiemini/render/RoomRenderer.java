@@ -46,7 +46,7 @@ public class RoomRenderer {
 			if (highlightLayer == -1) {
 				if (z > maxRenderLayer) batch.setColor(1, 1, 1, 0.5f); else batch.setColor(1, 1, 1, 1);
 			} else {
-				if (z == highlightLayer) batch.setColor(1,1,1,1); else batch.setColor(0.5f, 0.5f, 0.5f, 0.5f);
+				if (z == highlightLayer) batch.setColor(1,1,1,1); else batch.setColor(1, 1, 1, 0.2f);
 			}			
 			for (int i = 0; i < room.width; i++) {
 				for (int j = 0; j < room.height; j++) {

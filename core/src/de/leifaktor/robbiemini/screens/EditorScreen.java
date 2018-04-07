@@ -37,7 +37,7 @@ public class EditorScreen extends ScreenAdapter {
 	RoomManager roomManager;
 	public Room currentRoom;
 	public XYZPos currentRoomPosition;
-	int currentLayer = 0;
+	public int currentLayer = 0;
 
 	RoomRenderer roomRenderer;
 	TilePaletteRenderer tilePaletteRenderer;
@@ -108,7 +108,7 @@ public class EditorScreen extends ScreenAdapter {
 	@Override
 	public void render(float delta) {
 		sm.batch.setProjectionMatrix(camera.combined);
-		Gdx.gl.glClearColor(0, 0, 0, 1);
+		Gdx.gl.glClearColor(1, 1, 1, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		sm.batch.begin();
 		roomRenderer.render(sm.batch);
@@ -170,7 +170,7 @@ public class EditorScreen extends ScreenAdapter {
 				break;
 			case ENTER_ROOM_NAME:
 				break;
-			case SET_START:
+			case SET_START:				
 				episode.roomManager.getRoom(episode.startingRoom).removePlayer();
 				episode.player.setPosition(new XYZPos(clickedTilePosition.x, clickedTilePosition.y, currentLayer));
 				episode.startingRoom = currentRoomPosition;
@@ -232,6 +232,13 @@ public class EditorScreen extends ScreenAdapter {
 					break;
 				case Keys.F5:
 					state = State.SET_START;
+					break;
+				case Keys.F12:
+					if (currentRoom != null) {
+						for (Actor a: currentRoom.actors) {
+							System.out.println(a);
+						}
+					}
 					break;
 				case Keys.UP:
 					setRoom(new XYZPos(currentRoomPosition.x, currentRoomPosition.y + 1, currentRoomPosition.z));

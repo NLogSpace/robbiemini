@@ -171,7 +171,11 @@ public class Room {
 	}
 
 	public void removePlayer() {
-		actors.remove(player);
+		ArrayList<Actor> actorsToRemove = new ArrayList<Actor>();
+		for (Actor a: actors) {
+			if (a instanceof Player) actorsToRemove.add(a);
+		}
+		actors.removeAll(actorsToRemove);
 		player = null;
 	}
 	

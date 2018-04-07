@@ -68,10 +68,10 @@ public class Graphics {
 		textures.put("flying_bullet", tileset.getTile(8, 11));
 		animations.put("teleport", new Animation<TextureRegion>(0.25f, tileset.getTiles(11, 0, 4)));
 		textures.put("teleport_off", tileset.getTile(15, 0));
-		textures.put("schalter_left_on", tileset.getTile(3, 6));
-		textures.put("schalter_left_off", tileset.getTile(4, 6));
-		textures.put("schalter_right_off", tileset.getTile(5, 6));
-		textures.put("schalter_right_on", tileset.getTile(6, 6));
+		textures.put("schalter_left_on", tileset.getTile(12, 7));
+		textures.put("schalter_left_off", tileset.getTile(13, 7));
+		textures.put("schalter_right_off", tileset.getTile(14, 7));
+		textures.put("schalter_right_on", tileset.getTile(15, 7));
 		textures.put("sperre_closed", tileset.getTile(2, 11));
 		textures.put("sperre_lr", tileset.getTile(3, 11));
 		textures.put("sperre_ud", tileset.getTile(4, 11));
