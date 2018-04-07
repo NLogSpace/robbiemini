@@ -228,6 +228,7 @@ public class EditorScreen extends ScreenAdapter {
 					break;
 				case Keys.L:
 					set(IO.load("episode.rob"));
+					break;
 				case Keys.B:
 					brushSize++;
 					if (brushSize > 3) brushSize = 1;

@@ -143,14 +143,20 @@ public class GameScreen extends ScreenAdapter {
 	}
 	
 	public void transitionToRoom(XYZPos newRoomPosition) {
+		if (roomManager.getRoom(newRoomPosition) == null) return;
 		this.newRoomPosition = newRoomPosition;
 		startRoomTransitionAfterThisFrame = true;
 	}
 	
 	public void teleportTo(XYZPos roomPosition, XYZPos playerPosition) {
+		if (roomManager.getRoom(roomPosition) == null) return;
 		this.newRoomPosition = roomPosition;
 		this.playerTeleportPosition = playerPosition;
 		startTeleportAfterThisFrame = true;
+	}
+	
+	public void teleportTo(XYZPos roomPosition) {
+		teleportTo(roomPosition, new XYZPos(player.x, player.y, player.z));
 	}
 	
 	public boolean getGlobalBoolean(String key) {
@@ -196,7 +202,7 @@ public class GameScreen extends ScreenAdapter {
 		setRoom(newRoomPosition, playerTeleportPosition);
 	}
 	
-	private void setRoom(XYZPos roomPos, XYZPos playerPos) {
+	private void setRoom(XYZPos roomPos, XYZPos playerPos) {		
 		if (currentRoom != null) currentRoom.removePlayer();
 		currentRoomPosition = roomPos;
 		currentRoom = roomManager.getRoom(roomPos);

@@ -272,13 +272,13 @@ public class Room {
 	public void walkDownstairs() {
 		XYZPos currentRoomPosition = getGameScreen().getCurrentRoomPosition();
 		XYZPos newRoomPosition = new XYZPos(currentRoomPosition.x, currentRoomPosition.y, currentRoomPosition.z - 1);
-		getGameScreen().transitionToRoom(newRoomPosition);		
+		getGameScreen().teleportTo(newRoomPosition);
 	}
 	
 	public void walkUpstairs() {
 		XYZPos currentRoomPosition = getGameScreen().getCurrentRoomPosition();
 		XYZPos newRoomPosition = new XYZPos(currentRoomPosition.x, currentRoomPosition.y, currentRoomPosition.z + 1);
-		getGameScreen().transitionToRoom(newRoomPosition);		
+		getGameScreen().teleportTo(newRoomPosition);		
 	}
 	
 }

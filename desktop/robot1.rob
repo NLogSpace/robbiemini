@@ -1937,64 +1937,6 @@
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.DarkWall",
-								"type": 1
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.Wall"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.Wall"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.Wall"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.Wall"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.Wall"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
 							},
 							{
@@ -2016,22 +1958,10 @@
 								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.Wall"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.Wall"
-							},
-							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.Wall"
@@ -2055,8 +1985,31 @@
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.DarkWall",
-								"type": 1
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.Wall"
@@ -2068,8 +2021,52 @@
 								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.DarkWall",
-								"type": 3
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
@@ -2177,21 +2174,19 @@
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.DarkWall",
-								"type": 1
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.Wall"
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.Wall"
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.Wall"
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.DarkWall",
-								"type": 3
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
@@ -2297,21 +2292,10 @@
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.DarkWall",
-								"type": 1
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.Wall"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.Wall"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.Wall"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.DarkWall",
-								"type": 3
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
@@ -2323,10 +2307,7 @@
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.Wall"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.Wall"
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
@@ -2341,46 +2322,19 @@
 								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
 								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.Wall"
@@ -2416,21 +2370,58 @@
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.DarkWall",
-								"type": 1
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.Wall"
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.Wall"
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.DarkWall",
-								"type": 3
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
@@ -2538,21 +2529,19 @@
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.DarkWall",
-								"type": 1
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.Wall"
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.Wall"
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.Wall"
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.DarkWall",
-								"type": 3
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
@@ -2659,96 +2648,6 @@
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.DarkWall",
-								"type": 1
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.Wall"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.Wall"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.Wall"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.DarkWall",
-								"type": 3
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.DarkWall",
-								"type": 1
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.Wall"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.Wall"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.Wall"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
 							},
 							{
@@ -2789,11 +2688,97 @@
 								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
 								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.DarkWall",
-								"type": 3
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
@@ -6821,12 +6806,12 @@
 					"lives": 3,
 					"respawnTimer": 0,
 					"respawnPosition": {
-						"x": 6,
+						"x": 0,
 						"y": 13,
 						"z": 0
 					},
 					"state": "IDLE",
-					"stateTime": 8.423203
+					"stateTime": 4.0910954
 				},
 				"actors": [
 					{
@@ -7670,7 +7655,7 @@
 							}
 						},
 						"leftRight": true,
-						"timeUntilOpen": 4.067187,
+						"timeUntilOpen": 2.9785817,
 						"timeUntilClose": 0
 					},
 					{
@@ -7702,7 +7687,7 @@
 							}
 						},
 						"leftRight": true,
-						"timeUntilOpen": 3.367227,
+						"timeUntilOpen": 2.377466,
 						"timeUntilClose": 0
 					},
 					{
@@ -7734,7 +7719,7 @@
 							}
 						},
 						"leftRight": true,
-						"timeUntilOpen": 2.6670532,
+						"timeUntilOpen": 1.7764313,
 						"timeUntilClose": 0
 					},
 					{
@@ -7766,7 +7751,7 @@
 							}
 						},
 						"leftRight": true,
-						"timeUntilOpen": 1.9668213,
+						"timeUntilOpen": 1.1757507,
 						"timeUntilClose": 0
 					},
 					{
@@ -7798,7 +7783,7 @@
 							}
 						},
 						"leftRight": true,
-						"timeUntilOpen": 1.2668114,
+						"timeUntilOpen": 0.5747897,
 						"timeUntilClose": 0
 					},
 					{
@@ -7830,7 +7815,7 @@
 							}
 						},
 						"leftRight": true,
-						"timeUntilOpen": 0.5678923,
+						"timeUntilOpen": 4.9,
 						"timeUntilClose": 0
 					},
 					{
@@ -7862,7 +7847,7 @@
 							}
 						},
 						"leftRight": true,
-						"timeUntilOpen": 0.38379914,
+						"timeUntilOpen": 0.76560867,
 						"timeUntilClose": 0
 					},
 					{
@@ -7900,44 +7885,7 @@
 							"z": 0
 						},
 						"state": "IDLE",
-						"stateTime": 8.423203
-					},
-					{
-						"class": "de.leifaktor.robbiemini.actor.Player",
-						"x": 6,
-						"y": 13,
-						"z": 0,
-						"pos": {
-							"x": 6,
-							"y": 13
-						},
-						"vel": {
-							"x": 0.16,
-							"y": 0
-						},
-						"direction": 1,
-						"speed": 0.16,
-						"remainingDistance": 0.16,
-						"distanceUntilNextTile": 0,
-						"moving": false,
-						"justReachedTile": false,
-						"isOnTile": true,
-						"shouldBeRemoved": false,
-						"inventory": {
-							"items": [],
-							"pointer": 0
-						},
-						"gold": 0,
-						"bullets": 0,
-						"lives": 3,
-						"respawnTimer": 0,
-						"respawnPosition": {
-							"x": 6,
-							"y": 13,
-							"z": 0
-						},
-						"state": "IDLE",
-						"stateTime": 8.423203
+						"stateTime": 4.0910954
 					}
 				],
 				"commands": [],
@@ -14763,11 +14711,11 @@
 	"lives": 3,
 	"respawnTimer": 0,
 	"respawnPosition": {
-		"x": 6,
+		"x": 0,
 		"y": 13,
 		"z": 0
 	},
 	"state": "IDLE",
-	"stateTime": 8.423203
+	"stateTime": 4.0910954
 }
 }
