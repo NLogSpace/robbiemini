@@ -102,6 +102,9 @@ public class Graphics {
 		
 		// Editor
 		textures.put("palette_background", tileset.getTile(6,13));
+		textures.put("brush_1", tileset.getTile(7, 13));
+		textures.put("brush_2", tileset.getTile(8, 13));
+		textures.put("brush_3", tileset.getTile(9, 13));
 	}
 
 

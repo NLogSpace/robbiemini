@@ -45,6 +45,11 @@ public class ScreenManager {
 		game.setScreen(mainMenuScreen);
 	}
 	
+	public void setGame(Episode episode) {
+		gameScreen.loadEpisode(episode);
+		game.setScreen(gameScreen);
+	}
+	
 	public void setGame() {
 		game.setScreen(gameScreen);
 	}

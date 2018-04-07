@@ -50,6 +50,8 @@ public class EditorScreen extends ScreenAdapter {
 	Actor selectedActor;
 
 	boolean drawTile;
+	
+	public int brushSize = 1;
 
 	public String roomNameTyping;
 
@@ -123,6 +125,14 @@ public class EditorScreen extends ScreenAdapter {
 	public void resize(int width, int height) {
 		viewport.update(width, height);		
 	}
+	
+	private void drawTile(Tile tile, int x, int y) {
+		for (int i = -(brushSize-1); i <= brushSize-1; i++) {
+			for (int j = -(brushSize-1); j <= brushSize-1; j++) {
+				currentRoom.setTile(x+i, y+j, currentLayer, tile);
+			}
+		}	
+	}
 
 	class InputListener extends InputAdapter {
 
@@ -132,8 +142,8 @@ public class EditorScreen extends ScreenAdapter {
 			switch (state) {
 			case DRAW:				
 				if (button == Buttons.LEFT) {
-					if (drawTile && selectedTile != null) {					
-						currentRoom.setTile(clickedTilePosition.x, clickedTilePosition.y, currentLayer, selectedTile);
+					if (drawTile && selectedTile != null) {
+						drawTile(selectedTile, clickedTilePosition.x, clickedTilePosition.y);
 					}
 					if (!drawTile && selectedActor != null) {
 						Actor a = selectedActor.clone();
@@ -176,8 +186,8 @@ public class EditorScreen extends ScreenAdapter {
 		@Override
 		public boolean touchDragged(int screenX, int screenY, int pointer) {
 			XYPos clickedTilePosition = roomRenderer.getPositionInRoom(screenX / RobbieMini.SCALE, (Gdx.graphics.getHeight() - screenY) / RobbieMini.SCALE, currentRoom);
-			if (clickedTilePosition != null && state == State.DRAW && drawTile && selectedTile != null) {					
-				currentRoom.setTile(clickedTilePosition.x, clickedTilePosition.y, currentLayer, selectedTile);
+			if (clickedTilePosition != null && state == State.DRAW && drawTile && selectedTile != null) {
+				drawTile(selectedTile, clickedTilePosition.x, clickedTilePosition.y);
 			}
 			return true;
 		}
@@ -194,7 +204,7 @@ public class EditorScreen extends ScreenAdapter {
 					state = State.ACTOR_PALETTE;
 					break;
 				case Keys.P:
-					sm.setGame();
+					sm.setGame(episode);
 					break;
 				case Keys.Q:
 					if (currentLayer < currentRoom.getNumberOfLayers() - 1) currentLayer++;
@@ -211,6 +221,10 @@ public class EditorScreen extends ScreenAdapter {
 					break;
 				case Keys.S:
 					IO.save(episode, "episode.rob");
+					break;
+				case Keys.B:
+					brushSize++;
+					if (brushSize > 3) brushSize = 1;
 					break;
 				case Keys.F1:
 					state = State.ENTER_ROOM_NAME;
