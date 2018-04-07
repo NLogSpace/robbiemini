@@ -93,6 +93,10 @@ public class EditorScreen extends ScreenAdapter {
 		this.currentRoom = roomManager.getRoom(currentRoomPosition);
 		this.roomRenderer.setRoom(currentRoom);
 	}
+	
+	public void set(Episode episode) {
+		set(episode, episode.startingRoom);
+	}
 
 	public void setRoom(XYZPos roomPosition) {
 		this.currentRoomPosition = roomPosition;
@@ -222,6 +226,8 @@ public class EditorScreen extends ScreenAdapter {
 				case Keys.S:
 					IO.save(episode, "episode.rob");
 					break;
+				case Keys.L:
+					set(IO.load("episode.rob"));
 				case Keys.B:
 					brushSize++;
 					if (brushSize > 3) brushSize = 1;

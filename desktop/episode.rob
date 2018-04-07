@@ -14,16 +14,369 @@
 						"height": 28,
 						"tiles": [
 							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.DarkWall",
+								"type": 2
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.DarkWall",
+								"type": 2
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
@@ -39,6 +392,9 @@
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
@@ -114,6 +470,34 @@
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.DarkWall",
+								"type": 2
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
@@ -129,6 +513,9 @@
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
@@ -213,6 +600,43 @@
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.DarkWall",
+								"type": 2
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
@@ -303,6 +727,19 @@
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.DarkWall",
+								"type": 2
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
@@ -414,12 +851,34 @@
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.DarkWall",
+								"type": 2
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
@@ -516,12 +975,25 @@
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.DarkWall",
+								"type": 3
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
@@ -624,12 +1096,21 @@
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
@@ -735,12 +1216,21 @@
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
@@ -846,12 +1336,21 @@
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
@@ -957,12 +1456,21 @@
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
@@ -1068,12 +1576,21 @@
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
@@ -1179,12 +1696,21 @@
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
@@ -1290,12 +1816,21 @@
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
@@ -1401,12 +1936,21 @@
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
@@ -1512,12 +2056,21 @@
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
@@ -1623,12 +2176,25 @@
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.DarkWall",
+								"type": 4
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
@@ -1731,12 +2297,30 @@
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
@@ -1833,6 +2417,12 @@
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
@@ -1947,6 +2537,30 @@
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
@@ -2040,6 +2654,16 @@
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.DarkWall",
+								"type": 1
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
@@ -2055,6 +2679,9 @@
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
@@ -2142,6 +2769,22 @@
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.DarkWall",
+								"type": 1
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
@@ -2157,6 +2800,9 @@
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
@@ -2241,9 +2887,25 @@
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.DarkWall",
+								"type": 1
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
@@ -2259,6 +2921,9 @@
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
@@ -2334,9 +2999,34 @@
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.DarkWall",
+								"type": 1
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
@@ -2352,6 +3042,9 @@
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
@@ -2418,9 +3111,43 @@
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.DarkWall",
+								"type": 1
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
@@ -2564,577 +3291,31 @@
 								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
 								"class": "de.leifaktor.robbiemini.tiles.Wall"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
-							},
-							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
 							},
 							{
 								"class": "de.leifaktor.robbiemini.tiles.Wall"
@@ -3164,214 +3345,3412 @@
 								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							}
+						]
+					},
+					{
+						"width": 40,
+						"height": 28,
+						"tiles": [
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Wall"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
+							},
+							{
+								"class": "de.leifaktor.robbiemini.tiles.Air"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Air"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Air"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Air"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Air"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Air"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Air"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Air"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Air"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Air"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Air"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Air"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Air"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Air"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Air"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Air"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Air"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Air"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Air"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Air"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Air"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Air"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Air"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Air"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Air"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Air"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Air"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Air"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Air"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Air"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Air"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Air"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Air"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Air"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Air"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Air"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Air"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Air"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Air"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Air"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Air"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Air"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Air"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Air"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Air"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Air"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Air"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Air"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Air"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Air"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Air"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Air"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Air"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Air"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Air"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Air"
 							},
 							{
-								"class": "de.leifaktor.robbiemini.tiles.EmptyTile"
+								"class": "de.leifaktor.robbiemini.tiles.Air"
 							}
 						]
 					}
@@ -3449,6 +6828,335 @@
 						},
 						"state": "IDLE",
 						"stateTime": 0.23339255
+					},
+					{
+						"class": "de.leifaktor.robbiemini.actor.Gold",
+						"x": 1,
+						"y": 4,
+						"z": 0,
+						"pos": {
+							"x": 1,
+							"y": 4
+						},
+						"vel": {
+							"x": 0,
+							"y": 0
+						},
+						"direction": -1,
+						"speed": 0,
+						"remainingDistance": 0,
+						"distanceUntilNextTile": 0,
+						"moving": false,
+						"justReachedTile": false,
+						"isOnTile": true,
+						"shouldBeRemoved": false
+					},
+					{
+						"class": "de.leifaktor.robbiemini.actor.Gold",
+						"x": 2,
+						"y": 3,
+						"z": 0,
+						"pos": {
+							"x": 2,
+							"y": 3
+						},
+						"vel": {
+							"x": 0,
+							"y": 0
+						},
+						"direction": -1,
+						"speed": 0,
+						"remainingDistance": 0,
+						"distanceUntilNextTile": 0,
+						"moving": false,
+						"justReachedTile": false,
+						"isOnTile": true,
+						"shouldBeRemoved": false
+					},
+					{
+						"class": "de.leifaktor.robbiemini.actor.Gold",
+						"x": 3,
+						"y": 2,
+						"z": 0,
+						"pos": {
+							"x": 3,
+							"y": 2
+						},
+						"vel": {
+							"x": 0,
+							"y": 0
+						},
+						"direction": -1,
+						"speed": 0,
+						"remainingDistance": 0,
+						"distanceUntilNextTile": 0,
+						"moving": false,
+						"justReachedTile": false,
+						"isOnTile": true,
+						"shouldBeRemoved": false
+					},
+					{
+						"class": "de.leifaktor.robbiemini.actor.Gold",
+						"x": 4,
+						"y": 1,
+						"z": 0,
+						"pos": {
+							"x": 4,
+							"y": 1
+						},
+						"vel": {
+							"x": 0,
+							"y": 0
+						},
+						"direction": -1,
+						"speed": 0,
+						"remainingDistance": 0,
+						"distanceUntilNextTile": 0,
+						"moving": false,
+						"justReachedTile": false,
+						"isOnTile": true,
+						"shouldBeRemoved": false
+					},
+					{
+						"class": "de.leifaktor.robbiemini.actor.Gold",
+						"x": 4,
+						"y": 4,
+						"z": 0,
+						"pos": {
+							"x": 4,
+							"y": 4
+						},
+						"vel": {
+							"x": 0,
+							"y": 0
+						},
+						"direction": -1,
+						"speed": 0,
+						"remainingDistance": 0,
+						"distanceUntilNextTile": 0,
+						"moving": false,
+						"justReachedTile": false,
+						"isOnTile": true,
+						"shouldBeRemoved": false
+					},
+					{
+						"class": "de.leifaktor.robbiemini.actor.Gold",
+						"x": 1,
+						"y": 1,
+						"z": 0,
+						"pos": {
+							"x": 1,
+							"y": 1
+						},
+						"vel": {
+							"x": 0,
+							"y": 0
+						},
+						"direction": -1,
+						"speed": 0,
+						"remainingDistance": 0,
+						"distanceUntilNextTile": 0,
+						"moving": false,
+						"justReachedTile": false,
+						"isOnTile": true,
+						"shouldBeRemoved": false
+					},
+					{
+						"class": "de.leifaktor.robbiemini.actor.Gold",
+						"x": 1,
+						"y": 25,
+						"z": 0,
+						"pos": {
+							"x": 1,
+							"y": 25
+						},
+						"vel": {
+							"x": 0,
+							"y": 0
+						},
+						"direction": -1,
+						"speed": 0,
+						"remainingDistance": 0,
+						"distanceUntilNextTile": 0,
+						"moving": false,
+						"justReachedTile": false,
+						"isOnTile": true,
+						"shouldBeRemoved": false
+					},
+					{
+						"class": "de.leifaktor.robbiemini.actor.Gold",
+						"x": 2,
+						"y": 24,
+						"z": 0,
+						"pos": {
+							"x": 2,
+							"y": 24
+						},
+						"vel": {
+							"x": 0,
+							"y": 0
+						},
+						"direction": -1,
+						"speed": 0,
+						"remainingDistance": 0,
+						"distanceUntilNextTile": 0,
+						"moving": false,
+						"justReachedTile": false,
+						"isOnTile": true,
+						"shouldBeRemoved": false
+					},
+					{
+						"class": "de.leifaktor.robbiemini.actor.Gold",
+						"x": 3,
+						"y": 23,
+						"z": 0,
+						"pos": {
+							"x": 3,
+							"y": 23
+						},
+						"vel": {
+							"x": 0,
+							"y": 0
+						},
+						"direction": -1,
+						"speed": 0,
+						"remainingDistance": 0,
+						"distanceUntilNextTile": 0,
+						"moving": false,
+						"justReachedTile": false,
+						"isOnTile": true,
+						"shouldBeRemoved": false
+					},
+					{
+						"class": "de.leifaktor.robbiemini.actor.Gold",
+						"x": 4,
+						"y": 22,
+						"z": 0,
+						"pos": {
+							"x": 4,
+							"y": 22
+						},
+						"vel": {
+							"x": 0,
+							"y": 0
+						},
+						"direction": -1,
+						"speed": 0,
+						"remainingDistance": 0,
+						"distanceUntilNextTile": 0,
+						"moving": false,
+						"justReachedTile": false,
+						"isOnTile": true,
+						"shouldBeRemoved": false
+					},
+					{
+						"class": "de.leifaktor.robbiemini.actor.Gold",
+						"x": 4,
+						"y": 25,
+						"z": 0,
+						"pos": {
+							"x": 4,
+							"y": 25
+						},
+						"vel": {
+							"x": 0,
+							"y": 0
+						},
+						"direction": -1,
+						"speed": 0,
+						"remainingDistance": 0,
+						"distanceUntilNextTile": 0,
+						"moving": false,
+						"justReachedTile": false,
+						"isOnTile": true,
+						"shouldBeRemoved": false
+					},
+					{
+						"class": "de.leifaktor.robbiemini.actor.Gold",
+						"x": 1,
+						"y": 22,
+						"z": 0,
+						"pos": {
+							"x": 1,
+							"y": 22
+						},
+						"vel": {
+							"x": 0,
+							"y": 0
+						},
+						"direction": -1,
+						"speed": 0,
+						"remainingDistance": 0,
+						"distanceUntilNextTile": 0,
+						"moving": false,
+						"justReachedTile": false,
+						"isOnTile": true,
+						"shouldBeRemoved": false
+					},
+					{
+						"class": "de.leifaktor.robbiemini.actor.BulletStack",
+						"x": 6,
+						"y": 26,
+						"z": 0,
+						"pos": {
+							"x": 6,
+							"y": 26
+						},
+						"vel": {
+							"x": 0,
+							"y": 0
+						},
+						"direction": -1,
+						"speed": 0,
+						"remainingDistance": 0,
+						"distanceUntilNextTile": 0,
+						"moving": false,
+						"justReachedTile": false,
+						"isOnTile": true,
+						"shouldBeRemoved": false,
+						"number": 1
+					},
+					{
+						"class": "de.leifaktor.robbiemini.actor.BulletStack",
+						"x": 6,
+						"y": 1,
+						"z": 0,
+						"pos": {
+							"x": 6,
+							"y": 1
+						},
+						"vel": {
+							"x": 0,
+							"y": 0
+						},
+						"direction": -1,
+						"speed": 0,
+						"remainingDistance": 0,
+						"distanceUntilNextTile": 0,
+						"moving": false,
+						"justReachedTile": false,
+						"isOnTile": true,
+						"shouldBeRemoved": false,
+						"number": 1
+					},
+					{
+						"class": "de.leifaktor.robbiemini.actor.StairsDown",
+						"x": 38,
+						"y": 1,
+						"z": 0,
+						"pos": {
+							"x": 38,
+							"y": 1
+						},
+						"vel": null,
+						"direction": 0,
+						"speed": 0,
+						"remainingDistance": 0,
+						"distanceUntilNextTile": 0,
+						"moving": false,
+						"justReachedTile": false,
+						"isOnTile": false,
+						"shouldBeRemoved": false
 					}
 				],
 				"commands": [],
