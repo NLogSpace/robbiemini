@@ -3,10 +3,12 @@ package de.leifaktor.robbiemini;
 import java.util.ArrayList;
 
 import de.leifaktor.robbiemini.actor.Actor;
+import de.leifaktor.robbiemini.actor.Player;
 import de.leifaktor.robbiemini.actor.Robot;
+import de.leifaktor.robbiemini.tiles.BridgeDown;
 import de.leifaktor.robbiemini.tiles.BridgeLeft;
 import de.leifaktor.robbiemini.tiles.BridgeRight;
-import de.leifaktor.robbiemini.actor.Player;
+import de.leifaktor.robbiemini.tiles.BridgeUp;
 
 public class CollisionDetector {
 
@@ -17,6 +19,8 @@ public class CollisionDetector {
 		int newz = actor.z;
 		if (room.getTile(actor.x, actor.y, actor.z) instanceof BridgeLeft && dir == 1) newz++;
 		if (room.getTile(actor.x, actor.y, actor.z) instanceof BridgeRight && dir == 3) newz++;
+		if (room.getTile(actor.x, actor.y, actor.z) instanceof BridgeDown && dir == 0) newz++;
+		if (room.getTile(actor.x, actor.y, actor.z) instanceof BridgeUp && dir == 2) newz++;
 		
 		// Ausnahmeregel: Roboter können IMMER das Feld mit dem Spieler betreten!
 		if (room.player != null && room.player.x == newx && room.player.y == newy && actor instanceof Robot) return true; 
