@@ -17,6 +17,7 @@ import de.leifaktor.robbiemini.actor.Player;
 import de.leifaktor.robbiemini.actor.Robot;
 import de.leifaktor.robbiemini.actor.Schalter;
 import de.leifaktor.robbiemini.actor.Skull;
+import de.leifaktor.robbiemini.actor.SolidActor;
 import de.leifaktor.robbiemini.actor.Sperre;
 import de.leifaktor.robbiemini.actor.StairsDown;
 import de.leifaktor.robbiemini.actor.StairsUp;
@@ -101,6 +102,31 @@ public class ActorRenderer {
 				} else {
 					batch.draw(Graphics.textures.get("sperre_ud"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale);
 				}
+			}
+		}
+		if (a instanceof SolidActor) {
+			int type = ((SolidActor) a).type;
+			switch (type) {
+				case SolidActor.MOUNTAIN_1: batch.draw(Graphics.textures.get("half_mountain_1"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale); break;
+				case SolidActor.MOUNTAIN_2: batch.draw(Graphics.textures.get("half_mountain_2"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale); break;
+				case SolidActor.MOUNTAIN_3: batch.draw(Graphics.textures.get("half_mountain_3"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale); break;
+				case SolidActor.MOUNTAIN_4: batch.draw(Graphics.textures.get("half_mountain_4"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale); break;
+				case SolidActor.MOUNTAIN_5: batch.draw(Graphics.textures.get("half_mountain_5"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale); break;
+				case SolidActor.MOUNTAIN_6: batch.draw(Graphics.textures.get("half_mountain_6"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale); break;
+				case SolidActor.MOUNTAIN_7: batch.draw(Graphics.textures.get("half_mountain_7"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale); break;
+				case SolidActor.MOUNTAIN_8: batch.draw(Graphics.textures.get("half_mountain_8"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale); break;
+				case SolidActor.MOUNTAIN_9: batch.draw(Graphics.textures.get("half_mountain_9"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale); break;
+				case SolidActor.MOUNTAIN_10: batch.draw(Graphics.textures.get("half_mountain_10"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale); break;
+				case SolidActor.MOUNTAIN_11: batch.draw(Graphics.textures.get("half_mountain_11"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale); break;
+				case SolidActor.MOUNTAIN_12: batch.draw(Graphics.textures.get("half_mountain_12"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale); break;
+				case SolidActor.MOUNTAIN_13: batch.draw(Graphics.textures.get("half_mountain_13"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale); break;
+				case SolidActor.MOUNTAIN_14: batch.draw(Graphics.textures.get("half_mountain_14"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale); break;
+				case SolidActor.MOUNTAIN_15: batch.draw(Graphics.textures.get("half_mountain_15"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale); break;
+				case SolidActor.MOUNTAIN_16: batch.draw(Graphics.textures.get("half_mountain_16"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale); break;
+				case SolidActor.DARK_WALL_1: batch.draw(Graphics.textures.get("dark_wall_tile_sw"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale); break;
+				case SolidActor.DARK_WALL_2: batch.draw(Graphics.textures.get("dark_wall_tile_se"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale); break;
+				case SolidActor.DARK_WALL_3: batch.draw(Graphics.textures.get("dark_wall_tile_ne"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale); break;
+				case SolidActor.DARK_WALL_4: batch.draw(Graphics.textures.get("dark_wall_tile_nw"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale); break;
 			}
 		}
 		if (a instanceof Player) {

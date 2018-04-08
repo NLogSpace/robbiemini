@@ -5,6 +5,7 @@ import java.util.HashMap;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.Animation.PlayMode;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
@@ -28,10 +29,6 @@ public class Graphics {
 		textures.put("empty_tile", tileset.getTile(0, 0));
 		textures.put("wall_tile", tileset.getTile(1, 0));
 		textures.put("dark_wall_tile", tileset.getTile(3, 0));
-		textures.put("dark_wall_tile_sw", tileset.getTile(0, 2));
-		textures.put("dark_wall_tile_se", tileset.getTile(1, 2));
-		textures.put("dark_wall_tile_ne", tileset.getTile(2, 2));
-		textures.put("dark_wall_tile_nw", tileset.getTile(3, 2));
 		textures.put("glass_tile", tileset.getTile(4, 0));
 		textures.put("ice_tile", tileset.getTile(5, 0));
 		for (int i = 0; i < 16; i++) textures.put("door_" + i, tileset.getTile(i, 3));
@@ -41,46 +38,73 @@ public class Graphics {
 		textures.put("bridge_up", tileset.getTile(5, 12));
 		textures.put("bridge_ud", tileset.getTile(6, 12));
 		textures.put("bridge_down", tileset.getTile(7, 12));
+		textures.put("mountain_1", tileset.getTile(6, 2));
+		textures.put("mountain_2", tileset.getTile(7, 2));
+		textures.put("mountain_3", tileset.getTile(8, 2));
+		textures.put("mountain_4", tileset.getTile(9, 2));
+		textures.put("grass", tileset.getTile(8, 0));
+		textures.put("water_normal", tileset.getTile(0,6));
+		animations.put("water_right", new Animation<TextureRegion>(0.18f, tileset.getTiles(0, 6, 8)));
+		Animation<TextureRegion> anim = new Animation<TextureRegion>(0.18f, tileset.getTiles(0, 6, 8));
+		anim.setPlayMode(PlayMode.LOOP_REVERSED);
+		animations.put("water_left", (anim));
+		animations.put("water_down", new Animation<TextureRegion>(0.18f, tileset.getTiles(8, 6, 8)));
+		anim = new Animation<TextureRegion>(0.18f, tileset.getTiles(8, 6, 8));
+		anim.setPlayMode(PlayMode.LOOP_REVERSED);
+		animations.put("water_up", (anim));
+		animations.put("water_dr", new Animation<TextureRegion>(0.18f, tileset.getTiles(0, 7, 8)));
+		anim = new Animation<TextureRegion>(0.18f, tileset.getTiles(0, 7, 8));
+		anim.setPlayMode(PlayMode.LOOP_REVERSED);
+		animations.put("water_ul", (anim));
+		animations.put("water_dl", new Animation<TextureRegion>(0.18f, tileset.getTiles(8, 7, 8)));
+		anim = new Animation<TextureRegion>(0.18f, tileset.getTiles(8, 7, 8));
+		anim.setPlayMode(PlayMode.LOOP_REVERSED);
+		animations.put("water_ur", (anim));
 
 		// Items
 		textures.put("acid", tileset.getTile(2, 10));
 		for (int i = 0; i < 16; i++) textures.put("key_" + i, tileset.getTile(i, 4));	
 		textures.put("life", tileset.getTile(7, 11));
-		textures.put("magnet_positive", tileset.getTile(10, 9));
-		textures.put("magnet_negative", tileset.getTile(11, 9));
+		textures.put("magnet_positive", tileset.getTile(9, 11));
+		textures.put("magnet_negative", tileset.getTile(10, 11));
 		textures.put("blaumann", tileset.getTile(3, 10));
-		textures.put("notiz", tileset.getTile(12, 9));
-		for (int i = 1; i <= 6; i++) textures.put("bullets_" + i, tileset.getTile(7+i, 11));
+		textures.put("notiz", tileset.getTile(11, 11));
+		for (int i = 1; i <= 6; i++) textures.put("bullets_" + i, tileset.getTile(9+i, 2));
 		textures.put("schleuder", tileset.getTile(4, 10));
 		textures.put("ice_skates", tileset.getTile(6, 11));
 
 		// Player
-		textures.put("player", tileset.getTile(0, 7));
-		animations.put("player_walking", new Animation<TextureRegion>(0.12f,tileset.getTiles(1, 7, 2)));
-		textures.put("player_blaumann", tileset.getTile(3, 7));
-		animations.put("player_walking_blaumann", new Animation<TextureRegion>(0.12f,tileset.getTiles(4, 7, 2)));
+		textures.put("player", tileset.getTile(0, 9));
+		animations.put("player_walking", new Animation<TextureRegion>(0.12f,tileset.getTiles(1, 9, 2)));
+		textures.put("player_blaumann", tileset.getTile(3, 9));
+		animations.put("player_walking_blaumann", new Animation<TextureRegion>(0.12f,tileset.getTiles(4, 9, 2)));
 		
 		// Actor
 		textures.put("gold", tileset.getTile(1, 10));
 		for (int i = 0; i < 8; i++) textures.put("arrow_" + i, tileset.getTile(6+i, 10));
 		textures.put("isolator", tileset.getTile(14, 10));
 		textures.put("electric_fence", tileset.getTile(0, 10));
-		textures.put("skull", tileset.getTile(9, 9));
+		textures.put("skull", tileset.getTile(8, 11));
 		animations.put("dissolving_wall", new Animation<TextureRegion>(0.25f,tileset.getTiles(0, 1, 16)));
 		for (int i = 0; i < 7; i++)	animations.put("robot_" + i, new Animation<TextureRegion>(0.6f,tileset.getTiles(2*i, 8, 2)));
-		animations.put("explosion", new Animation<TextureRegion>(0.3f,tileset.getTiles(6, 7, 6)));
-		textures.put("flying_bullet", tileset.getTile(8, 11));
+		animations.put("explosion", new Animation<TextureRegion>(0.3f,tileset.getTiles(6, 9, 6)));
+		textures.put("flying_bullet", tileset.getTile(10, 2));
 		animations.put("teleport", new Animation<TextureRegion>(0.25f, tileset.getTiles(11, 0, 4)));
 		textures.put("teleport_off", tileset.getTile(15, 0));
-		textures.put("schalter_left_on", tileset.getTile(12, 7));
-		textures.put("schalter_left_off", tileset.getTile(13, 7));
-		textures.put("schalter_right_off", tileset.getTile(14, 7));
-		textures.put("schalter_right_on", tileset.getTile(15, 7));
+		textures.put("schalter_left_on", tileset.getTile(12, 9));
+		textures.put("schalter_left_off", tileset.getTile(13, 9));
+		textures.put("schalter_right_off", tileset.getTile(14, 9));
+		textures.put("schalter_right_on", tileset.getTile(15, 9));
 		textures.put("sperre_closed", tileset.getTile(2, 11));
 		textures.put("sperre_lr", tileset.getTile(3, 11));
 		textures.put("sperre_ud", tileset.getTile(4, 11));
 		textures.put("stairs_up", tileset.getTile(6, 0));
 		textures.put("stairs_down", tileset.getTile(7, 0));
+		textures.put("dark_wall_tile_sw", tileset.getTile(0, 2));
+		textures.put("dark_wall_tile_se", tileset.getTile(1, 2));
+		textures.put("dark_wall_tile_ne", tileset.getTile(2, 2));
+		textures.put("dark_wall_tile_nw", tileset.getTile(3, 2));
+		for (int i = 1; i <= 16; i++) textures.put("half_mountain_" + i, tileset.getTile(i, 5));
 		
 		// Status Bar
 		textures.put("status_bar_outer_background", tileset.getTile(3, 13));

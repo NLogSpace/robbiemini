@@ -10,13 +10,14 @@ import de.leifaktor.robbiemini.tiles.BridgeLeft;
 import de.leifaktor.robbiemini.tiles.BridgeRight;
 import de.leifaktor.robbiemini.tiles.BridgeUD;
 import de.leifaktor.robbiemini.tiles.BridgeUp;
-import de.leifaktor.robbiemini.tiles.DarkWall;
 import de.leifaktor.robbiemini.tiles.Door;
 import de.leifaktor.robbiemini.tiles.EmptyTile;
 import de.leifaktor.robbiemini.tiles.Glass;
 import de.leifaktor.robbiemini.tiles.Ice;
+import de.leifaktor.robbiemini.tiles.Solid;
 import de.leifaktor.robbiemini.tiles.Tile;
 import de.leifaktor.robbiemini.tiles.Wall;
+import de.leifaktor.robbiemini.tiles.Water;
 
 public class Tiles {
 	
@@ -24,9 +25,10 @@ public class Tiles {
 	
 	public static void init() {
 		tiles = new ArrayList<Tile>();
-		tiles.add(new EmptyTile());
+		tiles.add(new EmptyTile(0));
+		tiles.add(new EmptyTile(1));
 		tiles.add(new Wall());
-		for (int i = 0; i < 5; i++) tiles.add(new DarkWall(i));
+		for (int i = 0; i < 5; i++) tiles.add(new Solid(i));
 		tiles.add(new Glass());
 		for (int i = 0; i < 16; i++) tiles.add(new Door(i));
 		tiles.add(new Air());
@@ -37,6 +39,7 @@ public class Tiles {
 		tiles.add(new BridgeLR());
 		tiles.add(new BridgeRight());
 		tiles.add(new Ice());
+		for (int i = 0; i <= 8; i++) tiles.add(new Water(i));
 	}
 
 }
