@@ -44,7 +44,7 @@ public class Teleporter extends Actor {
 	@Override
 	public void update(Room room) {
 		super.update(room);
-		active = activeCondition.evaluate(room);
+		if (activeCondition != null) active = activeCondition.evaluate(room);
 		stateTime += Gdx.graphics.getDeltaTime();
 	}
 

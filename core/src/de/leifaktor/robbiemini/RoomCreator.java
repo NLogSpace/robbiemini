@@ -326,12 +326,12 @@ public class RoomCreator {
 		actors.add(new ItemActor(8, 15, 0, new Magnet(true)));
 		actors.add(new ItemActor(8, 14, 0, new Life()));
 		
-		actors.add(new Isolator(26, 16, 0));
-		actors.add(new Skull(26, 15, 0));
-		actors.add(new ItemActor(26, 14, 0, new Schleuder()));
-		actors.add(new ItemActor(27, 16, 0, new Notiz("Wie hast Du es denn bitte geschafft, die Notiz auf dem Titelbilschirm einzusammeln?")));
-		actors.add(new ItemActor(27, 15, 0, new Acid()));
-		actors.add(new BulletStack(27, 14, 0, 6));
+		actors.add(new Isolator(width-9, 16, 0));
+		actors.add(new Skull(width-9, 15, 0));
+		actors.add(new ItemActor(width-9, 14, 0, new Schleuder()));
+		actors.add(new ItemActor(width-8, 16, 0, new Notiz("Wie hast Du es denn bitte geschafft, die Notiz auf dem Titelbilschirm einzusammeln?")));
+		actors.add(new ItemActor(width-8, 15, 0, new Acid()));
+		actors.add(new BulletStack(width-8, 14, 0, 6));
 		
 		Room room = new Room(width, height, layers, actors);
 		return room;
