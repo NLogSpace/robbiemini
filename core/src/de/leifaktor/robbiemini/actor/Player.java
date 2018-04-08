@@ -65,7 +65,10 @@ public class Player extends Actor {
 	private void performAction(Room room) {
 		int intendedDir = getKeyboardDirection(room);
 		if (room.getTile(x, y, z) instanceof Ice) {
-			if (!inventory.hasIceSkates()) {
+			int slideDirection = direction;
+			boolean canMove = CollisionDetector.canMoveTo(this, room, slideDirection);
+			boolean canShift = CollisionDetector.canShiftTo(this, room, slideDirection);
+			if (!inventory.hasIceSkates() && (canMove || canShift)) {
 				intendedDir = direction;
 			} else {
 				if (intendedDir == -1) intendedDir = direction;
