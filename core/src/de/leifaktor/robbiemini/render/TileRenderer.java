@@ -79,8 +79,7 @@ public class TileRenderer {
 				break;
 			case Water.UR:
 				batch.draw(Graphics.animations.get("water_ur").getKeyFrame(RobbieMini.clock, true), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale);
-				break;
-				
+				break;				
 			}
 		}
 	}

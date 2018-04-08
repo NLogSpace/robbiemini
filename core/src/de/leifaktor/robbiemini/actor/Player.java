@@ -8,6 +8,7 @@ import de.leifaktor.robbiemini.Inventory;
 import de.leifaktor.robbiemini.Room;
 import de.leifaktor.robbiemini.XYZPos;
 import de.leifaktor.robbiemini.tiles.Ice;
+import de.leifaktor.robbiemini.tiles.Water;
 
 public class Player extends Actor {
 
@@ -63,7 +64,9 @@ public class Player extends Actor {
 	}
 
 	private void performAction(Room room) {
+		speedMultiplier = 1f;
 		int intendedDir = getKeyboardDirection(room);
+		// ICE
 		if (room.getTile(x, y, z) instanceof Ice) {
 			int slideDirection = direction;
 			boolean canMove = CollisionDetector.canMoveTo(this, room, slideDirection);
@@ -74,6 +77,21 @@ public class Player extends Actor {
 				if (intendedDir == -1) intendedDir = direction;
 			}
 		}
+		// WATER
+		if (room.getTile(x, y, z) instanceof Water) {
+			speedMultiplier = 0.4f;
+			int waterDir = ((Water)room.getTile(x, y, z)).type;
+			if (waterDir != -1) {
+				boolean canMove = CollisionDetector.canMoveTo(this, room, waterDir);
+				boolean canShift = CollisionDetector.canShiftTo(this, room, waterDir);
+				if (!canMove && !canShift) {
+					die(room);
+					return;
+				}
+				intendedDir = waterDir;
+			}			
+		}
+		// MOVEMENT
 		if (intendedDir > -1) {
 			boolean canMove = CollisionDetector.canMoveTo(this, room, intendedDir);
 			boolean canShift = CollisionDetector.canShiftTo(this, room, intendedDir);

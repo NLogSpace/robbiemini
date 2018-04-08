@@ -21,6 +21,7 @@ public abstract class Actor {
 	boolean moving;
 	boolean justReachedTile;
 	boolean isOnTile;
+	protected float speedMultiplier;
 
 	boolean shouldBeRemoved;
 	
@@ -31,6 +32,7 @@ public abstract class Actor {
 		vel = new Vec2(0,0);
 		this.direction = -1;
 		this.speed = 0f;
+		this.speedMultiplier = 1f;
 		this.remainingDistance = 0;
 		this.moving = false;
 		this.justReachedTile = false;
@@ -59,7 +61,7 @@ public abstract class Actor {
 	}
 
 	public void continueMovement() {
-		this.remainingDistance = speed;
+		this.remainingDistance = speed*speedMultiplier;
 		if (moving) move(Math.min(remainingDistance, distanceUntilNextTile));
 	}
 
