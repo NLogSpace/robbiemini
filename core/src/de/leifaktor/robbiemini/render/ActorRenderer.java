@@ -1,6 +1,7 @@
 package de.leifaktor.robbiemini.render;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 import de.leifaktor.robbiemini.RobbieMini;
 import de.leifaktor.robbiemini.actor.Actor;
@@ -25,127 +26,111 @@ import de.leifaktor.robbiemini.actor.Teleporter;
 import de.leifaktor.robbiemini.actor.Player.State;
 import de.leifaktor.robbiemini.items.Item;
 
-public class ActorRenderer {
+public class ActorRenderer {	
 
 	public static void render(SpriteBatch batch, Actor a, float x, float y, int scale) {
+		TextureRegion pictureToDraw = null;
 		if (a instanceof DissolvingWall) {
-			DissolvingWall d = ((DissolvingWall)a);
-			batch.draw(Graphics.animations.get("dissolving_wall").getKeyFrame(d.getTime(), false), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale);
-		}
-		if (a instanceof ItemActor) {
+			pictureToDraw = Graphics.animations.get("dissolving_wall").getKeyFrame(((DissolvingWall)a).getTime(), false);			
+		} else if (a instanceof ItemActor) {
 			Item item = ((ItemActor)a).getItem();
 			ItemRenderer.render(batch, item, x, y, scale);			
-		}			
-		if (a instanceof Explosion) {
-			Explosion e = ((Explosion)a);
-			batch.draw(Graphics.animations.get("explosion").getKeyFrame(e.getTime(), false),x,y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale);
-		}
-		if (a instanceof Gold) {
-			batch.draw(Graphics.textures.get("gold"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale);
-		}
-		if (a instanceof Arrow) {
-			batch.draw(Graphics.textures.get("arrow_" + ((Arrow)a).getDir()), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale);
-		}
-		if (a instanceof Isolator) {
-			batch.draw(Graphics.textures.get("isolator"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale);
-		}
-		if (a instanceof ElectricFence) {
-			batch.draw(Graphics.textures.get("electric_fence"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale);
-		}			
-		if (a instanceof Skull) {
-			batch.draw(Graphics.textures.get("skull"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale);
-		}
-		if (a instanceof FlyingBullet) {
-			batch.draw(Graphics.textures.get("flying_bullet"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale);
-		}
-		if (a instanceof BulletStack) {
+		} else if (a instanceof Explosion) {
+			pictureToDraw = Graphics.animations.get("explosion").getKeyFrame(((Explosion)a).getTime());			
+		} else if (a instanceof Gold) {
+			pictureToDraw = Graphics.textures.get("gold");
+		} else if (a instanceof Arrow) {
+			pictureToDraw = Graphics.textures.get("arrow_" + ((Arrow)a).getDir());
+		} else if (a instanceof Isolator) {
+			pictureToDraw = Graphics.textures.get("isolator");
+		} else if (a instanceof ElectricFence) {
+			pictureToDraw = Graphics.textures.get("electric_fence");
+		} else if (a instanceof Skull) {
+			pictureToDraw = Graphics.textures.get("skull");
+		} else if (a instanceof FlyingBullet) {
+			pictureToDraw = Graphics.textures.get("flying_bullet");
+		} else if (a instanceof BulletStack) {
 			if (((BulletStack)a).getNumber() > 0) {
-				batch.draw(Graphics.textures.get("bullets_" + ((BulletStack)a).getNumber()), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale);
+				pictureToDraw = Graphics.textures.get("bullets_" + ((BulletStack)a).getNumber());
 			}				
-		}
-		if (a instanceof Robot) {
+		} else if (a instanceof Robot) {
 			Robot r = (Robot) a;
-			batch.draw(Graphics.animations.get("robot_" + r.graphicType).getKeyFrame(r.getStateTime(), true), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale);
-		}
-		if (a instanceof Teleporter) {
+			pictureToDraw = Graphics.animations.get("robot_" + r.graphicType).getKeyFrame(r.getStateTime(), true);
+		} else if (a instanceof Teleporter) {
 			if (((Teleporter)a).isActive()) {
-				batch.draw(Graphics.animations.get("teleport").getKeyFrame(((Teleporter)a).getStateTime(), true), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale);
+				pictureToDraw = Graphics.animations.get("teleport").getKeyFrame(((Teleporter)a).getStateTime(), true);
 			} else {
-				batch.draw(Graphics.textures.get("teleport_off"), x, y);
+				pictureToDraw = Graphics.textures.get("teleport_off");
 			}				
-		}
-		if (a instanceof StairsUp) {
-			batch.draw(Graphics.textures.get("stairs_up"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale);
-		}
-		if (a instanceof StairsDown) {
-			batch.draw(Graphics.textures.get("stairs_down"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale);
-		} 
-		if (a instanceof Schalter) {
+		} else if (a instanceof StairsUp) {
+			pictureToDraw = Graphics.textures.get("stairs_up");
+		} else if (a instanceof StairsDown) {
+			pictureToDraw = Graphics.textures.get("stairs_down");
+		} else if (a instanceof Schalter) {
 			Schalter schalter = (Schalter) a;
 			if (schalter.isWallOnTheLeft() && schalter.isActive()) {
-				batch.draw(Graphics.textures.get("schalter_left_on"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale);
+				pictureToDraw = Graphics.textures.get("schalter_left_on");
 			} else if (schalter.isWallOnTheLeft() && !schalter.isActive()) {
-				batch.draw(Graphics.textures.get("schalter_left_off"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale);
+				pictureToDraw = Graphics.textures.get("schalter_left_off");
 			} else if (!schalter.isWallOnTheLeft() && schalter.isActive()) {
-				batch.draw(Graphics.textures.get("schalter_right_on"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale);
+				pictureToDraw = Graphics.textures.get("schalter_right_on");
 			} else if (!schalter.isWallOnTheLeft() && !schalter.isActive()) {
-				batch.draw(Graphics.textures.get("schalter_right_off"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale);
+				pictureToDraw = Graphics.textures.get("schalter_right_off");
 			}
-		}
-		if (a instanceof Sperre) {
+		} else if (a instanceof Sperre) {
 			Sperre sperre = (Sperre) a;
 			if (!sperre.isOpen()) {
-				batch.draw(Graphics.textures.get("sperre_closed"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale);
+				pictureToDraw = Graphics.textures.get("sperre_closed");
 			} else {
 				if (sperre.isLeftRight()) {
-					batch.draw(Graphics.textures.get("sperre_lr"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale);
+					pictureToDraw = Graphics.textures.get("sperre_lr");
 				} else {
-					batch.draw(Graphics.textures.get("sperre_ud"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale);
+					pictureToDraw = Graphics.textures.get("sperre_ud");
 				}
 			}
-		}
-		if (a instanceof SolidActor) {
+		} else if (a instanceof SolidActor) {
 			int type = ((SolidActor) a).type;
 			switch (type) {
-				case SolidActor.MOUNTAIN_1: batch.draw(Graphics.textures.get("half_mountain_1"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale); break;
-				case SolidActor.MOUNTAIN_2: batch.draw(Graphics.textures.get("half_mountain_2"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale); break;
-				case SolidActor.MOUNTAIN_3: batch.draw(Graphics.textures.get("half_mountain_3"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale); break;
-				case SolidActor.MOUNTAIN_4: batch.draw(Graphics.textures.get("half_mountain_4"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale); break;
-				case SolidActor.MOUNTAIN_5: batch.draw(Graphics.textures.get("half_mountain_5"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale); break;
-				case SolidActor.MOUNTAIN_6: batch.draw(Graphics.textures.get("half_mountain_6"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale); break;
-				case SolidActor.MOUNTAIN_7: batch.draw(Graphics.textures.get("half_mountain_7"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale); break;
-				case SolidActor.MOUNTAIN_8: batch.draw(Graphics.textures.get("half_mountain_8"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale); break;
-				case SolidActor.MOUNTAIN_9: batch.draw(Graphics.textures.get("half_mountain_9"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale); break;
-				case SolidActor.MOUNTAIN_10: batch.draw(Graphics.textures.get("half_mountain_10"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale); break;
-				case SolidActor.MOUNTAIN_11: batch.draw(Graphics.textures.get("half_mountain_11"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale); break;
-				case SolidActor.MOUNTAIN_12: batch.draw(Graphics.textures.get("half_mountain_12"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale); break;
-				case SolidActor.MOUNTAIN_13: batch.draw(Graphics.textures.get("half_mountain_13"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale); break;
-				case SolidActor.MOUNTAIN_14: batch.draw(Graphics.textures.get("half_mountain_14"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale); break;
-				case SolidActor.MOUNTAIN_15: batch.draw(Graphics.textures.get("half_mountain_15"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale); break;
-				case SolidActor.MOUNTAIN_16: batch.draw(Graphics.textures.get("half_mountain_16"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale); break;
-				case SolidActor.DARK_WALL_1: batch.draw(Graphics.textures.get("dark_wall_tile_sw"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale); break;
-				case SolidActor.DARK_WALL_2: batch.draw(Graphics.textures.get("dark_wall_tile_se"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale); break;
-				case SolidActor.DARK_WALL_3: batch.draw(Graphics.textures.get("dark_wall_tile_ne"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale); break;
-				case SolidActor.DARK_WALL_4: batch.draw(Graphics.textures.get("dark_wall_tile_nw"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale); break;
+				case SolidActor.MOUNTAIN_1: pictureToDraw = Graphics.textures.get("half_mountain_1"); break;
+				case SolidActor.MOUNTAIN_2: pictureToDraw = Graphics.textures.get("half_mountain_2"); break;
+				case SolidActor.MOUNTAIN_3: pictureToDraw = Graphics.textures.get("half_mountain_3"); break;
+				case SolidActor.MOUNTAIN_4: pictureToDraw = Graphics.textures.get("half_mountain_4"); break;
+				case SolidActor.MOUNTAIN_5: pictureToDraw = Graphics.textures.get("half_mountain_5"); break;
+				case SolidActor.MOUNTAIN_6: pictureToDraw = Graphics.textures.get("half_mountain_6"); break;
+				case SolidActor.MOUNTAIN_7: pictureToDraw = Graphics.textures.get("half_mountain_7"); break;
+				case SolidActor.MOUNTAIN_8: pictureToDraw = Graphics.textures.get("half_mountain_8"); break;
+				case SolidActor.MOUNTAIN_9: pictureToDraw = Graphics.textures.get("half_mountain_9"); break;
+				case SolidActor.MOUNTAIN_10: pictureToDraw = Graphics.textures.get("half_mountain_10"); break;
+				case SolidActor.MOUNTAIN_11: pictureToDraw = Graphics.textures.get("half_mountain_11"); break;
+				case SolidActor.MOUNTAIN_12: pictureToDraw = Graphics.textures.get("half_mountain_12"); break;
+				case SolidActor.MOUNTAIN_13: pictureToDraw = Graphics.textures.get("half_mountain_13"); break;
+				case SolidActor.MOUNTAIN_14: pictureToDraw = Graphics.textures.get("half_mountain_14"); break;
+				case SolidActor.MOUNTAIN_15: pictureToDraw = Graphics.textures.get("half_mountain_15"); break;
+				case SolidActor.MOUNTAIN_16: pictureToDraw = Graphics.textures.get("half_mountain_16"); break;
+				case SolidActor.DARK_WALL_1: pictureToDraw = Graphics.textures.get("dark_wall_tile_sw"); break;
+				case SolidActor.DARK_WALL_2: pictureToDraw = Graphics.textures.get("dark_wall_tile_se"); break;
+				case SolidActor.DARK_WALL_3: pictureToDraw = Graphics.textures.get("dark_wall_tile_ne"); break;
+				case SolidActor.DARK_WALL_4: pictureToDraw = Graphics.textures.get("dark_wall_tile_nw"); break;
 			}
-		}
-		if (a instanceof Player) {
+		} else if (a instanceof Player) {
 			Player p = (Player)a;
 			if (p.getState() == State.IDLE) {
 				if (p.inventory.hasBlaumann()) {
-					batch.draw(Graphics.textures.get("player_blaumann"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale);
+					pictureToDraw = Graphics.textures.get("player_blaumann");
 				} else {
-					batch.draw(Graphics.textures.get("player"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale);
+					pictureToDraw = Graphics.textures.get("player");
 				}
-
 			} else if (p.getState() == State.WALKING) {
 				if (p.inventory.hasBlaumann()) {
-					batch.draw(Graphics.animations.get("player_walking_blaumann").getKeyFrame(p.getStateTime(), true), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale);
+					pictureToDraw = Graphics.animations.get("player_walking_blaumann").getKeyFrame(p.getStateTime(), true);
 				} else {
-					batch.draw(Graphics.animations.get("player_walking").getKeyFrame(p.getStateTime(), true), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale);
+					pictureToDraw = Graphics.animations.get("player_walking").getKeyFrame(p.getStateTime(), true);
 				}
 			}
-		}		
+		}
+		if (pictureToDraw != null) {
+			batch.draw(pictureToDraw, x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale);
+		}
 	}
 
 	public static void render(SpriteBatch batch, Actor a, float x, float y) {

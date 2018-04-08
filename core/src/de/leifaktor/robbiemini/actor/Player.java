@@ -93,8 +93,7 @@ public class Player extends Actor {
 					}
 					intendedDir = waterDir;
 				}	
-			}
-		
+			}		
 		}
 		// MOVEMENT
 		if (intendedDir > -1) {
