@@ -39,7 +39,7 @@ public class Tiles {
 		tiles.add(new BridgeLR());
 		tiles.add(new BridgeRight());
 		tiles.add(new Ice());
-		for (int i = 0; i <= 8; i++) tiles.add(new Water(i));
+		for (int i = -1; i <= 7; i++) tiles.add(new Water(i));
 	}
 
 }

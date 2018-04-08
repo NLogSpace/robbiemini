@@ -81,15 +81,20 @@ public class Player extends Actor {
 		if (room.getTile(x, y, z) instanceof Water) {
 			speedMultiplier = 0.4f;
 			int waterDir = ((Water)room.getTile(x, y, z)).type;
-			if (waterDir != -1) {
-				boolean canMove = CollisionDetector.canMoveTo(this, room, waterDir);
-				boolean canShift = CollisionDetector.canShiftTo(this, room, waterDir);
-				if (!canMove && !canShift) {
-					die(room);
-					return;
-				}
-				intendedDir = waterDir;
-			}			
+			if (inventory.hasFlossen()) {
+				if (intendedDir == -1) intendedDir = waterDir;
+			} else {
+				if (waterDir != -1) {
+					boolean canMove = CollisionDetector.canMoveTo(this, room, waterDir);
+					boolean canShift = CollisionDetector.canShiftTo(this, room, waterDir);
+					if (!canMove && !canShift) {
+						die(room);
+						return;
+					}
+					intendedDir = waterDir;
+				}	
+			}
+		
 		}
 		// MOVEMENT
 		if (intendedDir > -1) {

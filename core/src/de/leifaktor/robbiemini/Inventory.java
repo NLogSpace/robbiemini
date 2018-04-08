@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 import de.leifaktor.robbiemini.items.Blaumann;
+import de.leifaktor.robbiemini.items.Flossen;
 import de.leifaktor.robbiemini.items.IceSkates;
 import de.leifaktor.robbiemini.items.Item;
 
@@ -67,5 +68,9 @@ public class Inventory {
 
 	public boolean hasIceSkates() {		
 		return items.contains(new IceSkates());
+	}
+
+	public boolean hasFlossen() {
+		return items.contains(new Flossen());
 	}	
 }

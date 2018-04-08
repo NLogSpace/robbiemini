@@ -72,6 +72,7 @@ public class Graphics {
 		for (int i = 1; i <= 6; i++) textures.put("bullets_" + i, tileset.getTile(9+i, 2));
 		textures.put("schleuder", tileset.getTile(4, 10));
 		textures.put("ice_skates", tileset.getTile(6, 11));
+		textures.put("flossen", tileset.getTile(12, 11));
 
 		// Player
 		textures.put("player", tileset.getTile(0, 9));

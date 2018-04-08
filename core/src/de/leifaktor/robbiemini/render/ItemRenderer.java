@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import de.leifaktor.robbiemini.RobbieMini;
 import de.leifaktor.robbiemini.items.Acid;
 import de.leifaktor.robbiemini.items.Blaumann;
+import de.leifaktor.robbiemini.items.Flossen;
 import de.leifaktor.robbiemini.items.IceSkates;
 import de.leifaktor.robbiemini.items.Item;
 import de.leifaktor.robbiemini.items.Key;
@@ -41,7 +42,9 @@ public class ItemRenderer {
 			batch.draw(Graphics.textures.get("schleuder"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale);
 		} else if (item instanceof IceSkates) {
 			batch.draw(Graphics.textures.get("ice_skates"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale);
-		} else {
+		} else if (item instanceof Flossen) {
+			batch.draw(Graphics.textures.get("flossen"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale);
+		}else {
 			batch.draw(Graphics.textures.get("inventory_outer_background"), x, y, RobbieMini.TILESIZE*scale, RobbieMini.TILESIZE*scale);
 		}	
 	}
