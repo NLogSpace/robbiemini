@@ -31,8 +31,8 @@ public class EditorStatusBarRenderer {
 		if (screen.state == State.ENTER_ROOM_NAME) roomNameToDraw = screen.roomNameTyping;
 		Graphics.smallFont.draw(batch, "[" + pos.x + "/" + pos.y + "/" + pos.z + "] " + roomNameToDraw, xOffset+2, yOffset+5);
 		if (screen.currentRoom != null) Graphics.smallFont.draw(batch, "Layer " + (screen.currentLayer+1) + "/" + screen.currentRoom.getNumberOfLayers(), xOffset+200, yOffset+5);
-		if (screen.state == State.CONFIRM_CREATE_LAYER) Graphics.smallFont.draw(batch, "Create new Layer?", xOffset+180, yOffset+5);
-		batch.draw(Graphics.textures.get("brush_" + screen.brushSize), xOffset+300, yOffset);
+		if (screen.state == State.CONFIRM_CREATE_LAYER) Graphics.smallFont.draw(batch, "Create new Layer?", xOffset+280, yOffset+5);
+		batch.draw(Graphics.textures.get("brush_" + screen.brushSize), xOffset+500, yOffset);
 	}
 	
 }

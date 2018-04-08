@@ -10,6 +10,7 @@ import de.leifaktor.robbiemini.actor.ElectricFence;
 import de.leifaktor.robbiemini.actor.Gold;
 import de.leifaktor.robbiemini.actor.Isolator;
 import de.leifaktor.robbiemini.actor.ItemActor;
+import de.leifaktor.robbiemini.actor.Robot;
 import de.leifaktor.robbiemini.actor.Schalter;
 import de.leifaktor.robbiemini.actor.Skull;
 import de.leifaktor.robbiemini.actor.Sperre;
@@ -57,6 +58,7 @@ public class Actors {
 		for (int i = 0; i < 16; i++) actors.add(new ItemActor(0,0,0,new Key(i)));
 		actors.add(new StairsUp(0,0,0));
 		actors.add(new StairsDown(0,0,0));
+		actors.add(new Robot(0,0,0,1,1));
 	}
 
 }

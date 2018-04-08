@@ -20,7 +20,11 @@ public class Robot extends Actor{
 		this.speed = speed;
 		this.graphicType = graphicType;
 		stressLevel = 0;
-	}	
+	}
+	
+	public static Robot randomRobot(int x, int y, int z) {
+		return new Robot(x, y, z, Util.random.nextFloat()*0.032f+0.006f, Util.random.nextInt(7));
+	}
 
 	@Override
 	public void update(Room room) {

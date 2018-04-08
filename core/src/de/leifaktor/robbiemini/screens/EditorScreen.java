@@ -19,6 +19,7 @@ import de.leifaktor.robbiemini.RoomManager;
 import de.leifaktor.robbiemini.XYPos;
 import de.leifaktor.robbiemini.XYZPos;
 import de.leifaktor.robbiemini.actor.Actor;
+import de.leifaktor.robbiemini.actor.Robot;
 import de.leifaktor.robbiemini.render.ActorPaletteRenderer;
 import de.leifaktor.robbiemini.render.EditorStatusBarRenderer;
 import de.leifaktor.robbiemini.render.RoomRenderer;
@@ -149,8 +150,9 @@ public class EditorScreen extends ScreenAdapter {
 					if (drawTile && selectedTile != null) {
 						drawTile(selectedTile, clickedTilePosition.x, clickedTilePosition.y);
 					}
-					if (!drawTile && selectedActor != null) {
+					if (!drawTile && selectedActor != null) {						
 						Actor a = selectedActor.clone();
+						if (a instanceof Robot) a = Robot.randomRobot(0, 0, 0);
 						a.setPosition(clickedTilePosition.x, clickedTilePosition.y, currentLayer);
 						currentRoom.addActor(a);
 					}

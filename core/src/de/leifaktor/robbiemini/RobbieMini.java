@@ -15,8 +15,8 @@ public class RobbieMini extends Game {
 	FPSLogger fpsLogger;
 	ScreenManager sm;
 	
-	public static final int WIDTH = 40;
-	public static final int HEIGHT = 28;
+	public static final int WIDTH = 35;
+	public static final int HEIGHT = 23;
 	public static final int TILESIZE = 16;
 	public static final int SCALE = 2;
 	
