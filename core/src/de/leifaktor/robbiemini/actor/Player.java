@@ -3,6 +3,7 @@ package de.leifaktor.robbiemini.actor;
 import com.badlogic.gdx.Gdx;
 
 import de.leifaktor.robbiemini.CollisionDetector;
+import de.leifaktor.robbiemini.Direction;
 import de.leifaktor.robbiemini.InputManager;
 import de.leifaktor.robbiemini.Inventory;
 import de.leifaktor.robbiemini.Room;
@@ -16,18 +17,20 @@ public class Player extends Actor {
 	int gold;
 	int bullets;
 	int lives;
-	
+
 	int respawnTimer;
 	XYZPos respawnPosition;
 	State state;
 	float stateTime;
-	
+
 	public enum State {
 		IDLE,
 		WALKING,
-		RESPAWNING
+		RESPAWNING,
+		SLIDING,
+		SWIMMING
 	}
-	
+
 	public Player() {
 		this(0,0,0);
 	} // no-arg constructor for JSON
@@ -45,6 +48,15 @@ public class Player extends Actor {
 	public void update(Room room) {
 		super.update(room);
 		stateTime += Gdx.graphics.getDeltaTime();
+		if (isOnTile && state != State.RESPAWNING) {
+			if (room.getTile(x, y, z) instanceof Ice) setState(State.SLIDING);
+			else if (room.getTile(x, y, z) instanceof Water) setState(State.SWIMMING);
+			else {
+				if (state == State.SLIDING || state == State.SWIMMING) {
+					setState(State.IDLE);
+				}
+			}
+		}
 		switch (state) {
 		case RESPAWNING:
 			respawnTimer--;
@@ -55,47 +67,25 @@ public class Player extends Actor {
 			}
 			break;
 		case IDLE:
-			if (isOnTile) performAction(room);
+			if (isOnTile) performWalkAction(room);
 			break;
 		case WALKING:
-			if (isOnTile) performAction(room);
+			if (isOnTile) performWalkAction(room);
+			break;
+		case SLIDING:
+			if (isOnTile) performSlideAction(room);
+			break;
+		case SWIMMING:
+			if (isOnTile) performSwimAction(room);
+			break;
+		default:
 			break;
 		}
 	}
 
-	private void performAction(Room room) {
+	private void performWalkAction(Room room) {
 		speedMultiplier = 1f;
 		int intendedDir = getKeyboardDirection(room);
-		// ICE
-		if (room.getTile(x, y, z) instanceof Ice) {
-			int slideDirection = direction;
-			boolean canMove = CollisionDetector.canMoveTo(this, room, slideDirection);
-			boolean canShift = CollisionDetector.canShiftTo(this, room, slideDirection);
-			if (!inventory.hasIceSkates() && (canMove || canShift)) {
-				intendedDir = direction;
-			} else {
-				if (intendedDir == -1) intendedDir = direction;
-			}
-		}
-		// WATER
-		if (room.getTile(x, y, z) instanceof Water) {
-			speedMultiplier = 0.4f;
-			int waterDir = ((Water)room.getTile(x, y, z)).type;
-			if (inventory.hasFlossen()) {
-				if (intendedDir == -1) intendedDir = waterDir;
-			} else {
-				if (waterDir != -1) {
-					boolean canMove = CollisionDetector.canMoveTo(this, room, waterDir);
-					boolean canShift = CollisionDetector.canShiftTo(this, room, waterDir);
-					if (!canMove && !canShift) {
-						die(room);
-						return;
-					}
-					intendedDir = waterDir;
-				}	
-			}		
-		}
-		// MOVEMENT
 		if (intendedDir > -1) {
 			boolean canMove = CollisionDetector.canMoveTo(this, room, intendedDir);
 			boolean canShift = CollisionDetector.canShiftTo(this, room, intendedDir);
@@ -117,7 +107,79 @@ public class Player extends Actor {
 			setState(State.IDLE);
 		}
 	}
-	
+
+	private void performSlideAction(Room room) {
+		speedMultiplier = 1f;
+		int intendedDir = getKeyboardDirection(room);
+		int slideDirection = direction;
+		boolean canMove = CollisionDetector.canMoveTo(this, room, slideDirection);
+		boolean canShift = CollisionDetector.canShiftTo(this, room, slideDirection);
+		if (!inventory.hasIceSkates() && (canMove || canShift)) {
+			intendedDir = direction;
+		} else {
+			if (intendedDir == -1) intendedDir = direction;
+		}
+		if (intendedDir > -1) {
+			canMove = CollisionDetector.canMoveTo(this, room, intendedDir);
+			canShift = CollisionDetector.canShiftTo(this, room, intendedDir);
+			if (canMove) {
+				room.onLeave(this, x, y, z, intendedDir);
+				initMove(intendedDir);						
+				move(Math.min(remainingDistance, distanceUntilNextTile));
+			} else if (canShift) {
+				room.onLeave(this, x, y, z, intendedDir);
+				room.startShift(this, x, y, z, intendedDir);
+				initMove(intendedDir);						
+				move(Math.min(remainingDistance, distanceUntilNextTile));
+			} else {				
+				setState(State.IDLE);
+			}
+		} else {
+			setState(State.IDLE);
+		}
+	}
+
+	private void performSwimAction(Room room) {
+		speedMultiplier = 0.4f;
+		int intendedDir = getKeyboardDirection(room);
+		int waterDir = ((Water)room.getTile(x, y, z)).type;
+		if (inventory.hasFlossen()) {
+			if (Direction.isOpposite(intendedDir, waterDir)) {
+				speedMultiplier = 0.1f;
+				intendedDir = waterDir;
+			} else if (Direction.isLeftOf(intendedDir, waterDir)) {
+				intendedDir = Direction.getNextDirCounterClockwise(waterDir);
+			} else if (Direction.isLeftOf(waterDir, intendedDir)) {
+				intendedDir = Direction.getNextDirClockwise(waterDir);
+			}
+			if (intendedDir == -1) intendedDir = waterDir;
+		} else {
+			if (waterDir != -1) {
+				boolean canMove = CollisionDetector.canMoveTo(this, room, waterDir);
+				boolean canShift = CollisionDetector.canShiftTo(this, room, waterDir);
+				if (!canMove && !canShift) {
+					die(room);
+					return;
+				}
+				intendedDir = waterDir;
+			}	
+		}
+		if (intendedDir > -1) {
+			boolean canMove = CollisionDetector.canMoveTo(this, room, intendedDir);
+			boolean canShift = CollisionDetector.canShiftTo(this, room, intendedDir);
+			if (canMove) {
+				room.onLeave(this, x, y, z, intendedDir);
+				initMove(intendedDir);						
+				move(Math.min(remainingDistance, distanceUntilNextTile));
+			} else if (canShift) {
+				room.onLeave(this, x, y, z, intendedDir);
+				room.startShift(this, x, y, z, intendedDir);
+				initMove(intendedDir);						
+				move(Math.min(remainingDistance, distanceUntilNextTile));
+			}
+		}
+	}
+
 	private void setState(State state) {
 		if (this.state != state) {
 			stateTime = 0;
@@ -138,7 +200,7 @@ public class Player extends Actor {
 		else if (InputManager.pressed[InputManager.NORTH_WEST]) intendedDir = 7;
 		return intendedDir;
 	}
-	
+
 	public void die(Room room) {
 		room.makeExplosion(pos);
 		lives--;
@@ -183,11 +245,11 @@ public class Player extends Actor {
 	public boolean isRespawning() {
 		return state == State.RESPAWNING;
 	}
-	
+
 	public State getState() {
 		return state;
 	}
-	
+
 	public float getStateTime() {
 		return stateTime;
 	}
@@ -195,15 +257,15 @@ public class Player extends Actor {
 	public void collectGold() {
 		gold++;
 	}
-	
+
 	public int getGold() {
 		return gold;
 	}
-	
+
 	public void collectBullets(int number) {
 		bullets += number;
 	}
-	
+
 	public int getBullets() {
 		return bullets;
 	}

@@ -52,10 +52,10 @@ public class Graphics {
 		anim = new Animation<TextureRegion>(0.18f, tileset.getTiles(8, 6, 8));
 		anim.setPlayMode(PlayMode.LOOP_REVERSED);
 		animations.put("water_up", (anim));
-		animations.put("water_dr", new Animation<TextureRegion>(0.18f, tileset.getTiles(0, 7, 8)));
+		animations.put("water_ul", new Animation<TextureRegion>(0.18f, tileset.getTiles(0, 7, 8)));
 		anim = new Animation<TextureRegion>(0.18f, tileset.getTiles(0, 7, 8));
 		anim.setPlayMode(PlayMode.LOOP_REVERSED);
-		animations.put("water_ul", (anim));
+		animations.put("water_dr", (anim));
 		animations.put("water_dl", new Animation<TextureRegion>(0.18f, tileset.getTiles(8, 7, 8)));
 		anim = new Animation<TextureRegion>(0.18f, tileset.getTiles(8, 7, 8));
 		anim.setPlayMode(PlayMode.LOOP_REVERSED);
@@ -79,6 +79,7 @@ public class Graphics {
 		animations.put("player_walking", new Animation<TextureRegion>(0.12f,tileset.getTiles(1, 9, 2)));
 		textures.put("player_blaumann", tileset.getTile(3, 9));
 		animations.put("player_walking_blaumann", new Animation<TextureRegion>(0.12f,tileset.getTiles(4, 9, 2)));
+		animations.put("player_swimming", new Animation<TextureRegion>(0.28f,tileset.getTiles(8, 12, 2)));
 		
 		// Actor
 		textures.put("gold", tileset.getTile(1, 10));

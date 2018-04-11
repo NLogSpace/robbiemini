@@ -114,7 +114,7 @@ public class ActorRenderer {
 			}
 		} else if (a instanceof Player) {
 			Player p = (Player)a;
-			if (p.getState() == State.IDLE) {
+			if (p.getState() == State.IDLE || p.getState() == State.SLIDING) {
 				if (p.inventory.hasBlaumann()) {
 					pictureToDraw = Graphics.textures.get("player_blaumann");
 				} else {
@@ -125,6 +125,12 @@ public class ActorRenderer {
 					pictureToDraw = Graphics.animations.get("player_walking_blaumann").getKeyFrame(p.getStateTime(), true);
 				} else {
 					pictureToDraw = Graphics.animations.get("player_walking").getKeyFrame(p.getStateTime(), true);
+				}
+			} else if (p.getState() == State.SWIMMING) {
+				if (p.inventory.hasBlaumann()) {
+					pictureToDraw = Graphics.animations.get("player_swimming_blaumann").getKeyFrame(p.getStateTime(), true);
+				} else {
+					pictureToDraw = Graphics.animations.get("player_swimming").getKeyFrame(p.getStateTime(), true);
 				}
 			}
 		}
