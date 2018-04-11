@@ -107,6 +107,10 @@ public class Graphics {
 		textures.put("dark_wall_tile_ne", tileset.getTile(2, 2));
 		textures.put("dark_wall_tile_nw", tileset.getTile(3, 2));
 		for (int i = 0; i < 16; i++) textures.put("half_mountain_" + (i+1), tileset.getTile(i, 5));
+		textures.put("half_grass_sw", tileset.getTile(0, 14));
+		textures.put("half_grass_se", tileset.getTile(1, 14));
+		textures.put("half_grass_ne", tileset.getTile(2, 14));
+		textures.put("half_grass_nw", tileset.getTile(3, 14));
 		
 		// Status Bar
 		textures.put("status_bar_outer_background", tileset.getTile(3, 13));

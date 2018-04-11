@@ -14,6 +14,7 @@ import de.leifaktor.robbiemini.actor.FlyingBullet;
 import de.leifaktor.robbiemini.actor.Gold;
 import de.leifaktor.robbiemini.actor.Isolator;
 import de.leifaktor.robbiemini.actor.ItemActor;
+import de.leifaktor.robbiemini.actor.NonSolidActor;
 import de.leifaktor.robbiemini.actor.Player;
 import de.leifaktor.robbiemini.actor.Robot;
 import de.leifaktor.robbiemini.actor.Schalter;
@@ -111,6 +112,14 @@ public class ActorRenderer {
 				case SolidActor.DARK_WALL_2: pictureToDraw = Graphics.textures.get("dark_wall_tile_se"); break;
 				case SolidActor.DARK_WALL_3: pictureToDraw = Graphics.textures.get("dark_wall_tile_ne"); break;
 				case SolidActor.DARK_WALL_4: pictureToDraw = Graphics.textures.get("dark_wall_tile_nw"); break;
+			}
+		} else if (a instanceof NonSolidActor) {
+			int type = ((NonSolidActor) a).type;
+			switch (type) {
+			case NonSolidActor.GRASS_NE: pictureToDraw = Graphics.textures.get("half_grass_ne"); break;
+			case NonSolidActor.GRASS_NW: pictureToDraw = Graphics.textures.get("half_grass_nw"); break;
+			case NonSolidActor.GRASS_SE: pictureToDraw = Graphics.textures.get("half_grass_se"); break;
+			case NonSolidActor.GRASS_SW: pictureToDraw = Graphics.textures.get("half_grass_sw"); break;
 			}
 		} else if (a instanceof Player) {
 			Player p = (Player)a;
