@@ -27,7 +27,9 @@ public class SolidActor extends Actor {
 	
 	public SolidActor(int type) {
 		this.type = type;
-	}	
+	}
+	
+	public SolidActor() {} // no-arg constructor for JSON
 
 	@Override
 	public boolean canBeEntered(Actor other) {
