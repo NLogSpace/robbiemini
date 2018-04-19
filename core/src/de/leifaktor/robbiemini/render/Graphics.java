@@ -44,22 +44,14 @@ public class Graphics {
 		textures.put("mountain_4", tileset.getTile(9, 2));
 		textures.put("grass", tileset.getTile(8, 0));
 		textures.put("water_normal", tileset.getTile(0,6));
-		animations.put("water_right", new Animation<TextureRegion>(0.18f, tileset.getTiles(0, 6, 8)));
-		Animation<TextureRegion> anim = new Animation<TextureRegion>(0.18f, tileset.getTiles(0, 6, 8));
-		anim.setPlayMode(PlayMode.LOOP_REVERSED);
-		animations.put("water_left", (anim));
-		animations.put("water_down", new Animation<TextureRegion>(0.18f, tileset.getTiles(8, 6, 8)));
-		anim = new Animation<TextureRegion>(0.18f, tileset.getTiles(8, 6, 8));
-		anim.setPlayMode(PlayMode.LOOP_REVERSED);
-		animations.put("water_up", (anim));
-		animations.put("water_ul", new Animation<TextureRegion>(0.18f, tileset.getTiles(0, 7, 8)));
-		anim = new Animation<TextureRegion>(0.18f, tileset.getTiles(0, 7, 8));
-		anim.setPlayMode(PlayMode.LOOP_REVERSED);
-		animations.put("water_dr", (anim));
-		animations.put("water_dl", new Animation<TextureRegion>(0.18f, tileset.getTiles(8, 7, 8)));
-		anim = new Animation<TextureRegion>(0.18f, tileset.getTiles(8, 7, 8));
-		anim.setPlayMode(PlayMode.LOOP_REVERSED);
-		animations.put("water_ur", (anim));
+		animations.put("water_right", new Animation<TextureRegion>(0.09f, tileset.getTileTransition(1,6,3,16)));		
+		animations.put("water_left", new Animation<TextureRegion>(0.09f, tileset.getTileTransition(0,6,1,16)));
+		animations.put("water_down", new Animation<TextureRegion>(0.09f, tileset.getTileTransition(0,7,0,16)));
+		animations.put("water_up", new Animation<TextureRegion>(0.09f, tileset.getTileTransition(0,6,2,16)));
+		animations.put("water_ul", new Animation<TextureRegion>(0.09f, tileset.getTileTransition(0,6,5,16)));
+		animations.put("water_dr", new Animation<TextureRegion>(0.09f, tileset.getTileTransition(1,7,7,16)));
+		animations.put("water_dl", new Animation<TextureRegion>(0.09f, tileset.getTileTransition(0,7,4,16)));
+		animations.put("water_ur", new Animation<TextureRegion>(0.09f, tileset.getTileTransition(1,6,6,16)));
 
 		// Items
 		textures.put("acid", tileset.getTile(2, 10));

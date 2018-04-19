@@ -3,6 +3,8 @@ package de.leifaktor.robbiemini.render;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
+import de.leifaktor.robbiemini.Direction;
+
 public class Tileset {
 	
 	Texture texture;
@@ -28,6 +30,19 @@ public class Tileset {
 				y++;
 				x = 0;
 			}
+		}
+		return tiles;
+	}
+	
+	public TextureRegion[] getTileTransition(int x, int y, int dir, int numberOfFrames) {
+		TextureRegion[] tiles = new TextureRegion[numberOfFrames];
+		for (int i = 0; i < numberOfFrames; i++) {
+			tiles[i] = new TextureRegion(
+					texture,
+					(int) ((x+i*Direction.DIR_X[dir]/((float)numberOfFrames))*tilesize),
+					(int) ((y-i*Direction.DIR_Y[dir]/((float)numberOfFrames))*tilesize),
+					tilesize,
+					tilesize);		
 		}
 		return tiles;
 	}
