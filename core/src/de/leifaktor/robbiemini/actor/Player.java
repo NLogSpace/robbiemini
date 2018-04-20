@@ -7,7 +7,9 @@ import de.leifaktor.robbiemini.Direction;
 import de.leifaktor.robbiemini.InputManager;
 import de.leifaktor.robbiemini.Inventory;
 import de.leifaktor.robbiemini.Room;
+import de.leifaktor.robbiemini.SoundPlayer;
 import de.leifaktor.robbiemini.XYZPos;
+import de.leifaktor.robbiemini.commands.PlaySoundCommand;
 import de.leifaktor.robbiemini.tiles.Ice;
 import de.leifaktor.robbiemini.tiles.Water;
 
@@ -22,6 +24,9 @@ public class Player extends Actor {
 	XYZPos respawnPosition;
 	State state;
 	float stateTime;
+	
+	float walkSoundTimer;
+	static final float WALK_SOUND_INTERVAL = 0.14f;
 
 	public enum State {
 		IDLE,
@@ -70,7 +75,12 @@ public class Player extends Actor {
 			if (isOnTile) performWalkAction(room);
 			break;
 		case WALKING:
-			if (isOnTile) performWalkAction(room);
+			walkSoundTimer += Gdx.graphics.getDeltaTime();
+			if (walkSoundTimer > WALK_SOUND_INTERVAL) {
+				walkSoundTimer -= WALK_SOUND_INTERVAL;
+				room.commands.add(new PlaySoundCommand(SoundPlayer.SOUND_STEPS));
+			}
+			if (isOnTile) performWalkAction(room);			
 			break;
 		case SLIDING:
 			if (isOnTile) performSlideAction(room);

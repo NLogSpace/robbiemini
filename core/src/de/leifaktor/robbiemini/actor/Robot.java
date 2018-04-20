@@ -5,7 +5,9 @@ import com.badlogic.gdx.Gdx;
 import de.leifaktor.robbiemini.CollisionDetector;
 import de.leifaktor.robbiemini.Direction;
 import de.leifaktor.robbiemini.Room;
+import de.leifaktor.robbiemini.SoundPlayer;
 import de.leifaktor.robbiemini.Util;
+import de.leifaktor.robbiemini.commands.PlaySoundCommand;
 
 public class Robot extends Actor{
 	
@@ -13,23 +15,32 @@ public class Robot extends Actor{
 	float stateTime;
 	float stressLevel;
 	
-	public Robot() {} // no-arg constructor for JSON
+	float walkSoundTimer;
+	final float WALK_SOUND_INTERVAL;
+	
+	public Robot() {WALK_SOUND_INTERVAL = 0.14f;} // no-arg constructor for JSON
 
 	public Robot(int x, int y, int z, float speed, int graphicType) {
 		super(x, y, z);
 		this.speed = speed;
+		this.WALK_SOUND_INTERVAL = speed*70;
 		this.graphicType = graphicType;
 		stressLevel = 0;
 	}
 	
 	public static Robot randomRobot(int x, int y, int z) {
-		return new Robot(x, y, z, Util.random.nextFloat()*0.032f+0.006f, Util.random.nextInt(7));
+		return new Robot(x, y, z, Util.random.nextFloat()*0.034f+0.004f, Util.random.nextInt(7));
 	}
 
 	@Override
 	public void update(Room room) {
 		super.update(room);
-		stateTime += Gdx.graphics.getDeltaTime();		
+		stateTime += Gdx.graphics.getDeltaTime();
+		walkSoundTimer += Gdx.graphics.getDeltaTime();
+		if (walkSoundTimer > WALK_SOUND_INTERVAL) {
+			walkSoundTimer -= WALK_SOUND_INTERVAL;
+			room.commands.add(new PlaySoundCommand(SoundPlayer.SOUND_STEPS));
+		}
 		if (isOnTile) {
 			decreaseStress(0.05f);
 			performAction(room);

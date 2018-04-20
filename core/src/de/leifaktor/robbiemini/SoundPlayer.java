@@ -41,7 +41,14 @@ public class SoundPlayer {
 	}
 	
 	public void play(int id) {
-		if (id >= 0 && id < sounds.length && sounds[id] != null) sounds[id].play(0.6f);
+		if (id == SOUND_STEPS) {
+			if (Util.random.nextBoolean()) {
+				sounds[id].play(0.6f);
+			} else {
+				sounds[id].play(0.6f, 1.1f, 1);
+			}
+			
+		} else if (id >= 0 && id < sounds.length && sounds[id] != null) sounds[id].play(0.6f);
 	}
 	
 }
