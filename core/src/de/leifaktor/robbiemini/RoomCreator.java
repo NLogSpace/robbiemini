@@ -19,6 +19,7 @@ import de.leifaktor.robbiemini.actor.Teleporter;
 import de.leifaktor.robbiemini.condition.Condition;
 import de.leifaktor.robbiemini.condition.GlobalBooleanCondition;
 import de.leifaktor.robbiemini.condition.IsTermZeroCondition;
+import de.leifaktor.robbiemini.condition.NotCondition;
 import de.leifaktor.robbiemini.condition.RobotsAliveTerm;
 import de.leifaktor.robbiemini.items.Acid;
 import de.leifaktor.robbiemini.items.Blaumann;
@@ -449,14 +450,61 @@ public class RoomCreator {
 			}
 		}
 		
+		for (int x = 10; x < 31; x++) {
+			map[9*width+x] = wall;
+			map[13*width+x] = wall;
+		}
+		for (int y = 9; y <= 13; y++) {
+			map[y*width + 31] = wall;
+		}
+		
 		RoomLayer layer = new RoomLayer(width, height, map);		
 		ArrayList<RoomLayer> layers = new ArrayList<RoomLayer>();
 		layers.add(layer);		
 		
 		ArrayList<Actor> actors = new ArrayList<Actor>();
 		Condition schalter1condition = new GlobalBooleanCondition("schalter1");
-		actors.add(new Sperre(5, 5, 0, schalter1condition, false, false));
-		actors.add(new Schalter(10,10,0,true,false,"schalter1"));
+		Condition notSchalter1condition = new NotCondition(schalter1condition);
+		actors.add(new Schalter(10,20,0,true,false,"schalter1"));
+		Condition schalter2condition = new GlobalBooleanCondition("schalter2");
+		Condition notSchalter2condition = new NotCondition(schalter2condition);
+		actors.add(new Schalter(12,20,0,true,false,"schalter2"));
+		Condition schalter3condition = new GlobalBooleanCondition("schalter3");
+		Condition notSchalter3condition = new NotCondition(schalter3condition);
+		actors.add(new Schalter(14,20,0,true,false,"schalter3"));
+		Condition schalter4condition = new GlobalBooleanCondition("schalter4");
+		Condition notSchalter4condition = new NotCondition(schalter4condition);
+		actors.add(new Schalter(16,20,0,true,false,"schalter4"));
+		Condition schalter5condition = new GlobalBooleanCondition("schalter5");
+		Condition notSchalter5condition = new NotCondition(schalter5condition);
+		actors.add(new Schalter(18,20,0,true,false,"schalter5"));
+		
+		actors.add(new Sperre(10, 10, 0, notSchalter1condition, true, false));
+		actors.add(new Sperre(10, 11, 0, notSchalter3condition, true, false));
+		actors.add(new Sperre(10, 12, 0, schalter5condition, true, false));
+		
+		actors.add(new Sperre(13, 10, 0, notSchalter2condition, true, false));
+		actors.add(new Sperre(13, 11, 0, notSchalter4condition, true, false));
+		actors.add(new Sperre(13, 12, 0, notSchalter5condition, true, false));
+		
+		actors.add(new Sperre(16, 10, 0, schalter1condition, true, false));
+		actors.add(new Sperre(16, 11, 0, schalter2condition, true, false));
+		actors.add(new Sperre(16, 12, 0, schalter3condition, true, false));
+		
+		actors.add(new Sperre(19, 10, 0, schalter2condition, true, false));
+		actors.add(new Sperre(19, 11, 0, schalter4condition, true, false));
+		actors.add(new Sperre(19, 12, 0, schalter5condition, true, false));
+		
+		actors.add(new Sperre(22, 10, 0, notSchalter1condition, true, false));
+		actors.add(new Sperre(22, 11, 0, notSchalter2condition, true, false));
+		actors.add(new Sperre(22, 12, 0, schalter4condition, true, false));
+		
+		actors.add(new Sperre(25, 10, 0, schalter2condition, true, false));
+		actors.add(new Sperre(25, 11, 0, schalter3condition, true, false));
+		actors.add(new Sperre(25, 12, 0, notSchalter5condition, true, false));
+		
+		actors.add(new Gold(28,11,0));
+		
 		
 		Room room = new Room(width, height, layers, actors);
 		
