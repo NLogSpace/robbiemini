@@ -438,6 +438,31 @@ public class RoomCreator {
 		return room;
 	}
 	
+	public static Room createPSpaceRoom(int width, int height) {
+		Tile wall = new Wall();
+		Tile empty = new EmptyTile();
+		Tile[] map = new Tile[width*height];
+		for (int x = 0; x < width; x++) {
+			for (int y = 0; y < height; y++) {
+				if (x == 0 || x == width-1 || y == 0 || y == height-1) map[y*width+x] = wall;
+				else map[y*width+x] = empty;
+			}
+		}
+		
+		RoomLayer layer = new RoomLayer(width, height, map);		
+		ArrayList<RoomLayer> layers = new ArrayList<RoomLayer>();
+		layers.add(layer);		
+		
+		ArrayList<Actor> actors = new ArrayList<Actor>();
+		Condition schalter1condition = new GlobalBooleanCondition("schalter1");
+		actors.add(new Sperre(5, 5, 0, schalter1condition, false, false));
+		actors.add(new Schalter(10,10,0,true,false,"schalter1"));
+		
+		Room room = new Room(width, height, layers, actors);
+		
+		return room;
+	}
+	
 	public static void addRandomRobots(Room room, int number) {
 		for (int i = 0; i < number; i++) {
 			Robot robot = randomRobot(room.width, room.height);
