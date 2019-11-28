@@ -6,6 +6,7 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 import de.leifaktor.robbiemini.RobbieMini;
@@ -29,6 +30,11 @@ public class MainMenuScreen implements Screen {
 	
 	int selected = 0;
 	
+	final String lauftext = "*** Das Spiel von Robert *** Version 0.1 *** Programmiert von Leif Sabellek 2017-2019 *** inspiriert von The Game of ROBOT ";
+	float lauftextX = 0;
+	float lauftextSpeed = 50;
+	float lauftextWidth;
+	
 	public MainMenuScreen(ScreenManager sm, Viewport viewport, Camera camera) {
 		this.sm = sm;
 		this.viewport = viewport;
@@ -38,6 +44,10 @@ public class MainMenuScreen implements Screen {
 		roomRenderer = new RoomRenderer();
 		backgroundRoom = RoomCreator.createTitleMenuRoom(RobbieMini.WIDTH, RobbieMini.HEIGHT+1);
 		roomRenderer.setRoom(backgroundRoom);
+		
+		GlyphLayout layout = new GlyphLayout();
+		layout.setText(Graphics.largeFont, lauftext);
+		lauftextWidth = layout.width;
 	}
 
 	@Override
@@ -47,6 +57,9 @@ public class MainMenuScreen implements Screen {
 
 	@Override
 	public void render(float delta) {
+		lauftextX -= delta*lauftextSpeed;
+		if (lauftextX + lauftextWidth < 0) lauftextX += lauftextWidth; 
+		
 		if (Gdx.input.isKeyJustPressed(Keys.DOWN)) {
 			if (selected < 2) selected++;
 		}
@@ -72,6 +85,9 @@ public class MainMenuScreen implements Screen {
 		Graphics.largeFont.draw(sm.batch, "Ende", RobbieMini.getVirtualWidth() / 2-30, 130);
 		sm.batch.draw(Graphics.textures.get("arrow_1"), RobbieMini.getVirtualWidth() / 2-50, 160 - 20*selected);
 		sm.batch.draw(Graphics.textures.get("arrow_3"), RobbieMini.getVirtualWidth() / 2+50, 160 - 20*selected);
+		
+		Graphics.largeFont.draw(sm.batch, lauftext, lauftextX, 26);
+		Graphics.largeFont.draw(sm.batch, lauftext, lauftextX + lauftextWidth, 26);
 		sm.batch.end();
 	}
 

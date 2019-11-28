@@ -315,6 +315,9 @@ public class RoomCreator {
 				}				
 			}
 		}
+		for (int x = 0; x < width; x++) {
+			map[1*width+x] = empty;
+		}
 		
 		RoomLayer layer = new RoomLayer(width, height, map);		
 		ArrayList<RoomLayer> layers = new ArrayList<RoomLayer>();
