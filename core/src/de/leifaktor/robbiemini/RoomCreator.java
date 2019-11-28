@@ -479,9 +479,9 @@ public class RoomCreator {
 		Condition notSchalter5condition = new NotCondition(schalter5condition);
 		actors.add(new Schalter(18,20,0,true,false,"schalter5"));
 		
-		actors.add(new Sperre(10, 10, 0, notSchalter1condition, true, false));
+		actors.add(new Sperre(10, 10, 0, schalter5condition, true, false));
 		actors.add(new Sperre(10, 11, 0, notSchalter3condition, true, false));
-		actors.add(new Sperre(10, 12, 0, schalter5condition, true, false));
+		actors.add(new Sperre(10, 12, 0, schalter1condition, true, false));
 		
 		actors.add(new Sperre(13, 10, 0, notSchalter2condition, true, false));
 		actors.add(new Sperre(13, 11, 0, notSchalter4condition, true, false));
