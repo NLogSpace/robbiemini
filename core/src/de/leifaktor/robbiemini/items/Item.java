@@ -11,5 +11,7 @@ public abstract class Item {
 	public void onHitBy(Room room, ItemActor itemActor, Actor actor, int x, int y, int z) {};
 	
 	public abstract Item clone();
+
+	public boolean isStackable() {return false;}
 	
 }

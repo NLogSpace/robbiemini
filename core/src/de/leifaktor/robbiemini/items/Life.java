@@ -32,5 +32,10 @@ public class Life extends Item {
 			itemActor.collect(room, (Player) actor);
 		}
 	}
+	
+	@Override
+	public boolean isStackable() {
+		return true;		
+	}
 
 }

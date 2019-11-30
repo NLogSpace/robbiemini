@@ -1,5 +1,6 @@
 package de.leifaktor.robbiemini.render;
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 import de.leifaktor.robbiemini.RobbieMini;
@@ -29,6 +30,7 @@ public class StatusBarRenderer {
 		}
 		
 		batch.draw(Graphics.textures.get("bullets_6"), xOffset+RobbieMini.TILESIZE*(25), yOffset);
+		Graphics.smallFont.setColor(Color.BLACK);
 		Graphics.smallFont.draw(batch, "" + room.getPlayer().getBullets(), xOffset+RobbieMini.TILESIZE*(26)+2, yOffset+5);
 		
 		batch.draw(Graphics.textures.get("gold"), xOffset+RobbieMini.TILESIZE*(28), yOffset);

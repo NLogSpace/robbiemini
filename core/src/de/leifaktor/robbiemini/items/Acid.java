@@ -55,6 +55,11 @@ public class Acid extends Item {
 		return obj instanceof Acid;
 	}
 	
+	@Override
+	public boolean isStackable() {
+		return true;		
+	}
+	
 	
 
 }

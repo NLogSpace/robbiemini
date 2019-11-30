@@ -11,12 +11,12 @@ import de.leifaktor.robbiemini.items.Item;
 
 public class Inventory {
 	
-	List<Item> items;
+	List<ItemStack> items;
 	
 	int pointer;
 		
 	public Inventory() {
-		items = new ArrayList<Item>();
+		items = new ArrayList<ItemStack>();
 		pointer = 0;
 	}
 	
@@ -26,14 +26,27 @@ public class Inventory {
 	}
 
 	public void add(Item item) {
-		items.add(item);		
+		if (!item.isStackable()) {
+			items.add(new ItemStack(item,1));
+		} else {
+			for (int i = 0; i < items.size(); i++) {
+				if (items.get(i).item.getClass().equals(item.getClass())) {
+					items.get(i).push();
+					return;
+				}
+			}
+			items.add(new ItemStack(item,1));
+		}
 	}
 	
 	public boolean hasItem(Item other) {
-		return items.contains(other);
+		for (int i = 0; i < items.size(); i++) {
+			if (items.get(i).item.equals(other)) return true;
+		}
+		return false;
 	}
 	
-	public List<Item> getItems() {
+	public List<ItemStack> getItems() {
 		return Collections.unmodifiableList(items);
 	}
 	
@@ -50,12 +63,13 @@ public class Inventory {
 	}
 	
 	public Item getSelectedItem() {
-		if (pointer >= 0 && pointer < items.size()) return items.get(pointer);
+		if (pointer >= 0 && pointer < items.size()) return items.get(pointer).getItem();
 		else return null;
 	}
 
 	public void removeSelectedItem() {
-		items.remove(pointer);
+		items.get(pointer).pop();
+		if (items.get(pointer).getAmount() <= 0) items.remove(pointer);
 	}
 
 	public int getSize() {
@@ -63,14 +77,14 @@ public class Inventory {
 	}
 
 	public boolean hasBlaumann() {
-		return items.contains(new Blaumann());
+		return hasItem(new Blaumann());
 	}
 
 	public boolean hasIceSkates() {		
-		return items.contains(new IceSkates());
+		return hasItem(new IceSkates());
 	}
 
 	public boolean hasFlossen() {
-		return items.contains(new Flossen());
+		return hasItem(new Flossen());
 	}	
 }

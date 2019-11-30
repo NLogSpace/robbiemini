@@ -2,9 +2,11 @@ package de.leifaktor.robbiemini.render;
 
 import java.util.List;
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 import de.leifaktor.robbiemini.Inventory;
+import de.leifaktor.robbiemini.ItemStack;
 import de.leifaktor.robbiemini.RobbieMini;
 import de.leifaktor.robbiemini.Room;
 import de.leifaktor.robbiemini.items.Item;
@@ -30,10 +32,19 @@ public class InventoryRenderer {
 				batch.draw(Graphics.textures.get("inventory_selected_background"), startX+RobbieMini.TILESIZE*i, yOffset);
 			}
 		}
-		List<Item> items = inventory.getItems();
+		List<ItemStack> items = inventory.getItems();
 		for (int i = 0; i < items.size(); i++) {
-			Item item = items.get(i);
+			ItemStack stack = items.get(i);
+			Item item = stack.getItem();
+			int amount = stack.getAmount();
 			ItemRenderer.render(batch, item, startX+RobbieMini.TILESIZE*i, yOffset);
+			if (amount > 1) {
+				Graphics.smallFont.setColor(Color.BLACK);
+				Graphics.smallFont.draw(batch, "" + amount, startX+RobbieMini.TILESIZE*i+4, yOffset+4);				
+				Graphics.smallFont.setColor(Color.RED);
+				Graphics.smallFont.draw(batch, "" + amount, startX+RobbieMini.TILESIZE*i+3, yOffset+5);
+			}
+			
 		}
 	}
 	

@@ -44,7 +44,7 @@ public class Player extends Actor {
 		super(x, y, z);
 		spawn(x, y, z);
 		inventory = new Inventory();
-		speed = 0.16f;
+		speed = 0.12f;
 		lives = 3;
 		stateTime = 0;
 	}
