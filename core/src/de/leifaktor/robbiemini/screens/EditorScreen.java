@@ -26,6 +26,8 @@ import de.leifaktor.robbiemini.render.RoomRenderer;
 import de.leifaktor.robbiemini.render.TilePaletteRenderer;
 import de.leifaktor.robbiemini.tiles.Tile;
 
+import java.io.File;
+
 public class EditorScreen extends ScreenAdapter {
 
 	ScreenManager sm;
@@ -134,7 +136,9 @@ public class EditorScreen extends ScreenAdapter {
 	private void drawTile(Tile tile, int x, int y) {
 		for (int i = -(brushSize-1); i <= brushSize-1; i++) {
 			for (int j = -(brushSize-1); j <= brushSize-1; j++) {
-				currentRoom.setTile(x+i, y+j, currentLayer, tile);
+				if (x+i >= 0 && x+i < currentRoom.width && y+j >= 0 && y+j < currentRoom.height) {
+					currentRoom.setTile(x+i, y+j, currentLayer, tile);
+				}
 			}
 		}	
 	}
@@ -229,6 +233,7 @@ public class EditorScreen extends ScreenAdapter {
 					IO.save(episode, "episode.rob");
 					break;
 				case Keys.L:
+					listFilesForFolder();
 					set(IO.load("episode.rob"));
 					break;
 				case Keys.B:
@@ -314,6 +319,13 @@ public class EditorScreen extends ScreenAdapter {
 				roomNameTyping += character;
 			}
 			return true;
+		}
+
+		public void listFilesForFolder() {
+			File folder = new File(System.getProperty("user.dir") + "/episodes");
+			for (final File fileEntry : folder.listFiles()) {
+				System.out.println(fileEntry.getName());
+			}
 		}
 	}
 

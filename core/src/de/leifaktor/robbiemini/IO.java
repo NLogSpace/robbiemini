@@ -19,6 +19,7 @@ public class IO {
 	
 	public static Episode load(String filename) {
 		FileHandle file = Gdx.files.local(filename);
+		System.out.println(file);
         Json json = new Json();
         json.setSerializer(RoomManager.class, new RoomManagerSerializer());
         return json.fromJson(Episode.class, file);

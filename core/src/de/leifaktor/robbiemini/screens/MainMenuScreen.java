@@ -30,7 +30,7 @@ public class MainMenuScreen implements Screen {
 	
 	int selected = 0;
 	
-	final String lauftext = "*** Das Spiel von Robert *** Version 0.1 *** Programmiert von Leif Sabellek 2017-2019 *** inspiriert von The Game of ROBOT ";
+	final String lauftext = "*** Das Spiel von Robert *** Version 0.1 *** Java und libGDX *** Programmiert von Leif Sabellek *** inspiriert von The Game of ROBOT ";
 	float lauftextX = 0;
 	float lauftextSpeed = 50;
 	float lauftextWidth;

@@ -85,7 +85,9 @@ public class GameScreen extends ScreenAdapter {
 		textboxRenderer = new TextboxRenderer();
 		textboxRenderer.setSize(textboxWidth, textboxHeight);
 
-		loadEpisode(TestEpisode.createTestEpisode());
+		//loadEpisode(TestEpisode.createTestEpisode());
+		load();
+
 		
 		InputManager.initKeyMap();
 	}
